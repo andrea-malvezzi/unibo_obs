@@ -13,28 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Algos/Parte matematica.md",
+                "file": "Algebra & Geometria/Introduzione ad Algebra & Geometra.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Parte matematica"
-            }
-          }
-        ]
-      },
-      {
-        "id": "36113fa2fbc3c764",
-        "type": "tabs",
-        "children": [
-          {
-            "id": "ae270083e66579d6",
-            "type": "leaf",
-            "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Graph view"
+              "title": "Introduzione ad Algebra & Geometra"
             }
           }
         ]
@@ -181,10 +165,13 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "ae270083e66579d6",
+  "active": "366213194d0d5e92",
   "lastOpenFiles": [
-    "Algos/Parte matematica.md",
     "Algos/Introduzione agli algoritmi.md",
+    "Algos/Esercizi inerenti al confronto tra funzioni.md",
+    "Algebra & Geometria/Introduzione ad Algebra & Geometra.md",
+    "Algebra & Geometria",
+    "Algos/Parte matematica.md",
     "Pasted image 20250219190121.png",
     "Pasted image 20250219190027.png",
     "TOC.md",
