@@ -1,12 +1,18 @@
-1. [Funzioni di costo](#Funzioni%20di%20costo)
-2. [Definizioni importanti](#Definizioni%20importanti)
+1. [Definizioni importanti](#Definizioni%20importanti)
 	1. [Definizione di $O$ grande](#Definizione%20di%20$O$%20grande)
 	2. [Definizione di $\Omega$ grande (Omega)](#Definizione%20di%20$%5COmega$%20grande%20(Omega))
 	3. [Definizione di $\Theta$ (Theta)](#Definizione%20di%20$%5CTheta$%20(Theta))
 	4. [Definizione di $o$ piccolo](#Definizione%20di%20$o$%20piccolo)
 	5. [Definizione di $\omega$ piccolo (Omega)](#Definizione%20di%20$%5Comega$%20piccolo%20(Omega))
-3. [Confrontare due funzioni](#Confrontare%20due%20funzioni)
+2. [Confrontare due funzioni](#Confrontare%20due%20funzioni)
 	6. [Casi limite](#Casi%20limite)
+	7. [Esercizi](#Esercizi)
+3. [Proprietà della notazione asintotica](#Propriet%C3%A0%20della%20notazione%20asintotica)
+	8. [Transitività](#Transitivit%C3%A0)
+	9. [Riflessività](#Riflessivit%C3%A0)
+	10. [Simmetria](#Simmetria)
+	11. [Simmetria trasposta](#Simmetria%20trasposta)
+4. [Regole utili](#Regole%20utili)
 ## Funzioni di costo
 Dato un input $n \geq 0$ (il numero di input del nostro algoritmo) e una funzione $f$, indichiamo con $f(n) \geq 0$ la quantità di risorse (tempo e memoria) richiesta da un algoritmo preso in esame.
 ## Definizioni importanti
@@ -41,3 +47,16 @@ Ed in base al risultato di questo si determina l'insieme (o gli insiemi) di appa
 Esistono casi dove si vogliono confrontare due funzioni che non sono confrontabili tra di loro, come $n$ e $n^{\sin{n} + 1}$. In questi casi si procede con la definizione di limite.
 ### Esercizi
 Ecco alcuni [[Esercizi inerenti al confronto tra funzioni]] (svolti).
+## Proprietà della notazione asintotica
+La notazione asintotica gode delle seguenti proprietà:
+### Transitività
+$$\text{se } f(n) = O(g(n)) \text{ e } g(n) = O(h(n)), \text{ allora } f(n) = O(h(n))$$Questa proprietà è valida per tutti gli insiemi studiati.
+### Riflessività
+$$f(n) = O(f(n))$$Questa proprietà è valida per tutti gli insiemi $\underline{grandi}$ (quindi NON per $o$ e $\omega$ piccoli).
+### Simmetria
+$$f(n) = \Theta(g(n)) \Leftrightarrow g(n) = \Theta(f(n))$$
+### Simmetria trasposta
+$$f(n) = O(g(n)) \Leftrightarrow g(n) = \Omega(f(n))$$$$f(n) = o(g(n)) \Leftrightarrow g(n) = \omega(f(n))$$
+Se una funzione $f$ è dominata asintoticamente da una funzione $g$, allora $g$ domina asintoticamente $f$.
+Lo stesso ragionamento si applica per gli insiemi dei $\underline{piccoli}$.
+## Regole utili
