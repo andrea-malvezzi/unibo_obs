@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Algos/Parte matematica.md",
-                "mode": "preview",
+                "file": "Algebra & Geometria/Introduzione ad Algebra & Geometra.md",
+                "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Parte matematica"
+              "title": "Introduzione ad Algebra & Geometra"
             }
           }
         ]
@@ -167,11 +167,11 @@
   },
   "active": "366213194d0d5e92",
   "lastOpenFiles": [
-    "Algebra & Geometria/Introduzione ad Algebra & Geometra.md",
     "Algos/Introduzione agli algoritmi.md",
+    "Algebra & Geometria/Introduzione ad Algebra & Geometra.md",
     "Algos/Esercizi inerenti al confronto tra funzioni.md",
-    "Algebra & Geometria",
     "Algos/Parte matematica.md",
+    "Algebra & Geometria",
     "Pasted image 20250219190121.png",
     "Pasted image 20250219190027.png",
     "TOC.md",
