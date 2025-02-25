@@ -12,7 +12,15 @@
 	6. [Definizione di Matrice Trasposta](#Definizione%20di%20Matrice%20Trasposta)
 5. [Rappresentare un sistema lineare con una matrice](#Rappresentare%20un%20sistema%20lineare%20con%20una%20matrice)
 	7. [Matrici scala](#Matrici%20scala)
-	8. [Rango righe](#Rango%20righe)
+	8. [Rendere scala una matrice (algoritmo di Gauss)](#Rendere%20scala%20una%20matrice%20(algoritmo%20di%20Gauss))
+		3. [Esempio](#Esempio)
+	9. [Rango righe](#Rango%20righe)
+6. [Risolvere un sistema lineare con matrice scala associata](#Risolvere%20un%20sistema%20lineare%20con%20matrice%20scala%20associata)
+7. [Spazi vettoriali](#Spazi%20vettoriali)
+8. [Spazi vettoriali definizione](#Spazi%20vettoriali%20definizione)
+	10. [Esempio di un insieme che non è uno spazio vettoriale](#Esempio%20di%20un%20insieme%20che%20non%20%C3%A8%20uno%20spazio%20vettoriale)
+9. [Sottospazio](#Sottospazio)
+
 ## Equazioni Lineari
 Un'equazione lineare è un'equazione del tipo:$$a_1x_1 + a_2x_2 + a_3x_3 + \dots + a_nx_n = b$$con $a_1,a_2,\dots,a_n, b \in \mathbb{R}$ (o in generale $\in K$, con $K$ che equivale ad un campo).
 1) $x_1, x_2, \dots, x_n$ sono le incognite;
@@ -88,11 +96,11 @@ Una matrice si dice $\underline{scala}$ quando vengono soddisfatte le seguenti:
 Ad esempio:
 $$A = \pmatrix{0 & \colorbox{yellow}{1} & 2 \\ \colorbox{yellow}{1} & 2 & 3}, \text{ non è scala}$$$$B = \pmatrix{\colorbox{yellow}{1} & 2 & 0 \\ 0 & \colorbox{yellow}{1} & 2 \\ 0 & 0 & \colorbox{yellow}{1}}, \text{è scala}$$
 Dove i numeri evidenziati in giallo corrispondono ai _pivot_.
-## Rendere scala una matrice (algoritmo di Gauss)
+### Rendere scala una matrice (algoritmo di Gauss)
 1) Se $a_{11} = 0$ si scambia la prima riga di $A$ con la prima dove il primo elemento è non-nullo. Se il primo elemento di ogni riga è nullo, si considera la matrice senza la prima colonna e si ricomincia.
 2) Si controllano tutte le righe meno la prima: se il primo elemento di una riga è nullo, la si lascia inalterata. In caso contrario, si sostituisce tutta la riga con la somma tra la riga ed il prodotto tra la prima riga e $-\frac{b}{a}$ dove $b$ è il primo elemento della riga da sostituire e $a$ è il corrispondente elemento della prima riga.
 3) A questo punto tutti gli elementi della prima colonna, tranne eventualmente il primo, sono nulli. Si considera quindi la matrice meno la prima riga e la prima colonna e si ricomincia dal punto 1.
-### Esempio
+#### Esempio
 Rendiamo scala la seguente matrice $A_{3,4}$ :
 $$A = \pmatrix{0 & 1 & -1 & 0 \\ 1 & 2 & 0 & 1 \\ 2 & -1 & 1 & 2}$$
 Sostituiamo la prima riga con la seconda e riscriviamo.
