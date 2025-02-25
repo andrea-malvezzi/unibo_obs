@@ -64,3 +64,59 @@ $$C_{1,1} = (1, 0, 3) \cdot \begin{pmatrix}1 \\ 0 \\ 1\end{pmatrix} = 1 + 0 + 3 
 In questo caso $AB \Rightarrow 3 \times 3, 3 \times 2 \Rightarrow$ prodotto definito.
 Se fosse stato un prodotto a parti inverse ($BA$), il prodotto non sarebbe stato definito, in quanto si avrebbe avuto: $BA \Rightarrow 3 \times 2, 3 \times 3$.
 Generalmente $AB \not = BA$.
+## Rendere scala una matrice (algoritmo di Gauss)
+1) Se $a_{11} = 0$ si scambia la prima riga di $A$ con la prima dove il primo elemento è non-nullo. Se il primo elemento di ogni riga è nullo, si considera la matrice senza la prima colonna e si ricomincia.
+2) Si controllano tutte le righe meno la prima: se il primo elemento di una riga è nullo, la si lascia inalterata. In caso contrario, si sostituisce tutta la riga con la somma tra la riga ed il prodotto tra la prima riga e $-\frac{b}{a}$ dove $b$ è il primo elemento della riga da sostituire e $a$ è il corrispondente elemento della prima riga.
+3) A questo punto tutti gli elementi della prima colonna, tranne eventualmente il primo, sono nulli. Si considera quindi la matrice meno la prima riga e la prima colonna e si ricomincia dal punto 1.
+### Esempio
+Rendiamo scala la seguente matrice $A_{3,4}$ :
+$$A = \pmatrix{0 & 1 & -1 & 0 \\ 1 & 2 & 0 & 1 \\ 2 & -1 & 1 & 2}$$
+Sostituiamo la prima riga con la seconda e riscriviamo.
+$$A = \pmatrix{1 & 2 & 0 & 1 \\ 0 & 1 & -1 & 0 \\ 2 & -1 & 1 & 2}$$Applichiamo il punto $2$ e sistemiamo la terza riga:
+$$\begin{aligned}a_{3,1} = 2 + 1 \cdot (-\frac{2}{1}) = 2 - 2 = 0 \\ a_{3,2} = -1 + 2 \cdot(-\frac{2}{1}) = -1 -4 = -5 \\ a_{3,3} = 1 + 0 = 1 \\ a_{3,4} = 2 + 1 \cdot (-\frac{2}{1}) = 2 - 2 = 0\end{aligned}$$$$A = \pmatrix{1 & 2 & 0 & 1 \\ 0 & 1 & -1 & 0 \\ 0 & -5 & 1 & 0}$$Ora ignoriamo la prima colonna e la prima riga e ricominciamo.
+$$A = \pmatrix{\not 1 & \not 2 & \not 0 & \not 1 \\ \not 0 & 1 & -1 & 0 \\ \not 0 & -5 & 1 & 0}$$Applichiamo nuovamente il punto $2$:
+$$\begin{aligned}a_{3,2} = -5 + 1 \cdot (-\frac{-5}{1}) = -5 +5 = 0 \\ a_{3,3} = 1 + -1 \cdot (-\frac{-5}{1}) = 1 -5 = -4 \\ a_{3,4} = 0 + 0 \cdot \dots = 0 \end{aligned}$$Infine riscriviamo la matrice, ora in forma scala:
+$$A = \pmatrix{1 & 2 & 0 & 1 \\ 0 & 1 & -1 & 0 \\ 0 & 0 & -4 & 0}$$
+[BRUTTA DA QUI IN POI]
+## Spazi vettoriali
+Esempi di spazi vettoriali
+1) metodi applicati in un punto (dello spazio o del piano). Sappiamo fare $u + v$ e, se $\lambda \in \mathbb{R}$, anche $\lambda u$.
+2) Matrici della stessa forma (stesso numero di riga e di colonne). Ad esempio le matrici $M_{3 \times 2}(\mathbb{R})$ .$$A = \pmatrix{1 & 0 \\ -1 & 5 \\ 0 & 4} \text{ e } B = \pmatrix{1 & -2 \\ 5 & 2 \\ -1 & -3}$$Allora si può scrivere$$A + B = \pmatrix{2 & -2 \\ -4 & 7 \\ -1 & 1}$$e, considerando $\lambda=-\frac{1}{2}$:$$\lambda A = $$
+3) polinomi a coefficienti in $\mathbb{R}$. $\mathbb{R}(x)$ = {$a_nx^n + \dots + a_1x + a_0$} . Sappiamo sommare 2 polinomi $P(x)$ e $Q(x)$:$$P(x) = 3x^5 - 7x^4 + 8x^3 + 5x -5$$$$Q(x) = 4x^4 - x^3 + x^2 + 4x - 1$$Posso scrivere
+$$P(x) + Q(x) = 3x^5 -3x^4 +7x^3 -x^2 + 9x -6$$
+## Spazi vettoriali definizione
+Si dice spazio vettoriale reale un insieme $V$ munito di due operazioni dette $somma$ e $prodotto$ per $scalari$:$$\begin{aligned}+:V \times V \rightarrow V \\ (u, v) \rightarrow u + v\end{aligned}$$$$\begin{aligned}\cdot : V \times V \rightarrow V \\ (\lambda, \mu) \rightarrow \lambda \mu \end{aligned}$$che soddisfano le seguenti proprietà:
+La somma è:
+1) $commutativa$, cioè $u + v = v + u \ \forall u,v \in V$; 
+
+Negli esempi precedenti, chi è il vettore Nullo?
+1) vettori applicanti il vettore nullo è $\underline{0}$ (vettore con origine e punta coincidenti);
+2) $M_{m \times n}(\mathbb{R})$ si ha ad esempio: $$\underline{0} = \pmatrix{0 & 0 \\ 0 & 0 \\ 0 & 0}$$
+3) $\mathbb{R}[x]$ si ha $$\underline{0} = 0 = 0x^n + \dots + 0x + 0$$
+4) {$f : R \rightarrow R$} si ha $$$$
+Si ha inoltre un caso particolare di 2:$$\mathbb{R}^n = \{(a_1, a_2, \dots, a_n) | a_i \in \mathbb{R}\} = \mathbb{R} \times \mathbb{R} \times \dots \mathbb{R} \text{ n volte}$$
+### Esempio di un insieme che non è uno spazio vettoriale
+Prendo $\mathbb{R}^2 = \{(a,b) = a, b \in \mathbb{R}\}$ e definisco $(a,b) + (c,d) = (ac, b + d)$ e $\lambda (a,b) = (a, \lambda b)$.
+La somma sarà commutativa?
+$$\begin{aligned}(a,b) + (c,d) = (ac, b + d) \\ (c,d) + (a,b) = (ca, d + b) \end{aligned}$$
+La somma è quindi commutativa. E per quanto riguarda l'associatività?
+Elemento neutro: $\underline{0} = (f, 0)$
+opposto $(a, b)$ e cerco $(c, d)$ t.c. $(a, b) + (c, d) = \underline{0} = (1, 0)$
+deve succedere che $ac = 1; b + d = 0 \Rightarrow d = -b$ se $a = 0$ c non si trova, quindi gli elementi del tipo $()$ (vedi slide)
+[vedi 2.3.5 del libro della prof]
+Spazio vettoriale: si fa il prodotto tra un elemento dello spazio e un numero;
+Campo vettoriale: si fa il prodotto puramente tra elementi dello spazio. Inoltre si ha sempre l'inverso del prodotto.
+
+Il vettore nullo è unico. Supponiamo che ci siano due vettori nulli $\underline{0}_1$ e $\underline{0}_2$, cioè $$\begin{aligned}v + \underline{0}_1 = v \ \forall v \in V (a) \\ v + \underline{0}_2 = v \ \forall v \in V (b)\end{aligned}$$Prendo $v = \underline{0}_2$ in $(a)$ e $v = \underline{0}_1$ in $(b)$:
+$$ \begin{aligned}\underline{0}_2 + \underline{0}_1 \stackrel{(a)}{=} \underline{0}_2 \\ \underline{0}_1 + \underline{0}_2 \stackrel{(b)}{=} \underline{0}_1 \end{aligned}$$
+## Sottospazio
+Sia $V$ uno spazio vettoriale. Un sottoinsieme $U$ di $V$ si dice sottospazio se 
+1) $U \not = \emptyset$
+2) Se $u_1, u_2 \in U$ allora $u_1 + u_2 \in U$ (chiusura rispetto alla somma)
+3) Se $u \in U, \lambda \in \mathbb{R}$ allora $\lambda u \in U$, dove $\lambda$ è uno scalare (chiusura rispetto al prodotto per scalari)
+$U$ è in particolare uno spazio vettoriale che gode di $+$ e di $\cdot$, ereditati da $V$.
+Esempi:
+1) in $\mathbb{R}[x]$ consideriamo $V = \mathbb{R}_2[x] = \{$ polinomi di grado massimo 2 $\} = \{ a_2x^2 + a_1x + a_0 | a_0, a_1, a_2 \in V \}$. [vedi slide prof]?????
+2) $V = M_{2 \times 2}(\mathbb{R})$; $$\begin{aligned}U = \{\pmatrix{a & b \\ 0 & 2b} | a, b \in \mathbb{R}\} \\ U \not = 0 \ \pmatrix{0 & 0 \\ 0 & 0} \in U \\ u = \pmatrix{a & b \\ 0 & 2b} \ v = \pmatrix{c & d \\ 0 & 2d} \in U \\ u + v = \pmatrix{a + c & b + d \\ 0 & 2b + 2d} = \pmatrix{a + c & b + d \\ 0 & 2(b + d)} \end{aligned}$$
+Proposizione: se $U$ è sottospazio di $V$ allora $\underline{0} \in U$.
+Dimostrazione: Sia $U$ un sottospazio di $V$ per (i) $U \not = \emptyset$ e sia $u \in U$. Faccio $0u \stackrel{per (iv)}{=} \underline{0} \stackrel{\text{per (iii)}}{\in} U$. Quindi per controllare se $U$ è uno spazio vettoriale conviene controllare subito se $\underline{0} \in U$ .$$U = \{\pmatrix{a & a+1 \\ b} | a, b \in \mathbb{R}\}$$
