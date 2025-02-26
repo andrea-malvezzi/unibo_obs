@@ -160,3 +160,67 @@ Esempi:
 2) $V = M_{2 \times 2}(\mathbb{R})$; $$\begin{aligned}U = \{\pmatrix{a & b \\ 0 & 2b} | a, b \in \mathbb{R}\} \\ U \not = 0 \ \pmatrix{0 & 0 \\ 0 & 0} \in U \\ u = \pmatrix{a & b \\ 0 & 2b} \ v = \pmatrix{c & d \\ 0 & 2d} \in U \\ u + v = \pmatrix{a + c & b + d \\ 0 & 2b + 2d} = \pmatrix{a + c & b + d \\ 0 & 2(b + d)} \end{aligned}$$
 Proposizione: se $U$ è sottospazio di $V$ allora $\underline{0} \in U$.
 Dimostrazione: Sia $U$ un sottospazio di $V$ per (i) $U \not = \emptyset$ e sia $u \in U$. Faccio $0u \stackrel{per (iv)}{=} \underline{0} \stackrel{\text{per (iii)}}{\in} U$. Quindi per controllare se $U$ è uno spazio vettoriale conviene controllare subito se $\underline{0} \in U$ .$$U = \{\pmatrix{a & a+1 \\ b} | a, b \in \mathbb{R}\}$$
+data: $26/02/2025$
+## Definizione di sottospazio
+Se $V$ spazio vettoriale e $U \subseteq V$ allora $U$ si dice sottospazio e lo si indica con $U \leq V$ se:
+1) $U \not = \emptyset$
+2) se $u_1, u_2 \in U$ allora $u_1 + u_2 \in U$.
+3) se $u \in U, \lambda \in \mathbb{R}$ allora $\lambda u \in U$.
+In particolare $U$ è uno spazio vettoriale dove somma e prodotto per scalari sono quelli "ereditati da $V$", cioè sono le restrizioni a $U$ delle corrispondenti operazioni in $V$.
+
+### Esempio
+$V = M_{2 \times 2} \mathbb{R} \ U = \{\pmatrix{a & b \\ -a & 0} | a,b \in \mathbb{R}, b \geq 0\}$ 
+$U$ è sottospazio
+$\underline{0} \in U$ basta prendere a = b = 0
+Siano $u_1, u_2 \in U$
+$$u_1 = \pmatrix{a & b \\ -a & 0} \ u_2 = \pmatrix{c & d \\ -c & 0}$$
+$$u_1 + u_2 = \pmatrix{a + c & b + d \\ -a -c & 0 + 0} = \pmatrix{\colorbox{yellow}{a + c}& b + d \\ \colorbox{yellow}{-(a + c)} & 0}$$
+$$\lambda u_1 = \pmatrix{\lambda a & \lambda b \\ -\lambda a & 0} \ u = \pmatrix{1 & 1 \\ -1 & 0}$$Ad esempio prendendo $\lambda = -1$, vediamo se il calcolo rispetta il formato di $\lambda u_1$:
+$$\lambda u = \pmatrix{-1 & -1 \\ \colorbox{red}{1} & 0}$$L'uno marchiato dovrebbe essere -1. $U$ non è quindi chiuso rispetto al prodotto per scalari.
+### Altro esempio
+Siano $u_1 = \pmatrix{x_1, 3x_2}$ e $u_2 = \pmatrix{x_2, 3x_2}$ entrambi $\in U$.
+$$u_1 + u_2 = \pmatrix{x_1 + x_2, 3x_2 + 3x_2} = \pmatrix{x_1 + x_2, 3(x_1 + x_2)}$$
+### Esempio fatto come Dio comanda porca la puttana bastarda
+In $V = \mathbb{R}^2$, $U = \{(x, y) | x^2 - xy = 0\}$.
+$(0,0) \in V?$ Sì perché la coppia $(0, 0)$ risolve l'equazione fornita dalla definizione di $U$.
+E invece avendo $u_1 = \left( x_1, y_1 \right)$ e $u_2 = \left( x_2, y_2 \right)$, il vettore $u_1 + u_2$ sta in $U$?
+Calcoliamo $u_1 + u_2 \ \left( x_1 + x_2, y_1 + y_2 \right)$.
+In seguito, sostituiamo i valori trovati nella definizione di $U$:
+$$\left( x_1 + x_2\right)^2 - \left( x_1 + x_2 \right)\left(y_1 + y_2\right) = 0?$$[inserisci calcoli]
+### Esempio chiusura rispetto a prodotto e somma
+[vedi appunti Dule o Elisa]
+### osservazione
+osservazione: Se $V$ spazio vettoriale e $U = \{\underline{0}\}$ (contiene solo il vettore nullo $\not =$ è insieme vuoto), allora $U$ è sempre sottospazio di $V$. Questo tipo di sottospazio si dice banale o nullo. Se invece $U \not = \{\underline{0}\}$ ed è un sottospazio, allora sia $u \in U, u \not = 0$ e prendiamo $\lambda \in \mathbb{R}$ sappiamo per (3) che $\lambda u \in U$. Di conseguenza: $U$ contiene tutti i multipli di $u$ e c'è un numero infinito di tali vettori se $a,b \in \mathbb{R} \ a \not = b$ allora $a \cdot u \not = b \cdot u$. 
+Dimostriamo la nozioni finale per assurdo:
+$au = bu \Rightarrow au - bu = \underline{0} \Rightarrow (a-b)u = \underline{0}$. Allora $a - b = 0$, eppure $u = \underline{0}$.
+## Sottospazi di $\mathbb{R}$^2
+Osservazione: La circonferenza $C = \{(x, y) | x^2 + y^2 = 1\}$ non è sottospazio in quanto $\underline{0} \not \in C$ e non sono rispettate la chiusura rispetto la somma (2) e al prodotto (3).
+La parabola $P = \{(x,y) | y = x^2\}$ invece contiene l'insieme nullo, ma non verifica né (2) né (3).
+Supponiamo che $U$ sia un sottospazio di $\mathbb{R}^2$, che $U \not = \{\underline{0}\}$ e sia $u \in U$. Sappiamo che $U$ contiene tutti i vettori $\{a \cdot \underline{u}| a \in \mathbb{R}\}$ quindi $U$ contiene la retta per l'origine e passante per $\underline{u}$. Chiamiamo questa retta $r_u$. Abbiamo due casi:
+1) $U = r_u$
+2) esiste $w \in U, w \not \in r_u$ 
+Sicuramente $U$ contiene la retta $r_w$ passante per $0$ e di direzione $w$. Inoltre, se prendo un qualsiasi $p \in r_u$ e $q \in r_w$, allora $U$ deve contenere "$p + q$".
+Che figura geometrica otteniamo? Un **piano** $\Rightarrow$ U è tutto $\mathbb{R}^2$!
+I sottospazi di $\mathbb{R}^2$ sono quindi:
+1) $\{\underline{0}\}$
+2) rette per $\{\underline{0}\}$
+3) $\mathbb{R}^2$ stesso
+Sappiamo che $\stackrel{\rightarrow}{OP_1}$, $\dots$, $\stackrel{\rightarrow}{OP_n}$ vettori applicati nel piano il più piccolo sottospazio che li contiene può essere:
+1) $\{\underline{0}\}$
+2) una retta per $\{\underline{0}\}$
+3) tutto il piano
+Sia $V$ uno spazio vettoriale. $v_1, \dots, v_n \in V$.
+Una combinazione lineare di $v_1, \dots, v_n$ è un vettore $v$ del tipo $v = \lambda_1v_1 + \lambda_2v_2 + \dots + \lambda_nv_n$ con $\lambda:1, \lambda_2, \dots, \lambda_n \in \mathbb{R}$.
+Ad esempio:
+Avendo $V = \mathbb{R}^2[x]$, $v_1 = x^2 - 5x + 7$ e $v_2 = 3x - 1$, allora $v = 3(v_1) + 2(v_2)$.
+Definizione: $V$ spaz. vett. $v_1, \dots, v_n \in V$. Allora: $\lt v_1, \dots, v_n\gt = \{\lambda_1v_1 + \dots + \lambda_nv_n | \lambda_1, \dots, \lambda_n \in \mathbb{R}\}$ è l'insieme di tutte le combinazioni lineari di $v_1, \dots, v_n$ . Perché ci interessano le combinazioni lineari? Una combinazione lineare è sempre il sottospazio più piccolo che contiene i vettori usati per costruirlo.
+### Dimostrazione
+Abbiamo che: $\lt v_1, \dots, v_n \gt = \{\lambda_1v_1 + \dots + \lambda_nv_n | \lambda_1, \dots, \lambda_n \in \mathbb{R} \}$. Dobbiamo dimostrare che questo sia un sottospazio.
+Prendiamo $\underline{0} = 0v_1 + \dots + 0v_n \in \lt v_1, \dots, v_2 \gt$.
+Siano $u, v \in \lt v_1, \dots, v_2 \gt$ t.c. 
+$u = \lambda_1v_1 + \dots + \lambda_nv_n$ e $v = \gamma_1v_1 + \dots + \gamma_nv_n$
+$u + v = \lambda_1v_1 + \dots + \gamma_1v_1 + \dots + \gamma_nv_n = (\lambda_1 + \gamma_1)v_1 + \dots + (\lambda_n + \gamma_n)v_n$.
+$\dots$ [vedi appunti Elisa]
+### Definizione
+$\lt v_1, \dots, v_n \gt$ si dice sottospazio generato da $v_1, \dots, v_n$. Si dice $V$ è generato da $\lt v_1, \dots, v_n \gt$ .
+[vedi Span 3Blue1Brown YT per riassunto della lezione].

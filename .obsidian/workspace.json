@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Algos/Equazioni di Ricorrenza.md",
+                "file": "Algebra & Geometria/Introduzione ad Algebra & Geometra.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Equazioni di Ricorrenza"
+              "title": "Introduzione ad Algebra & Geometra"
             }
           }
         ]
@@ -167,10 +167,10 @@
   },
   "active": "366213194d0d5e92",
   "lastOpenFiles": [
+    "Algos/Equazioni di Ricorrenza.md",
     "Algos/Esercizi inerenti al confronto tra funzioni.md",
     "Algebra & Geometria/Introduzione ad Algebra & Geometra.md",
     "Algos/Pasted image 20250225114530.png",
-    "Algos/Equazioni di Ricorrenza.md",
     "Algos/Introduzione agli algoritmi.md",
     "Algos/Parte matematica.md",
     "Algebra & Geometria",
