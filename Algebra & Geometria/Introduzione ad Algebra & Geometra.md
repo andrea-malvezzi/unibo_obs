@@ -114,27 +114,21 @@ Sia $A_{m,n}$ una matrice scala. Si dice rango righe di $A$ ($rr(A)$) il numero 
 $$A = \pmatrix{\colorbox{yellow}{1} & 2 & 3 \\ 0 & \colorbox{yellow}{1} & 2 \\ 0 & 0 & 0} \text{ha rr pari a } 2$$
 ## Risolvere un sistema lineare con matrice scala associata
 Risolvere un sistema lineare la cui matrice associata è a scala risulta semplice: ecco come fare.
-1) controlla il rango righe della matrice senza soluzioni e della matrice associata. Nel caso in cui i due differiscano, il sistema non avrà soluzione:
-$$A|\underline{b} = \left( \begin{array}{cccc|c} 1 & 0 & 3 & 1 & 3 \\ 0 & 1 & 0 & 2 & 1 \\ 0 & 0 & 2 & -4 & 6 \end{array} \right)$$ $$rr(A|\underline{b}) = 3;$$$$rr(A) = 3$$ora, essendo $rr(A)$ e $rr(A|\underline{b}$) uguali, si può procedere;
-2) 
-[BRUTTA DA QUI IN POI]
-## Spazi vettoriali
-Esempi di spazi vettoriali
-1) metodi applicati in un punto (dello spazio o del piano). Sappiamo fare $u + v$ e, se $\lambda \in \mathbb{R}$, anche $\lambda u$.
-2) Matrici della stessa forma (stesso numero di riga e di colonne). Ad esempio le matrici $M_{3 \times 2}(\mathbb{R})$ .$$A = \pmatrix{1 & 0 \\ -1 & 5 \\ 0 & 4} \text{ e } B = \pmatrix{1 & -2 \\ 5 & 2 \\ -1 & -3}$$Allora si può scrivere$$A + B = \pmatrix{2 & -2 \\ -4 & 7 \\ -1 & 1}$$e, considerando $\lambda=-\frac{1}{2}$:$$\lambda A = $$
-3) polinomi a coefficienti in $\mathbb{R}$. $\mathbb{R}(x)$ = {$a_nx^n + \dots + a_1x + a_0$} . Sappiamo sommare 2 polinomi $P(x)$ e $Q(x)$:$$P(x) = 3x^5 - 7x^4 + 8x^3 + 5x -5$$$$Q(x) = 4x^4 - x^3 + x^2 + 4x - 1$$Posso scrivere
-$$P(x) + Q(x) = 3x^5 -3x^4 +7x^3 -x^2 + 9x -6$$
-## Spazi vettoriali definizione
+1) controlla il rango righe della matrice senza soluzioni e della matrice associata. Nel caso in cui i due differiscano, il sistema non avrà soluzione: $$A|\underline{b} = \left( \begin{array}{cccc|c} 1 & 0 & 3 & 1 & 3 \\ 0 & 1 & 0 & 2 & 1 \\ 0 & 0 & 2 & -4 & 6 \end{array} \right)$$$$rr(A|\underline{b}) = 3;$$$$rr(A) = 3$$ora, essendo $rr(A)$ e $rr(A|\underline{b}$) uguali, si può procedere per sostituzione dal basso;
+2) l'ultima riga della matrice corrisponde alla seguente equazione:$$2x_3 -4x_4 = 6$$di conseguenza possiamo ricavare una delle due incognite (solitamente si ricava il *pivot*) e assegnare valori a piacere utili a verificare l'uguaglianza all'altra. Questo non sarebbe stato possibile nel caso in cui vi fosse stata solamente un'incognita in questa riga (in tal caso si sarebbe semplicemente ricavata tale variabile). Quindi:$$x_3 = \frac{6 + 4x_4}{2} = 3 + 2x_4, x_4 \in \mathbb{R}$$
+3) Ora proseguiamo sostituendo riga per riga il valore trovato, partendo dalla seconda:$$x_2 + 2x_4 = 1$$Qui non compare $x_3$, quindi basta ricavare l'incognita associata al *pivot*:$$x_2 = 1 - 2x_4$$Ora sostituiamo i valori trovati nella prima (ed ultima) riga:$$\begin{aligned}x_1 + 3x_3 + x_4 = 3 \\ x_1 + 3 \cdot \left( 3 + 2x_4 \right) + x_4 = 3 \\ 9 + 6x_4 + x_4 - 3 = -x_1 \\ -6 -7x_4 = x_1\end{aligned} $$
+## Definizione di spazi vettoriali
 Si dice spazio vettoriale reale un insieme $V$ munito di due operazioni dette $somma$ e $prodotto$ per $scalari$:$$\begin{aligned}+:V \times V \rightarrow V \\ (u, v) \rightarrow u + v\end{aligned}$$$$\begin{aligned}\cdot : V \times V \rightarrow V \\ (\lambda, \mu) \rightarrow \lambda \mu \end{aligned}$$che soddisfano le seguenti proprietà:
-La somma è:
-1) $commutativa$, cioè $u + v = v + u \ \forall u,v \in V$; 
-
-Negli esempi precedenti, chi è il vettore Nullo?
-1) vettori applicanti il vettore nullo è $\underline{0}$ (vettore con origine e punta coincidenti);
-2) $M_{m \times n}(\mathbb{R})$ si ha ad esempio: $$\underline{0} = \pmatrix{0 & 0 \\ 0 & 0 \\ 0 & 0}$$
-3) $\mathbb{R}[x]$ si ha $$\underline{0} = 0 = 0x^n + \dots + 0x + 0$$
-4) {$f : R \rightarrow R$} si ha $$$$
-Si ha inoltre un caso particolare di 2:$$\mathbb{R}^n = \{(a_1, a_2, \dots, a_n) | a_i \in \mathbb{R}\} = \mathbb{R} \times \mathbb{R} \times \dots \mathbb{R} \text{ n volte}$$
+La somma con l'insieme $V$ deve formare un gruppo ***abeliano***, ovvero rispettare le seguenti proprietà:
+1) *commutatività*: $u + v = v + u \ \forall u,v \in V$; 
+2) *associatività*: $a + (b + c) = (a + b) + c \ \forall a, b, c \in V$;
+3) *elemento neutro*: deve esistere un elemento $0 \in V: a + 0 = a, \ \forall a \in V$;
+4) *elemento opposto*: $\forall a \in V \ \exists -a \in V : a + (-a) = 0$.
+Il prodotto deve formare a sua volta un gruppo ***abeliano***, ovvero rispettare le seguenti:
+1) *commutatività*: $a \cdot b = b \cdot a, \ \forall a,b \in V$;
+2) *associatività:* $(a \cdot b) \cdot c = a \cdot (b \cdot c), \ \forall a,b,c \in V$;
+3) *elemento neutro:* deve esistere un elemento $1 \in V: a \cdot 1 = a, \forall a \in V$;
+4) elemento opposto: $\forall a \not = 0 \in V, \ \exists a^{-1}: a \cdot a^{-1} = 1$
 ### Esempio di un insieme che non è uno spazio vettoriale
 Prendo $\mathbb{R}^2 = \{(a,b) = a, b \in \mathbb{R}\}$ e definisco $(a,b) + (c,d) = (ac, b + d)$ e $\lambda (a,b) = (a, \lambda b)$.
 La somma sarà commutativa?
