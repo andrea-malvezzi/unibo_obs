@@ -224,3 +224,56 @@ $\dots$ [vedi appunti Elisa]
 ### Definizione
 $\lt v_1, \dots, v_n \gt$ si dice sottospazio generato da $v_1, \dots, v_n$. Si dice $V$ è generato da $\lt v_1, \dots, v_n \gt$ .
 [vedi Span 3Blue1Brown YT per riassunto della lezione].
+
+data: $27/02/2025$
+$V$ sp.vett. $v_1, v_2, v_n \in V$
+Def: $v \in V$ è combinazione lineare di $v_1, \dots, v_n$ se $v = \lambda_1v_1, \dots, \lambda_nv_n$ con $\lambda_1, \dots, \lambda_n \in R$.
+Def: $\lt v_1, \dots, v_n \gt = \{\text{combinazioni lineari di } v_1, \dots, v_n\} = \{\lambda_1v_1 + \dots + \lambda_nv_n | \lambda_1, \dots, \lambda_n \in R \}$
+Prop: $\lt v_1, \dots, v_n \gt$ è sottospazio di $V$ si dice sottospazio generato da $v_1, \dots, v_n$ e si indica anche con $Span(v_1, \dots, v_n)$ o $Span\{v_1, \dots, v_n\}$
+$\lt v_1, \dots, v_n \gt$ è il più piccolo sottospazio di $V$ contenenente $v_1, \dots, v_n$ nel senso che se $Z$ è un ... di $V$ t.c. $\{ v_1, \dots, v_n \} \subseteq Z$ allora $\lt v_1, \dots, v_n \gt \subseteq Z$
+
+Def: se $V = \lt v_1, \dots, v_n \gt$ diciamo che $v_1, \dots, v_n$ generano $V$ o che $V$ è generato da $v_1, \dots, v_n$
+Esempio: in $\mathbb{R}^3$.
+$$e_1 = \left( 1, 0, 0 \right) \ e_2 = \left( 0, 1, 0 \right)$$Generiamo  $\lt e_1, e_2 \gt$:
+$\dots$
+$e_3 = \left( 0,0,1 \right)$
+$\lt e_1, e_2, e_3 \gt = \mathbb{R}^3$
+sia $\left( a, b, c \right) \in \mathbb{R}^3$
+mostro che $\left( a, b, c \right) = \lambda_1e_1 + \lambda_2e_2 + \lambda_3e_3$
+$\left( a, b, c \right) = a\left(1,0,0\right) + b\left(0,1,0\right) + c\left(0,0,1\right)$
+***Se non lo vedevate subito*** si doveva fare così: 
+1) cerco $\lambda_1, \lambda_2, \lambda_3$ t.c. $\left(a,b,c\right) = \lambda_1\left(1,0,0\right) + \lambda_2\left(0,1,0\right) + \lambda_3\left(0,0,1\right) = \left(\lambda_1, \lambda_2, \lambda_3 \right) \Rightarrow \lambda_1 = a, \lambda_2 = b, \lambda_3 = c$
+Esercizio in $\mathbb{R}_3$ (polinomi di grado max. $3$)
+$v_1 = x^3 + 2x^2 + 3x -1$, $v_2 = kx^3 + 4x^2 + 3kx - 2$, $v_3 = kx^2 + 3$, $v = x^3 + kx^2 + 3x + 3$
+Stabilire per quali $k \in \mathbb{R}$ il vettore $v \in \lt v_1, v_2, v_3 \gt$.
+$v \in \lt v_1, v_2, v_3 \gt$ se è comb.lineare di $v_1, v_2, v_3$ cioè se esistono $\lambda_1, \lambda_2, \lambda_3 \in \mathbb{R}$ t.c. $v = \lambda_1v_1 + \lambda_2v_2 + \lambda_3v_3$ deve succedere che $x^3 + kx^2 + 3x + 3 = \lambda_1\left(x^3 + 2x^2 + 3x - 1\right) + \lambda_2\left(kx^3 + 4x^2 + 3kx -2\right) + \lambda_3\left(kx^2 + 3\right) =$ dobbiamo capire se abbiamo $\lambda_1, \lambda_2, \lambda_3 = \left(\lambda_1 + k\lambda_2\right)^3 + \left(2\lambda_1 + 4\lambda_2 + k\lambda_3\right)x^2 + \left(3\lambda_1 + 3k\lambda_2\right)x + \left(-\lambda_1 - 2\lambda_2 + 3\lambda_3\right)$
+Due polinomi sono uguali quando gli stessi coeff. Deve succedere che:
+1) $\lambda_1 + k\lambda_2 = 1$
+2) $2\lambda_1 + 4\lambda_2 + k\lambda_3 = k$
+3) $3\lambda_1 + 3k\lambda_2 = 3$
+4) $-\lambda_1 - 2\lambda_2 + 3\lambda_3 = 3$
+Dobbiamo risolvere un sist. lineare nelle incognite $\lambda_1, \lambda_2, \lambda_3$ o meglio, voglio capire se POSSO TROVARE questi coefficienti, anche senza risolvere il sistema. Come posso fare a capire se un sistema lineare ha soluzioni? Trasformo in matrice associata e conto i rango righe.
+$$A|\underline{b} = \left(\begin{array}{ccc|c}1 & k & 0 & 1 \\ 2 & 4 & k & k \\ 3 & 3k & 0 & 3 \\ -1 & -2 & 3 & 3\end{array}\right)$$$$\left(\begin{array}{ccc|c}1 & k & 0 & 1 \\ 0 & 4 - 2k & k & k - 2 \\ 0 & 0 & 0 & 0 \\ 0 & k -2 & 3 & 4\end{array}\right)$$$$\left(\begin{array}{ccc|c}1 & k & 0 & 1 \\ 0 & 4 - 2k & k & k - 2 \\ 0 & k -2 & 3 & 4 \\ 0 & 0 & 0 & 0 \end{array}\right)$$$$\left(\begin{array}{ccc|c}1 & k & 0 & 1 \\ 0 & 4 - 2k & k & k - 2 \\ 0 & k -2 & 3 & 4 \\ 0 & 0 & 0 & 0 \end{array}\right)$$$\dots$ [vedi appunti degli altri per il proseguimento (o risolvila e basta)]
+Se $k \not = 2$ e $k \not = -6$ il $rr(A) = 3 = rr(A|\underline{b})$
+1 soluzione posso trovare $\lambda_1, \lambda_2, \lambda_3$, $v \in \lt v_1, v_2, v_3 \gt$
+se $k = 2$ otteniamo (basta sostituire nella matrice trovata alla fine e contare il rango righe per il numero di soluzioni):
+Se $k = -6$ otteniamo (stessa cosa del precedente):
+Risultato: $v \in \lt v_1, v_2, v_3 \gt$ per ogni $k \not = 2$.
+Esercizio:
+stabilire per quali $k$ i vettore $v_1 = \left(1,1\right)$ e $v_k = \left(3, k\right)$ generano $\mathbb{R}^2$.
+[vedi grafici appunti Matteo e copiali qui (non possiamo fare grafici haimé)]
+Se $v_1 // v_k$ cioè se $k = 3$ allora si ha $\lt \left(1,1\right), \left(3,3\right) \gt$ è la retta di eq. $y = x$. Quindi $\forall k, k \in \mathbb{R}, k \not = 3$.
+[vedi approccio algebrico per generalizzare questi casi dagli appunti di Matteo]
+
+a) Se $v$ è comb.lineare di $v_1 \dots v_n$ allora $\lt v_1, \dots, v_n \gt$ = $\lt v_1, \dots, v_n, v \gt$
+b) Se $\lt v_1, \dots, v_n \gt = \lt v_1, \dots, v_n, v \gt$ allora $v$ è comb.lineare di $v_1, \dots, v_n$
+Dim.(b): $I_p = \lt v_1, \dots, v_n, v \gt = \lt v_1, \dots, v_n \gt = v \in \lt v_1, \dots, v_n, v \gt \stackrel{iP}{=} \lt v_1, \dots, v_n \gt = \{\text{combinazione lineare di } v_1, \dots, v_n\}$ quindi $v$ è combinazione lineare di $v_1, \dots, v_n$
+Dim.(a):
+$Ip: v \in \lt v_1, \dots, v_n \gt$ sia $A_1 = \lt v_1, \dots, v_n \gt, A_2 = \lt v_1, \dots, v_n, v \gt$ devo mostrare $A_1 = A_2$.
+$A_1 \subseteq A_2$ se $\omega = \lambda_1v_1 + \dots + \lambda_nv_n \in A_1$, $\omega = \lambda_1v_1 + \dots + \lambda_nv_n + 0v \in A_2$
+Mostriamo $A_2 \subseteq A_1$:
+$v \in A_1$ per ipotesi $v_1, \dots, v_n \in A_1$, allora $A_1$ è un sottosp. che contiene $v_1, \dots, v_n, v \Rightarrow \lt v_1, \dots, v_n \gt \subseteq A_1$ cioè $A_2 \subseteq A_1$ q.e.d.
+
+def: $V$ sp.vett.
+$v_1, \dots, v_n \in V$ si dicono linearmente dipendenti (o si dice anche che l'insieme $\{v_1, \dots, v_n\}$ è linearmente dipendente)
+[vedi def. Dule]
