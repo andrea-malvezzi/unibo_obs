@@ -95,8 +95,8 @@ Cerchiamo di stimare la velocità dell'algoritmo presentato contando le istruzio
 4) ritorno valore finale
 Oltre a queste, vi sono anche le istruzioni interne al loop. Il loro conteggio andrà moltiplicato per il numero totale delle iterazioni, quindi:
 1) assegnazione i
-2) somma F[i - 1] + F[i - 2]
-3) assegnazione F[i]
+2) somma $F[i - 1]$ + $F[i - 2]$
+3) assegnazione $F[i]$
 moltiplicate per $n - 2$ volte (parto da $i = 3$ e vado fino ad $n$). Quindi ci saranno un totale di:
 $$4 + 3*(n-2)=3n-2 \text{ operazioni elementari}$$
 Stimiamo ora la memoria utilizzata dall'algoritmo: dobbiamo usare un array $F$ e due variabili

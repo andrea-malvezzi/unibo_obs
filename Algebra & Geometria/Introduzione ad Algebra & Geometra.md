@@ -16,10 +16,19 @@
 		3. [Esempio](#Esempio)
 	9. [Rango righe](#Rango%20righe)
 6. [Risolvere un sistema lineare con matrice scala associata](#Risolvere%20un%20sistema%20lineare%20con%20matrice%20scala%20associata)
-7. [Spazi vettoriali](#Spazi%20vettoriali)
-8. [Spazi vettoriali definizione](#Spazi%20vettoriali%20definizione)
+7. [Definizione di spazi vettoriali](#Definizione%20di%20spazi%20vettoriali)
 	10. [Esempio di un insieme che non è uno spazio vettoriale](#Esempio%20di%20un%20insieme%20che%20non%20%C3%A8%20uno%20spazio%20vettoriale)
-9. [Sottospazio](#Sottospazio)
+	11. [Differenza tra Spazio e Campo vettoriale](#Differenza%20tra%20Spazio%20e%20Campo%20vettoriale)
+8. [Sottospazio](#Sottospazio)
+9. [Definizione di sottospazio](#Definizione%20di%20sottospazio)
+	12. [Esempio](#Esempio)
+	13. [Altro esempio](#Altro%20esempio)
+	14. [Esempio fatto come Dio comanda porca la puttana bastarda](#Esempio%20fatto%20come%20Dio%20comanda%20porca%20la%20puttana%20bastarda)
+	15. [Esempio chiusura rispetto a prodotto e somma](#Esempio%20chiusura%20rispetto%20a%20prodotto%20e%20somma)
+	16. [osservazione](#osservazione)
+10. [Sottospazi di $\mathbb{R}$^2](#Sottospazi%20di%20$%5Cmathbb%7BR%7D$%5E2)
+	17. [Dimostrazione](#Dimostrazione)
+	18. [Definizione](#Definizione)
 
 ## Equazioni Lineari
 Un'equazione lineare è un'equazione del tipo:$$a_1x_1 + a_2x_2 + a_3x_3 + \dots + a_nx_n = b$$con $a_1,a_2,\dots,a_n, b \in \mathbb{R}$ (o in generale $\in K$, con $K$ che equivale ad un campo).
@@ -123,26 +132,24 @@ La somma con l'insieme $V$ deve formare un gruppo ***abeliano***, ovvero rispett
 1) *commutatività*: $u + v = v + u \ \forall u,v \in V$; 
 2) *associatività*: $a + (b + c) = (a + b) + c \ \forall a, b, c \in V$;
 3) *elemento neutro*: deve esistere un elemento $0 \in V: a + 0 = a, \ \forall a \in V$;
-4) *elemento opposto*: $\forall a \in V \ \exists -a \in V : a + (-a) = 0$.
+4) *elemento opposto*: $\forall a \in V \ \exists -a \in V : a + (-a) = 0$. ^5455f8
+
 Il prodotto deve formare a sua volta un gruppo ***abeliano***, ovvero rispettare le seguenti:
 1) *commutatività*: $a \cdot b = b \cdot a, \ \forall a,b \in V$;
 2) *associatività:* $(a \cdot b) \cdot c = a \cdot (b \cdot c), \ \forall a,b,c \in V$;
 3) *elemento neutro:* deve esistere un elemento $1 \in V: a \cdot 1 = a, \forall a \in V$;
 4) elemento opposto: $\forall a \not = 0 \in V, \ \exists a^{-1}: a \cdot a^{-1} = 1$
 ### Esempio di un insieme che non è uno spazio vettoriale
-Prendo $\mathbb{R}^2 = \{(a,b) = a, b \in \mathbb{R}\}$ e definisco $(a,b) + (c,d) = (ac, b + d)$ e $\lambda (a,b) = (a, \lambda b)$.
-La somma sarà commutativa?
-$$\begin{aligned}(a,b) + (c,d) = (ac, b + d) \\ (c,d) + (a,b) = (ca, d + b) \end{aligned}$$
-La somma è quindi commutativa. E per quanto riguarda l'associatività?
-Elemento neutro: $\underline{0} = (f, 0)$
-opposto $(a, b)$ e cerco $(c, d)$ t.c. $(a, b) + (c, d) = \underline{0} = (1, 0)$
-deve succedere che $ac = 1; b + d = 0 \Rightarrow d = -b$ se $a = 0$ c non si trova, quindi gli elementi del tipo $()$ (vedi slide)
-[vedi 2.3.5 del libro della prof]
-Spazio vettoriale: si fa il prodotto tra un elemento dello spazio e un numero;
-Campo vettoriale: si fa il prodotto puramente tra elementi dello spazio. Inoltre si ha sempre l'inverso del prodotto.
-
-Il vettore nullo è unico. Supponiamo che ci siano due vettori nulli $\underline{0}_1$ e $\underline{0}_2$, cioè $$\begin{aligned}v + \underline{0}_1 = v \ \forall v \in V (a) \\ v + \underline{0}_2 = v \ \forall v \in V (b)\end{aligned}$$Prendo $v = \underline{0}_2$ in $(a)$ e $v = \underline{0}_1$ in $(b)$:
-$$ \begin{aligned}\underline{0}_2 + \underline{0}_1 \stackrel{(a)}{=} \underline{0}_2 \\ \underline{0}_1 + \underline{0}_2 \stackrel{(b)}{=} \underline{0}_1 \end{aligned}$$
+Prendo $\mathbb{R}^2 = \{(a,b) = a, b \in \mathbb{R}\}$ e definisco la somma come $(a,b) + (c,d) = (ac, b + d)$ ed il prodotto come $\lambda (a,b) = (a, \lambda b)$.
+Per verificare se l'insieme fornito (considerando le definizioni di somma e prodotto valide all'interno di esso) corrisponde ad uno spazio vettoriale, verifichiamo la veridicità delle proprietà per le operazioni elencate.
+1) La somma sarà commutativa?$$\begin{aligned}(a,b) + (c,d) = (ac, b + d) \\ (c,d) + (a,b) = (ca, d + b) \end{aligned}$$La somma è quindi commutativa.
+2) La proprietà associativa è valida?$$\begin{aligned}((a, b) + (c, d)) + (e, f) = (ac, b + d) + (e, f) = (ace, b + d + f) \\ (a, b) + ((c, d) + (e, f)) = (a, b) + (ce, d + f) = (ace, b + d + f)\end{aligned}$$L'associatività è quindi verificata.
+3) Esiste l'elemento neutro per la somma?$$\text{prendendo } \underline{0} = (1, 0); (a, b) + \underline{0} = (a \cdot 1, b + 0) = (a, b)$$
+4) Esiste l'elemento opposto della somma? Considerando $(a, b)$ dovrei trovare una coppia $(c, d)$ che sommata alla prima restituisca l'elemento neutro $\underline{0}$: dovrei arrivare ad avere:$$(a, b) + (c, d) = (1, 0)$$ovvero dovrei trovare una coppia che verifichi le equazioni seguenti:$$\begin{cases}a \cdot c = 1 \\ b + d = 0\end{cases}$$da cui semplificando ottengo:$$\begin{cases}c = \frac{1}{a}, a \not = 0 \\ d = -b\end{cases}$$questo elemento opposto dovrebbe valere per tutti i membri di $\mathbb{R}^2$, ma nel caso in cui $a$ sia pari a $0$ il sistema salta. L'insieme non presenta quindi un candidato valido per la [[Introduzione ad Algebra & Geometra#^5455f8|quarta proprietà della somma]].
+### Differenza tra Spazio e Campo vettoriale
+Nello spazio vettoriale si ha un insieme di vettori che possono essere aggiunti tra loro e moltiplicati per scalari (numeri).
+Un campo vettoriale è invece una *funzione* che associa un vettore ad ogni punto di un certo spazio.
+<!-- BRUTTA DA QUI LATEST -->
 ## Sottospazio
 Sia $V$ uno spazio vettoriale. Un sottoinsieme $U$ di $V$ si dice sottospazio se 
 1) $U \not = \emptyset$
