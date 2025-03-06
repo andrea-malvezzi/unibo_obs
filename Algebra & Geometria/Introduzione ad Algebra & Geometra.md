@@ -278,3 +278,89 @@ $v \in A_1$ per ipotesi $v_1, \dots, v_n \in A_1$, allora $A_1$ è un sottosp. c
 def: $V$ sp.vett.
 $v_1, \dots, v_n \in V$ si dicono linearmente dipendenti (o si dice anche che l'insieme $\{v_1, \dots, v_n\}$ è linearmente dipendente)
 [vedi def. Dule]
+
+data $04/ 03/ 2025$:
+V spaz. vett.
+$$\lt v_1, v_2, v_3\gt = \{\lambda_1v_1 + \dots + \lambda_2v_2 \ | \ \lambda_1, \dots, \lambda_n \in \mathbb{R}\}$$
+Esercizio
+Sia $W = \{\left( x_1, x_2, x_3, x_4\right) \in \mathbb{R}^4 | \begin{cases}x_1 + x_2 + x_3 + 2x_4 = 0 \\ 2x_1 + 2x_2 + 3x_3 + 3x_4 = 0\end{cases}\}$ 
+$W = \{ \text{soluz. di } Ax = 0 \}$ 
+con $\left(A|\underline{b}\right) = \left(\begin{array}{cccc|c}1 & 1 & 1 & 2 & 0 \\ 2 & 2 & 3 & 3 & 0\end{array}\right)$
+Dimostrare che $W$ è un sottospazio di $\mathbb{R}^4$ e trovarne un insieme di generatori. Determinare inoltre $v_1, v_2, v_3, v_4 \in \mathbb{R}^4$ t.c. $W = \lt v_1, v_2, v_3, v_4\gt$ Ax = 0 è un sist.lineare omogeneo quindi sicuramente $\underline{0} \in W$.
+Vedremo in seguito che l'insieme delle sol. di un sist.lin. omogeneo è sempre un sottospazio. Adesso abbiamo due tecniche per mostrare che è un sottospazio
+1) Usare la definizione (di sottospazio vettoriale)
+2) La seguente: troviamo $W$.$$\left(\begin{array}{cccc|c}1 & 1 & 1 & 2 & 0 \\ 2 & 2 & 3 & 3 & 0\end{array}\right)$$ Usiamo Gauss (metti reference):$$\left(\begin{array}{cccc|c}1 & 1 & 1 & 2 & 0 \\ 0 & 0 & 1 & -1 & 0\end{array}\right)$$Infinite soluzioni che dipendono da $\stackrel{\text{n. incognite}}{4} - \stackrel{pivot}{2} = 2$ parametri $$\begin{cases}x_1 + x_2 + x_3 + 2x_4 = 0 \\ x_3 = x_4\end{cases}$$$x_4 = s, x_2 = t, x_1 = -x_2 - x_3 - 2x_4 = -x_2 -3x_4$ Che ci darà$$W = \{\left(-t -3s, t, s, s, s\right) | s, t \in \mathbb{R}\}$$Trucco per risolvere: separare i parametri!$$= \{\left(-t, t, 0, 0\right) + \left(-3s, 0, s, s\right) | s, t \in \mathbb{R}\}$$$$= \{t\left(1, -1, 0, 0\right) + s\left(-3, 0, 1, 1\right) | s, t \in \mathbb{R}\}$$Ho scoperto che $W$ è l'insieme delle combinazioni lineari di $v_1$ e $v_2$: $W$ è un sottospazio per 3.1.5 (controlla il suo libro del mega sium). Due generatori di $W$ sono $v_1 = \left(-1, 1, 0, 0\right)$ e $v_2 = \left(-3, 0, 1, 1\right)$.
+vett.linearmente indipendenti:
+v.sp.vett.: $v_1, \dots, v_2 \in V$ si dicono lin.indipendenti se $\lambda_1v_1 + \dots \lambda_nv_n = \underline{0} \Rightarrow \lambda_1 = \lambda_2 = \dots = \lambda_n$.
+Prop. 3.2.4 (vedi il libro del cazzo, ridaje) V.sp.vett. 
+sse $v_1, \dots, v_n$ allora uno di essi è combinazione lineare degli altri
+dim. di $Q$: Siano $v_1, \dots, v_n$, esistono $\lambda_1, \dots, \lambda_n$ non tutti nulli tali che $lambda_1v_1 + \dots + \lambda_nv_n = \underline{0}$
+Sia $\lambda_i \not = 0$
+$\lambda_iv_i = -\lambda_1v_1 \dots -\lambda_{i-1}v_{i-1} - \lambda_{i+1}v_{i+1} - \dots - \lambda_nv_n$  moltiplico per $\frac{1}{\lambda_i}\in \mathbb{R}$ ottengo $v_i = \frac{1}{\lambda_i}(-\lambda_1v_1 \dots)$
+$= v_i = -\frac{\lambda_1}{\lambda_i}v_1 - \frac{\lambda_2}{\lambda_i}v_2 \dots$ 
+$\Rightarrow v_i$ è comb.lineare degli altri
+Dim. $P$: sia $v_k = \lambda_1v_1 + \dots + \lambda_{k-1}v_{k-1} + \dots + \lambda_1v_n$
+$\dots$ non tutti i lambda sono $\not = 0$ perché ho un $-1$ a pedice.
+Oss. due vettori sono linearmente dipendenti sse uno di essi è comb.lineare dell'altro (quindi se è multiplo dell'altro dato che si tratta di due soli vettori).
+L'insieme $\{\underline{0}\}$ è lin.dipendente o anche $v = 0$.
+$1 \cdot \underline{0} = \underline{0} \rightarrow \not = 0$
+Se ho $\{v_1, v_2, \dots, \underline{0}, \dots, v_k\}$ allora sono sempre dipendenti
+L'insieme vuoto $\emptyset$ è un insieme linearmente indipendente.
+
+Def. IMPORTANTISSIMA!!!!
+Sia V. sott.vett.
+Una base di $V$ è un insieme $B = \{v_1, \dots, v_n\}$ t.c.
+1) $v_1, \dots, v_n$ generano $V$;
+2) $v_1, \dots, v_n$ sono lin.indip.;
+Esempi: $\{\left(1, 1\right), \left(1, 3\right)\}$ sono una base di $\mathbb{R}^2$ 
+Invece $\{\left(1, 3\right), \left(1, 1\right), \left(2, 4\right)\}$ generano $\mathbb{R}^2$ ma non sono dipendenti: $\left(2, 4\right) = \left(1, 3\right) + \left(1, 1\right)$ uno è quindi comb.lin. degli altri
+
+Basi canoniche:
+$$\mathbb{R}^n = \{\left(1, 0, \dots, 0\right), \left(0, 1, \dots, 0\right), \dots, \left(0, 0, \dots, 1\right)\}$$
+Uno spazio vettoriale V finitamente generato (che ha un numero finito di generatori) ha sempre una base $\dots$ 
+MANCA 05/03/2025 ARRIVA FINO A BASI E DIMENSIONI DEL NOTION DI CARTA BINARIA
+data: 06/03/2025
+V.sp.vett. $\beta = \{v_1, \dots, v_2\}$ base ordinata di $V$
+$v \in V$ allora esistono $\lambda_1, \lambda_2, \dots \in \mathbb{R}$ t.c. $v = \lambda_1v_1 + \lambda_2v_2 + \dots$ inoltre $\lambda_1, \dots$ sono unici
+scriviamo $(v)_{\beta} = (\lambda_1, \dots)$ 
+Esempio: $V = \mathbb{R}_2[x]$
+sia $\beta = \{x^2 + 2x, -x^2 -x +1, x^2 + 5\}$ base di $V$
+Sia $v = -x^2 + 3x +2$, troviamo le coordinate di $v$ rispetto a $\beta$.
+$$-x^2 + 3x + 2 = \lambda_1(x^2+2x) + \lambda_2(-x^2-x+1) + \lambda_3(x^2+5)$$$$-x^2+3x+2=(\lambda_1 -\lambda_2+\lambda_3)x^2 + (2\lambda_1 -\lambda_2)x + (\lambda_2 + 5\lambda_3)$$
+$$\begin{cases}\lambda_1 -\lambda_2+\lambda_3 = -1 \\ 2\lambda_1 -\lambda_2 = 3 \\ \lambda_2 + 5\lambda_3 = 2\end{cases}$$Passiamo alla matrice associata:
+$$\begin{array}{ccc|c}{...}\end{array}$$
+$$(v)_\beta = (\frac{25}{7},\frac{29}{7},-\frac{3}{7})$$Osservazione importante: sia $V$ sp.vett. di dimensione $N$ e sia $\beta = \{v_1, \dots, v_n\}$ base ordinata. La funzione $\mathbb{f}:V \rightarrow \mathbb{R}^n$ (quindi $v \rightarrow (v)_\beta = (\lambda_1, \dots, \lambda_n)$) è un isomorfismo di spazi vettoriali cioè è una biiezione che rispetta la struttura (le proprietà) di spazio vettoriale. Ad esempio: $\mathbb{f}(v + u)_\beta = \mathbb{f}(v) + \mathbb{f}(u)$.
+Per capire se dei vettori generano sono lin.dip. etc. a volte conviene passare alle coordinate e lavorare in $\mathbb{R}^n$ per usare il seguente:
+USO DELL'ALGORITMO DI GAUSS IN MODO DIRETTO
+Per lavorare in $\mathbb{R}^n$:
+Teorema 1: le operazioni elementari sulle righe di una matrice non cambiano il sottospazio generato dalle righe della matrice stessa.
+Teorema 2: le righe non nulle di una matrice scala sono linearmente indipendenti.
+Dimostrazione:
+1) scambio di righe
+2) $R_i \rightarrow \lambda R_i, \lambda \not = 0$
+$$v = a_1v_1 + \dots + a_iv_i + \dots + a_jv_j = a_1v_1 + \dots + \frac{a_i}{\lambda}(\lambda v_i) + \dots + a_jv_j$$
+3) $R_i \rightarrow R_i + cR_j$ basta dimostrare che $\lt R_i, R_j \gt = \lt R_i + cR_j, R_j \gt$.$$\lt R_i + cR_j, R_j \gt \subseteq \lt R_i, R_j \gt$$analogamente posso scrivere $R_i = (R_i + cR_j) - cR_j \in \lt R_i + cR_j, R_j \gt$. Anche $R_j \in \lt R_i + cR_j, R_j \gt$ e se uno spazio contiene due vettori contiene tutte le combinazioni lineari.
+Esercizio: in $\mathbb{R}^4$ siano:
+$v_1 = (1,1,3,0); v_2 = (2,2,5,1); v_3 = (1,1,4,-1)$ e sia $U = \lt v_1, v_2, v_3 \gt$.
+Cerchiamo una base per $U$ costruiamo la matrice
+$$\pmatrix{v_1 \\ v_2 \\ v_3}$$Quindi:
+$$\pmatrix{1 & 1 & 3 & 0 \\ 2 & 2 & 5 & 1 \\ 1 & 1 & 4 & -1}$$che resa scala diventa:$$\pmatrix{1 & 1 & 3 & 0 \\ 0 & 0 & -1 & 1 \\ 0 & 0 & 0 & 0}$$Ora ricordando che $U = \lt v_1, v_2, v_3 \gt$ riscriviamo questa nozione dove ogni riga della matrice corrisponde ad un vettore $v$. Quindi $U = \lt v_1, v_2, \underline{0} \gt = \lt v_1, v_2 \gt$. Ho scoperto quindi che $v_1, v_2$ generano $U$ e so che sono linearmente indipendenti per il secondo teorema (Gauss in modo diretto). Quindi $U$ ha dimensione pari a $2$.
+Infine, $v_1, v_2, v_3$ sono linearmente indipendenti? Se lo fossero avrei massimo una dimensione, ergo sono dipendenti.
+L'algoritmo di Gauss in modo diretto permette di trovare una base di $\lt v_1, \dots, v_n \gt$
+$$\pmatrix{v_1 \\ \dots \\ v_n} \rightarrow \pmatrix{\bar{v_1} \\ \dots \\ \bar{v_k} \\ \underline{0}}$$
+le righe non nulle sono una base quindi troviamo dimensione $\lt v_1, \dots, v_k \gt$ sono indipendenti o no
+- se $k \gt S, v_1, \dots, v_k$ sono dipendenti
+- se $k = S, v_1, \dots, v_k$ sono indipendenti
+per GEL (recupera GEL dalla lezione precedente)
+infatti $v_1, \dots, v_k$ generano uno sp.vett. che ha dimensione $S = k$
+Esercizio: in $\mathbb{R}^5$ siano $v_1 = (1, 3, -1, 1, 2); v_2 = (2, 6, -2, 4, 4); v_3 = (-1, -3, 2, 0, -1)$ sia $U = \lt v_1, v_2, v_3 \gt$ verificare che $\beta \{v_1, v_2, v_3\}$ è base di $U$ e completare $\beta$ ad una base di $\mathbb{R}^5$.
+1 metodo: controlliamo che $v_1, v_2, v_3$ siano linearmente indipendenti, ovvero che la loro somma (moltiplicandoli per dei lambda) sia il vettore nullo. Troviamo i lambda e procediamo.
+2 metodo: Gauss in modo diretto. Prendiamo i vettori e mettiamoli in riga nella matrice$$\pmatrix{1 & 3 & -1 & 1 & 2 \\ 2 & 6 & -2 & 4 & 4 \\ -1 & -3 & 2 & 0 & -1}$$che in scala viene:$$\pmatrix{1 & 3 & -1 & 1 & 2 \\ 0 & 0 & 1 & 1 & 1 \\ 0 & 0 & 0 & 2 & 0}$$$U = \lt v_1, v_2, v_3 \gt = \lt \bar{v_1}, \bar{v_2}, \bar{v_3} \gt$ quindi $\lt \bar{v_1}, \bar{v_2}, \bar{v_3} \gt$ è base di $U$, che ha dimensione pari a $3$.
+Vogliamo ora completare per una base di dimensione $5$. Aggiungiamo quindi 2 vettori (5 vettori totali) in modo che i vettori ottenuti siano linearmente indipendenti. Inventiamoli in modo da avere una matrice scala ricordando che due vettori sono linearmente indipendenti quando sono non-nulli.
+Per rendere scala la matrice aggiungendo 2 vettori, dobbiamo assicurarci che abbiano pivot nelle locazioni mancanti, ergo la seconda colonna e la quinta.
+Dimensione 5, 5 vettori lin.ind., per GEL $\rightarrow$ sono una base di $\mathbb{R}^5$.
+Osserviamo che $\{v_1, v_2, v_3, w_1, w_2\}$ è una base di $\mathbb{R}^5$.
+Esercizio
+In $\mathbb{R}^4[x]$ siano $$\begin{aligned}P_1(x) = x^3 + x^2 + 3x \\ P_2(x) = 2x^3 + 2x^2 + 5x + 1 \\ P_3(x) = x^3 + x^2 + 4x - 1\end{aligned}$$
+Sia $U = \lt P_1(x), P_2(x), P_3(x) \gt$ trovare una base di $U$. Passiamo alle coordinate rispetto alla base canonica $\mathbb{C} = \{x^3, x^2, x, 1\}$
+e lavoriamo in $\mathbb{R}^4$.
