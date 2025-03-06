@@ -149,52 +149,20 @@ Per verificare se l'insieme fornito (considerando le definizioni di somma e prod
 ### Differenza tra Spazio e Campo vettoriale
 Nello spazio vettoriale si ha un insieme di vettori che possono essere aggiunti tra loro e moltiplicati per scalari (numeri).
 Un campo vettoriale è invece una *funzione* che associa un vettore ad ogni punto di un certo spazio.
-<!-- BRUTTA DA QUI LATEST -->
 ## Sottospazio
-Sia $V$ uno spazio vettoriale. Un sottoinsieme $U$ di $V$ si dice sottospazio se 
-1) $U \not = \emptyset$
-2) Se $u_1, u_2 \in U$ allora $u_1 + u_2 \in U$ (chiusura rispetto alla somma)
-3) Se $u \in U, \lambda \in \mathbb{R}$ allora $\lambda u \in U$, dove $\lambda$ è uno scalare (chiusura rispetto al prodotto per scalari)
-$U$ è in particolare uno spazio vettoriale che gode di $+$ e di $\cdot$, ereditati da $V$.
-Esempi:
-1) in $\mathbb{R}[x]$ consideriamo $V = \mathbb{R}_2[x] = \{$ polinomi di grado massimo 2 $\} = \{ a_2x^2 + a_1x + a_0 | a_0, a_1, a_2 \in V \}$. [vedi slide prof]?????
-2) $V = M_{2 \times 2}(\mathbb{R})$; $$\begin{aligned}U = \{\pmatrix{a & b \\ 0 & 2b} | a, b \in \mathbb{R}\} \\ U \not = 0 \ \pmatrix{0 & 0 \\ 0 & 0} \in U \\ u = \pmatrix{a & b \\ 0 & 2b} \ v = \pmatrix{c & d \\ 0 & 2d} \in U \\ u + v = \pmatrix{a + c & b + d \\ 0 & 2b + 2d} = \pmatrix{a + c & b + d \\ 0 & 2(b + d)} \end{aligned}$$
-Proposizione: se $U$ è sottospazio di $V$ allora $\underline{0} \in U$.
-Dimostrazione: Sia $U$ un sottospazio di $V$ per (i) $U \not = \emptyset$ e sia $u \in U$. Faccio $0u \stackrel{per (iv)}{=} \underline{0} \stackrel{\text{per (iii)}}{\in} U$. Quindi per controllare se $U$ è uno spazio vettoriale conviene controllare subito se $\underline{0} \in U$ .$$U = \{\pmatrix{a & a+1 \\ b} | a, b \in \mathbb{R}\}$$
-data: $26/02/2025$
-## Definizione di sottospazio
-Se $V$ spazio vettoriale e $U \subseteq V$ allora $U$ si dice sottospazio e lo si indica con $U \leq V$ se:
-1) $U \not = \emptyset$
-2) se $u_1, u_2 \in U$ allora $u_1 + u_2 \in U$.
-3) se $u \in U, \lambda \in \mathbb{R}$ allora $\lambda u \in U$.
-In particolare $U$ è uno spazio vettoriale dove somma e prodotto per scalari sono quelli "ereditati da $V$", cioè sono le restrizioni a $U$ delle corrispondenti operazioni in $V$.
-
-### Esempio
-$V = M_{2 \times 2} \mathbb{R} \ U = \{\pmatrix{a & b \\ -a & 0} | a,b \in \mathbb{R}, b \geq 0\}$ 
-$U$ è sottospazio
-$\underline{0} \in U$ basta prendere a = b = 0
-Siano $u_1, u_2 \in U$
-$$u_1 = \pmatrix{a & b \\ -a & 0} \ u_2 = \pmatrix{c & d \\ -c & 0}$$
-$$u_1 + u_2 = \pmatrix{a + c & b + d \\ -a -c & 0 + 0} = \pmatrix{\colorbox{yellow}{a + c}& b + d \\ \colorbox{yellow}{-(a + c)} & 0}$$
-$$\lambda u_1 = \pmatrix{\lambda a & \lambda b \\ -\lambda a & 0} \ u = \pmatrix{1 & 1 \\ -1 & 0}$$Ad esempio prendendo $\lambda = -1$, vediamo se il calcolo rispetta il formato di $\lambda u_1$:
-$$\lambda u = \pmatrix{-1 & -1 \\ \colorbox{red}{1} & 0}$$L'uno marchiato dovrebbe essere -1. $U$ non è quindi chiuso rispetto al prodotto per scalari.
-### Altro esempio
-Siano $u_1 = \pmatrix{x_1, 3x_2}$ e $u_2 = \pmatrix{x_2, 3x_2}$ entrambi $\in U$.
-$$u_1 + u_2 = \pmatrix{x_1 + x_2, 3x_2 + 3x_2} = \pmatrix{x_1 + x_2, 3(x_1 + x_2)}$$
-### Esempio fatto come Dio comanda porca la puttana bastarda
-In $V = \mathbb{R}^2$, $U = \{(x, y) | x^2 - xy = 0\}$.
-$(0,0) \in V?$ Sì perché la coppia $(0, 0)$ risolve l'equazione fornita dalla definizione di $U$.
+Sia $V$ uno spazio vettoriale. Un sottoinsieme $U$ di $V$ si dice sottospazio **vettoriale** di $V$ ($U \leq V$) se 
+1) $U \not = \emptyset$;
+2) $U$ è chiuso rispetto alla somma; 
+3) $U$ è chiuso rispetto al prodotto per scalari.
+Inoltre, sapendo che uno spazio vettoriale contiene sempre almeno due sottoinsiemi, ovvero quello banale (contenente unicamente il vettore nullo) e sé stesso, possiamo affermare che, a meno del caso in cui $U = \{0\}$, si ha che $U$ contiene infiniti vettori in quanto posso moltiplicare infiniti scalari per un singolo vettore.
+### Esempio di sottospazio vettoriale
+Prendiamo $V = \mathbb{R}^2$ e un insieme $U = \{(x, y) | x^2 - xy = 0\}$. Sapendo che $U \leq V$, possiamo affermare che $(0,0) \in V?$ Sì perché la coppia $(0, 0)$ risolve l'equazione fornita dalla definizione di $U$.
 E invece avendo $u_1 = \left( x_1, y_1 \right)$ e $u_2 = \left( x_2, y_2 \right)$, il vettore $u_1 + u_2$ sta in $U$?
 Calcoliamo $u_1 + u_2 \ \left( x_1 + x_2, y_1 + y_2 \right)$.
-In seguito, sostituiamo i valori trovati nella definizione di $U$:
-$$\left( x_1 + x_2\right)^2 - \left( x_1 + x_2 \right)\left(y_1 + y_2\right) = 0?$$[inserisci calcoli]
-### Esempio chiusura rispetto a prodotto e somma
-[vedi appunti Dule o Elisa]
-### osservazione
-osservazione: Se $V$ spazio vettoriale e $U = \{\underline{0}\}$ (contiene solo il vettore nullo $\not =$ è insieme vuoto), allora $U$ è sempre sottospazio di $V$. Questo tipo di sottospazio si dice banale o nullo. Se invece $U \not = \{\underline{0}\}$ ed è un sottospazio, allora sia $u \in U, u \not = 0$ e prendiamo $\lambda \in \mathbb{R}$ sappiamo per (3) che $\lambda u \in U$. Di conseguenza: $U$ contiene tutti i multipli di $u$ e c'è un numero infinito di tali vettori se $a,b \in \mathbb{R} \ a \not = b$ allora $a \cdot u \not = b \cdot u$. 
-Dimostriamo la nozioni finale per assurdo:
-$au = bu \Rightarrow au - bu = \underline{0} \Rightarrow (a-b)u = \underline{0}$. Allora $a - b = 0$, eppure $u = \underline{0}$.
-## Sottospazi di $\mathbb{R}$^2
+In seguito, sostituiamo i valori trovati nella definizione di $U$:$$\left( x_1 + x_2\right)^2 - \left( x_1 + x_2 \right)\left(y_1 + y_2\right) = 0?$$che semplificato risulta:
+[chiedo calcoli a Dule o Zeno o Elisa]
+<!-- BRUTTA da qui -->
+## Sottospazi di $\mathbb{R}^2$
 Osservazione: La circonferenza $C = \{(x, y) | x^2 + y^2 = 1\}$ non è sottospazio in quanto $\underline{0} \not \in C$ e non sono rispettate la chiusura rispetto la somma (2) e al prodotto (3).
 La parabola $P = \{(x,y) | y = x^2\}$ invece contiene l'insieme nullo, ma non verifica né (2) né (3).
 Supponiamo che $U$ sia un sottospazio di $\mathbb{R}^2$, che $U \not = \{\underline{0}\}$ e sia $u \in U$. Sappiamo che $U$ contiene tutti i vettori $\{a \cdot \underline{u}| a \in \mathbb{R}\}$ quindi $U$ contiene la retta per l'origine e passante per $\underline{u}$. Chiamiamo questa retta $r_u$. Abbiamo due casi:
