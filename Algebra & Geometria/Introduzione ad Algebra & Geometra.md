@@ -1,5 +1,5 @@
-	1. [Equazioni Lineari](#Equazioni%20Lineari)
-	2. [Nota Bene](#Nota%20Bene)
+1. [Equazioni Lineari](#Equazioni%20Lineari)
+	1. [Nota Bene](#Nota%20Bene)
 2. [Definizione di campo](#Definizione%20di%20campo)
 	2. [Esempi comuni](#Esempi%20comuni)
 3. [Sistemi Lineari](#Sistemi%20Lineari)
@@ -321,3 +321,37 @@ $$-x^2 + 3x + 2 = \lambda_1(x^2+2x) + \lambda_2(-x^2-x+1) + \lambda_3(x^2+5)$$$$
 $$\begin{cases}\lambda_1 -\lambda_2+\lambda_3 = -1 \\ 2\lambda_1 -\lambda_2 = 3 \\ \lambda_2 + 5\lambda_3 = 2\end{cases}$$Passiamo alla matrice associata:
 $$\begin{array}{ccc|c}{...}\end{array}$$
 $$(v)_\beta = (\frac{25}{7},\frac{29}{7},-\frac{3}{7})$$Osservazione importante: sia $V$ sp.vett. di dimensione $N$ e sia $\beta = \{v_1, \dots, v_n\}$ base ordinata. La funzione $\mathbb{f}:V \rightarrow \mathbb{R}^n$ (quindi $v \rightarrow (v)_\beta = (\lambda_1, \dots, \lambda_n)$) è un isomorfismo di spazi vettoriali cioè è una biiezione che rispetta la struttura (le proprietà) di spazio vettoriale. Ad esempio: $\mathbb{f}(v + u)_\beta = \mathbb{f}(v) + \mathbb{f}(u)$.
+Per capire se dei vettori generano sono lin.dip. etc. a volte conviene passare alle coordinate e lavorare in $\mathbb{R}^n$ per usare il seguente:
+USO DELL'ALGORITMO DI GAUSS IN MODO DIRETTO
+Per lavorare in $\mathbb{R}^n$:
+Teorema 1: le operazioni elementari sulle righe di una matrice non cambiano il sottospazio generato dalle righe della matrice stessa.
+Teorema 2: le righe non nulle di una matrice scala sono linearmente indipendenti.
+Dimostrazione:
+1) scambio di righe
+2) $R_i \rightarrow \lambda R_i, \lambda \not = 0$
+$$v = a_1v_1 + \dots + a_iv_i + \dots + a_jv_j = a_1v_1 + \dots + \frac{a_i}{\lambda}(\lambda v_i) + \dots + a_jv_j$$
+3) $R_i \rightarrow R_i + cR_j$ basta dimostrare che $\lt R_i, R_j \gt = \lt R_i + cR_j, R_j \gt$.$$\lt R_i + cR_j, R_j \gt \subseteq \lt R_i, R_j \gt$$analogamente posso scrivere $R_i = (R_i + cR_j) - cR_j \in \lt R_i + cR_j, R_j \gt$. Anche $R_j \in \lt R_i + cR_j, R_j \gt$ e se uno spazio contiene due vettori contiene tutte le combinazioni lineari.
+Esercizio: in $\mathbb{R}^4$ siano:
+$v_1 = (1,1,3,0); v_2 = (2,2,5,1); v_3 = (1,1,4,-1)$ e sia $U = \lt v_1, v_2, v_3 \gt$.
+Cerchiamo una base per $U$ costruiamo la matrice
+$$\pmatrix{v_1 \\ v_2 \\ v_3}$$Quindi:
+$$\pmatrix{1 & 1 & 3 & 0 \\ 2 & 2 & 5 & 1 \\ 1 & 1 & 4 & -1}$$che resa scala diventa:$$\pmatrix{1 & 1 & 3 & 0 \\ 0 & 0 & -1 & 1 \\ 0 & 0 & 0 & 0}$$Ora ricordando che $U = \lt v_1, v_2, v_3 \gt$ riscriviamo questa nozione dove ogni riga della matrice corrisponde ad un vettore $v$. Quindi $U = \lt v_1, v_2, \underline{0} \gt = \lt v_1, v_2 \gt$. Ho scoperto quindi che $v_1, v_2$ generano $U$ e so che sono linearmente indipendenti per il secondo teorema (Gauss in modo diretto). Quindi $U$ ha dimensione pari a $2$.
+Infine, $v_1, v_2, v_3$ sono linearmente indipendenti? Se lo fossero avrei massimo una dimensione, ergo sono dipendenti.
+L'algoritmo di Gauss in modo diretto permette di trovare una base di $\lt v_1, \dots, v_n \gt$
+$$\pmatrix{v_1 \\ \dots \\ v_n} \rightarrow \pmatrix{\bar{v_1} \\ \dots \\ \bar{v_k} \\ \underline{0}}$$
+le righe non nulle sono una base quindi troviamo dimensione $\lt v_1, \dots, v_k \gt$ sono indipendenti o no
+- se $k \gt S, v_1, \dots, v_k$ sono dipendenti
+- se $k = S, v_1, \dots, v_k$ sono indipendenti
+per GEL (recupera GEL dalla lezione precedente)
+infatti $v_1, \dots, v_k$ generano uno sp.vett. che ha dimensione $S = k$
+Esercizio: in $\mathbb{R}^5$ siano $v_1 = (1, 3, -1, 1, 2); v_2 = (2, 6, -2, 4, 4); v_3 = (-1, -3, 2, 0, -1)$ sia $U = \lt v_1, v_2, v_3 \gt$ verificare che $\beta \{v_1, v_2, v_3\}$ è base di $U$ e completare $\beta$ ad una base di $\mathbb{R}^5$.
+1 metodo: controlliamo che $v_1, v_2, v_3$ siano linearmente indipendenti, ovvero che la loro somma (moltiplicandoli per dei lambda) sia il vettore nullo. Troviamo i lambda e procediamo.
+2 metodo: Gauss in modo diretto. Prendiamo i vettori e mettiamoli in riga nella matrice$$\pmatrix{1 & 3 & -1 & 1 & 2 \\ 2 & 6 & -2 & 4 & 4 \\ -1 & -3 & 2 & 0 & -1}$$che in scala viene:$$\pmatrix{1 & 3 & -1 & 1 & 2 \\ 0 & 0 & 1 & 1 & 1 \\ 0 & 0 & 0 & 2 & 0}$$$U = \lt v_1, v_2, v_3 \gt = \lt \bar{v_1}, \bar{v_2}, \bar{v_3} \gt$ quindi $\lt \bar{v_1}, \bar{v_2}, \bar{v_3} \gt$ è base di $U$, che ha dimensione pari a $3$.
+Vogliamo ora completare per una base di dimensione $5$. Aggiungiamo quindi 2 vettori (5 vettori totali) in modo che i vettori ottenuti siano linearmente indipendenti. Inventiamoli in modo da avere una matrice scala ricordando che due vettori sono linearmente indipendenti quando sono non-nulli.
+Per rendere scala la matrice aggiungendo 2 vettori, dobbiamo assicurarci che abbiano pivot nelle locazioni mancanti, ergo la seconda colonna e la quinta.
+Dimensione 5, 5 vettori lin.ind., per GEL $\rightarrow$ sono una base di $\mathbb{R}^5$.
+Osserviamo che $\{v_1, v_2, v_3, w_1, w_2\}$ è una base di $\mathbb{R}^5$.
+Esercizio
+In $\mathbb{R}^4[x]$ siano $$\begin{aligned}P_1(x) = x^3 + x^2 + 3x \\ P_2(x) = 2x^3 + 2x^2 + 5x + 1 \\ P_3(x) = x^3 + x^2 + 4x - 1\end{aligned}$$
+Sia $U = \lt P_1(x), P_2(x), P_3(x) \gt$ trovare una base di $U$. Passiamo alle coordinate rispetto alla base canonica $\mathbb{C} = \{x^3, x^2, x, 1\}$
+e lavoriamo in $\mathbb{R}^4$.
