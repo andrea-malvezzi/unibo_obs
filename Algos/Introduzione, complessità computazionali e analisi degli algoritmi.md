@@ -80,21 +80,5 @@ Per analizzare un algoritmo si utilizza un'**equazione di ricorrenza**, che desc
 - **Algoritmi iterativi**: si analizza il costo di ogni iterazione e il numero totale di iterazioni per determinare la relazione di ricorrenza.
 - **Algoritmi ricorsivi**: la ricorrenza deriva dalla suddivisione del problema in sotto-problemi più piccoli.
 ### Algoritmi iterativi
-Per analizzare gli algoritmi iterativi occorrerà analizzarne il corpo e andare a ricavare l'equazione di ricorrenza. Dopo aver trovato quest'ultima, occorrerà usare il **metodo iterativo** per risolverla, andando a sostituire ad $n$ il valore per cui questo decresce all'interno dell'algoritmo.
-#### Esempio di analisi di algoritmi iterativo
-Prendiamo il seguente algoritmo iterativo:
-```pseudocodice
-def somma_quadrati(INT n) -> INT:
-	INT somma = 0;
-	while n > 0:
-		somma += n * n;
-		n = n // 2;
-	return somma;
-```
-Anzitutto, occorrerà trovare l'equazione di ricorrenza associata all'algoritmo presentato. Per farlo, analizziamo il costo delle operazioni all'interno del ciclo: si stanno eseguendo un prodotto ($n \cdot n$), una somma ed una riassegnazione. Il costo di queste operazioni è costante, in quanto non dipende dal valore $n$. Quando un'operazione ha costo costante, si dice che ha costo pari a $O(1)$.
-Ora cerchiamo di capire quante volte il ciclo verrà eseguito: il numero di esecuzioni dipende da $n$, ed $n$ decresce venendo dimezzato ad ogni iterazione. Quindi scriviamo:$$T(n) = T(n / 2) + O(1)$$e andiamo a sostituire $n \rightarrow n/2$, ottenendo:$$T(n/2) = T(n / 4) + O(1)$$proseguiamo con questo approccio fino ad individuare un pattern $\dots$ in generale, continuando a dividere $n$ per $2$, dopo $k$ iterazioni avremo $\frac{n}{2^k}=1$ come fine del ciclo. Risolviamo ora per $k$ questa equazione esponenziale:$$\begin{aligned}n = 2^k \\ k = \log_2{\left(n\right)}\end{aligned}$$Quindi il nostro ciclo *while* eseguirà circa $\log_2{\left(n\right)}$ volte (approssimando, in quanto $n$ potremmo non essere esattamente una potenza di $2$). La complessità totale dell'algoritmo presentato è quindi $O(\log{\left(n\right)})$.
+
 ### Algoritmi ricorsivi
-Nel caso degli algoritmi ricorsivi si dispone di $4$ teoremi utili al calcolo della complessità computazionale di questi. Come nel caso degli algoritmi iterativi tuttavia sarà anzitutto necessario ricavare l'equazione di ricorrenza dell'algoritmo presentato, per poi risolverla con questi metodi sopra citati.
-#### Il metodo iterativo
-Questo metodo ha un approccio di tipo *brute force* e consiste nel fare ESATTAMENTE ciò che abbiamo fatto nell'[[Introduzione, complessità computazionali e analisi degli algoritmi#Esempio di analisi di algoritmi iterativo|esempio di analisi della complessità di un algoritmo iterativo]].
-#### Il metodo della sostituzione
