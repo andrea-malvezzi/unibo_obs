@@ -33,3 +33,4 @@ $\dots$ inserisci esempio qui!
 $$T^{\prime}(n) = \begin{cases}1 & n \leq 0 \\ 2T^{\prime}(\frac{n}{4} + 1 & n \gt 0)\end{cases}$$Ora troviamo: $a = 2, b = 4, \alpha = \log_4{2} = \frac{1}{2}, \beta = 0 \Rightarrow \alpha \gt \beta \Rightarrow T^{\prime}(n) = \Theta(n^\frac{1}{2}) = \Theta(\sqrt{n})$.
 Ora troviamo l'equazione di ricorrenza di $Mistery1$:
 $$T(n) = \begin{cases}1 & n \leq 0 \\ 4T\end{cases}$$
+

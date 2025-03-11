@@ -332,3 +332,37 @@ Esercizio
 In $\mathbb{R}^4[x]$ siano $$\begin{aligned}P_1(x) = x^3 + x^2 + 3x \\ P_2(x) = 2x^3 + 2x^2 + 5x + 1 \\ P_3(x) = x^3 + x^2 + 4x - 1\end{aligned}$$
 Sia $U = \lt P_1(x), P_2(x), P_3(x) \gt$ trovare una base di $U$. Passiamo alle coordinate rispetto alla base canonica $\mathbb{C} = \{x^3, x^2, x, 1\}$
 e lavoriamo in $\mathbb{R}^4$.
+
+Argomenti chiave:
+- uso di gauss in modo diretto per lavorare in $R^n$;
+- passare alle coordinate (rispetto ad una base qualsiasi) permette di lavorare in $R^n$;
+Teorema 1: l'alg. di Gauss non cambia il sottospazio generate dalle righe di una matrice.
+Teorema 2: le righe non nulle di una matrice scala sono linearmente indipendenti.
+
+Esempio: in $R_3[x]$ siano:
+$$\begin{aligned}v_1 = x^3 + x^2 + 3x \\ v_2 = 2x^3 + 2x^2 + 5x + 1 \\ v_3 = x^3 + x^2 + 4x - 1\end{aligned}$$Sia $V = \lt v_1, v_2, v_3 \gt$, trovare una base di $V$.
+Passiamo anzitutto alle coordinate rispetto alla base canonica di $R_3[x]$.$$C = \{x^3, x^2, x, 1\}$$
+Troviamo le coordinate dei vettori rispetto la base canonica: $$\begin{array}.\left(v_1\right)_c = \left(1, 1, 3, 0\right) \\ \left(v_2\right)_c = \left(2,2,5,1\right) \\ \left(v_3\right)_c = \left(1,1,4,-1\right)\end{array}$$Lavoriamo in $R^n$ e costruiamo la matrice che ha per righe $\left(v_1\right)_c, \left(v_2\right)_c, \left(v_3\right)_c$:$$M_{3,4} = \pmatrix{1 & 1 & 3 & 0 \\ 2 & 2 & 5 & 1 \\ 1 & 1 & 4 & -1}$$rendiamola ora scala:$$M_{3,4} = \pmatrix{1 & 1 & 3 & 0 \\ 0 & 0 & -1 & 1 \\ 0 & 0 & 0 & 0}$$Ora scriviamo la combinazione lineare dei vettori associati alle righe della matrice trovata:$$\bar{V} = \lt \left(v_1\right)_c, \left(v_2\right)_c, \left(v_3\right)_c \gt = \lt \left(1,1,3,0\right), \left(0,0,-1,1\right)\gt \text{, in quanto } \left(v_3\right)_c \text{ è una riga nulla}$$Ora per il teorema 2 $\left(v_1\right)_c$ e $\left(v_2\right)_c$ sono linearmente indipendenti, quindi $\{\left(1,1,3,0\right), \left(0,0,-1,1\right)\}$ è base di $\bar{V}$.
+
+Esercizio: stabilire per quali valori di $k$ $v \in \lt v_1, v_2, v_3 \gt \subseteq M_2(\mathbb{R})$ dove:$$\begin{array}.v_1 = \pmatrix{1 & 2 \\ k & -3} \\ v_2 = \pmatrix{1 & k \\ 1 & -3} \\ v_3 = \pmatrix{2 & 4 \\ 3 & -6} \\ v = \pmatrix{1 & k \\ 2 & -3} \end{array}$$$M_2(\mathbb{R}) = M_{2,2} = (\mathbb{R})$
+Ci sono due modi per risolvere questo problema:
+- $v \in \lt v_1, v_2, v_3 \gt \Leftrightarrow \text{ esistono } \lambda_1, \lambda_2, \lambda_3 \in \mathbb{R} : v = \lambda_1v_1 + \lambda_2v_2 + \lambda_3v_3$ cioè:$$\begin{array}.\pmatrix{1 & k \\ 2 & -3} = \lambda_1\pmatrix{1 & 2 \\ k & -3} + \lambda_2\pmatrix{1 & k \\ 1 & -3} + \lambda_3\pmatrix{2 & 4 \\ 3 & -6} \\ = \pmatrix{\lambda_1 + \lambda_2 + 2\lambda_3 & 2\lambda_1 + k\lambda_2 + 4\lambda_3 \\ k\lambda_1 + \lambda_2 + 3\lambda_3 & -3\lambda_1 -3\lambda_2 -6\lambda_3} \\ = \begin{cases}\lambda_1 + \lambda_2 + 2\lambda_3 = 1 \\ 2\lambda_1 + k\lambda_2 + 4\lambda_3 = k \\ CONTINUA\end{cases} \end{array}$$
+- proviamo ad usare Gauss in modo diretto.$M_{2,2}(\mathbb{R})$ ha dimensione 4, quindi una delle sue basi potrebbe essere $C = \{\pmatrix{1 & 0 \\ 0 & 0}, \pmatrix{0 & 1 \\ 0 & 0}, \pmatrix{0 & 0 \\ 1 & 0}, \pmatrix{0 & 0 \\ 0 & 1}\}$. Prendiamo ora $v_1  = \pmatrix{1 & 2 \\ k & -3}$ (vedi premessa dell'esercizio) e scriviamo $\left(v_1\right)_c = \left(1, 2,  k,  -3\right)$. Quindi:$$v_1 = 1\pmatrix{1 & 0 \\ 0 & 0} + 2\pmatrix{0 & 1 \\ 0 & 0} + k\pmatrix{0 & 0 \\ 1 & 0} -3\pmatrix{0 & 0 \\ 0 & 1}$$Prendiamo ora $v_2$ e $v_3$ e facciamo la medesima cosa: $\left(v_2\right) = \pmatrix{1,k,1,-3}, \left(v_3\right)_c = \pmatrix{2,4,3,-6}$. Ora scriviamo $\left(v\right)_c = \pmatrix{1 & k & 2 & -3}$. Costruiamo ora la matrice che ha per righe $\left(v_1\right)_c \dots \left(v\right)_c$:$$\pmatrix{1 & 2 & k & -3 \\ 1 & k & 1 & -3 \\ 2 & 4 & 3 & -6 \\ 1 & k & 2 & -3}$$che per Gauss risulta:$$\pmatrix{1 & 2 & k & -3 \\ 0 & k-2 & 1-k & 0 \\ 0 & 0 & 3-2k & 0 \\ 0 & 0 & 1 & 0}$$quindi NON una matrice scala. Per rispondere alla domanda conviene quindi trovare una dimensione $\lt v_1, v_2, v_3\gt$ per poi aggiungervi $v$. Se $dim \lt v_1, v_2, v_3 \gt = dim \lt v_1, v_2, v_3, v \gt \Rightarrow \lt v_1, v_2, v_3, v \gt = \lt v_1, v_2, v_3 \gt \Rightarrow v \in \lt v_1, v_2, v_3 \gt$. Se invece $dim\lt v_1, v_2, v_3, v \gt \not = dim\lt v_1, v_2, v_3 \gt \Rightarrow v \not \in \lt v_1, v_2, v_3 \gt$. Facendo Gauss in modo diretto devo stare attento a non scambiare l'ultima riga con una delle precedenti (in questo caso).
+  Se $k -2 \not = 0$ e $3 - 2k \not = 0$ si ha $dim=3$. Poi sostituendo per $k$ diversi valori possiamo trovare come varia la $dim$ del sottospazio generato dai vettori $v_1, v_2, v_3$. Ad esempio, per $k = 2$ avremmo $dim = 2$, etc $\dots$
+
+Applicazione lineari:
+siano $V, W$ sp.vett.
+$F$ $V \rightarrow W$ si dice lineare se
+1) $F(v_1 + v_2) = F(v_1) + F(v_2)$ per ogni $v_1, v_2 \in V$.
+2) $F(\lambda v) = \lambda F(v) \forall \lambda \in \mathbb{R} \forall v \in V$
+Conseguenze di 1 e 2:$$F(\lambda_1v_1 + \dots + \lambda_nv_n) \stackrel{1}{=}F(\lambda_1v_1) + \dots + (\lambda_nv_n)$$
+3) $V = \mathbb{R}^n$ $W = \mathbb{R}^n$ $A \in M_{m,n}(\mathbb{R})$ allora $L_A: \mathbb{R}^n \rightarrow \mathbb{R}^m$
+ovvero $(x_1, \dots, x_n) \rightarrow A \cdot \pmatrix{x_1 \\ \dots \\ x_n}$
+Esempio: $A = \pmatrix{3 & 1 & -2 \\ 0 & 4 & -3}$ ;$L_A \quad \mathbb{R}^3 \rightarrow \mathbb{R}^2 \quad \left(x_1, x_2, x_3\right) \rightarrow \pmatrix{3 & 1 & -2 \\ 0 & 4 & -3} \cdot \pmatrix{x_1 \\ x_2 \\ x_3}$  
+allora $L_A(x_1, x_2, x_3) = (3x_1 + x_2 - 2x_3, 4x_2 - 3x_3)$ 
+$v_1 = \underline{x}$; $v_2 = \underline{y}$.
+$L_A(v_1 + v_2) = A(\underline{x}  + \underline{y}) = A\underline{X} + A\underline{y}$ (per la distributività del prodotto righe per colonne)
+$L_A(v_1) + L_A(v_2)$
+$L_A(1,-1,2) = (3 -1 -4, -4 -6) = (-2, -10)$ da cui trovo:
+$$\begin{array}.L_A(c_1) = L_A(1, 0, 0) = (3,0) \\ L_A(c_2) = L_A(0, 1, 0) = (1,4) \\ L_A(c_3) = L_A(0,0,1) = (-2, -3)\end{array}$$
+Vale sempre quindi che $L_A$(e, i) è sempre la $i$ esima colonna di $A$.
