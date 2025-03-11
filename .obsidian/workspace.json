@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "67dde0b5528877f5",
+        "id": "38e319969a0543f9",
         "type": "tabs",
         "children": [
           {
-            "id": "ef31d6127a214679",
+            "id": "2388298b21f209e7",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -166,12 +166,12 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "ef31d6127a214679",
+  "active": "2388298b21f209e7",
   "lastOpenFiles": [
-    "Algos/Pasted image 20250225114530.png",
-    "Algos/Introduzione, complessità computazionali e analisi degli algoritmi.md",
     "Algos/Esercizi inerenti al confronto tra funzioni.md",
+    "Algos/Introduzione, complessità computazionali e analisi degli algoritmi.md",
     "Algos/Equazioni di Ricorrenza.md",
+    "Algos/Pasted image 20250225114530.png",
     "Algebra & Geometria/Introduzione ad Algebra & Geometra.md",
     "Algos/Analizzare un algoritmo.md",
     "Algos/Parte matematica.md",
