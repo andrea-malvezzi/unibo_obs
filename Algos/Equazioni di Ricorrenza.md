@@ -4,7 +4,7 @@ data: $25/02/2025$
 Il master theorem è un approccio per risolvere ricorrenze nella forma $T(n) = aT(n/b) + f(n), a \geq 1 \text{ e } b \gt 1$.
 Confronteremo il rate di crescita della funzione $f(n)$ con quello della funzione $n^{\log_b{a}}$ , in maniera seguente:
 $$$$
-1) Se $\alpha \gt \beta$ allora $T(n) = \Theta(n^\alpha)$ 
+1) Se $\alpha \gt \beta$ allora $T(n) = \Theta(n^\alpha)$ ****
 2) Se $\alpha = \beta$ allora $T(n) = \Theta(n^\alpha \log{n})$
 3) Se $\alpha \lt \beta$ allora $T(n) = \Theta(n^\beta)$ 
 Esempio 1:

@@ -366,3 +366,38 @@ $L_A(v_1) + L_A(v_2)$
 $L_A(1,-1,2) = (3 -1 -4, -4 -6) = (-2, -10)$ da cui trovo:
 $$\begin{array}.L_A(c_1) = L_A(1, 0, 0) = (3,0) \\ L_A(c_2) = L_A(0, 1, 0) = (1,4) \\ L_A(c_3) = L_A(0,0,1) = (-2, -3)\end{array}$$
 Vale sempre quindi che $L_A$(e, i) è sempre la $i$ esima colonna di $A$.
+
+data: $12/03/2025$
+$V, W$ sp.vett. $F: V \rightarrow W$
+si dice applicazione lineare se
+1) $F(v + u) = F(u) + f(v) \forall u,v \in V$;
+2) $F(\lambda v) = \lambda F(v) \forall v \in V \forall \lambda \in \mathbb{R}$.
+Segue che se $F$ è lineare
+$F(\lambda_1v_1 + \lambda_2v_2 + \dots + \lambda_nv_n) = \lambda_1F(v_1) + \dots + \lambda_nF(v_n)$ 
+Proposizione:
+$F, V \rightarrow W$ lineare
+$F(\underline{0}v) = \underline{0}w$
+Dimostrazione: $F(\underline{0}v) = F(0 \cdot \underline{0}v) \stackrel{2}{=} 0F(\underline{0}v)=0_w$
+$f$ si dice suriettiva $\forall b \in B \exists a \in A: f(a) = b$.
+$Im(f) = \{f(a), a \in A\}$ (Im = immagine di A)
+$f$ si dice iniettiva se $a_1 \not = a_2 \Rightarrow f(a_1) \not = f(a_2)$ elementi distinti hanno immagini distinte o equivalentemente $f(a_1) = f(a_2) \Rightarrow a_1 = a_2$.
+Definizione: $V, W$ sp. vett. $F, V \rightarrow W$ lineare $KerF = \{v \in V : f(v) = \underline{0}_w\}$, dove $Ker$ sta per kernel
+$Im(f) = \{w \in W : w = f(v) \text{ per qualche } v \in V\} = \{f(v), v \in V\}$.
+Prop. a: $F$ è su $Im(f) = W$ niente da dimostrare, segue dalla def di funzione suriettiva.
+Prop.b: $F$ è iniettiva sse $KerF = \{0\}$
+Dimostriamo $b$
+Osserviamo che $o_v \in V \in KerF$ perché $F(o_v) = O_w$
+Supponiamo $F$ iniettiva e sia $v \in KerF \Rightarrow F(v) = 0_w$ ma anche $F(0_v) = 0_w \Rightarrow v = 0_w$ F è in $KerF = \{\underline{0}\}$.
+Viceversa, supponiamo $KerF = \{\underline{0}\}$ e mostriamo che $F$ è iniettiva. Siano $v, u \in V : F(v) = F(u)$ mostriamo che $u = v$.
+Dal fatto che $F(v) = F(u) \Rightarrow F(v)-F(u) = 0_w$ ed $F$ lin., allora $F(v-u)=0_w \Rightarrow v - u \in KerF \Rightarrow v - u = 0_v \Rightarrow v = u$
+Prop. $F, V \rightarrow W$ lin.
+3) $KerF$ è sottospazio di $V$
+4) $Im(F) " " di $W$
+Dim. mostriamo che $KerF \leq V$, allora $KerF =\{u \in V : F(v) = 0_w\}, 0_v \in KerF \text{ perché } F(0_v) = O_w$ 
+Siano $u, v \in KerF$ e mostriamo che $u + v \in KerF$
+$u_1v \in KerF \Rightarrow F(u) = 0_w$ e $F(v) = 0_w$
+$F(u + v) = F(u) + F(v) = 0_w + 0_w = 0_w \Rightarrow u + v \in KerF$
+-----------------
+Proposizione 5.1.7:
+Sia $V$ uno sp.vett. e sia $B = \{v_1, \dots, v_n\}$ una base di $V$. Sia $W$ un altro sp.vett. e siano $w_1, \dots, w_n$  dei vettori di $W$. Allora esiste un'unica applicazione lineare $F, V \rightarrow W: F(v_1) = w_1; F(v_2) = w_2; \dots; F(v_i) = w_i$.
+Questo è utile se devo costruire applicazioni lineari in quanto basta vi sia una base per averne sicuramente una.
