@@ -401,3 +401,44 @@ $F(u + v) = F(u) + F(v) = 0_w + 0_w = 0_w \Rightarrow u + v \in KerF$
 Proposizione 5.1.7:
 Sia $V$ uno sp.vett. e sia $B = \{v_1, \dots, v_n\}$ una base di $V$. Sia $W$ un altro sp.vett. e siano $w_1, \dots, w_n$  dei vettori di $W$. Allora esiste un'unica applicazione lineare $F, V \rightarrow W: F(v_1) = w_1; F(v_2) = w_2; \dots; F(v_i) = w_i$.
 Questo è utile se devo costruire applicazioni lineari in quanto basta vi sia una base per averne sicuramente una.
+
+data: $13/03/2025$
+esercizi con Luca!
+$v = \pmatrix{2 \\ 1 \\ 0 \\ -2}$ e base $B = \{\pmatrix{1 \\ 0 \\ 0 \\ -1}, \pmatrix{1 \\ 0 \\ 2 \\ 1}, \pmatrix{1 \\ 1 \\ 0 \\ -1}, \pmatrix{0 \\ 0 \\ -2 \\ 1}\}$.
+Sappiamo che una base genera uno spazio vettoriale (in questo caso $\mathbb{R}^4$). Cerchiamo $x_1, x_2, x_3, x_4$ per ottenere $v$ partendo dai vettori della Base $B$ (ovvero le coordinate di $v$ rispetto alla Base $B$). Scriviamo:
+$$x_1 \cdot \pmatrix{1 \\ 0 \\ 0 \\ -1} + x_2 \cdot \pmatrix{1 \\ 0 \\ 2 \\ 1} + x_3 \cdot \pmatrix{1 \\ 1 \\ 0 \\ -1} + x_4 \cdot \pmatrix{0 \\ 0 \\ -2 \\ 1} = \pmatrix{2 \\ 1 \\ 0 \\ -2}$$Che è come scrivere$$\pmatrix{1 & 1 & 1 & 0 \\ 0 & 0 & 1 & 0 \\ 0 & 2 & 0 & -2 \\ -1 & 1 & -1 & 1} \pmatrix{x_1 \\ x_2 \\ x_3 \\ x_4} = \pmatrix{2 \\ 1 \\ 0 \\ -2}$$Ora rendiamo la prima matrice scala, scambiando la seconda e la terza riga e poi calcolando $R_4 - R_1$:$$
+\begin{array}{cccc|c}
+1 & 1 & 1 & 0 & 2 \\ 
+0 & 2 & 0 & -2 & 1 \\ 
+0 & 0 & 1 & 0 & 0 \\ 
+0 & 2 & 0 & 1 & -2 
+\end{array} 
+\rightarrow 
+\begin{array}{cccc|c}
+1 & 1 & 1 & 0 & 2 \\ 
+0 & 2 & 0 & -2 & 0 \\ 
+0 & 0 & 1 & 4 & 1 \\ 
+0 & 0 & 0 & 3 & 0 
+\end{array}
+$$
+Secondo es.
+In $\mathbb{R}^3$, abbiamo Base $B = \{1,x,x^2,x^3\}$ e $v = x^2 -2x +3$. Per generare $v$ prendo $3$ volte $1$, $-2$ volte $x$, etc$\dots$ senza sistema in quanto ovvio.
+Se invece la base fosse stata $B = \{2, x, 1+x^2, x^3\}$:
+- prendo 1 volta il $2$;
+- rendo 1 volta $1 + x^2$;
+- ignoro $x^3$;
+- prendo $-2$ volte $x$.
+Oppure, con una risoluzione più dettagliata: $\lambda_1(2) + \lambda_2(x) \dots \lambda_3(x^3)$ e troviamo i lambda.
+
+Esercizio 2F:
+$v = \pmatrix{-1 & 5 \\ 5 & 4}$ nello spazio $S_2(\mathbb{R}) = \{\pmatrix{a & b \\ c & d} : a,b,c \in \mathbb{R}\}$ quindi in uno spazio di matrici 2,2 simmetriche.
+La base di uno spazio con matrici 2,2 potrebbe essere (ricordando quelle canoniche) $B = \{\pmatrix{1 & 0 \\ 0 & 0}, \pmatrix{0 & 1 \\ 1 & 0}, \pmatrix{0 & 0 \\ 0 & 1}\}$. Quindi come posso costruire $v$?
+Prendendo -1 volte $b_1$, 5 volte $b_2$ e 4 volte $b_3$.
+
+Esercizio 3:
+In $\mathbb{R}^2[x]$ Prendiamo $w = \{p(x) : p(1) = 0\}$ verifica che $w$ sia sottospazio vettoriale.
+Se prendo $p_1$ e $p_2$ entrambi $\in W \stackrel{?}{\Rightarrow} p_1 + p_2 \in W$
+Se $p \in W \stackrel{?}{\Rightarrow} \lambda p \in W$
+prendo $p(1) = 0 \Rightarrow \lambda p(1) = 0$.
+Boh suca non ho capito gli esempi ZIOPERA
+Determinare un insieme di generatori di $W$.

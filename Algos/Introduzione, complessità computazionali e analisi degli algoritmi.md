@@ -36,6 +36,9 @@
 			5. [Esempio significativo: Fibonacci risolto con metodo dell'iterazione](#Esempio%20significativo:%20Fibonacci%20risolto%20con%20metodo%20dell'iterazione)
 			6. [Esempio generico](#Esempio%20generico)
 		15. [Master Theorem](#Master%20Theorem)
+			7. [Esempio 1](#Esempio%201)
+			8. [Esempio 2](#Esempio%202)
+			9. [Esempio 3](#Esempio%203)
 ## Cos'è un algoritmo?
 Un algoritmo è la descrizione di una procedura: è un'astrazione e può quindi assumere un quantitativo di memoria illimitato. Questo vincola inoltre un set di input ad un determinato output.
 ### Algoritmi "cattivi"
