@@ -1,3 +1,9 @@
+## Pila
+Una **pila** è una **Lista** che supporta le operazioni di **push** (aggiungere un elemento "in cima" alla pila, ovvero alla prima posizione) e di **pop** (rimuovere un elemento in cima alla pila). Si tratta quindi di una struttura dati **LIFO**: Last In First Out.
+Questa struttura dati si può implementare partendo da un Array o da una Lista concatenata ed in entrambi i casi le operazioni elencate avranno complessità costante.
+## Coda
+Una **Coda** è una **Lista** che supporta le operazioni di **enqueue** (aggiungere un elemento "in coda" alla coda, ovvero alla prima posizione libera) e di **dequeue** (rimuovere un elemento all'inizio della coda). Si tratta quindi di una struttura dati **FIFO**: First In First Out.
+Anche questa struttura dati si può implementare partendo da un Array o da una Lista concatenata ed in entrambi i casi le operazioni elencate avranno complessità costante.
 ## Alberi
 Un **albero** è una **struttura dati non lineare**, il che significa che i suoi elementi non sono collegati tra loro secondo uno schema sequenziale, come avviene negli array o nelle liste.
 ### Definizione di Albero

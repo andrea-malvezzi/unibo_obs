@@ -171,26 +171,18 @@ Prendiamo $X = \{\left(x,y\right) \in \mathbb{R}^2 : y = 0\}$. $X \leq \mathbb{R
 1) $X \not = \emptyset$, in quanto contiene tutte le infinite coppie di numeri reali $\left(x, 0\right)$;
 2) $X$ è chiuso rispetto alla somma, in quanto prendendo due vettori $\left(x_1,0\right)$ e $\left(x_2, 0\right)$ e facendone la somma, si otterrebbe $\left(x_1 + x_2, 0\right)$, che rispetta la definizione dell'insieme $X$;
 3) $X$ è chiuso rispetto al prodotto tra vettori e scalari, in quanto prendendo un vettore $\left(x_1, 0\right)$ e moltiplicandolo per $\lambda \in \mathbb{R}^2$, si otterrebbe $\left(\lambda x_1, 0\right)$, che fa parte di $X$.
-<!-- BRUTTA da qui -->
 ### Sottospazi di $\mathbb{R}^2$
 I sottospazi di $\mathbb{R}^2$ corrispondono a:
 1) $\{0_v\}$;
 2) rette moltiplicate per $\{0_v\}$;
 3) $\mathbb{R}^2$ stesso.
-<!-- BRUTTA DA QUI -->
 ## Combinazioni lineari
-Sia $V$ uno spazio vettoriale. $v_1, \dots, v_n \in V$.
-Una combinazione lineare di $v_1, \dots, v_n$ è un vettore $v$ del tipo $v = \lambda_1v_1 + \lambda_2v_2 + \dots + \lambda_nv_n$ con $\lambda:1, \lambda_2, \dots, \lambda_n \in \mathbb{R}$.
-Ad esempio:
-Avendo $V = \mathbb{R}^2[x]$, $v_1 = x^2 - 5x + 7$ e $v_2 = 3x - 1$, allora $v = 3(v_1) + 2(v_2)$.
-Definizione: $V$ spaz. vett. $v_1, \dots, v_n \in V$. Allora: $\lt v_1, \dots, v_n\gt = \{\lambda_1v_1 + \dots + \lambda_nv_n | \lambda_1, \dots, \lambda_n \in \mathbb{R}\}$ è l'insieme di tutte le combinazioni lineari di $v_1, \dots, v_n$ . Perché ci interessano le combinazioni lineari? Una combinazione lineare è sempre il sottospazio più piccolo che contiene i vettori usati per costruirlo.
-### Dimostrazione
-Abbiamo che: $\lt v_1, \dots, v_n \gt = \{\lambda_1v_1 + \dots + \lambda_nv_n | \lambda_1, \dots, \lambda_n \in \mathbb{R} \}$. Dobbiamo dimostrare che questo sia un sottospazio.
-Prendiamo $\underline{0} = 0v_1 + \dots + 0v_n \in \lt v_1, \dots, v_2 \gt$.
-Siano $u, v \in \lt v_1, \dots, v_2 \gt$ t.c. 
-$u = \lambda_1v_1 + \dots + \lambda_nv_n$ e $v = \gamma_1v_1 + \dots + \gamma_nv_n$
-$u + v = \lambda_1v_1 + \dots + \gamma_1v_1 + \dots + \gamma_nv_n = (\lambda_1 + \gamma_1)v_1 + \dots + (\lambda_n + \gamma_n)v_n$.
-$\dots$ [vedi appunti Elisa]
+Sia $W$ un sottospazio vettoriale di $\mathbb{R}^2$ definito nella maniera seguente: $W = \{\left(x, ax\right): x \in \mathbb{R}\}$, semplificabile come $W = \{x\left(1, a\right) : x \in \mathbb{R}\}$. Questo sottospazio corrisponde quindi all'insieme dei multipli del vettore $\left(1, a\right)$. Diciamo allora che tale vettore *genera* il sottospazio $W$.
+### Definizione di Combinazione lineare
+Siano $V$ uno spazio vettoriale, $v_1, \dots, v_n$ vettori appartenenti a tale insieme e $\lambda_1, \dots, \lambda_n$ degli scalari appartenenti ad $\mathbb{R}$. Allora il vettore $w = \lambda_1v_1 + \dots + \lambda_nv_n$ si dice la combinazione lineare di $v_1, \dots, v_n$. Questo significa che il vettore $w$ (o $span\left(v_1, \dots, v_n\right)$) è il sottoinsieme di $\mathbb{R}$ più piccolo contenente tutti i vettori usati per costruirlo.
+Una combinazione lineare tra i vettori $v_1, \dots, v_n$ si può inoltre indicare come $\lt v_1, \dots, v_n \gt = \lt \lambda_1v_1 + \dots + \lambda_nv_n : \lambda_1, \dots, \lambda_n \in \mathbb{R}\gt$. Ne consegue che possiamo riscrivere la seconda osservazione del capitolo [[Introduzione ad Algebra & Geometra# Definizioni ed osservazioni utili|Definizioni ed osservazioni utili]] come una combinazione lineare della seguente forma: $\lt v \gt = \lt \lambda v : \lambda \in \mathbb{R}\gt$,ovvero come l'insieme di tutti i multipli di $v$.
+#### Esempio
+Vogliamo determinare il sottospazio generato dai vettori $\left(1,1\right), \left(2,k\right)$ al variare di $k$. Ovvero:$$\lt \left(1,1\right),\left(2,k\right) \gt = \lt \lambda_1\left(1,1\right) + \lambda_2\left(2,k\right) : \lambda_1,\lambda_2 \in \mathbb{R} \gt$$<!-- vedi pag.46 libro Marta BRUTTA DA QUI -->
 ### Definizione
 $\lt v_1, \dots, v_n \gt$ si dice sottospazio generato da $v_1, \dots, v_n$. Si dice $V$ è generato da $\lt v_1, \dots, v_n \gt$ .
 [vedi Span 3Blue1Brown YT per riassunto della lezione].
