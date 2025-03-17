@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Algos/Algoritmi per le strutture dati.md",
+                "file": "Algebra & Geometria/Introduzione ad Algebra & Geometra.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Algoritmi per le strutture dati"
+              "title": "Introduzione ad Algebra & Geometra"
             }
           }
         ]
@@ -168,10 +168,10 @@
   },
   "active": "56be7da67e0eb43e",
   "lastOpenFiles": [
-    "Algos/Strutture dati.md",
     "Algos/Algoritmi per le strutture dati.md",
     "Algos/Esercizi inerenti al confronto tra funzioni.md",
     "Algos/Introduzione, complessità computazionali e analisi degli algoritmi.md",
+    "Algos/Strutture dati.md",
     "Algos/brutta dell'11 Marzo 2025.md",
     "Algos/images/Pasted image 20250313120924.png",
     "Algos/images",

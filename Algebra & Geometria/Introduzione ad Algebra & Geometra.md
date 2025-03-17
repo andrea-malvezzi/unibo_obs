@@ -139,6 +139,17 @@ Il prodotto deve formare a sua volta un gruppo ***abeliano***, ovvero rispettare
 2) *associatività:* $(a \cdot b) \cdot c = a \cdot (b \cdot c), \ \forall a,b,c \in V$;
 3) *elemento neutro:* deve esistere un elemento $1 \in V: a \cdot 1 = a, \forall a \in V$;
 4) elemento opposto: $\forall a \not = 0 \in V, \ \exists a^{-1}: a \cdot a^{-1} = 1$
+### Proprietà utili
+Le seguenti proprietà sono valide in un qualunque spazio vettoriale $V$:
+1) Il vettore nullo è unico e verrà indicato (generalmente) con $0v$.
+2) Se $u \in V$, l'opposto di $u$ si indica con $-u$ ed è unico.
+3) $\lambda 0_v = 0_v, \forall \lambda \in \mathbb{R}$.
+4) $0u = 0_v, \forall u \in V$.
+5) Se $\lambda u = 0_v$ allora si ha o $\lambda = 0$ oppure $u = 0_v$.
+6) $\left(-\lambda\right)u = \lambda\left(-u\right) = -\lambda u$.
+### Definizioni ed osservazioni utili
+1) Uno spazio vettoriale $V$ contenente unicamente il vettore nullo $0_v$ si dice spazio vettoriale banale.
+2) Supponendo che uno spazio vettoriale $V$ sia non-banale (ovvero che contenga almeno un elemento diverso dal vettore nullo), si può affermare che $V$ contenga tutti i vettori frutto del prodotto tra un vettore $v$ da esso contenuto e i vari $\lambda \in \mathbb{R}$.
 ### Esempio di un insieme che non è uno spazio vettoriale
 Prendo $\mathbb{R}^2 = \{(a,b) = a, b \in \mathbb{R}\}$ e definisco la somma come $(a,b) + (c,d) = (ac, b + d)$ ed il prodotto come $\lambda (a,b) = (a, \lambda b)$.
 Per verificare se l'insieme fornito (considerando le definizioni di somma e prodotto valide all'interno di esso) corrisponde ad uno spazio vettoriale, verifichiamo la veridicità delle proprietà per le operazioni elencate.
@@ -149,35 +160,25 @@ Per verificare se l'insieme fornito (considerando le definizioni di somma e prod
 ### Differenza tra Spazio e Campo vettoriale
 Nello spazio vettoriale si ha un insieme di vettori che possono essere aggiunti tra loro e moltiplicati per scalari (numeri).
 Un campo vettoriale è invece una *funzione* che associa un vettore ad ogni punto di un certo spazio.
-## Sottospazio
+## Sottospazio vettoriale
 Sia $V$ uno spazio vettoriale. Un sottoinsieme $U$ di $V$ si dice sottospazio **vettoriale** di $V$ ($U \leq V$) se 
 1) $U \not = \emptyset$;
 2) $U$ è chiuso rispetto alla somma; 
 3) $U$ è chiuso rispetto al prodotto per scalari.
-Inoltre, sapendo che uno spazio vettoriale contiene sempre almeno due sottoinsiemi, ovvero quello banale (contenente unicamente il vettore nullo) e sé stesso, possiamo affermare che, a meno del caso in cui $U = \{0\}$, si ha che $U$ contiene infiniti vettori in quanto posso moltiplicare infiniti scalari per un singolo vettore.
+Inoltre, sapendo che uno spazio vettoriale contiene sempre almeno due sottoinsiemi, ovvero quello banale e sé stesso, possiamo affermare che, a meno del caso in cui $U = \{0\}$, si ha che $U$ contiene infiniti elementi a sua volta, in quanto la seconda osservazione del capitolo [[Introduzione ad Algebra & Geometra# Definizioni ed osservazioni utili|Definizioni ed osservazioni utili]] è valida per ogni spazio vettoriale.
 ### Esempio di sottospazio vettoriale
-Prendiamo $V = \mathbb{R}^2$ e un insieme $U = \{(x, y) | x^2 - xy = 0\}$. Sapendo che $U \leq V$, possiamo affermare che $(0,0) \in V?$ Sì perché la coppia $(0, 0)$ risolve l'equazione fornita dalla definizione di $U$.
-E invece avendo $u_1 = \left( x_1, y_1 \right)$ e $u_2 = \left( x_2, y_2 \right)$, il vettore $u_1 + u_2$ sta in $U$?
-Calcoliamo $u_1 + u_2 \ \left( x_1 + x_2, y_1 + y_2 \right)$.
-In seguito, sostituiamo i valori trovati nella definizione di $U$:$$\left( x_1 + x_2\right)^2 - \left( x_1 + x_2 \right)\left(y_1 + y_2\right) = 0?$$che semplificato risulta:
-[chiedo calcoli a Dule o Zeno o Elisa]
+Prendiamo $X = \{\left(x,y\right) \in \mathbb{R}^2 : y = 0\}$. $X \leq \mathbb{R}^2$? 
+1) $X \not = \emptyset$, in quanto contiene tutte le infinite coppie di numeri reali $\left(x, 0\right)$;
+2) $X$ è chiuso rispetto alla somma, in quanto prendendo due vettori $\left(x_1,0\right)$ e $\left(x_2, 0\right)$ e facendone la somma, si otterrebbe $\left(x_1 + x_2, 0\right)$, che rispetta la definizione dell'insieme $X$;
+3) $X$ è chiuso rispetto al prodotto tra vettori e scalari, in quanto prendendo un vettore $\left(x_1, 0\right)$ e moltiplicandolo per $\lambda \in \mathbb{R}^2$, si otterrebbe $\left(\lambda x_1, 0\right)$, che fa parte di $X$.
 <!-- BRUTTA da qui -->
-## Sottospazi di $\mathbb{R}^2$
-Osservazione: La circonferenza $C = \{(x, y) | x^2 + y^2 = 1\}$ non è sottospazio in quanto $\underline{0} \not \in C$ e non sono rispettate la chiusura rispetto la somma (2) e al prodotto (3).
-La parabola $P = \{(x,y) | y = x^2\}$ invece contiene l'insieme nullo, ma non verifica né (2) né (3).
-Supponiamo che $U$ sia un sottospazio di $\mathbb{R}^2$, che $U \not = \{\underline{0}\}$ e sia $u \in U$. Sappiamo che $U$ contiene tutti i vettori $\{a \cdot \underline{u}| a \in \mathbb{R}\}$ quindi $U$ contiene la retta per l'origine e passante per $\underline{u}$. Chiamiamo questa retta $r_u$. Abbiamo due casi:
-1) $U = r_u$
-2) esiste $w \in U, w \not \in r_u$ 
-Sicuramente $U$ contiene la retta $r_w$ passante per $0$ e di direzione $w$. Inoltre, se prendo un qualsiasi $p \in r_u$ e $q \in r_w$, allora $U$ deve contenere "$p + q$".
-Che figura geometrica otteniamo? Un **piano** $\Rightarrow$ U è tutto $\mathbb{R}^2$!
-I sottospazi di $\mathbb{R}^2$ sono quindi:
-1) $\{\underline{0}\}$
-2) rette per $\{\underline{0}\}$
-3) $\mathbb{R}^2$ stesso
-Sappiamo che $\stackrel{\rightarrow}{OP_1}$, $\dots$, $\stackrel{\rightarrow}{OP_n}$ vettori applicati nel piano il più piccolo sottospazio che li contiene può essere:
-1) $\{\underline{0}\}$
-2) una retta per $\{\underline{0}\}$
-3) tutto il piano
+### Sottospazi di $\mathbb{R}^2$
+I sottospazi di $\mathbb{R}^2$ corrispondono a:
+1) $\{0_v\}$;
+2) rette moltiplicate per $\{0_v\}$;
+3) $\mathbb{R}^2$ stesso.
+<!-- BRUTTA DA QUI -->
+## Combinazioni lineari
 Sia $V$ uno spazio vettoriale. $v_1, \dots, v_n \in V$.
 Una combinazione lineare di $v_1, \dots, v_n$ è un vettore $v$ del tipo $v = \lambda_1v_1 + \lambda_2v_2 + \dots + \lambda_nv_n$ con $\lambda:1, \lambda_2, \dots, \lambda_n \in \mathbb{R}$.
 Ad esempio:
