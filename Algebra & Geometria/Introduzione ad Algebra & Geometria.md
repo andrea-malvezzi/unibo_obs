@@ -156,7 +156,7 @@ Per verificare se l'insieme fornito (considerando le definizioni di somma e prod
 1) La somma sarà commutativa?$$\begin{aligned}(a,b) + (c,d) = (ac, b + d) \\ (c,d) + (a,b) = (ca, d + b) \end{aligned}$$La somma è quindi commutativa.
 2) La proprietà associativa è valida?$$\begin{aligned}((a, b) + (c, d)) + (e, f) = (ac, b + d) + (e, f) = (ace, b + d + f) \\ (a, b) + ((c, d) + (e, f)) = (a, b) + (ce, d + f) = (ace, b + d + f)\end{aligned}$$L'associatività è quindi verificata.
 3) Esiste l'elemento neutro per la somma?$$\text{prendendo } \underline{0} = (1, 0); (a, b) + \underline{0} = (a \cdot 1, b + 0) = (a, b)$$
-4) Esiste l'elemento opposto della somma? Considerando $(a, b)$ dovrei trovare una coppia $(c, d)$ che sommata alla prima restituisca l'elemento neutro $\underline{0}$: dovrei arrivare ad avere:$$(a, b) + (c, d) = (1, 0)$$ovvero dovrei trovare una coppia che verifichi le equazioni seguenti:$$\begin{cases}a \cdot c = 1 \\ b + d = 0\end{cases}$$da cui semplificando ottengo:$$\begin{cases}c = \frac{1}{a}, a \not = 0 \\ d = -b\end{cases}$$questo elemento opposto dovrebbe valere per tutti i membri di $\mathbb{R}^2$, ma nel caso in cui $a$ sia pari a $0$ il sistema salta. L'insieme non presenta quindi un candidato valido per la [[Introduzione ad Algebra & Geometra#^5455f8|quarta proprietà della somma]].
+4) Esiste l'elemento opposto della somma? Considerando $(a, b)$ dovrei trovare una coppia $(c, d)$ che sommata alla prima restituisca l'elemento neutro $\underline{0}$: dovrei arrivare ad avere:$$(a, b) + (c, d) = (1, 0)$$ovvero dovrei trovare una coppia che verifichi le equazioni seguenti:$$\begin{cases}a \cdot c = 1 \\ b + d = 0\end{cases}$$da cui semplificando ottengo:$$\begin{cases}c = \frac{1}{a}, a \not = 0 \\ d = -b\end{cases}$$questo elemento opposto dovrebbe valere per tutti i membri di $\mathbb{R}^2$, ma nel caso in cui $a$ sia pari a $0$ il sistema salta. L'insieme non presenta quindi un candidato valido per la [[Introduzione ad Algebra & Geometria#^5455f8|quarta proprietà della somma]].
 ### Differenza tra Spazio e Campo vettoriale
 Nello spazio vettoriale si ha un insieme di vettori che possono essere aggiunti tra loro e moltiplicati per scalari (numeri).
 Un campo vettoriale è invece una *funzione* che associa un vettore ad ogni punto di un certo spazio.
@@ -165,7 +165,7 @@ Sia $V$ uno spazio vettoriale. Un sottoinsieme $U$ di $V$ si dice sottospazio **
 1) $U \not = \emptyset$;
 2) $U$ è chiuso rispetto alla somma; 
 3) $U$ è chiuso rispetto al prodotto per scalari.
-Inoltre, sapendo che uno spazio vettoriale contiene sempre almeno due sottoinsiemi, ovvero quello banale e sé stesso, possiamo affermare che, a meno del caso in cui $U = \{0\}$, si ha che $U$ contiene infiniti elementi a sua volta, in quanto la seconda osservazione del capitolo [[Introduzione ad Algebra & Geometra# Definizioni ed osservazioni utili|Definizioni ed osservazioni utili]] è valida per ogni spazio vettoriale.
+Inoltre, sapendo che uno spazio vettoriale contiene sempre almeno due sottoinsiemi, ovvero quello banale e sé stesso, possiamo affermare che, a meno del caso in cui $U = \{0\}$, si ha che $U$ contiene infiniti elementi a sua volta, in quanto la seconda osservazione del capitolo [[Introduzione ad Algebra & Geometria# Definizioni ed osservazioni utili|Definizioni ed osservazioni utili]] è valida per ogni spazio vettoriale.
 ### Esempio di sottospazio vettoriale
 Prendiamo $X = \{\left(x,y\right) \in \mathbb{R}^2 : y = 0\}$. $X \leq \mathbb{R}^2$? 
 1) $X \not = \emptyset$, in quanto contiene tutte le infinite coppie di numeri reali $\left(x, 0\right)$;
@@ -180,7 +180,7 @@ I sottospazi di $\mathbb{R}^2$ corrispondono a:
 Sia $W$ un sottospazio vettoriale di $\mathbb{R}^2$ definito nella maniera seguente: $W = \{\left(x, ax\right): x \in \mathbb{R}\}$, semplificabile come $W = \{x\left(1, a\right) : x \in \mathbb{R}\}$. Questo sottospazio corrisponde quindi all'insieme dei multipli del vettore $\left(1, a\right)$. Diciamo allora che tale vettore *genera* il sottospazio $W$.
 ### Definizione di Combinazione lineare
 Siano $V$ uno spazio vettoriale, $v_1, \dots, v_n$ vettori appartenenti a tale insieme e $\lambda_1, \dots, \lambda_n$ degli scalari appartenenti ad $\mathbb{R}$. Allora il vettore $w = \lambda_1v_1 + \dots + \lambda_nv_n$ si dice la combinazione lineare di $v_1, \dots, v_n$. Questo significa che il vettore $w$ (o $span\left(v_1, \dots, v_n\right)$) è il sottoinsieme di $\mathbb{R}$ più piccolo contenente tutti i vettori usati per costruirlo.
-Una combinazione lineare tra i vettori $v_1, \dots, v_n$ si può inoltre indicare come $\lt v_1, \dots, v_n \gt = \lt \lambda_1v_1 + \dots + \lambda_nv_n : \lambda_1, \dots, \lambda_n \in \mathbb{R}\gt$. Ne consegue che possiamo riscrivere la seconda osservazione del capitolo [[Introduzione ad Algebra & Geometra# Definizioni ed osservazioni utili|Definizioni ed osservazioni utili]] come una combinazione lineare della seguente forma: $\lt v \gt = \lt \lambda v : \lambda \in \mathbb{R}\gt$,ovvero come l'insieme di tutti i multipli di $v$.
+Una combinazione lineare tra i vettori $v_1, \dots, v_n$ si può inoltre indicare come $\lt v_1, \dots, v_n \gt = \lt \lambda_1v_1 + \dots + \lambda_nv_n : \lambda_1, \dots, \lambda_n \in \mathbb{R}\gt$. Ne consegue che possiamo riscrivere la seconda osservazione del capitolo [[Introduzione ad Algebra & Geometria# Definizioni ed osservazioni utili|Definizioni ed osservazioni utili]] come una combinazione lineare della seguente forma: $\lt v \gt = \lt \lambda v : \lambda \in \mathbb{R}\gt$,ovvero come l'insieme di tutti i multipli di $v$.
 #### Esempio
 Vogliamo determinare il sottospazio di $\mathbb{R}^2$ generato dai vettori $\left(1,1\right), \left(2,k\right)$ al variare di $k$. Ovvero:$$\lt \left(1,1\right),\left(2,k\right) \gt = \lt \lambda_1\left(1,1\right) + \lambda_2\left(2,k\right) : \lambda_1,\lambda_2 \in \mathbb{R} \gt$$Ora, trattandosi di vettori in $\mathbb{R}^2$, possiamo rappresentarli nel piano cartesiano. Poniamo $k = 1$, disegniamo i due vettori $v_1$ e $v_2$ e colleghiamoli all'origine:
 ![[Pasted image 20250318092827.png]]è facile notare come i due vettori non siano sulla stessa retta passante per l'origine: questo significa che (in questo piano) l'insieme più piccolo che possa contenere entrambi i vettori sarà tutto l'insieme stesso. In questo caso si afferma quindi che $v_1$ e $v_2$ generano $\mathbb{R}^2$.
@@ -201,90 +201,15 @@ L'insieme dei vettori $\{\left(1,0\right), \left(0, 1)\right), \left(1, 1\right)
 #### Esempio più complesso
 Il seguente insieme di vettori in $\mathbb{R}^2[x]: \{x + 1, x^2 - 1, 2, x - 1\}$ è linearmente indipendente? Scriviamo la combinazione lineare pari al vettore nullo dei vettori elencati:$$\lambda_1\left(x + 1\right) + \lambda_2\left(x^2 - 1\right) + \lambda_3\left(2\right) + \lambda_4\left(x - 1\right) = 0$$Che espandendo le parentesi e raccogliendo per $x$ risulta:$$\lambda_2x^2 + x(\lambda_1 + \lambda_4) + (\lambda_1 - \lambda_2 + 2\lambda_3 + \lambda_4) = 0$$Ora, sapendo che un polinomio è nullo solo sse tutti i suoi coefficienti sono nulli, ricaviamo il sistema lineare ad esso associato:$$\begin{cases}\lambda_2 = 0 \\ \lambda_1 + \lambda_4 = 0 \\ \lambda_1 -\lambda_2 + 2\lambda_3 + \lambda_4 = 0\end{cases}$$Una volta [[Terzo esempio combinazioni lineari|risolto il sistema]], si ottengono infinite soluzioni. Da questo deriva che i vettori siano tra loro linearmente dipendenti.
 #### Esercizi
-Per degli esercizi sulle combinazioni lineari, clicca [[Esercizi sulle combinazioni Lineari|qui]]!
-<!-- TODO BRUTTA da qui -->
-
-Esempio: in $\mathbb{R}^3$.
-$$e_1 = \left( 1, 0, 0 \right) \ e_2 = \left( 0, 1, 0 \right)$$Generiamo  $\lt e_1, e_2 \gt$:
-$\dots$
-$e_3 = \left( 0,0,1 \right)$
-$\lt e_1, e_2, e_3 \gt = \mathbb{R}^3$
-sia $\left( a, b, c \right) \in \mathbb{R}^3$
-mostro che $\left( a, b, c \right) = \lambda_1e_1 + \lambda_2e_2 + \lambda_3e_3$
-$\left( a, b, c \right) = a\left(1,0,0\right) + b\left(0,1,0\right) + c\left(0,0,1\right)$
-***Se non lo vedevate subito*** si doveva fare così: 
-1) cerco $\lambda_1, \lambda_2, \lambda_3$ t.c. $\left(a,b,c\right) = \lambda_1\left(1,0,0\right) + \lambda_2\left(0,1,0\right) + \lambda_3\left(0,0,1\right) = \left(\lambda_1, \lambda_2, \lambda_3 \right) \Rightarrow \lambda_1 = a, \lambda_2 = b, \lambda_3 = c$
-Esercizio in $\mathbb{R}_3$ (polinomi di grado max. $3$)
-$v_1 = x^3 + 2x^2 + 3x -1$, $v_2 = kx^3 + 4x^2 + 3kx - 2$, $v_3 = kx^2 + 3$, $v = x^3 + kx^2 + 3x + 3$
-Stabilire per quali $k \in \mathbb{R}$ il vettore $v \in \lt v_1, v_2, v_3 \gt$.
-$v \in \lt v_1, v_2, v_3 \gt$ se è comb.lineare di $v_1, v_2, v_3$ cioè se esistono $\lambda_1, \lambda_2, \lambda_3 \in \mathbb{R}$ t.c. $v = \lambda_1v_1 + \lambda_2v_2 + \lambda_3v_3$ deve succedere che $x^3 + kx^2 + 3x + 3 = \lambda_1\left(x^3 + 2x^2 + 3x - 1\right) + \lambda_2\left(kx^3 + 4x^2 + 3kx -2\right) + \lambda_3\left(kx^2 + 3\right) =$ dobbiamo capire se abbiamo $\lambda_1, \lambda_2, \lambda_3 = \left(\lambda_1 + k\lambda_2\right)^3 + \left(2\lambda_1 + 4\lambda_2 + k\lambda_3\right)x^2 + \left(3\lambda_1 + 3k\lambda_2\right)x + \left(-\lambda_1 - 2\lambda_2 + 3\lambda_3\right)$
-Due polinomi sono uguali quando gli stessi coeff. Deve succedere che:
-1) $\lambda_1 + k\lambda_2 = 1$
-2) $2\lambda_1 + 4\lambda_2 + k\lambda_3 = k$
-3) $3\lambda_1 + 3k\lambda_2 = 3$
-4) $-\lambda_1 - 2\lambda_2 + 3\lambda_3 = 3$
-Dobbiamo risolvere un sist. lineare nelle incognite $\lambda_1, \lambda_2, \lambda_3$ o meglio, voglio capire se POSSO TROVARE questi coefficienti, anche senza risolvere il sistema. Come posso fare a capire se un sistema lineare ha soluzioni? Trasformo in matrice associata e conto i rango righe.
-$$A|\underline{b} = \left(\begin{array}{ccc|c}1 & k & 0 & 1 \\ 2 & 4 & k & k \\ 3 & 3k & 0 & 3 \\ -1 & -2 & 3 & 3\end{array}\right)$$$$\left(\begin{array}{ccc|c}1 & k & 0 & 1 \\ 0 & 4 - 2k & k & k - 2 \\ 0 & 0 & 0 & 0 \\ 0 & k -2 & 3 & 4\end{array}\right)$$$$\left(\begin{array}{ccc|c}1 & k & 0 & 1 \\ 0 & 4 - 2k & k & k - 2 \\ 0 & k -2 & 3 & 4 \\ 0 & 0 & 0 & 0 \end{array}\right)$$$$\left(\begin{array}{ccc|c}1 & k & 0 & 1 \\ 0 & 4 - 2k & k & k - 2 \\ 0 & k -2 & 3 & 4 \\ 0 & 0 & 0 & 0 \end{array}\right)$$$\dots$ [vedi appunti degli altri per il proseguimento (o risolvila e basta)]
-Se $k \not = 2$ e $k \not = -6$ il $rr(A) = 3 = rr(A|\underline{b})$
-1 soluzione posso trovare $\lambda_1, \lambda_2, \lambda_3$, $v \in \lt v_1, v_2, v_3 \gt$
-se $k = 2$ otteniamo (basta sostituire nella matrice trovata alla fine e contare il rango righe per il numero di soluzioni):
-Se $k = -6$ otteniamo (stessa cosa del precedente):
-Risultato: $v \in \lt v_1, v_2, v_3 \gt$ per ogni $k \not = 2$.
-Esercizio:
-stabilire per quali $k$ i vettore $v_1 = \left(1,1\right)$ e $v_k = \left(3, k\right)$ generano $\mathbb{R}^2$.
-[vedi grafici appunti Matteo e copiali qui (non possiamo fare grafici haimé)]
-Se $v_1 // v_k$ cioè se $k = 3$ allora si ha $\lt \left(1,1\right), \left(3,3\right) \gt$ è la retta di eq. $y = x$. Quindi $\forall k, k \in \mathbb{R}, k \not = 3$.
-[vedi approccio algebrico per generalizzare questi casi dagli appunti di Matteo]
-
-a) Se $v$ è comb.lineare di $v_1 \dots v_n$ allora $\lt v_1, \dots, v_n \gt$ = $\lt v_1, \dots, v_n, v \gt$
-b) Se $\lt v_1, \dots, v_n \gt = \lt v_1, \dots, v_n, v \gt$ allora $v$ è comb.lineare di $v_1, \dots, v_n$
-Dim.(b): $I_p = \lt v_1, \dots, v_n, v \gt = \lt v_1, \dots, v_n \gt = v \in \lt v_1, \dots, v_n, v \gt \stackrel{iP}{=} \lt v_1, \dots, v_n \gt = \{\text{combinazione lineare di } v_1, \dots, v_n\}$ quindi $v$ è combinazione lineare di $v_1, \dots, v_n$
-Dim.(a):
-$Ip: v \in \lt v_1, \dots, v_n \gt$ sia $A_1 = \lt v_1, \dots, v_n \gt, A_2 = \lt v_1, \dots, v_n, v \gt$ devo mostrare $A_1 = A_2$.
-$A_1 \subseteq A_2$ se $\omega = \lambda_1v_1 + \dots + \lambda_nv_n \in A_1$, $\omega = \lambda_1v_1 + \dots + \lambda_nv_n + 0v \in A_2$
-Mostriamo $A_2 \subseteq A_1$:
-$v \in A_1$ per ipotesi $v_1, \dots, v_n \in A_1$, allora $A_1$ è un sottosp. che contiene $v_1, \dots, v_n, v \Rightarrow \lt v_1, \dots, v_n \gt \subseteq A_1$ cioè $A_2 \subseteq A_1$ q.e.d.
-
-def: $V$ sp.vett.
-$v_1, \dots, v_n \in V$ si dicono linearmente dipendenti (o si dice anche che l'insieme $\{v_1, \dots, v_n\}$ è linearmente dipendente)
-[vedi def. Dule]
-
-data $04/ 03/ 2025$:
-V spaz. vett.
-$$\lt v_1, v_2, v_3\gt = \{\lambda_1v_1 + \dots + \lambda_2v_2 \ | \ \lambda_1, \dots, \lambda_n \in \mathbb{R}\}$$
-Esercizio
-Sia $W = \{\left( x_1, x_2, x_3, x_4\right) \in \mathbb{R}^4 | \begin{cases}x_1 + x_2 + x_3 + 2x_4 = 0 \\ 2x_1 + 2x_2 + 3x_3 + 3x_4 = 0\end{cases}\}$ 
-$W = \{ \text{soluz. di } Ax = 0 \}$ 
-con $\left(A|\underline{b}\right) = \left(\begin{array}{cccc|c}1 & 1 & 1 & 2 & 0 \\ 2 & 2 & 3 & 3 & 0\end{array}\right)$
-Dimostrare che $W$ è un sottospazio di $\mathbb{R}^4$ e trovarne un insieme di generatori. Determinare inoltre $v_1, v_2, v_3, v_4 \in \mathbb{R}^4$ t.c. $W = \lt v_1, v_2, v_3, v_4\gt$ Ax = 0 è un sist.lineare omogeneo quindi sicuramente $\underline{0} \in W$.
-Vedremo in seguito che l'insieme delle sol. di un sist.lin. omogeneo è sempre un sottospazio. Adesso abbiamo due tecniche per mostrare che è un sottospazio
-1) Usare la definizione (di sottospazio vettoriale)
-2) La seguente: troviamo $W$.$$\left(\begin{array}{cccc|c}1 & 1 & 1 & 2 & 0 \\ 2 & 2 & 3 & 3 & 0\end{array}\right)$$ Usiamo Gauss (metti reference):$$\left(\begin{array}{cccc|c}1 & 1 & 1 & 2 & 0 \\ 0 & 0 & 1 & -1 & 0\end{array}\right)$$Infinite soluzioni che dipendono da $\stackrel{\text{n. incognite}}{4} - \stackrel{pivot}{2} = 2$ parametri $$\begin{cases}x_1 + x_2 + x_3 + 2x_4 = 0 \\ x_3 = x_4\end{cases}$$$x_4 = s, x_2 = t, x_1 = -x_2 - x_3 - 2x_4 = -x_2 -3x_4$ Che ci darà$$W = \{\left(-t -3s, t, s, s, s\right) | s, t \in \mathbb{R}\}$$Trucco per risolvere: separare i parametri!$$= \{\left(-t, t, 0, 0\right) + \left(-3s, 0, s, s\right) | s, t \in \mathbb{R}\}$$$$= \{t\left(1, -1, 0, 0\right) + s\left(-3, 0, 1, 1\right) | s, t \in \mathbb{R}\}$$Ho scoperto che $W$ è l'insieme delle combinazioni lineari di $v_1$ e $v_2$: $W$ è un sottospazio per 3.1.5 (controlla il suo libro del mega sium). Due generatori di $W$ sono $v_1 = \left(-1, 1, 0, 0\right)$ e $v_2 = \left(-3, 0, 1, 1\right)$.
-vett.linearmente indipendenti:
-v.sp.vett.: $v_1, \dots, v_2 \in V$ si dicono lin.indipendenti se $\lambda_1v_1 + \dots \lambda_nv_n = \underline{0} \Rightarrow \lambda_1 = \lambda_2 = \dots = \lambda_n$.
-Prop. 3.2.4 (vedi il libro del cazzo, ridaje) V.sp.vett. 
-sse $v_1, \dots, v_n$ allora uno di essi è combinazione lineare degli altri
-dim. di $Q$: Siano $v_1, \dots, v_n$, esistono $\lambda_1, \dots, \lambda_n$ non tutti nulli tali che $lambda_1v_1 + \dots + \lambda_nv_n = \underline{0}$
-Sia $\lambda_i \not = 0$
-$\lambda_iv_i = -\lambda_1v_1 \dots -\lambda_{i-1}v_{i-1} - \lambda_{i+1}v_{i+1} - \dots - \lambda_nv_n$  moltiplico per $\frac{1}{\lambda_i}\in \mathbb{R}$ ottengo $v_i = \frac{1}{\lambda_i}(-\lambda_1v_1 \dots)$
-$= v_i = -\frac{\lambda_1}{\lambda_i}v_1 - \frac{\lambda_2}{\lambda_i}v_2 \dots$ 
-$\Rightarrow v_i$ è comb.lineare degli altri
-Dim. $P$: sia $v_k = \lambda_1v_1 + \dots + \lambda_{k-1}v_{k-1} + \dots + \lambda_1v_n$
-$\dots$ non tutti i lambda sono $\not = 0$ perché ho un $-1$ a pedice.
-Oss. due vettori sono linearmente dipendenti sse uno di essi è comb.lineare dell'altro (quindi se è multiplo dell'altro dato che si tratta di due soli vettori).
-L'insieme $\{\underline{0}\}$ è lin.dipendente o anche $v = 0$.
-$1 \cdot \underline{0} = \underline{0} \rightarrow \not = 0$
-Se ho $\{v_1, v_2, \dots, \underline{0}, \dots, v_k\}$ allora sono sempre dipendenti
-L'insieme vuoto $\emptyset$ è un insieme linearmente indipendente.
-
-Def. IMPORTANTISSIMA!!!!
-Sia V. sott.vett.
-Una base di $V$ è un insieme $B = \{v_1, \dots, v_n\}$ t.c.
-1) $v_1, \dots, v_n$ generano $V$;
-2) $v_1, \dots, v_n$ sono lin.indip.;
-Esempi: $\{\left(1, 1\right), \left(1, 3\right)\}$ sono una base di $\mathbb{R}^2$ 
-Invece $\{\left(1, 3\right), \left(1, 1\right), \left(2, 4\right)\}$ generano $\mathbb{R}^2$ ma non sono dipendenti: $\left(2, 4\right) = \left(1, 3\right) + \left(1, 1\right)$ uno è quindi comb.lin. degli altri
-
+Per degli esercizi sulle combinazioni lineari, clicca [[Esercizi sulle combinazioni lineari|qui]]!
+## Concetto di base
+Sia $V$ un sottospazio vettoriale. Si dice base di $V$ un insieme $B = \{v_1, \dots, v_n\}$ tale che 
+1) $v_1, \dots, v_n$ generino $V$;
+2) $v_1, \dots, v_n$ siano linearmente indipendenti.
+### Esempio
+L'insieme $\{\left(1,1\right), \left(1,3\right)\}$ genera l'insieme $\mathbb{R}^2$ ed i due vettori scelti sono tra loro linearmente indipendenti. Ne consegue che l'insieme scelto sia una base di $\mathbb{R}^2$.
+D'altro canto l'insieme $\{\left(1,3\right), \left(1, 1\right), \left(2,4\right)\}$ genera $\mathbb{R}^2$, ma i vettori non sono tra loro linearmente indipendenti: difatti $\left(2,4\right)=\left(1,3\right) + \left(1,1\right)$. L'insieme scelto non è quindi base di $\mathbb{R}^2$.
+<!-- TODO: BRUTTA da qui -->
 Basi canoniche:
 $$\mathbb{R}^n = \{\left(1, 0, \dots, 0\right), \left(0, 1, \dots, 0\right), \dots, \left(0, 0, \dots, 1\right)\}$$
 Uno spazio vettoriale V finitamente generato (che ha un numero finito di generatori) ha sempre una base $\dots$ 
