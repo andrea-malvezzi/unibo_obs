@@ -1,4 +1,4 @@
-1. [Equazioni Lineari](#Equazioni%20Lineari)
+**1**. [Equazioni Lineari](#Equazioni%20Lineari)
 	1. [Nota Bene](#Nota%20Bene)
 2. [Definizione di campo](#Definizione%20di%20campo)
 	2. [Esempi comuni](#Esempi%20comuni)
@@ -182,19 +182,28 @@ Sia $W$ un sottospazio vettoriale di $\mathbb{R}^2$ definito nella maniera segue
 Siano $V$ uno spazio vettoriale, $v_1, \dots, v_n$ vettori appartenenti a tale insieme e $\lambda_1, \dots, \lambda_n$ degli scalari appartenenti ad $\mathbb{R}$. Allora il vettore $w = \lambda_1v_1 + \dots + \lambda_nv_n$ si dice la combinazione lineare di $v_1, \dots, v_n$. Questo significa che il vettore $w$ (o $span\left(v_1, \dots, v_n\right)$) è il sottoinsieme di $\mathbb{R}$ più piccolo contenente tutti i vettori usati per costruirlo.
 Una combinazione lineare tra i vettori $v_1, \dots, v_n$ si può inoltre indicare come $\lt v_1, \dots, v_n \gt = \lt \lambda_1v_1 + \dots + \lambda_nv_n : \lambda_1, \dots, \lambda_n \in \mathbb{R}\gt$. Ne consegue che possiamo riscrivere la seconda osservazione del capitolo [[Introduzione ad Algebra & Geometra# Definizioni ed osservazioni utili|Definizioni ed osservazioni utili]] come una combinazione lineare della seguente forma: $\lt v \gt = \lt \lambda v : \lambda \in \mathbb{R}\gt$,ovvero come l'insieme di tutti i multipli di $v$.
 #### Esempio
-Vogliamo determinare il sottospazio generato dai vettori $\left(1,1\right), \left(2,k\right)$ al variare di $k$. Ovvero:$$\lt \left(1,1\right),\left(2,k\right) \gt = \lt \lambda_1\left(1,1\right) + \lambda_2\left(2,k\right) : \lambda_1,\lambda_2 \in \mathbb{R} \gt$$<!-- vedi pag.46 libro Marta BRUTTA DA QUI -->
-### Definizione
-$\lt v_1, \dots, v_n \gt$ si dice sottospazio generato da $v_1, \dots, v_n$. Si dice $V$ è generato da $\lt v_1, \dots, v_n \gt$ .
-[vedi Span 3Blue1Brown YT per riassunto della lezione].
+Vogliamo determinare il sottospazio di $\mathbb{R}^2$ generato dai vettori $\left(1,1\right), \left(2,k\right)$ al variare di $k$. Ovvero:$$\lt \left(1,1\right),\left(2,k\right) \gt = \lt \lambda_1\left(1,1\right) + \lambda_2\left(2,k\right) : \lambda_1,\lambda_2 \in \mathbb{R} \gt$$Ora, trattandosi di vettori in $\mathbb{R}^2$, possiamo rappresentarli nel piano cartesiano. Poniamo $k = 1$, disegniamo i due vettori $v_1$ e $v_2$ e colleghiamoli all'origine:
+![[Pasted image 20250318092827.png]]è facile notare come i due vettori non siano sulla stessa retta passante per l'origine: questo significa che (in questo piano) l'insieme più piccolo che possa contenere entrambi i vettori sarà tutto l'insieme stesso. In questo caso si afferma quindi che $v_1$ e $v_2$ generano $\mathbb{R}^2$.
+Tuttavia, ponendo $k = 2$, otterremmo:![[Pasted image 20250318093335.png]]In questo caso i due vettori sono allineati sulla stessa retta passante per l'origine: questa retta è quindi il sottospazio più piccolo di $\mathbb{R}^2$ contenente entrambi questi vettori.
+Algebricamente questo significa che, avendo un vettore $\left(a,b\right) \in \mathbb{R}^2$, ci stiamo chiedendo quando tale vettore appartiene al sottospazio generato dalla combinazione lineare dei due vettori presentati all'inizio. Ovvero:$$\left(\lambda_1 + 2\lambda_2, \lambda_1 + k\lambda_2\right) = \left(a, b\right)$$[[Primo esempio combinazioni lineari|Risolvendo il sistema lineare]] associato a tale equazione notiamo come questo avrà soluzione sse $a = b$, ovvero se $\left(a, a\right) \in \lt \left(1,1\right), \left(2,2\right) \gt$. La combinazione lineare dei vettori presentati inizialmente è quindi il sottoinsieme contenente tutti i vettori con prima coordinata uguale alla seconda (vedendo un vettore come $P(x,y)$ le $x$ sono uguali alle $y$), cioè $\lt \left(1,1\right), \left(2,2\right) \gt = \{\left(a,a\right):a \in \mathbb{R}\}$.
+#### Esempio significativo
+Vogliamo determinare il sottospazio di $\mathbb{R}^2$ generato dai vettori $\left(1,1\right), \left(2,k\right), \left(-1, -1\right)$ al variare di $k$. Ovvero:$$\lt (1,1), (2,k), (-1, -1)\gt = \lt \lambda_1(1,1)  \lambda_2(2, k) + \lambda_3(-1, -1) : \lambda_1, \lambda_2, \lambda_3 \in \mathbb{R}\gt$$Vogliamo mostrare che per ogni vettore $\left(a,b\right)$ fissato possiamo sempre scegliere $\lambda_1, \lambda_2, \lambda_3$ tali che:$$\left(\lambda_1 + 2\lambda_2 -\lambda_3, \lambda_1 + k\lambda_2 -\lambda_3\right) = \left(a,b\right)$$Risolvendo con Gauss si ricava che il sistema ottenuto ha soluzioni tutti i $k \not = 2$, mentre per $k = 2$ otteniamo:$$\left(\lambda_1 + 2\lambda_2 -\lambda_3, \lambda_1 + 2\lambda_2 -\lambda_3\right) = \left(a,b\right)$$Ovvero $a = b$. Dunque purché il sistema ammetta soluzioni deve valere $a = b$ ed il sottospazio di $\mathbb{R}^2$più piccolo contenente i vettori dati è nuovamente la retta di equazioni $y = x$, ovvero quella passante per l'origine e per i primi due vettori dati.
+##### Vettori superflui
+Avendo uno spazio vettoriale $V$, dei vettori $v_1, \dots, v_n \in V$ e sia $w$ la combinazione lineare di tali vettori, ovvero sia $w = \lt \lambda_1v_1 + \dots + \lambda_nv_n \gt$. Allora:$$\lt v_1, \dots, v_n \gt = \lt v_1, \dots, v_n, w\gt$$In questa definizione, $w$ si dice **vettore superfluo** in quanto eliminandoli dall'insieme dei generatori il sottospazio generato non cambia. Ciò accade ad esempi quando si ha un vettore multiplo di un altro, somma di altri due, oppure (come nell'esempio precedente) posto sulla stessa retta di un altro. Difatti $\left(1, 1\right)$ è posto sulla stessa retta ($y = x$) di $\left(-1, -1\right)$ e farà quindi sempre parte del sottospazio generato da questo.
+### Indipendenza lineare
+Se un insieme di generatori di un sottospazio è un insieme di vettori linearmente indipendenti, allora si può dire con certezza che usare questo insieme di vettori come generatore del sottospazio è il metodo più efficiente per descrivere il sottospazio stesso, ovvero per costruirlo.
+#### Definizione
+Sia $V$ uno spazio vettoriale. I vettori $v_1, \dots, v_n$ si dicono linearmente indipendenti se per ogni combinazione lineare $\lambda_1 v_1 + \dots + \lambda_n v_n = 0$ si hanno $\lambda_1 = \dots = \lambda_n = 0$. Questo significa che l'unica combinazione lineare dei vettori $v_1, \dots, v_n$ <u>uguale al vettore nullo</u> è quella con tutti gli scalari nulli.
+#### Esempio di vettori linearmente indipendenti
+L'insieme dei vettori $\{\left(1,0\right), \left(0,1\right)\}$ in $\mathbb{R}^2$ è un insieme di vettori linearmente indipendenti, in quanto la loro unica combinazione lineare uguale al vettore nullo è quella con gli scalari tutti nulli:$$\lambda_1\left(1, 0\right) + \lambda_2\left(0,1\right) = 0 \text{ solo se }\lambda_1 = \lambda_2 = 0$$
+#### Esempio di vettori linearmente dipendenti
+L'insieme dei vettori $\{\left(1,0\right), \left(0, 1)\right), \left(1, 1\right)\}$ in $\mathbb{R}^2$ è un insieme di vettori linearmente dipendenti, in quanto esiste una loro combinazione lineare uguale al vettore nullo dove non tutti gli scalari sono nulli:$$\begin{array}.\lambda_1\left(1, 0\right) + \lambda_2\left(0,1\right) + \lambda_3 \left(1,1\right) = 0 \\ \text{ per } \lambda_1 = \lambda_2 = 1 \text{ e } \lambda_3 = -1 \\ 1 \cdot \left(1,0\right) + 1 \cdot \left(0, 1\right) -1 \cdot \left(1,1\right) = 0\end{array}$$
+#### Esempio più complesso
+Il seguente insieme di vettori in $\mathbb{R}^2[x]: \{x + 1, x^2 - 1, 2, x - 1\}$ è linearmente indipendente? Scriviamo la combinazione lineare pari al vettore nullo dei vettori elencati:$$\lambda_1\left(x + 1\right) + \lambda_2\left(x^2 - 1\right) + \lambda_3\left(2\right) + \lambda_4\left(x - 1\right) = 0$$Che espandendo le parentesi e raccogliendo per $x$ risulta:$$\lambda_2x^2 + x(\lambda_1 + \lambda_4) + (\lambda_1 - \lambda_2 + 2\lambda_3 + \lambda_4) = 0$$Ora, sapendo che un polinomio è nullo solo sse tutti i suoi coefficienti sono nulli, ricaviamo il sistema lineare ad esso associato:$$\begin{cases}\lambda_2 = 0 \\ \lambda_1 + \lambda_4 = 0 \\ \lambda_1 -\lambda_2 + 2\lambda_3 + \lambda_4 = 0\end{cases}$$Una volta [[Terzo esempio combinazioni lineari|risolto il sistema]], si ottengono infinite soluzioni. Da questo deriva che i vettori siano tra loro linearmente dipendenti.
+#### Esercizi
+Per degli esercizi sulle combinazioni lineari, clicca [[Esercizi sulle combinazioni Lineari|qui]]!
+<!-- TODO BRUTTA da qui -->
 
-data: $27/02/2025$
-$V$ sp.vett. $v_1, v_2, v_n \in V$
-Def: $v \in V$ è combinazione lineare di $v_1, \dots, v_n$ se $v = \lambda_1v_1, \dots, \lambda_nv_n$ con $\lambda_1, \dots, \lambda_n \in R$.
-Def: $\lt v_1, \dots, v_n \gt = \{\text{combinazioni lineari di } v_1, \dots, v_n\} = \{\lambda_1v_1 + \dots + \lambda_nv_n | \lambda_1, \dots, \lambda_n \in R \}$
-Prop: $\lt v_1, \dots, v_n \gt$ è sottospazio di $V$ si dice sottospazio generato da $v_1, \dots, v_n$ e si indica anche con $Span(v_1, \dots, v_n)$ o $Span\{v_1, \dots, v_n\}$
-$\lt v_1, \dots, v_n \gt$ è il più piccolo sottospazio di $V$ contenenente $v_1, \dots, v_n$ nel senso che se $Z$ è un ... di $V$ t.c. $\{ v_1, \dots, v_n \} \subseteq Z$ allora $\lt v_1, \dots, v_n \gt \subseteq Z$
-
-Def: se $V = \lt v_1, \dots, v_n \gt$ diciamo che $v_1, \dots, v_n$ generano $V$ o che $V$ è generato da $v_1, \dots, v_n$
 Esempio: in $\mathbb{R}^3$.
 $$e_1 = \left( 1, 0, 0 \right) \ e_2 = \left( 0, 1, 0 \right)$$Generiamo  $\lt e_1, e_2 \gt$:
 $\dots$
