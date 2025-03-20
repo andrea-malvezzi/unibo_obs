@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "ae763ae3171669ac",
+        "id": "569728b648a59857",
         "type": "tabs",
         "children": [
           {
-            "id": "b92a199c9aed8ea5",
+            "id": "c70f298047e570d5",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -74,7 +74,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "08bee5bef7c3fd84",
@@ -162,8 +163,16 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "b92a199c9aed8ea5",
+  "active": "c70f298047e570d5",
   "lastOpenFiles": [
+    "Algos/Sorting algorithms.md",
+    "Algos/algoritmi/Algoritmi per le strutture dati.md",
+    "Algos/algoritmi",
+    "Algos/esercizi",
+    "Algos/Algoritmi di ordinamento",
+    "Algos/esercizi/Esercizi inerenti al confronto tra funzioni.md",
+    "Algos/Strutture dati.md",
+    "Algos/Introduzione, complessità computazionali e analisi degli algoritmi.md",
     "Algebra & Geometria/esercizi/Esercizi sulle combinazioni lineari.md",
     "Algebra & Geometria/Introduzione ad Algebra & Geometria.md",
     "Algebra & Geometria/esercizi",
@@ -172,13 +181,9 @@
     "Algebra & Geometria/calcoli/combinazioni lineari",
     "Algebra & Geometria/images/Pasted image 20250318093335.png",
     "Algebra & Geometria/calcoli",
-    "Algos/Strutture dati.md",
     "Algebra & Geometria/images/Pasted image 20250318092827.png",
     "Algebra & Geometria/images",
-    "Algos/Algoritmi per le strutture dati.md",
     "Parte matematica.md",
-    "Algos/Introduzione, complessità computazionali e analisi degli algoritmi.md",
-    "Algos/Esercizi inerenti al confronto tra funzioni.md",
     "Algos/brutta dell'11 Marzo 2025.md",
     "Algos/images/Pasted image 20250313120924.png",
     "Algos/images",
