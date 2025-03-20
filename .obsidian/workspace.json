@@ -4,21 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "acc37cc15a7d7693",
+        "id": "ae763ae3171669ac",
         "type": "tabs",
         "children": [
           {
-            "id": "9afcac1f7700b301",
+            "id": "b92a199c9aed8ea5",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Algebra & Geometria/Introduzione ad Algebra & Geometria.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "Introduzione ad Algebra & Geometria"
+              "title": "New tab"
             }
           }
         ]
@@ -166,10 +162,11 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "9afcac1f7700b301",
+  "active": "b92a199c9aed8ea5",
   "lastOpenFiles": [
-    "Algebra & Geometria/Esercizi sulle combinazioni lineari.md",
+    "Algebra & Geometria/esercizi/Esercizi sulle combinazioni lineari.md",
     "Algebra & Geometria/Introduzione ad Algebra & Geometria.md",
+    "Algebra & Geometria/esercizi",
     "Algebra & Geometria/calcoli/combinazioni lineari/Primo esempio combinazioni lineari.md",
     "Algebra & Geometria/calcoli/combinazioni lineari/Terzo esempio combinazioni lineari.md",
     "Algebra & Geometria/calcoli/combinazioni lineari",

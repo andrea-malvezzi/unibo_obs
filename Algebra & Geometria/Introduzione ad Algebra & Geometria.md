@@ -1,4 +1,4 @@
-**1**. [Equazioni Lineari](#Equazioni%20Lineari)
+1. [Equazioni Lineari](#Equazioni%20Lineari)
 	1. [Nota Bene](#Nota%20Bene)
 2. [Definizione di campo](#Definizione%20di%20campo)
 	2. [Esempi comuni](#Esempi%20comuni)
@@ -7,28 +7,51 @@
 	3. [Uguaglianza tra matrici](#Uguaglianza%20tra%20matrici)
 	4. [Somma tra matrici](#Somma%20tra%20matrici)
 	5. [Prodotto di matrici](#Prodotto%20di%20matrici)
-		1. [Esempio](#Esempio)
+		1. [Esempio di prodotto tra matrici](#Esempio%20di%20prodotto%20tra%20matrici)
 		2. [Nota bene](#Nota%20bene)
 	6. [Definizione di Matrice Trasposta](#Definizione%20di%20Matrice%20Trasposta)
 5. [Rappresentare un sistema lineare con una matrice](#Rappresentare%20un%20sistema%20lineare%20con%20una%20matrice)
 	7. [Matrici scala](#Matrici%20scala)
 	8. [Rendere scala una matrice (algoritmo di Gauss)](#Rendere%20scala%20una%20matrice%20(algoritmo%20di%20Gauss))
-		3. [Esempio](#Esempio)
+		3. [Esempio di applicazione dell'algoritmo di Gauss](#Esempio%20di%20applicazione%20dell'algoritmo%20di%20Gauss)
 	9. [Rango righe](#Rango%20righe)
 6. [Risolvere un sistema lineare con matrice scala associata](#Risolvere%20un%20sistema%20lineare%20con%20matrice%20scala%20associata)
 7. [Definizione di spazi vettoriali](#Definizione%20di%20spazi%20vettoriali)
-	10. [Esempio di un insieme che non è uno spazio vettoriale](#Esempio%20di%20un%20insieme%20che%20non%20%C3%A8%20uno%20spazio%20vettoriale)
-	11. [Differenza tra Spazio e Campo vettoriale](#Differenza%20tra%20Spazio%20e%20Campo%20vettoriale)
-8. [Sottospazio](#Sottospazio)
-9. [Definizione di sottospazio](#Definizione%20di%20sottospazio)
-	12. [Esempio](#Esempio)
-	13. [Altro esempio](#Altro%20esempio)
-	14. [Esempio fatto come Dio comanda porca la puttana bastarda](#Esempio%20fatto%20come%20Dio%20comanda%20porca%20la%20puttana%20bastarda)
-	15. [Esempio chiusura rispetto a prodotto e somma](#Esempio%20chiusura%20rispetto%20a%20prodotto%20e%20somma)
-	16. [osservazione](#osservazione)
-10. [Sottospazi di $\mathbb{R}$^2](#Sottospazi%20di%20$%5Cmathbb%7BR%7D$%5E2)
-	17. [Dimostrazione](#Dimostrazione)
-	18. [Definizione](#Definizione)
+	10. [Proprietà utili](#Propriet%C3%A0%20utili)
+	11. [Definizioni ed osservazioni utili](#Definizioni%20ed%20osservazioni%20utili)
+	12. [Esempio di un insieme che non è uno spazio vettoriale](#Esempio%20di%20un%20insieme%20che%20non%20%C3%A8%20uno%20spazio%20vettoriale)
+	13. [Differenza tra Spazio e Campo vettoriale](#Differenza%20tra%20Spazio%20e%20Campo%20vettoriale)
+8. [Sottospazio vettoriale](#Sottospazio%20vettoriale)
+	14. [Esempio di sottospazio vettoriale](#Esempio%20di%20sottospazio%20vettoriale)
+	15. [Sottospazi di $\mathbb{R}^2$](#Sottospazi%20di%20$%5Cmathbb%7BR%7D%5E2$)
+9. [Combinazioni lineari](#Combinazioni%20lineari)
+	16. [Definizione di Combinazione lineare](#Definizione%20di%20Combinazione%20lineare)
+		4. [Esempio di combinazione lineare](#Esempio%20di%20combinazione%20lineare)
+		5. [Esempio significativo](#Esempio%20significativo)
+			1. [Vettori superflui](#Vettori%20superflui)
+	17. [Indipendenza lineare](#Indipendenza%20lineare)
+		6. [Definizione](#Definizione)
+		7. [Esempio di vettori linearmente indipendenti](#Esempio%20di%20vettori%20linearmente%20indipendenti)
+		8. [Esempio di vettori linearmente dipendenti](#Esempio%20di%20vettori%20linearmente%20dipendenti)
+		9. [Esempio più complesso](#Esempio%20pi%C3%B9%20complesso)
+		10. [Esercizi](#Esercizi)
+10. [Concetto di base](#Concetto%20di%20base)
+	18. [Esempio di base](#Esempio%20di%20base)
+	19. [Definizione - spazio finitamente generato](#Definizione%20-%20spazio%20finitamente%20generato)
+	20. [Definizione - insieme massimale e minimale](#Definizione%20-%20insieme%20massimale%20e%20minimale)
+	21. [Teorema utile](#Teorema%20utile)
+	22. [Esempio di ricerca della base di un insieme (non rigorosa)](#Esempio%20di%20ricerca%20della%20base%20di%20un%20insieme%20(non%20rigorosa))
+11. [Concetto di Dimensione](#Concetto%20di%20Dimensione)
+	23. [Teorema del completamento](#Teorema%20del%20completamento)
+	24. [Definizione - dimensione finita](#Definizione%20-%20dimensione%20finita)
+12. [Basi canoniche](#Basi%20canoniche)
+	25. [Base canonica di $\mathbb{R}^n$](#Base%20canonica%20di%20$%5Cmathbb%7BR%7D%5En$)
+		11. [Esempio di base canonica di $\mathbb{R}^n$ per $n = 4$](#Esempio%20di%20base%20canonica%20di%20$%5Cmathbb%7BR%7D%5En$%20per%20$n%20=%204$)
+	26. [Base canonica di $\mathbb{R}_n[x]$](#Base%20canonica%20di%20$%5Cmathbb%7BR%7D_n%5Bx%5D$)
+	27. [Base canonica di $M_{m, n}(\mathbb{R})$](#Base%20canonica%20di%20$M_%7Bm,%20n%7D(%5Cmathbb%7BR%7D)$)
+		12. [Esempio di base canonica di $M_{m, n}(\mathbb{R})$ con $m = 2$ ed $n = 3$](#Esempio%20di%20base%20canonica%20di%20$M_%7Bm,%20n%7D(%5Cmathbb%7BR%7D)$%20con%20$m%20=%202$%20ed%20$n%20=%203$)
+	28. [Osservazione importante sulla dimensione degli sottospazi vettoriali](#Osservazione%20importante%20sulla%20dimensione%20degli%20sottospazi%20vettoriali)
+13. [brutta](#brutta)
 
 ## Equazioni Lineari
 Un'equazione lineare è un'equazione del tipo:$$a_1x_1 + a_2x_2 + a_3x_3 + \dots + a_nx_n = b$$con $a_1,a_2,\dots,a_n, b \in \mathbb{R}$ (o in generale $\in K$, con $K$ che equivale ad un campo).
@@ -82,7 +105,7 @@ $$A = \pmatrix{1 & -3 \\ 0 & 4 \\ 5 & 1} \text{ e } B = \pmatrix{0 & 1 \\ 5 & -1
 Data una riga $(a_1, \dots, a_n)$ e una colonna $\begin{pmatrix}b_1 \\ \dots \\ b_n\end{pmatrix}$ della stessa lunghezza, il loro prodotto è il numero $a_1 \cdot b_1 + a_2 \cdot b_2 + \dots + a_n \cdot b_n$. Ad esempio:
 $$(1, 2, 3) \cdot \begin{pmatrix}4 \\ 5 \\ 6\end{pmatrix} = 1 \cdot 4 + 2 \cdot 5 + 3 \cdot 6 = 32$$Se $A \in M_{m, n}(\mathbb{R})$ e $B \in M_{n, s}(\mathbb{R})$ definiamo il prodotto riga per colonna della due matrici come $C = AB$ con $C \in M_{m, s}(\mathbb{R})$ e $C_{i, j} = a_i \cdot b_j + \dots + a_{i_n} \cdot b_{j_n}$.
 La scrittura $C_{i, j}$ corrisponde al prodotto tra la riga $R_i$ (i-esima) e la colonna $B_j$ (j-esima).
-#### Esempio
+#### Esempio di prodotto tra matrici
 $$A_{3, 3} = \begin{pmatrix}1 & 0 & 3 \\ 0 & -2 & 2 \\ 1 & 0 & 1\end{pmatrix} \text{ e } B_{3,2} = \begin{pmatrix}1 & 5 \\ 0 & 2 \\ 1 & 3\end{pmatrix}$$Avendo $A_{m,n}$ e $B_{n, s}$ dove il numero di colonne di $A$ equivale al numero di righe di $B$, si può procedere con il prodotto tra matrici. La matrice ottenuta da questa operazione sarà $C_{m,s}$ (nel nostro caso quindi $C_{3,2}$).
 $$C_{1,1} = (1, 0, 3) \cdot \begin{pmatrix}1 \\ 0 \\ 1\end{pmatrix} = 1 + 0 + 3 = 4$$$$C_{1,2} = (1, 0, 3) \cdot \begin{pmatrix}5 \\ 2 \\ 3\end{pmatrix} = 5 + 0 + 9 = 14$$$$C_{2,1} = (0, -2, 2) \cdot \begin{pmatrix}1 \\ 0 \\ 1\end{pmatrix} = 0 + 0 + 2 = 2$$$$C_{2,2} = (0, -2, 2) \cdot \begin{pmatrix}5 \\ 2 \\ 3\end{pmatrix} = 0 -4 +6 = 2$$$$C_{3,1} = (1, 0, 1) \cdot \begin{pmatrix}1 \\ 0 \\ 1\end{pmatrix} = 1 + 0 + 1 = 2$$$$C_{3,2} = (1, 0, 1) \cdot \begin{pmatrix}5 \\ 2 \\ 3\end{pmatrix} = 5 + 0 + 3 = 8$$Quindi:$$C = \begin{pmatrix}4 & 14 \\ 2 & 2 \\ 2 & 8\end{pmatrix}$$
 #### Nota bene
@@ -109,7 +132,7 @@ Dove i numeri evidenziati in giallo corrispondono ai _pivot_.
 1) Se $a_{11} = 0$ si scambia la prima riga di $A$ con la prima dove il primo elemento è non-nullo. Se il primo elemento di ogni riga è nullo, si considera la matrice senza la prima colonna e si ricomincia.
 2) Si controllano tutte le righe meno la prima: se il primo elemento di una riga è nullo, la si lascia inalterata. In caso contrario, si sostituisce tutta la riga con la somma tra la riga ed il prodotto tra la prima riga e $-\frac{b}{a}$ dove $b$ è il primo elemento della riga da sostituire e $a$ è il corrispondente elemento della prima riga.
 3) A questo punto tutti gli elementi della prima colonna, tranne eventualmente il primo, sono nulli. Si considera quindi la matrice meno la prima riga e la prima colonna e si ricomincia dal punto 1.
-#### Esempio
+#### Esempio di applicazione dell'algoritmo di Gauss
 Rendiamo scala la seguente matrice $A_{3,4}$ :
 $$A = \pmatrix{0 & 1 & -1 & 0 \\ 1 & 2 & 0 & 1 \\ 2 & -1 & 1 & 2}$$
 Sostituiamo la prima riga con la seconda e riscriviamo.
@@ -181,7 +204,7 @@ Sia $W$ un sottospazio vettoriale di $\mathbb{R}^2$ definito nella maniera segue
 ### Definizione di Combinazione lineare
 Siano $V$ uno spazio vettoriale, $v_1, \dots, v_n$ vettori appartenenti a tale insieme e $\lambda_1, \dots, \lambda_n$ degli scalari appartenenti ad $\mathbb{R}$. Allora il vettore $w = \lambda_1v_1 + \dots + \lambda_nv_n$ si dice la combinazione lineare di $v_1, \dots, v_n$. Questo significa che il vettore $w$ (o $span\left(v_1, \dots, v_n\right)$) è il sottoinsieme di $\mathbb{R}$ più piccolo contenente tutti i vettori usati per costruirlo.
 Una combinazione lineare tra i vettori $v_1, \dots, v_n$ si può inoltre indicare come $\lt v_1, \dots, v_n \gt = \lt \lambda_1v_1 + \dots + \lambda_nv_n : \lambda_1, \dots, \lambda_n \in \mathbb{R}\gt$. Ne consegue che possiamo riscrivere la seconda osservazione del capitolo [[Introduzione ad Algebra & Geometria# Definizioni ed osservazioni utili|Definizioni ed osservazioni utili]] come una combinazione lineare della seguente forma: $\lt v \gt = \lt \lambda v : \lambda \in \mathbb{R}\gt$,ovvero come l'insieme di tutti i multipli di $v$.
-#### Esempio
+#### Esempio di combinazione lineare
 Vogliamo determinare il sottospazio di $\mathbb{R}^2$ generato dai vettori $\left(1,1\right), \left(2,k\right)$ al variare di $k$. Ovvero:$$\lt \left(1,1\right),\left(2,k\right) \gt = \lt \lambda_1\left(1,1\right) + \lambda_2\left(2,k\right) : \lambda_1,\lambda_2 \in \mathbb{R} \gt$$Ora, trattandosi di vettori in $\mathbb{R}^2$, possiamo rappresentarli nel piano cartesiano. Poniamo $k = 1$, disegniamo i due vettori $v_1$ e $v_2$ e colleghiamoli all'origine:
 ![[Pasted image 20250318092827.png]]è facile notare come i due vettori non siano sulla stessa retta passante per l'origine: questo significa che (in questo piano) l'insieme più piccolo che possa contenere entrambi i vettori sarà tutto l'insieme stesso. In questo caso si afferma quindi che $v_1$ e $v_2$ generano $\mathbb{R}^2$.
 Tuttavia, ponendo $k = 2$, otterremmo:![[Pasted image 20250318093335.png]]In questo caso i due vettori sono allineati sulla stessa retta passante per l'origine: questa retta è quindi il sottospazio più piccolo di $\mathbb{R}^2$ contenente entrambi questi vettori.
@@ -206,15 +229,61 @@ Per degli esercizi sulle combinazioni lineari, clicca [[Esercizi sulle combinazi
 Sia $V$ un sottospazio vettoriale. Si dice base di $V$ un insieme $B = \{v_1, \dots, v_n\}$ tale che 
 1) $v_1, \dots, v_n$ generino $V$;
 2) $v_1, \dots, v_n$ siano linearmente indipendenti.
-### Esempio
+### Esempio di base
 L'insieme $\{\left(1,1\right), \left(1,3\right)\}$ genera l'insieme $\mathbb{R}^2$ ed i due vettori scelti sono tra loro linearmente indipendenti. Ne consegue che l'insieme scelto sia una base di $\mathbb{R}^2$.
 D'altro canto l'insieme $\{\left(1,3\right), \left(1, 1\right), \left(2,4\right)\}$ genera $\mathbb{R}^2$, ma i vettori non sono tra loro linearmente indipendenti: difatti $\left(2,4\right)=\left(1,3\right) + \left(1,1\right)$. L'insieme scelto non è quindi base di $\mathbb{R}^2$.
-<!-- TODO: BRUTTA da qui -->
-Basi canoniche:
-$$\mathbb{R}^n = \{\left(1, 0, \dots, 0\right), \left(0, 1, \dots, 0\right), \dots, \left(0, 0, \dots, 1\right)\}$$
-Uno spazio vettoriale V finitamente generato (che ha un numero finito di generatori) ha sempre una base $\dots$ 
-MANCA 05/03/2025 ARRIVA FINO A BASI E DIMENSIONI DEL NOTION DI CARTA BINARIA
-data: 06/03/2025
+### Definizione - spazio finitamente generato
+Uno spazio vettoriale $V$ si dice finitamente generato quando esiste un insieme di generatori di $V$ finito, cioè vale $V = \lt v_1, \dots, v_n \gt$.
+### Definizione - insieme massimale e minimale
+Un insieme $X$ si dice **massimale** rispetto ad una certa proprietà (come l'indipendenza lineare) se aggiungendo un elemento a tale insieme, questo perde tale proprietà.
+Un insieme si dice invece **minimale** rispetto ad una proprietà quando rimuovendo un elemento da tale insieme, questo perderebbe tale proprietà.
+### Teorema utile
+Avendo $v_1, \dots, v_n \in V$:
+- $\{v_1, \dots, v_n\}$ è una base di $V$ sse è insieme minimale di generatori di $V$;
+- $\{v_1, \dots, v_n\}$ è una base di $V$ sse è insieme massimale di vettori linearmente indipendenti.
+### Esempio di ricerca della base di un insieme (non rigorosa)
+Siano dati in $\mathbb{R}^3[x]$ i vettori:$$
+\begin{array}.
+x^3, \\
+x^2, \\
+2, \\
+5, \\
+x + 2, \\
+3x, \\
+-7x, \\
+2x^3
+\end{array}
+$$Vogliamo trovare una base per il sottospazio vettoriale $W$ da essi generato. 
+**Attenzione:** questo non è il metodo standard, ma solamente una semplificazione data dalla semplicità dell'esercizio.
+Anzitutto vediamo come $5$ sia multiplo di $2$, in quanto in $\mathbb{R}^3$ potremmo scrivere $(\frac{5}{2}) \cdot 2$.
+Allo stesso modo potremmo scrivere $2x^3$ come $2 \cdot x^3$ e $-7x$ come $(\frac{7}{3}) \cdot 3x$.
+Ora osserviamo come $x + 2$ sia riscrivibile come combinazione lineare dei vettori $\colorbox{yellow}{3x}$ e $\colorbox{lightgreen}{2}$, tramite la seguente scrittura: $x + 2 = (\frac{1}{3}) \cdot \colorbox{yellow}{3x} + \colorbox{lightgreen}{2}$.
+Eliminiamo ora questi vettori superflui dall'insieme dato e riscriviamolo: $W = \lt x^3, x^2, 2, 3x \gt$.
+Per verificare che questi vettori sono linearmente indipendenti e formano una base per $W$ dobbiamo mostrare che l'equazione $ax^3 + bx^2 + 2c + 3dx = 0$ sia soddisfatta solamente per costanti moltiplicative tutte nulle, cosa ovvia in quanto un polinomio è nullo sse sono nulli tutti i suoi coefficienti. Da questo deriva che $\{x^3, x^2, 3x, 2\}$ è base di $W$. In seguito vedremo come dimostrare che $W$ sia tutto $\mathbb{R}^3[x]$ tramite il [[Introduzione ad Algebra & Geometria#Concetto di Dimensione|Concetto di dimensione]].
+## Concetto di Dimensione
+Uno spazio vettoriale $V$ può ammettere più di una base, tuttavia ognuna di queste basi deve avere lo stesso numero di elementi: questo quantitativo si dice **Dimensione** di $V$.
+### Teorema del completamento
+Sia $\alpha = \{v_1, \dots, v_n\}$ un insieme di vettori linearmente indipendenti in uno spazio vettoriale $V$ finitamente generato. Se $\beta = \{w_1, \dots, w_n\}$ è base di $V$, allora esiste un $m \leq n$ tale per cui si possono aggiungere $n - m$ vettori appartenenti a $\beta$ ad $\alpha$ per ottenere una base di $V$.
+### Definizione - dimensione finita
+Una dimensione dello spazio vettoriale $V$ si indica con $dim(V)$ e quanto tale numero è finito, $V$ si dice di **dimensione finita**.
+## Basi canoniche
+### Base canonica di $\mathbb{R}^n$
+La base canonica di $\mathbb{R}^n$ è data da $C = \{e_1, \dots, e_n\}$, dove $e_i$ è il vettore con 1 nella $i$-esima posizione e $0$ in tutte le altre. Ne consegue che $dim(\mathbb{R}^n) = n$.
+#### Esempio di base canonica di $\mathbb{R}^n$ per $n = 4$
+Una base di $\mathbb{R}^4$ è $C = \{\left(1, 0, 0, 0\right), \left(0, 1, 0, 0\right), \left(0, 0, 1, 0\right), \left(0, 0, 0, 1\right)\}$.
+Ne consegue che $dim(\mathbb{R}^4) = 4$: stiamo quindi lavorando con uno spazio vettoriale quadridimensionale.
+### Base canonica di $\mathbb{R}_n[x]$
+La base canonica di $\mathbb{R}_n[x]$ è data da $C = \{x^n, x^{n - 1}, \dots, x, 1\}$. Ne consegue che $dim(\mathbb{R}_n[x])=n+1$.
+### Base canonica di $M_{m, n}(\mathbb{R})$
+La base canonica di $M_{m, n}(\mathbb{R})$ è data da $C = \{E_{1,1}, \dots, E_{m,n}\}$, dove $E_{i, j}$ è la matrice con $1$ nella posizione $\left(i, j\right)$ e $0$ nelle altre. Ne consegue che $dim(M_{m, n}) = m \cdot n$.
+#### Esempio di base canonica di $M_{m, n}(\mathbb{R})$ con $m = 2$ ed $n = 3$
+La base canonica di $M_{2, 3}$ è $C = \{\pmatrix{1 & 0 & 0 \\ 0 & 0 & 0}, \pmatrix{0 & 1 & 0 \\ 0 & 0 & 0}, \pmatrix{0 & 0 & 1 \\ 0 & 0 & 0}, \pmatrix{0 & 0 & 0 \\ 1 & 0 & 0}, \pmatrix{0 & 0 & 0 \\ 0 & 1 & 0}, \pmatrix{0 & 0 & 0 \\ 0 & 0 & 1} \}$
+### Osservazione importante sulla dimensione degli sottospazi vettoriali
+Sia $V$ uno spazio vettoriale di dimensione $n$ e sia $W$ un sottospazio vettoriale di $V$. Allora:
+- $dim(W) \leq dim(V)$;
+- $dim(W) = dim(V)$ sse $V = W$.
+## brutta
+<!-- TODO: BRUTTA da qui (ti sei fermato a pag. 64 dopo prop.4.2.4)-->
 V.sp.vett. $\beta = \{v_1, \dots, v_2\}$ base ordinata di $V$
 $v \in V$ allora esistono $\lambda_1, \lambda_2, \dots \in \mathbb{R}$ t.c. $v = \lambda_1v_1 + \lambda_2v_2 + \dots$ inoltre $\lambda_1, \dots$ sono unici
 scriviamo $(v)_{\beta} = (\lambda_1, \dots)$ 
