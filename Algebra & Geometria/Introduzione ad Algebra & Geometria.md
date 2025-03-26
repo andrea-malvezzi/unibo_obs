@@ -51,7 +51,10 @@
 	27. [Base canonica di $M_{m, n}(\mathbb{R})$](#Base%20canonica%20di%20$M_%7Bm,%20n%7D(%5Cmathbb%7BR%7D)$)
 		12. [Esempio di base canonica di $M_{m, n}(\mathbb{R})$ con $m = 2$ ed $n = 3$](#Esempio%20di%20base%20canonica%20di%20$M_%7Bm,%20n%7D(%5Cmathbb%7BR%7D)$%20con%20$m%20=%202$%20ed%20$n%20=%203$)
 	28. [Osservazione importante sulla dimensione degli sottospazi vettoriali](#Osservazione%20importante%20sulla%20dimensione%20degli%20sottospazi%20vettoriali)
-13. [brutta](#brutta)
+	29. [Componenti di un elemento di uno spazio vettoriale](#Componenti%20di%20un%20elemento%20di%20uno%20spazio%20vettoriale)
+		13. [Esempio di identificazione delle componenti di uno spazio vettoriale $V$ rispetto ad una base $\beta$](#Esempio%20di%20identificazione%20delle%20componenti%20di%20uno%20spazio%20vettoriale%20$V$%20rispetto%20ad%20una%20base%20$%5Cbeta$)
+13. [Applicazione diretta dell'algoritmo di Gauss (senza passare per un sistema lineare associato)](#Applicazione%20diretta%20dell'algoritmo%20di%20Gauss%20(senza%20passare%20per%20un%20sistema%20lineare%20associato))
+14. [brutta](#brutta)
 
 ## Equazioni Lineari
 Un'equazione lineare è un'equazione del tipo:$$a_1x_1 + a_2x_2 + a_3x_3 + \dots + a_nx_n = b$$con $a_1,a_2,\dots,a_n, b \in \mathbb{R}$ (o in generale $\in K$, con $K$ che equivale ad un campo).
@@ -282,18 +285,48 @@ La base canonica di $M_{2, 3}$ è $C = \{\pmatrix{1 & 0 & 0 \\ 0 & 0 & 0}, \pmat
 Sia $V$ uno spazio vettoriale di dimensione $n$ e sia $W$ un sottospazio vettoriale di $V$. Allora:
 - $dim(W) \leq dim(V)$;
 - $dim(W) = dim(V)$ sse $V = W$.
+### Componenti di un elemento di uno spazio vettoriale
+Avendo uno spazio vettoriale $V$ e una base ordinata di $V$ della forma: $\beta = \{v_1, \dots, v_n\}$, prendiamo un $v \in V$. Allora esiste ed è unica la $n$-upla di scalari $\left(a_1, \dots, a_n\right)$ tale che:$$v = a_1v_1 + \dots + a_nv_n$$Gli scalari facenti parte di questa $n$-upla si dicono le *componenti* di $v \in V$ nella base $\beta$ e si indicheranno con la notazione $\left(v\right)_\beta = \left(a_1, \dots, a_n\right)$.
+#### Esempio di identificazione delle componenti di uno spazio vettoriale $V$ rispetto ad una base $\beta$
+Siano $V = \mathbb{R}_2[x]$, $\beta = \{x^2 + 2x, -x^2 - x + 1, x^2 + 5\}$ e $v = -x^2 + 3x +2$.
+Troviamo le coordinate di $v$ rispetto alla base indicata, ricordando la notazione presentata nella definizione:$$\begin{array}.
+v = a_1v_1 + \dots + a_nv_n \text{ ovvero }\\
+-x^2+3x+2 = a_1 \cdot \left(x^2 + 2x\right) + a_2 \cdot \left(-x^2-x+1\right) + a_3 \cdot \left(x^2 + 5\right) \\
+-x^2+3x+2 = \left(a_1 - a_2 + a_3\right) \cdot x^2 + \left(2a_1 - a_2\right) \cdot x + \left(a_2 + 5a_3\right)
+\end{array}
+$$Ora passando al sistema lineare associato, scriviamo$$
+\begin{cases}
+a_1 - a_2 + a_3 = -1 \\
+2a_1 - a_2 = 3 \\
+a_2 + 5a_3 = 2
+\end{cases}$$E conseguentemente passiamo alla matrice associata:$$
+\left(
+\begin{array}{ccc|c}
+1 & -1 & 1 & -1 \\
+2 & -1 & 0 & 3 \\
+0 & 1 & 5 & 2
+\end{array}
+\right)
+$$Ora normalizziamola mediante [[Introduzione ad Algebra & Geometria#Rendere scala una matrice (algoritmo di Gauss)|Algoritmo di Gauss]]: anzitutto, svolgiamo l'operazione $R_2 \rightarrow R_2 - 2R_1$:$$
+\left(\begin{array}{ccc|c}
+1 & -1 & 1 & -1 \\
+0 & 1 & -2 & 5 \\
+0 & 1 & 5 & 2
+\end{array}\right)$$In seguito, svolgiamo $R_3 \rightarrow R_3 - R_2$:$$
+\left(\begin{array}{ccc|c}
+1 & -1 & 1 & -1 \\
+0 & 1 & -2 & 5 \\
+0 & 0 & 7 & -3
+\end{array}\right)$$Ora procedendo per sostituzione dal basso, troviamo prima $a_3$, poi $a_2$ ed infine $a_1$:$$
+\begin{array}{c}
+7a_3 = -3 \text{ da cui } a_3 = -\frac{3}{7} \\
+a_2 -2a_3 = 5 \text{ da cui } a_2 = 5 - \frac{6}{7} = \frac{29}{7} \\
+a_1 -a_2 + a_3 = -1 \text{ da cui } a_1 = -1 + \frac{29}{7} + \frac{3}{7} = \frac{25}{7}
+\end{array}$$Da cui concludiamo che le componenti (o *coordinate*) di $v$ rispetto a $\beta$ siano: $\left(v\right)_\beta = \left(\frac{25}{7}, \frac{29}{7}, -\frac{3}{7}\right)$.
+## Applicazione diretta dell'algoritmo di Gauss (senza passare per un sistema lineare associato)
+<!-- vedi pag.67 -->
 ## brutta
-<!-- TODO: BRUTTA da qui (ti sei fermato a pag. 64 dopo prop.4.2.4)-->
-V.sp.vett. $\beta = \{v_1, \dots, v_2\}$ base ordinata di $V$
-$v \in V$ allora esistono $\lambda_1, \lambda_2, \dots \in \mathbb{R}$ t.c. $v = \lambda_1v_1 + \lambda_2v_2 + \dots$ inoltre $\lambda_1, \dots$ sono unici
-scriviamo $(v)_{\beta} = (\lambda_1, \dots)$ 
-Esempio: $V = \mathbb{R}_2[x]$
-sia $\beta = \{x^2 + 2x, -x^2 -x +1, x^2 + 5\}$ base di $V$
-Sia $v = -x^2 + 3x +2$, troviamo le coordinate di $v$ rispetto a $\beta$.
-$$-x^2 + 3x + 2 = \lambda_1(x^2+2x) + \lambda_2(-x^2-x+1) + \lambda_3(x^2+5)$$$$-x^2+3x+2=(\lambda_1 -\lambda_2+\lambda_3)x^2 + (2\lambda_1 -\lambda_2)x + (\lambda_2 + 5\lambda_3)$$
-$$\begin{cases}\lambda_1 -\lambda_2+\lambda_3 = -1 \\ 2\lambda_1 -\lambda_2 = 3 \\ \lambda_2 + 5\lambda_3 = 2\end{cases}$$Passiamo alla matrice associata:
-$$\begin{array}{ccc|c}{...}\end{array}$$
-$$(v)_\beta = (\frac{25}{7},\frac{29}{7},-\frac{3}{7})$$Osservazione importante: sia $V$ sp.vett. di dimensione $N$ e sia $\beta = \{v_1, \dots, v_n\}$ base ordinata. La funzione $\mathbb{f}:V \rightarrow \mathbb{R}^n$ (quindi $v \rightarrow (v)_\beta = (\lambda_1, \dots, \lambda_n)$) è un isomorfismo di spazi vettoriali cioè è una biiezione che rispetta la struttura (le proprietà) di spazio vettoriale. Ad esempio: $\mathbb{f}(v + u)_\beta = \mathbb{f}(v) + \mathbb{f}(u)$.
+Osservazione importante: sia $V$ sp.vett. di dimensione $N$ e sia $\beta = \{v_1, \dots, v_n\}$ base ordinata. La funzione $\mathbb{f}:V \rightarrow \mathbb{R}^n$ (quindi $v \rightarrow (v)_\beta = (\lambda_1, \dots, \lambda_n)$) è un isomorfismo di spazi vettoriali cioè è una biiezione che rispetta la struttura (le proprietà) di spazio vettoriale. Ad esempio: $\mathbb{f}(v + u)_\beta = \mathbb{f}(v) + \mathbb{f}(u)$.
 Per capire se dei vettori generano sono lin.dip. etc. a volte conviene passare alle coordinate e lavorare in $\mathbb{R}^n$ per usare il seguente:
 USO DELL'ALGORITMO DI GAUSS IN MODO DIRETTO
 Per lavorare in $\mathbb{R}^n$:
