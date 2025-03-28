@@ -324,7 +324,7 @@ a_2 -2a_3 = 5 \text{ da cui } a_2 = 5 - \frac{6}{7} = \frac{29}{7} \\
 a_1 -a_2 + a_3 = -1 \text{ da cui } a_1 = -1 + \frac{29}{7} + \frac{3}{7} = \frac{25}{7}
 \end{array}$$Da cui concludiamo che le componenti (o *coordinate*) di $v$ rispetto a $\beta$ siano: $\left(v\right)_\beta = \left(\frac{25}{7}, \frac{29}{7}, -\frac{3}{7}\right)$.
 ## Applicazione diretta dell'algoritmo di Gauss (senza passare per un sistema lineare associato)
-<!-- vedi pag.67 -->
+ 
 ## brutta
 Osservazione importante: sia $V$ sp.vett. di dimensione $N$ e sia $\beta = \{v_1, \dots, v_n\}$ base ordinata. La funzione $\mathbb{f}:V \rightarrow \mathbb{R}^n$ (quindi $v \rightarrow (v)_\beta = (\lambda_1, \dots, \lambda_n)$) è un isomorfismo di spazi vettoriali cioè è una biiezione che rispetta la struttura (le proprietà) di spazio vettoriale. Ad esempio: $\mathbb{f}(v + u)_\beta = \mathbb{f}(v) + \mathbb{f}(u)$.
 Per capire se dei vettori generano sono lin.dip. etc. a volte conviene passare alle coordinate e lavorare in $\mathbb{R}^n$ per usare il seguente:
