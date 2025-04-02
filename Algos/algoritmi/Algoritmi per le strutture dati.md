@@ -116,3 +116,9 @@ public void BFS_NB(Node radice){
 	}
 }
 ```
+## Algoritmi per l'Heap
+A seguire le implementazioni Java delle funzioni elencate teoricamente [[Strutture dati#Operazioni su Array Heap|qui]].
+### 
+###
+###
+###

@@ -6,7 +6,7 @@
 4. [Le matrici](#Le%20matrici)
 	3. [Uguaglianza tra matrici](#Uguaglianza%20tra%20matrici)
 	4. [Somma tra matrici](#Somma%20tra%20matrici)
-	5. [Prodotto di matrici](#Prodotto%20di%20matrici)
+	5. [Prodotto di matrici (righe per colonne)](#Prodotto%20di%20matrici%20(righe%20per%20colonne))
 		1. [Esempio di prodotto tra matrici](#Esempio%20di%20prodotto%20tra%20matrici)
 		2. [Nota bene](#Nota%20bene)
 	6. [Definizione di Matrice Trasposta](#Definizione%20di%20Matrice%20Trasposta)
@@ -53,8 +53,15 @@
 	28. [Osservazione importante sulla dimensione degli sottospazi vettoriali](#Osservazione%20importante%20sulla%20dimensione%20degli%20sottospazi%20vettoriali)
 	29. [Componenti di un elemento di uno spazio vettoriale](#Componenti%20di%20un%20elemento%20di%20uno%20spazio%20vettoriale)
 		13. [Esempio di identificazione delle componenti di uno spazio vettoriale $V$ rispetto ad una base $\beta$](#Esempio%20di%20identificazione%20delle%20componenti%20di%20uno%20spazio%20vettoriale%20$V$%20rispetto%20ad%20una%20base%20$%5Cbeta$)
-13. [Applicazione diretta dell'algoritmo di Gauss (senza passare per un sistema lineare associato)](#Applicazione%20diretta%20dell'algoritmo%20di%20Gauss%20(senza%20passare%20per%20un%20sistema%20lineare%20associato))
-14. [brutta](#brutta)
+13. [Applicazione diretta dell'algoritmo di Gauss](#Applicazione%20diretta%20dell'algoritmo%20di%20Gauss)
+		14. [Procedimento generale per trovare una base di un sottospazio $W$ generato da certi vettori](#Procedimento%20generale%20per%20trovare%20una%20base%20di%20un%20sottospazio%20$W$%20generato%20da%20certi%20vettori)
+		15. [Procedimento generale per trovare una base di un sottospazio $W$ sottoinsieme di $\mathbb{R}^n$](#Procedimento%20generale%20per%20trovare%20una%20base%20di%20un%20sottospazio%20$W$%20sottoinsieme%20di%20$%5Cmathbb%7BR%7D%5En$)
+	30. [Esempio di applicazione diretta di Gauss](#Esempio%20di%20applicazione%20diretta%20di%20Gauss)
+14. [Applicazioni Lineari](#Applicazioni%20Lineari)
+	31. [Sintassi delle funzioni matematiche](#Sintassi%20delle%20funzioni%20matematiche)
+	32. [Definizione di Applicazione Lineare](#Definizione%20di%20Applicazione%20Lineare)
+	33. [Associare una matrice ad un'applicazione lineare](#Associare%20una%20matrice%20ad%20un'applicazione%20lineare)
+15. [brutta](#brutta)
 
 ## Equazioni Lineari
 Un'equazione lineare è un'equazione del tipo:$$a_1x_1 + a_2x_2 + a_3x_3 + \dots + a_nx_n = b$$con $a_1,a_2,\dots,a_n, b \in \mathbb{R}$ (o in generale $\in K$, con $K$ che equivale ad un campo).
@@ -104,7 +111,7 @@ $$A = \begin{pmatrix}1 & 2 \\ 3 & 4\end{pmatrix} \text{ e } B = \begin{pmatrix}4
 ### Somma tra matrici
 Se $A, B \in M_{m \times n}(\mathbb{R})$ la matrice $C = A + B$ corrisponderà alla matrice per cui vale la seguente: $C_{i, j} = a_{i, j} + b_{i, j}$ . Ad esempio: 
 $$A = \pmatrix{1 & -3 \\ 0 & 4 \\ 5 & 1} \text{ e } B = \pmatrix{0 & 1 \\ 5 & -1 \\ -2 & 7} \text{ , } A + B = C = \pmatrix{1 & -2 \\ 5 & 3 \\ 3 & 8}$$
-### Prodotto di matrici
+### Prodotto di matrici (righe per colonne)
 Data una riga $(a_1, \dots, a_n)$ e una colonna $\begin{pmatrix}b_1 \\ \dots \\ b_n\end{pmatrix}$ della stessa lunghezza, il loro prodotto è il numero $a_1 \cdot b_1 + a_2 \cdot b_2 + \dots + a_n \cdot b_n$. Ad esempio:
 $$(1, 2, 3) \cdot \begin{pmatrix}4 \\ 5 \\ 6\end{pmatrix} = 1 \cdot 4 + 2 \cdot 5 + 3 \cdot 6 = 32$$Se $A \in M_{m, n}(\mathbb{R})$ e $B \in M_{n, s}(\mathbb{R})$ definiamo il prodotto riga per colonna della due matrici come $C = AB$ con $C \in M_{m, s}(\mathbb{R})$ e $C_{i, j} = a_i \cdot b_j + \dots + a_{i_n} \cdot b_{j_n}$.
 La scrittura $C_{i, j}$ corrisponde al prodotto tra la riga $R_i$ (i-esima) e la colonna $B_j$ (j-esima).
@@ -323,92 +330,80 @@ $$Ora normalizziamola mediante [[Introduzione ad Algebra & Geometria#Rendere sca
 a_2 -2a_3 = 5 \text{ da cui } a_2 = 5 - \frac{6}{7} = \frac{29}{7} \\
 a_1 -a_2 + a_3 = -1 \text{ da cui } a_1 = -1 + \frac{29}{7} + \frac{3}{7} = \frac{25}{7}
 \end{array}$$Da cui concludiamo che le componenti (o *coordinate*) di $v$ rispetto a $\beta$ siano: $\left(v\right)_\beta = \left(\frac{25}{7}, \frac{29}{7}, -\frac{3}{7}\right)$.
-## Applicazione diretta dell'algoritmo di Gauss (senza passare per un sistema lineare associato)
- 
+## Applicazione diretta dell'algoritmo di Gauss
+Applicare direttamente l'algoritmo di Gauss significa farlo senza dover passare per un sistema.
+Considerando una matrice $A \in M_{m,n}(\mathbb{R})$, possiamo considerare le sue righe come vettori generanti un sottospazio di $\mathbb{R}^n$, detti **vettori riga** di $A$. Questo sottospazio rimarrà invariato a seguito delle operazioni elementari di riga, ovvero:
+- scambio tra righe;
+- moltiplicazione di una riga per un reale diverso da 0;
+- sostituzione della riga $i$-esima con la somma tra la medesima e un'altra riga $j$-esima moltiplicata per un reale qualsiasi.
+#### Procedimento generale per trovare una base di un sottospazio $W$ generato da certi vettori
+Per trovare una base di un sottospazio $W$ generato dai vettori $w_1, \dots, w_k \in \mathbb{R}^n$ e per decidere se questi vettori siano linearmente indipendenti, applichiamo i seguenti step:
+- Scriviamo la matrice $A$ con righe i vettori $w_1, \dots, w_k$. Questa sarà una matrice $k \times n$;
+- utilizzando l'[[Introduzione ad Algebra & Geometria#Rendere scala una matrice (algoritmo di Gauss)|algoritmo di Gauss]] rendiamo scala la matrice $A$;
+- i vettori formanti le righe non nulle di $A$ generano $W$ e sono linearmente indipendenti: sono quindi base di $W$;
+- sia $r$ il numero di righe non nulle di $A$: si ha quindi che $dim(W) = r$. Se $n = r$ i vettori $w_1, \dots, w_k$ generano uno spazio vettoriale di dimensione $n$ e quindi sono linearmente indipendenti. Se invece si ha $n \gt r$ i vettori $w_1, \dots, w_k$ sono linearmente dipendenti.
+#### Procedimento generale per trovare una base di un sottospazio $W$ sottoinsieme di $\mathbb{R}^n$
+Per ottenere una base di un sottospazio $W \subset \mathbb{R}^n$ e completarla ad una base di $\mathbb{R}^n$, applichiamo i primi $3$ punti del [[Introduzione ad Algebra & Geometria#Procedimento generale per trovare una base di un sottospazio $W$ generato da certi vettori|procedimento generale per trovare una base di un sottospazio $W$ generato da specifici vettori]] ed in seguito aggiungiamo $n-r$ vettori riga nelle posizioni corrispondenti ai gradini mancanti di $A$, per ottenere una nuova matrice con $n$ pivot.
+### Esempio di applicazione diretta di Gauss
+Dati i seguenti vettori in $\mathbb{R}^3$:$$v_1 = \pmatrix{2 \\ 3 \\ -1} \quad v_2 = \pmatrix{0 \\ -1 \\ 3} \quad v_3 = \pmatrix{2 \\ 2 \\ 2}$$ci chiediamo se sono una base di $\mathbb{R}^3$. Inoltre, vogliamo trovare una base del sottoinsieme $W$ da essi generato e calcolarne la dimensione.
+Anzitutto costruiamo la matrice:$$
+A = \pmatrix{
+2 & 3 & -1 \\
+0 & -1 & 3 \\
+2 & 2 & 2
+}
+$$e [[Primo esempio fornito|rendiamola ridotta]]:$$
+A' = \pmatrix{
+1 & 0 & 4 \\
+0 & 1 & -3 \\
+0 & 0 & 0
+}$$Da cui risulta che $W$ è generato da due vettori $\left(1, 0, 4\right)$ e $\left(0, 1, -3\right)$, che si può anche scrivere come:$$
+W = \lt \pmatrix{1 \\ 0 \\ 4}, \pmatrix{0 \\ 1 \\ -3}\gt
+$$Conseguentemente $W$ avrà dimensione pari a $2$: dato che il numero di vettori in una base è il numero massimo di vettori linearmente indipendenti in uno spazio vettoriale, si sa ora che $v_1, v_2, v_3$non possono essere base di $\mathbb{R}^3$.
+Per completare questa base di $W$ ad una base di $\mathbb{R}^3$ basta aggiungere il vettore $\left(0, 0, h\right)$, con $h \not = 0$.
+## Applicazioni Lineari
+Le applicazioni lineari sono funzioni tra spazi vettoriali che ne rispettano la [[Introduzione ad Algebra & Geometria#Definizione di spazi vettoriali|struttura]].
+Queste funzioni sono facilmente rappresentabili tramite matrici, legando le due tra $\mathbb{R}^n$ ed $\mathbb{R}^m$.
+### Sintassi delle funzioni matematiche
+Nella seguente scrittura$$
+\begin{array}.
+f: A \rightarrow B \\
+a \mapsto f(a)
+\end{array}
+$$si dice **dominio** di $f$ l'insieme $A$ e codominio di $f$ l'insieme $B$. Inoltre si ha un elemento $a$ appartenente al dominio, con **immagine** l'elemento $f(a) \in B$. L'insieme con tutte le immagini degli elementi in $A$ si dice **immagine** di $f$ e si indica con $Im(f)$ o con $f(A)$.
+### Definizione di Applicazione Lineare
+Avendo una funzione matematica $f$, la chiameremo **applicazione lineare** qualora rispetti la struttura degli spazi vettoriali: ciò significa che:
+- l'immagine della somma tra vettori sarà uguale alla somma tra le immagini dei vettori;
+- l'immagine del prodotto tra un vettore ed uno scalare sarà uguale al prodotto tra lo scalare stesso e l'immagine del vettore.
+Ovvero, prendendo due spazi vettoriali $V$ e $W$ ed una funzione $F:V \rightarrow W$, $f$ si dice *applicazione lineare* quando:
+- $f(u + v) = f(u) + f(v), \forall u,v \in V$;
+- $f(\lambda u) = \lambda f(u), \forall \lambda \in \mathbb{R} \text{ e } \forall u \in V$.
+### Associare una matrice ad un'applicazione lineare
+Ad ogni matrice $$
+A = \pmatrix{
+a_{1,1} & a_{1,2} & \dots & a_{1, n} \\
+a_{2,1} & a_{2,2} & \dots & a_{2, n} \\
+\vdots & \vdots & \vdots & \vdots \\
+a_{m,1} & a_{m, 2} & \dots & a_{m,n}
+} \in M_{m,n}(\mathbb{R})
+$$si può associare una funzione $L_A : \mathbb{R}^n \rightarrow \mathbb{R}^m$ della forma:$$
+\begin{array}{ccc}
+L_A : & \mathbb{R}^n \rightarrow & \mathbb{R}^m \\
+&\pmatrix{x_1 \\ x_2 \\ \vdots \\ x_n} \mapsto & \pmatrix{
+a_{1,1} \cdot x_1 & a_{1,2} \cdot x_2 & \dots & a_{1, n} \cdot x_n \\
+a_{2,1} \cdot x_1 & a_{2,2} \cdot x_2 & \dots & a_{2, n} \cdot x_n \\
+\vdots & \vdots & \vdots & \vdots \\
+a_{m,1} \cdot x_1 & a_{m, 2} \cdot x_2 & \dots & a_{m,n} \cdot x_n
+} \\
+& & = \pmatrix{
+a_{1,1} & a_{1,2} & \dots & a_{1, n} \\
+a_{2,1} & a_{2,2} & \dots & a_{2, n} \\
+\vdots & \vdots & \vdots & \vdots \\
+a_{m,1} & a_{m, 2} & \dots & a_{m,n}
+} \times \pmatrix{ x_1 \\ x_2 \\ \vdots \\ x_n} = A \pmatrix{ x_1 \\ x_2 \\ \vdots \\ x_n}
+\end{array}
+$$dove il prodotto $A$ per il vettore $\left(x_1, x_2, \dots, x_n\right)$ è il prodotto [[Introduzione ad Algebra & Geometria#Prodotto di matrici (righe per colonne)|righe per colonne]].
 ## brutta
-Osservazione importante: sia $V$ sp.vett. di dimensione $N$ e sia $\beta = \{v_1, \dots, v_n\}$ base ordinata. La funzione $\mathbb{f}:V \rightarrow \mathbb{R}^n$ (quindi $v \rightarrow (v)_\beta = (\lambda_1, \dots, \lambda_n)$) è un isomorfismo di spazi vettoriali cioè è una biiezione che rispetta la struttura (le proprietà) di spazio vettoriale. Ad esempio: $\mathbb{f}(v + u)_\beta = \mathbb{f}(v) + \mathbb{f}(u)$.
-Per capire se dei vettori generano sono lin.dip. etc. a volte conviene passare alle coordinate e lavorare in $\mathbb{R}^n$ per usare il seguente:
-USO DELL'ALGORITMO DI GAUSS IN MODO DIRETTO
-Per lavorare in $\mathbb{R}^n$:
-Teorema 1: le operazioni elementari sulle righe di una matrice non cambiano il sottospazio generato dalle righe della matrice stessa.
-Teorema 2: le righe non nulle di una matrice scala sono linearmente indipendenti.
-Dimostrazione:
-1) scambio di righe
-2) $R_i \rightarrow \lambda R_i, \lambda \not = 0$
-$$v = a_1v_1 + \dots + a_iv_i + \dots + a_jv_j = a_1v_1 + \dots + \frac{a_i}{\lambda}(\lambda v_i) + \dots + a_jv_j$$
-3) $R_i \rightarrow R_i + cR_j$ basta dimostrare che $\lt R_i, R_j \gt = \lt R_i + cR_j, R_j \gt$.$$\lt R_i + cR_j, R_j \gt \subseteq \lt R_i, R_j \gt$$analogamente posso scrivere $R_i = (R_i + cR_j) - cR_j \in \lt R_i + cR_j, R_j \gt$. Anche $R_j \in \lt R_i + cR_j, R_j \gt$ e se uno spazio contiene due vettori contiene tutte le combinazioni lineari.
-Esercizio: in $\mathbb{R}^4$ siano:
-$v_1 = (1,1,3,0); v_2 = (2,2,5,1); v_3 = (1,1,4,-1)$ e sia $U = \lt v_1, v_2, v_3 \gt$.
-Cerchiamo una base per $U$ costruiamo la matrice
-$$\pmatrix{v_1 \\ v_2 \\ v_3}$$Quindi:
-$$\pmatrix{1 & 1 & 3 & 0 \\ 2 & 2 & 5 & 1 \\ 1 & 1 & 4 & -1}$$che resa scala diventa:$$\pmatrix{1 & 1 & 3 & 0 \\ 0 & 0 & -1 & 1 \\ 0 & 0 & 0 & 0}$$Ora ricordando che $U = \lt v_1, v_2, v_3 \gt$ riscriviamo questa nozione dove ogni riga della matrice corrisponde ad un vettore $v$. Quindi $U = \lt v_1, v_2, \underline{0} \gt = \lt v_1, v_2 \gt$. Ho scoperto quindi che $v_1, v_2$ generano $U$ e so che sono linearmente indipendenti per il secondo teorema (Gauss in modo diretto). Quindi $U$ ha dimensione pari a $2$.
-Infine, $v_1, v_2, v_3$ sono linearmente indipendenti? Se lo fossero avrei massimo una dimensione, ergo sono dipendenti.
-L'algoritmo di Gauss in modo diretto permette di trovare una base di $\lt v_1, \dots, v_n \gt$
-$$\pmatrix{v_1 \\ \dots \\ v_n} \rightarrow \pmatrix{\bar{v_1} \\ \dots \\ \bar{v_k} \\ \underline{0}}$$
-le righe non nulle sono una base quindi troviamo dimensione $\lt v_1, \dots, v_k \gt$ sono indipendenti o no
-- se $k \gt S, v_1, \dots, v_k$ sono dipendenti
-- se $k = S, v_1, \dots, v_k$ sono indipendenti
-per GEL (recupera GEL dalla lezione precedente)
-infatti $v_1, \dots, v_k$ generano uno sp.vett. che ha dimensione $S = k$
-Esercizio: in $\mathbb{R}^5$ siano $v_1 = (1, 3, -1, 1, 2); v_2 = (2, 6, -2, 4, 4); v_3 = (-1, -3, 2, 0, -1)$ sia $U = \lt v_1, v_2, v_3 \gt$ verificare che $\beta \{v_1, v_2, v_3\}$ è base di $U$ e completare $\beta$ ad una base di $\mathbb{R}^5$.
-1 metodo: controlliamo che $v_1, v_2, v_3$ siano linearmente indipendenti, ovvero che la loro somma (moltiplicandoli per dei lambda) sia il vettore nullo. Troviamo i lambda e procediamo.
-2 metodo: Gauss in modo diretto. Prendiamo i vettori e mettiamoli in riga nella matrice$$\pmatrix{1 & 3 & -1 & 1 & 2 \\ 2 & 6 & -2 & 4 & 4 \\ -1 & -3 & 2 & 0 & -1}$$che in scala viene:$$\pmatrix{1 & 3 & -1 & 1 & 2 \\ 0 & 0 & 1 & 1 & 1 \\ 0 & 0 & 0 & 2 & 0}$$$U = \lt v_1, v_2, v_3 \gt = \lt \bar{v_1}, \bar{v_2}, \bar{v_3} \gt$ quindi $\lt \bar{v_1}, \bar{v_2}, \bar{v_3} \gt$ è base di $U$, che ha dimensione pari a $3$.
-Vogliamo ora completare per una base di dimensione $5$. Aggiungiamo quindi 2 vettori (5 vettori totali) in modo che i vettori ottenuti siano linearmente indipendenti. Inventiamoli in modo da avere una matrice scala ricordando che due vettori sono linearmente indipendenti quando sono non-nulli.
-Per rendere scala la matrice aggiungendo 2 vettori, dobbiamo assicurarci che abbiano pivot nelle locazioni mancanti, ergo la seconda colonna e la quinta.
-Dimensione 5, 5 vettori lin.ind., per GEL $\rightarrow$ sono una base di $\mathbb{R}^5$.
-Osserviamo che $\{v_1, v_2, v_3, w_1, w_2\}$ è una base di $\mathbb{R}^5$.
-Esercizio
-In $\mathbb{R}^4[x]$ siano $$\begin{aligned}P_1(x) = x^3 + x^2 + 3x \\ P_2(x) = 2x^3 + 2x^2 + 5x + 1 \\ P_3(x) = x^3 + x^2 + 4x - 1\end{aligned}$$
-Sia $U = \lt P_1(x), P_2(x), P_3(x) \gt$ trovare una base di $U$. Passiamo alle coordinate rispetto alla base canonica $\mathbb{C} = \{x^3, x^2, x, 1\}$
-e lavoriamo in $\mathbb{R}^4$.
-
-Argomenti chiave:
-- uso di gauss in modo diretto per lavorare in $R^n$;
-- passare alle coordinate (rispetto ad una base qualsiasi) permette di lavorare in $R^n$;
-Teorema 1: l'alg. di Gauss non cambia il sottospazio generate dalle righe di una matrice.
-Teorema 2: le righe non nulle di una matrice scala sono linearmente indipendenti.
-
-Esempio: in $R_3[x]$ siano:
-$$\begin{aligned}v_1 = x^3 + x^2 + 3x \\ v_2 = 2x^3 + 2x^2 + 5x + 1 \\ v_3 = x^3 + x^2 + 4x - 1\end{aligned}$$Sia $V = \lt v_1, v_2, v_3 \gt$, trovare una base di $V$.
-Passiamo anzitutto alle coordinate rispetto alla base canonica di $R_3[x]$.$$C = \{x^3, x^2, x, 1\}$$
-Troviamo le coordinate dei vettori rispetto la base canonica: $$\begin{array}.\left(v_1\right)_c = \left(1, 1, 3, 0\right) \\ \left(v_2\right)_c = \left(2,2,5,1\right) \\ \left(v_3\right)_c = \left(1,1,4,-1\right)\end{array}$$Lavoriamo in $R^n$ e costruiamo la matrice che ha per righe $\left(v_1\right)_c, \left(v_2\right)_c, \left(v_3\right)_c$:$$M_{3,4} = \pmatrix{1 & 1 & 3 & 0 \\ 2 & 2 & 5 & 1 \\ 1 & 1 & 4 & -1}$$rendiamola ora scala:$$M_{3,4} = \pmatrix{1 & 1 & 3 & 0 \\ 0 & 0 & -1 & 1 \\ 0 & 0 & 0 & 0}$$Ora scriviamo la combinazione lineare dei vettori associati alle righe della matrice trovata:$$\bar{V} = \lt \left(v_1\right)_c, \left(v_2\right)_c, \left(v_3\right)_c \gt = \lt \left(1,1,3,0\right), \left(0,0,-1,1\right)\gt \text{, in quanto } \left(v_3\right)_c \text{ è una riga nulla}$$Ora per il teorema 2 $\left(v_1\right)_c$ e $\left(v_2\right)_c$ sono linearmente indipendenti, quindi $\{\left(1,1,3,0\right), \left(0,0,-1,1\right)\}$ è base di $\bar{V}$.
-
-Esercizio: stabilire per quali valori di $k$ $v \in \lt v_1, v_2, v_3 \gt \subseteq M_2(\mathbb{R})$ dove:$$\begin{array}.v_1 = \pmatrix{1 & 2 \\ k & -3} \\ v_2 = \pmatrix{1 & k \\ 1 & -3} \\ v_3 = \pmatrix{2 & 4 \\ 3 & -6} \\ v = \pmatrix{1 & k \\ 2 & -3} \end{array}$$$M_2(\mathbb{R}) = M_{2,2} = (\mathbb{R})$
-Ci sono due modi per risolvere questo problema:
-- $v \in \lt v_1, v_2, v_3 \gt \Leftrightarrow \text{ esistono } \lambda_1, \lambda_2, \lambda_3 \in \mathbb{R} : v = \lambda_1v_1 + \lambda_2v_2 + \lambda_3v_3$ cioè:$$\begin{array}.\pmatrix{1 & k \\ 2 & -3} = \lambda_1\pmatrix{1 & 2 \\ k & -3} + \lambda_2\pmatrix{1 & k \\ 1 & -3} + \lambda_3\pmatrix{2 & 4 \\ 3 & -6} \\ = \pmatrix{\lambda_1 + \lambda_2 + 2\lambda_3 & 2\lambda_1 + k\lambda_2 + 4\lambda_3 \\ k\lambda_1 + \lambda_2 + 3\lambda_3 & -3\lambda_1 -3\lambda_2 -6\lambda_3} \\ = \begin{cases}\lambda_1 + \lambda_2 + 2\lambda_3 = 1 \\ 2\lambda_1 + k\lambda_2 + 4\lambda_3 = k \\ CONTINUA\end{cases} \end{array}$$
-- proviamo ad usare Gauss in modo diretto.$M_{2,2}(\mathbb{R})$ ha dimensione 4, quindi una delle sue basi potrebbe essere $C = \{\pmatrix{1 & 0 \\ 0 & 0}, \pmatrix{0 & 1 \\ 0 & 0}, \pmatrix{0 & 0 \\ 1 & 0}, \pmatrix{0 & 0 \\ 0 & 1}\}$. Prendiamo ora $v_1  = \pmatrix{1 & 2 \\ k & -3}$ (vedi premessa dell'esercizio) e scriviamo $\left(v_1\right)_c = \left(1, 2,  k,  -3\right)$. Quindi:$$v_1 = 1\pmatrix{1 & 0 \\ 0 & 0} + 2\pmatrix{0 & 1 \\ 0 & 0} + k\pmatrix{0 & 0 \\ 1 & 0} -3\pmatrix{0 & 0 \\ 0 & 1}$$Prendiamo ora $v_2$ e $v_3$ e facciamo la medesima cosa: $\left(v_2\right) = \pmatrix{1,k,1,-3}, \left(v_3\right)_c = \pmatrix{2,4,3,-6}$. Ora scriviamo $\left(v\right)_c = \pmatrix{1 & k & 2 & -3}$. Costruiamo ora la matrice che ha per righe $\left(v_1\right)_c \dots \left(v\right)_c$:$$\pmatrix{1 & 2 & k & -3 \\ 1 & k & 1 & -3 \\ 2 & 4 & 3 & -6 \\ 1 & k & 2 & -3}$$che per Gauss risulta:$$\pmatrix{1 & 2 & k & -3 \\ 0 & k-2 & 1-k & 0 \\ 0 & 0 & 3-2k & 0 \\ 0 & 0 & 1 & 0}$$quindi NON una matrice scala. Per rispondere alla domanda conviene quindi trovare una dimensione $\lt v_1, v_2, v_3\gt$ per poi aggiungervi $v$. Se $dim \lt v_1, v_2, v_3 \gt = dim \lt v_1, v_2, v_3, v \gt \Rightarrow \lt v_1, v_2, v_3, v \gt = \lt v_1, v_2, v_3 \gt \Rightarrow v \in \lt v_1, v_2, v_3 \gt$. Se invece $dim\lt v_1, v_2, v_3, v \gt \not = dim\lt v_1, v_2, v_3 \gt \Rightarrow v \not \in \lt v_1, v_2, v_3 \gt$. Facendo Gauss in modo diretto devo stare attento a non scambiare l'ultima riga con una delle precedenti (in questo caso).
-  Se $k -2 \not = 0$ e $3 - 2k \not = 0$ si ha $dim=3$. Poi sostituendo per $k$ diversi valori possiamo trovare come varia la $dim$ del sottospazio generato dai vettori $v_1, v_2, v_3$. Ad esempio, per $k = 2$ avremmo $dim = 2$, etc $\dots$
-
-Applicazione lineari:
-siano $V, W$ sp.vett.
-$F$ $V \rightarrow W$ si dice lineare se
-1) $F(v_1 + v_2) = F(v_1) + F(v_2)$ per ogni $v_1, v_2 \in V$.
-2) $F(\lambda v) = \lambda F(v) \forall \lambda \in \mathbb{R} \forall v \in V$
-Conseguenze di 1 e 2:$$F(\lambda_1v_1 + \dots + \lambda_nv_n) \stackrel{1}{=}F(\lambda_1v_1) + \dots + (\lambda_nv_n)$$
-3) $V = \mathbb{R}^n$ $W = \mathbb{R}^n$ $A \in M_{m,n}(\mathbb{R})$ allora $L_A: \mathbb{R}^n \rightarrow \mathbb{R}^m$
-ovvero $(x_1, \dots, x_n) \rightarrow A \cdot \pmatrix{x_1 \\ \dots \\ x_n}$
-Esempio: $A = \pmatrix{3 & 1 & -2 \\ 0 & 4 & -3}$ ;$L_A \quad \mathbb{R}^3 \rightarrow \mathbb{R}^2 \quad \left(x_1, x_2, x_3\right) \rightarrow \pmatrix{3 & 1 & -2 \\ 0 & 4 & -3} \cdot \pmatrix{x_1 \\ x_2 \\ x_3}$  
-allora $L_A(x_1, x_2, x_3) = (3x_1 + x_2 - 2x_3, 4x_2 - 3x_3)$ 
-$v_1 = \underline{x}$; $v_2 = \underline{y}$.
-$L_A(v_1 + v_2) = A(\underline{x}  + \underline{y}) = A\underline{X} + A\underline{y}$ (per la distributività del prodotto righe per colonne)
-$L_A(v_1) + L_A(v_2)$
-$L_A(1,-1,2) = (3 -1 -4, -4 -6) = (-2, -10)$ da cui trovo:
-$$\begin{array}.L_A(c_1) = L_A(1, 0, 0) = (3,0) \\ L_A(c_2) = L_A(0, 1, 0) = (1,4) \\ L_A(c_3) = L_A(0,0,1) = (-2, -3)\end{array}$$
-Vale sempre quindi che $L_A$(e, i) è sempre la $i$ esima colonna di $A$.
-
-data: $12/03/2025$
-$V, W$ sp.vett. $F: V \rightarrow W$
-si dice applicazione lineare se
-1) $F(v + u) = F(u) + f(v) \forall u,v \in V$;
-2) $F(\lambda v) = \lambda F(v) \forall v \in V \forall \lambda \in \mathbb{R}$.
-Segue che se $F$ è lineare
-$F(\lambda_1v_1 + \lambda_2v_2 + \dots + \lambda_nv_n) = \lambda_1F(v_1) + \dots + \lambda_nF(v_n)$ 
-Proposizione:
-$F, V \rightarrow W$ lineare
-$F(\underline{0}v) = \underline{0}w$
-Dimostrazione: $F(\underline{0}v) = F(0 \cdot \underline{0}v) \stackrel{2}{=} 0F(\underline{0}v)=0_w$
-$f$ si dice suriettiva $\forall b \in B \exists a \in A: f(a) = b$.
-$Im(f) = \{f(a), a \in A\}$ (Im = immagine di A)
 $f$ si dice iniettiva se $a_1 \not = a_2 \Rightarrow f(a_1) \not = f(a_2)$ elementi distinti hanno immagini distinte o equivalentemente $f(a_1) = f(a_2) \Rightarrow a_1 = a_2$.
 Definizione: $V, W$ sp. vett. $F, V \rightarrow W$ lineare $KerF = \{v \in V : f(v) = \underline{0}_w\}$, dove $Ker$ sta per kernel
 $Im(f) = \{w \in W : w = f(v) \text{ per qualche } v \in V\} = \{f(v), v \in V\}$.
