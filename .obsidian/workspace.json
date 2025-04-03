@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Algebra & Geometria/Introduzione ad Algebra & Geometria.md",
+                "file": "Algos/Strutture dati.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Introduzione ad Algebra & Geometria"
+              "title": "Strutture dati"
             }
           }
         ]
@@ -78,7 +78,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "08bee5bef7c3fd84",
@@ -168,21 +169,25 @@
   },
   "active": "67964a2d3c2d6e29",
   "lastOpenFiles": [
+    "Pasted image 20250403131449.png",
+    "Pasted image 20250403131443.png",
+    "Pasted image 20250403131420.png",
+    "Pasted image 20250403131418.png",
+    "Pasted image 20250403130827.png",
+    "Pasted image 20250403125155.png",
+    "Pasted image 20250403122500.png",
+    "Algos/Sorting algorithms.md",
     "Algos/Strutture dati.md",
-    "Algos/algoritmi/Algoritmi per le strutture dati.md",
     "Algebra & Geometria/Introduzione ad Algebra & Geometria.md",
+    "Algos/algoritmi/Algoritmi per le strutture dati.md",
+    "Algos/Introduzione, complessità computazionali e analisi degli algoritmi.md",
     "Algebra & Geometria/calcoli/applicazioni dirette di Gauss/Primo esempio fornito.md",
     "Algebra & Geometria/calcoli/applicazioni dirette di Gauss",
     "Algos/images/Pasted image 20250331100556.png",
     "Algos/images/Pasted image 20250331095322.png",
     "Algos/images/Pasted image 20250331100300.png",
     "Algos/images/Pasted image 20250331093632.png",
-    "Algos/Introduzione, complessità computazionali e analisi degli algoritmi.md",
-    "Algos/Sorting algorithms.md",
     "Algebra & Geometria/esercizi/Esercizi sulle combinazioni lineari.md",
-    "Algos/images/Pasted image 20250328145607.png",
-    "Algos/images/Pasted image 20250328152153.png",
-    "Algos/images/Pasted image 20250328151743.png",
     "Algos/esercizi/Esercizi inerenti al confronto tra funzioni.md",
     "Algos/algoritmi",
     "Algos/esercizi",
@@ -191,13 +196,10 @@
     "Algebra & Geometria/calcoli/combinazioni lineari/Primo esempio combinazioni lineari.md",
     "Algebra & Geometria/calcoli/combinazioni lineari/Terzo esempio combinazioni lineari.md",
     "Algebra & Geometria/calcoli/combinazioni lineari",
-    "Algebra & Geometria/images/Pasted image 20250318093335.png",
     "Algebra & Geometria/calcoli",
-    "Algebra & Geometria/images/Pasted image 20250318092827.png",
     "Algebra & Geometria/images",
     "Parte matematica.md",
     "Algos/brutta dell'11 Marzo 2025.md",
-    "Algos/images/Pasted image 20250313120924.png",
     "Algos/images",
     "Algos/Equazioni di Ricorrenza.md",
     "prova plugin.md",

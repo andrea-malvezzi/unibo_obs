@@ -36,7 +36,27 @@
 	10. [Heapsort](#Heapsort)
 		20. [Costo computazionale dell'Heapsort](#Costo%20computazionale%20dell'Heapsort)
 	11. [Algoritmi per l'Heap](#Algoritmi%20per%20l'Heap)
-## Liste
+## Liste concatenate
+Una lista è una struttura dati dove gli elementi sono sequenziali tra loro (l'ordinamento è deciso da una catena di puntatori). Lo spazio per i vari elementi è allocato e deallocato dinamicamente. Il costo di accesso dipende dalla posizione nella lista dell'elemento ricercato.
+### Semplici
+Ogni nodo $x$ contiene:
+- *data*, ovvero il dato da memorizzare nel nodo;
+- *next*, ovvero un puntatore al nodo successivo nella lista.
+In questo caso la lista può essere visitata solamente dalla testa verso la coda.
+#### Operazioni sulle Singly-linked-lists
+##### Search per le Liste concatenate semplici
+La ricerca di un elemento in una lista concatenata semplice ha complessità:
+- $O(1)$ nel caso migliore (l'elemento cercato è la head della lista);
+- $O(n)$ nel caso medio e nel caso peggiore.
+##### Insert (inserimento in testa) per le Liste concatenate semplici
+Inserire un elemento in testa ad una lista richiede il cambio di pochi puntatori ed ha quindi costo costante $O(1)$.
+##### Append (inserimento in coda) per le Liste concatenate semplici
+Per inserire un elemento in coda ad una lista occorre visitare tutta la lista: la complessità sarà quindi pari a $O(n)$.
+##### Delete per le Liste concatenate semplici
+Per eliminare un elemento da una lista occorre visitare tutta la lista per trovare l'elemento, quindi avrà complessità computazionale pari a:
+- $O(1)$ per il caso migliore (l'elemento da eliminare è la head);
+- $O(n)$ per il caso medio ed il caso pessimo.
+### Doppiamente concatenate
 ## Pile
 Struttura dati **LIFO**, support push e pop. Entrambe le operazioni hanno costo costante in quanto si accede direttamente all'elemento interessato (senza servirsi di loop o simili).
 ## Code
@@ -93,6 +113,17 @@ In un BST rimuovere un nodo potrebbe risultare in un alterazione della struttura
  - Il nodo $v$ da rimuovere ha un solo figlio $u$. Ora $u$ prenderà il posto di $v$ come figlio del genitore $g$ di $v$: ciò significa che sarà figlio destro di $g$ se $u$ era figlio destro, e sinistro se $u$ era figlio sinistro.
  - Il nodo $v$ da rimuovere ha due figli. In questo caso cerchiamo il predecessore $u$ di $v$, scambiamo i valori di $u$ e di $v$ e rimuoviamo quello che era originariamente $u$. Così facendo il nodo $u$ originale avrà sempre al massimo un figlio e sarà quindi più semplice da rimuovere (vedi caso precedente).
 ### Alberi AVL
+Un albero AVL è un albero binario bilanciato in altezza e supporta le operazioni di **search**, **insert** e **delete** con costo $O(\log{n})$, dove $n$ è il numero di nodi.
+Inoltre l'inserimento e la rimozione sono **auto-bilancianti**.
+#### Definizioni Utili per gli alberi AVL
+##### Fattore di bilanciamento
+Il fattore di bilanciamento $\beta(v)$ di un nodo $v$ è dato dalla differenza tra l'altezza del sottoalbero sinistro e quello destro di $v$:$$\beta(v) = h(v.{\text{left}}) - h(v.{\text{right}})$$
+##### Bilanciamento in altezza
+Un albero si dice bilanciato in altezza se per ogni nodo $v$ le altezze dei suoi sottoalberi sinistro e destro differiscono al più di uno:$$
+|\beta(v)| \leq 1$$
+#### Mantenere il bilanciamento
+La ricerca su un AVL viene effettuata come su un [[Strutture dati#Alberi Binari di ricerca|BST]], mentre gli inserimenti e le rimozioni devono essere modificati per mantenere il bilanciamento dell'albero. Per farlo, ogni nodo $u$ dovrà contenere informazioni sull'altezza del proprio sottoalbero, in modo da poter calcolare il fattore di bilanciamento tra sottoalberi.
+
 ## Tabelle Hash
 ## Heap
 Struttura dati in cui risulta efficiente effettuare operazioni di inserimento e di ricerca di valori massimi o minimi.
@@ -116,12 +147,12 @@ Il valore massimo di un albero è la sua radice, ovvero il primo elemento dell'a
 L'operazione ha costo costante in quanto stiamo accedendo ad un valore dell'array tramite indice.
 #### Ripristinare la proprietà di Max-heap (FixHeap)
 Supponiamo di voler rimpiazzare la radice $A[1]$ di un max-heap con un valore qualsiasi $x$.![[Pasted image 20250331100300.png]]
-Allora potrei continuare a scambiare $x$ con il figlio con valore maggiore e ripetere ricorsivamente. Questa operazione ha costo computazione pari all'altezza dell'albero, che dalla definizione data nella sezione sulla [[Strutture dati#Perfezione di un albero binario|perfezione di un albero binario]] sappiamo essere equivalente a $\log{n}$.
+Allora potrei continuare a scambiare $x$ con il figlio con valore maggiore e ripetere ricorsivamente. Questa operazione ha costo computazionale pari all'altezza dell'albero, che dalla definizione data nella sezione sulla [[Strutture dati#Perfezione di un albero binario|perfezione di un albero binario]] sappiamo essere equivalente a $\log{n}$.
 #### Cancellare il valore massimo (DeleteMax)
 Servendosi della funzione [[Strutture dati#Ripristinare la proprietà di Max-heap|FixHeap]], eliminare il valore massimo dell'array heap significa cancellare la radice dell'albero (nonché il primo elemento dell'array).
 Per farlo, prendiamo l'ultimo elemento dell'array e sovrascriviamo il valore della radice con quello di quest'ultimo. Ora applichiamo FixHeap per riordinare l'array.
 #### Costruire un array heap a partire da un array privo di alcun ordine (Heapify)
-Per rendere un array generico un array heap, occorrerà anzitutto conoscere la posizione della radice che si vuole adottare e quella dell'ultimo elemento dell'heap. In seguito occorrerà costruire ricorsivamente i sotto-heap destri e sinistri della radice e chiamare [[Strutture dati#Ripristinare la proprietà di Max-heap|FixHeap]] per riordinare l'heap creato.
+Per rendere un array generico un array heap, occorrerà anzitutto conoscere la posizione della radice che si vuole adottare e quella dell'ultimo elemento dell'heap. In seguito occorrerà costruire ricorsivamente i sotto-heap destri e sinistri della radice e chiamare [[Strutture dati#Ripristinare la proprietà di Max-heap (FixHeap)|FixHeap]] per riordinare l'heap creato.
 ### Costi computazionali delle operazioni proposte
 #### FindMax
 [[Strutture dati#Trovare il valore massimo|FindMax]] avrà costo computazionale $O(1)$, in quanto impiega solamente un accesso per indice ad un elemento di un array.
@@ -134,7 +165,7 @@ Per calcolare il costo computazionale di [[Strutture dati#Costruire un array hea
 Considerando che la funzione richiamerà sé stessa due volte (una per il figlio sinistro ed una per il figlio destro) si avrà una costante moltiplicativa del costo delle due chiamate pari a 2. Il costo per chiamata sarà pari a $\frac{n}{2}$, in quanto ad ogni chiamata si divide l'albero attuale in due metà, dimezzando effettivamente il numero di elementi considerati. Infine occorrerà considerare anche il costo di [[Strutture dati#Ripristinare la proprietà di Max-heap (FixHeaè)|FixHeap]], pari a $O(\log{n})$.
 Quindi si avrà $T(n) = 2 \cdot T(\frac{n}{2}) + \log{n}$, che dal primo caso del Master Theorem risulta $T(n) = O(n)$.
 ### Heapsort
-L'Heapsort si basa sull'idea di creare un max-heap a partire da un array $A$ mediante [[Strutture dati#Costruire un array heap a partire da un array privo di alcun ordine (Heapify)|Heapify]] ed in seguito continuare ad estrarne il massimo mediante [[Strutture dati#Trovare il valore massimo (FindMax)]|FindMax]] e [[Strutture dati#Cancellare il valore massimo (DeleteMax)|DeleteMax]] per poi inserire il massimo nell'ultima posizione di $A$, finché l'heap-max creato non risulta vuoto.
+L'Heapsort si basa sull'idea di creare un max-heap a partire da un array $A$ mediante [[Strutture dati#Costruire un array heap a partire da un array privo di alcun ordine (Heapify)|Heapify]]ed in seguito continuare ad estrarne il massimo mediante [[Strutture dati#Trovare il valore massimo (FindMax)]|FindMax]] e [[Strutture dati#Cancellare il valore massimo (DeleteMax)|DeleteMax]] per poi inserire il massimo nell'ultima posizione di $A$, finché l'heap-max creato non risulta vuoto.
 #### Costo computazionale dell'Heapsort
 Il costo computazionale di questa operazione risulta essere il costo di [[Strutture dati#Costruire un array heap a partire da un array privo di alcun ordine (Heapify)|Heapify]] sommato a quello di un loop sugli $n$ elementi dell'array-heap ottenuto, considerando che il costo per iterazione non sarà costante ma pari a quello di [[Strutture dati#Trovare il valore massimo (FindMax)]|FindMax]] e di [[Strutture dati#Cancellare il valore massimo (DeleteMax)|DeleteMax]] (quindi $\log{n}$), ovvero $T(n) = O(n) + O(\sum^1_{c = n}\log{c}) = O(n \cdot \log{n})$.
 ### Algoritmi per l'Heap
@@ -163,3 +194,51 @@ Come accadeva con i max/min-heap, anche i d-Heap si possono rappresentare con un
 - l'ultimo figlio del nodo in posizione $i$ si trova in $(i \cdot d) + 1$;
 - il primo figlio del nodo in posizione $i$ si trova in $((i - 1) \cdot d) + 2$, ovvero $(d - 1)$ posizioni prima dell'ultimo figlio;
 - il padre del nodo in posizione $i$ si trova in $[(i - 1) / d]$ (le parentesi indicano un arrotondamento).
+
+## Strutture Union-find
+Utili per gestire insiemi disgiunti (senza elementi in comune) di oggetti, come insiemi singoletto.
+### Definizione
+Una struttura union-find è una collezione $S = \{S_1, S_2, \dots, S_k\}$ di insiemi dinamici disgiunti. Gli insiemi possono contenere complessivamente un totale di $n \geq k$ elementi ed ogni insieme è rappresentato da un **rappresentate univoco**.
+### Come rappresentare gli insiemi
+Un insieme facente parte di una struttura union-find si può rappresentare mediante un item chiamato rappresentante, che può essere un qualunque membro di tale insieme. Questo rappresentate può cambiare **solamente** in seguito all'unione con un altro insieme.
+### Operazioni su strutture Union-find
+#### makeSet
+Una funzione **makeSet(elem $x$)**:
+- Crea un insieme il cui unico elemento (e quindi ovviamente il rappresentate) è $x$;
+- $x$ non deve appartenere ad un altro insieme esistente (si opera con insiemi disgiunti).
+#### find
+Una funzione **find(elem $x$) $\rightarrow x$**:
+- Restituisce il rappresentate dell'insieme contenente $x$.
+#### union
+Una funzione **union(elem $x$, elem $y$)**:
+- Unisce i due insiemi rappresentati da $x$ e da $y$;
+- Il nuovo insieme avrà un nuovo rappresentate e i due insiemi precedenti verranno distrutti.
+### Esempio di applicazione della struttura Union-find
+Supponiamo di avere $9$ strade e di volerne trovare le intersezioni:![[Pasted image 20250403122500.png]]
+allora potremmo scrivere l'insieme $E$ come l'insieme di tutti i $9$ singoletti:$$
+E = \{\{1\}, \{2\}, \{3\}, \{4\}, \{5\}, \{6\}, \{7\}, \{8\}, \{9\}\}$$poi potremmo applicare:
+- [[Strutture dati#union|union]]($1,4$);
+- union($2,5$);
+- union($3,6$);
+- union($8,9$);
+
+Per ottenere 4 nuovi insiemi composti da $2$ elementi, più un singoletto per il $7$.
+Ora dovremmo unire tra loro questi insiemi per trovare le intersezioni stradali:
+- union($4,5$);
+- union($6,9$);
+- union($4,7$);
+### Implementazioni con Union-find
+#### Algoritmo QuickFind
+Ogni insieme viene rappresentato con un albero di altezza uno, dove la radice corrisponde al rappresentante e i figli della radice sono **tutti** gli elementi dell'insieme, rappresentante incluso. Ovvero:![[Pasted image 20250403125155.png]]come possibile notare dalle frecce nel diagramma, si ha accesso diretto alle foglie ma non alla radice. Ciò significa che da una foglia (ad esempio da $c$) potrò risalire alla radice (ad esempio $b$).
+##### L'operazione Find con il QuickFind
+Il **find** è quindi **quick** perché permette di trovare rapidamente il rappresentate di un insieme (con costo costante in quanto si ha accesso diretto alle foglie).
+##### L'operazione Union con il QuickFind
+Con l'algoritmo QuickFind si da precedenza all'ottimizzazione dell'operazione di find, ma per fare ciò si sacrifica l'ottimizzazione dell'[[Strutture dati#union|union]]: difatti, eseguendo union($x, y$), occorrerà cambiare tutti i puntatori delle foglie dell'albero $y$ per puntare ad $x$. Questo significa che union avrà, considerando $n$ pari alla quantità complessiva di elementi nel primo e nel secondo albero, complessità pari ad $O(n)$ nel caso peggiore (ovvero il caso in cui l'albero da unire ha $n-1$ elementi).![[Pasted image 20250403131449.png]]
+#### Algoritmo QuickUnion
+Si rappresenta ogni insieme tramite un albero dove ogni nodo ha esattamente un padre, ma può avere $n$ figli. Anche in questo caso la radice contiene il rappresentante. Ovvero:![[Pasted image 20250403130827.png]]
+##### L'operazione Find con il QuickUnion
+Il **find** in questo caso risulta più lento rispetto a [[Strutture dati#L'operazione Find con il QuickFind|quello del QuickFind]] perché per trovare la radice occorre passare attraverso tutti i padri di un elemento passato come parametro alla funzione. Questo significa che nel caso peggiore il find avrà complessità pari a $O(n)$.
+##### L'operazione Union con il QuickUnion
+Per la Union la cosa risulta molto semplice, in quanto basta collegare il padre di un sottoalbero diretto della radice e collegarlo al nuovo rappresentante (si cambia ora un solo elemento invece che $n$). Si ha quindi costo costante $O(1)$.![[Pasted image 20250403131420.png]]
+#### QuickFind con Euristica sul peso
+#### QuickUnion con Euristica sul peso

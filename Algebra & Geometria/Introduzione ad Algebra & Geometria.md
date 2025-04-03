@@ -61,6 +61,14 @@
 	31. [Sintassi delle funzioni matematiche](#Sintassi%20delle%20funzioni%20matematiche)
 	32. [Definizione di Applicazione Lineare](#Definizione%20di%20Applicazione%20Lineare)
 	33. [Associare una matrice ad un'applicazione lineare](#Associare%20una%20matrice%20ad%20un'applicazione%20lineare)
+	34. [Esempio di applicazione lineare](#Esempio%20di%20applicazione%20lineare)
+	35. [Teoremi utili per le applicazioni lineari](#Teoremi%20utili%20per%20le%20applicazioni%20lineari)
+		16. [Teorema sull'esistenza di un'applicazione lineare](#Teorema%20sull'esistenza%20di%20un'applicazione%20lineare)
+		17. [Teorema sulla validità di un'applicazione lineare su uno spazio $V$](#Teorema%20sulla%20validit%C3%A0%20di%20un'applicazione%20lineare%20su%20uno%20spazio%20$V$)
+		18. [Osservazione: tre modi per scrivere un'applicazione lineare](#Osservazione:%20tre%20modi%20per%20scrivere%20un'applicazione%20lineare)
+		19. [Proprietà della composizione di applicazioni lineari](#Propriet%C3%A0%20della%20composizione%20di%20applicazioni%20lineari)
+			2. [Associatività della composizione tra applicazioni lineari](#Associativit%C3%A0%20della%20composizione%20tra%20applicazioni%20lineari)
+	36. [Osservazione sul kernel e sull'immagine](#Osservazione%20sul%20kernel%20e%20sull'immagine)
 15. [brutta](#brutta)
 
 ## Equazioni Lineari
@@ -403,6 +411,66 @@ a_{m,1} & a_{m, 2} & \dots & a_{m,n}
 } \times \pmatrix{ x_1 \\ x_2 \\ \vdots \\ x_n} = A \pmatrix{ x_1 \\ x_2 \\ \vdots \\ x_n}
 \end{array}
 $$dove il prodotto $A$ per il vettore $\left(x_1, x_2, \dots, x_n\right)$ è il prodotto [[Introduzione ad Algebra & Geometria#Prodotto di matrici (righe per colonne)|righe per colonne]].
+### Esempio di applicazione lineare
+Considerando la matrice$$
+A_{\colorbox{lightgreen}{2},\colorbox{yellow}{3}} = \pmatrix{
+2 & 1 & 0 \\
+-1 & 1 & 3
+}
+$$si ha un'applicazione lineare $L_A : \mathbb{R}^{\colorbox{yellow}{2}} \rightarrow \mathbb{R}^{\colorbox{lightgreen}{2}}$ definita da:$$
+L_A = \pmatrix{x_1 \\ x_2 \\ x_3} = \pmatrix{2 & 1 & 0 \\ -1 & 1 & 3} \times \pmatrix{x_1 \\ x_2 \\ x_3} = \pmatrix{2x_1 + x_2 \\ -x_1 + x_2 + 3x_3} = x_1 \pmatrix{2 \\ -1} + x_2 \pmatrix{1 \\ 1} + x_3 \pmatrix{0 \\ 3}
+$$da cui si nota che $$
+\begin{array}{ccc}
+L_A\pmatrix{1 \\ 0 \\ 0} = \pmatrix{2 \\ -1} & L_A\pmatrix{0 \\ 1 \\ 0} = \pmatrix{1 \\ 1} & L_A\pmatrix{0 \\ 0 \\ 1} = \pmatrix{0 \\ 3}
+\end{array}
+$$ovvero le immagini dei vettori della base canonica sono le colonne della matrice $A$.
+### Teoremi utili per le applicazioni lineari
+#### Teorema sull'esistenza di un'applicazione lineare
+Prendendo due spazi vettoriali $V$ e $W$, se $\{v_1, \dots, v_n\}$ è una base di $V$ e consideriamo $n$ vettori non necessariamente distinti $w_1, \dots, w_n \in W$, allora esiste ed è unica l'applicazione lineare $L: V \rightarrow W$ tale che $L(v_k) = w_k$.
+#### Teorema sulla validità di un'applicazione lineare su uno spazio $V$
+Prendendo due spazi vettoriali $V$ e $W$, se due applicazioni lineari $T, S : V \rightarrow W$ coincidono su una base di $V$, allora coincideranno su tutto $V$.
+#### Osservazione: tre modi per scrivere un'applicazione lineare
+Data un'applicazione lineare $f : \mathbb{R}^n \rightarrow \mathbb{R}^m$, fissiamo in $\mathbb{R}^n$ ed in $\mathbb{R}^m$ le rispettive basi canoniche, ovvero: $\{e_1, \dots, e_n\}$ e $\{e_1, \dots, e_m\}$. Allora $f$ si può scrivere come:$$
+\begin{array}{c}
+f(e_1) = a_{1,1}e_1 + \dots + a_{m,1}e_m \\
+\vdots \\
+f(e_n) = a_{1,n}e_1 + \dots + a_{m, n}e_m
+\end{array}
+$$oppure come: $$
+\begin{array}{c}
+f(x_1, \dots, x_n) = 
+\pmatrix{
+a_{1,1}x_1 + a_{1,2}x_2 + \dots + a_{1,n}x_n \\ 
+a_{2,1}x_1 + a_{2,2}x_2 + \dots + a_{2,n}x_n \\
+\vdots \\
+a_{m,1}x_1 + a_{m,2}x_2 + \dots + a_{m,n}x_n
+}
+\end{array}
+$$ed infine come $$f(X) = AX$$dove $$
+\begin{array}{cc}
+X = \pmatrix{x_1 \\ \vdots \\ x_n} & A = \pmatrix{a_{1,1} & \dots & a_{1,n} \\ \vdots & \vdots & \vdots \\ a_{m,1} & \dots & a_{m,n}}
+\end{array}$$
+### Composizione di applicazioni lineari
+Se $f$ e $g$ sono applicazioni lineari a cui sono associate due matrici $A$ e $B$ ed esiste la funzione composta $f \circ g$, si ha che $f \circ g$ è un'applicazione lineare associata alla matrice $AB$, cioè:$$
+\stackrel{f}{L_A} \circ \stackrel{g}{L_B} = L_{AB}$$
+#### Proprietà della composizione di applicazioni lineari
+##### Associatività della composizione tra applicazioni lineari
+Avendo tre applicazioni lineari $L_A, L_B, L_C$, si ha che:$$
+L_A \circ \left(L_B \circ L_C\right) = \left(L_A \circ L_B\right) \circ L_C$$
+##### Commutatività della composizione tra applicazioni lineari
+L'operazione di composizione non è commutativa: ciò significa che, prendendo due applicazioni lineari $L_A$ e $L_B$, generalmente si avrà $L_A \circ L_B \not = L_B \circ L_A$.
+### Nucleo (o kernel) ed Immagine
+Prendendo due spazi vettoriali $V$ e $W$ ed un'applicazione lineare $f : V \rightarrow W$:
+- si dice **kernel** ($Ker$) di $f$ l'insieme dei vettori di $V$ la cui immagine è il vettore nullo di $W$. Tale insieme si indica con $Ker(f)$.$$Ker(f) = \{v \in V : f(v) = 0_W\}$$
+- si dice **immagine** di $f$ l'insieme dei vettori di $W$ che **sono immagini** di qualche vettore nel codominio $W$, ovvero:$$Im(f) = \{w \in W : w = f(v), v \in V\}$$
+da cui si nota come:
+- il kernel sia un sottospazio vettoriale del dominio di $f$ (ovvero $V)$;
+- l'immagine sia un sottospazio vettoriale del codominio di $f$ (ovvero $W)$.
+### Proposizione sulla generazione dell'immagine di $f$
+Sia $f : V \rightarrow W$ un'applicazione lineare. Allora il sottospazio vettoriale $Im(f)$ è generato dall'immagine di una qualsiasi base di $V$, cioè (avendo $\{v_1, \dots, v_n\}$ base di $V$):$$
+Im(f) = \lt f(v_1), \dots, f(v_n) \gt$$
+### Osservazione sul kernel e sull'immagine
+I concetti di kernel e di immagine sono strettamente legati alla suriettività e all'iniettività dell'applicazione lineare data:
 ## brutta
 $f$ si dice iniettiva se $a_1 \not = a_2 \Rightarrow f(a_1) \not = f(a_2)$ elementi distinti hanno immagini distinte o equivalentemente $f(a_1) = f(a_2) \Rightarrow a_1 = a_2$.
 Definizione: $V, W$ sp. vett. $F, V \rightarrow W$ lineare $KerF = \{v \in V : f(v) = \underline{0}_w\}$, dove $Ker$ sta per kernel
