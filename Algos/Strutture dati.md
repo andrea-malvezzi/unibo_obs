@@ -1,41 +1,81 @@
-1. [Pile](#Pile)
-2. [Code](#Code)
-3. [Alberi](#Alberi)
-	1. [Definizione di Albero](#Definizione%20di%20Albero)
-	2. [Definizioni utili](#Definizioni%20utili)
-		1. [Profondità di un nodo](#Profondit%C3%A0%20di%20un%20nodo)
-		2. [Livello](#Livello)
-		3. [Altezza di un albero](#Altezza%20di%20un%20albero)
-		4. [Grado di un nodo](#Grado%20di%20un%20nodo)
-	3. [Alberi Ordinati](#Alberi%20Ordinati)
-	4. [Alberi Binari](#Alberi%20Binari)
-		5. [Definizioni utili](#Definizioni%20utili)
-			1. [Completezza di un albero binario](#Completezza%20di%20un%20albero%20binario)
-			2. [Perfezione di un albero binario](#Perfezione%20di%20un%20albero%20binario)
-		6. [Alberi binari "quasi" perfetti](#Alberi%20binari%20%22quasi%22%20perfetti)
-		7. [Algoritmi per gli alberi binari e non](#Algoritmi%20per%20gli%20alberi%20binari%20e%20non)
-	5. [Alberi Binari di ricerca](#Alberi%20Binari%20di%20ricerca)
-		8. [Minimi e massimi assoluti](#Minimi%20e%20massimi%20assoluti)
-		9. [Definizione di predecessore di un nodo](#Definizione%20di%20predecessore%20di%20un%20nodo)
-		10. [Rimozione di un nodo in un BST](#Rimozione%20di%20un%20nodo%20in%20un%20BST)
-	6. [Alberi AVL](#Alberi%20AVL)
-4. [Tabelle Hash](#Tabelle%20Hash)
-5. [Heap (code con priorità)](#Heap%20(code%20con%20priorit%C3%A0))
-	7. [Alberi binari heap](#Alberi%20binari%20heap)
-		11. [Rappresentazione di albero heap tramite array heap](#Rappresentazione%20di%20albero%20heap%20tramite%20array%20heap)
-	8. [Operazioni su Array Heap](#Operazioni%20su%20Array%20Heap)
-		12. [Trovare il valore massimo (FindMax)](#Trovare%20il%20valore%20massimo%20(FindMax))
-		13. [Ripristinare la proprietà di Max-heap (FixHeap)](#Ripristinare%20la%20propriet%C3%A0%20di%20Max-heap%20(FixHeap))
-		14. [Cancellare il valore massimo (DeleteMax)](#Cancellare%20il%20valore%20massimo%20(DeleteMax))
-		15. [Costruire un array heap a partire da un array privo di alcun ordine (Heapify)](#Costruire%20un%20array%20heap%20a%20partire%20da%20un%20array%20privo%20di%20alcun%20ordine%20(Heapify))
-	9. [Costi computazionali delle operazioni proposte](#Costi%20computazionali%20delle%20operazioni%20proposte)
-		16. [FindMax](#FindMax)
-		17. [FixHeap](#FixHeap)
-		18. [DeleteMax](#DeleteMax)
-		19. [Heapify](#Heapify)
-	10. [Heapsort](#Heapsort)
-		20. [Costo computazionale dell'Heapsort](#Costo%20computazionale%20dell'Heapsort)
-	11. [Algoritmi per l'Heap](#Algoritmi%20per%20l'Heap)
+1. [Liste concatenate](#Liste%20concatenate)
+	1. [Semplici](#Semplici)
+		1. [Operazioni sulle Singly-linked-lists](#Operazioni%20sulle%20Singly-linked-lists)
+			1. [Search per le Liste concatenate semplici](#Search%20per%20le%20Liste%20concatenate%20semplici)
+			2. [Insert (inserimento in testa) per le Liste concatenate semplici](#Insert%20(inserimento%20in%20testa)%20per%20le%20Liste%20concatenate%20semplici)
+			3. [Append (inserimento in coda) per le Liste concatenate semplici](#Append%20(inserimento%20in%20coda)%20per%20le%20Liste%20concatenate%20semplici)
+			4. [Delete per le Liste concatenate semplici](#Delete%20per%20le%20Liste%20concatenate%20semplici)
+	2. [Doppiamente concatenate](#Doppiamente%20concatenate)
+2. [Pile](#Pile)
+3. [Code](#Code)
+4. [Alberi](#Alberi)
+	3. [Definizione di Albero](#Definizione%20di%20Albero)
+	4. [Definizioni utili](#Definizioni%20utili)
+		2. [Profondità di un nodo](#Profondit%C3%A0%20di%20un%20nodo)
+		3. [Livello](#Livello)
+		4. [Altezza di un albero](#Altezza%20di%20un%20albero)
+		5. [Grado di un nodo](#Grado%20di%20un%20nodo)
+	5. [Alberi Ordinati](#Alberi%20Ordinati)
+	6. [Alberi Binari](#Alberi%20Binari)
+		6. [Definizioni utili](#Definizioni%20utili)
+			5. [Completezza di un albero binario](#Completezza%20di%20un%20albero%20binario)
+			6. [Perfezione di un albero binario](#Perfezione%20di%20un%20albero%20binario)
+		7. [Alberi binari "quasi" perfetti](#Alberi%20binari%20%22quasi%22%20perfetti)
+		8. [Algoritmi per gli alberi binari e non](#Algoritmi%20per%20gli%20alberi%20binari%20e%20non)
+	7. [Alberi Binari di ricerca](#Alberi%20Binari%20di%20ricerca)
+		9. [Minimi e massimi assoluti](#Minimi%20e%20massimi%20assoluti)
+		10. [Definizione di predecessore di un nodo](#Definizione%20di%20predecessore%20di%20un%20nodo)
+		11. [Rimozione di un nodo in un BST](#Rimozione%20di%20un%20nodo%20in%20un%20BST)
+	8. [Alberi AVL](#Alberi%20AVL)
+		12. [Definizioni Utili per gli alberi AVL](#Definizioni%20Utili%20per%20gli%20alberi%20AVL)
+			7. [Fattore di bilanciamento](#Fattore%20di%20bilanciamento)
+			8. [Bilanciamento in altezza](#Bilanciamento%20in%20altezza)
+		13. [Mantenere il bilanciamento](#Mantenere%20il%20bilanciamento)
+5. [Tabelle Hash](#Tabelle%20Hash)
+6. [Heap](#Heap)
+	9. [Alberi binari heap](#Alberi%20binari%20heap)
+		14. [Rappresentazione di albero heap tramite array heap](#Rappresentazione%20di%20albero%20heap%20tramite%20array%20heap)
+	10. [Operazioni su Array Heap](#Operazioni%20su%20Array%20Heap)
+		15. [Trovare il valore massimo (FindMax)](#Trovare%20il%20valore%20massimo%20(FindMax))
+		16. [Ripristinare la proprietà di Max-heap (FixHeap)](#Ripristinare%20la%20propriet%C3%A0%20di%20Max-heap%20(FixHeap))
+		17. [Cancellare il valore massimo (DeleteMax)](#Cancellare%20il%20valore%20massimo%20(DeleteMax))
+		18. [Costruire un array heap a partire da un array privo di alcun ordine (Heapify)](#Costruire%20un%20array%20heap%20a%20partire%20da%20un%20array%20privo%20di%20alcun%20ordine%20(Heapify))
+	11. [Costi computazionali delle operazioni proposte](#Costi%20computazionali%20delle%20operazioni%20proposte)
+		19. [FindMax](#FindMax)
+		20. [FixHeap](#FixHeap)
+		21. [DeleteMax](#DeleteMax)
+		22. [Heapify](#Heapify)
+	12. [Heapsort](#Heapsort)
+		23. [Costo computazionale dell'Heapsort](#Costo%20computazionale%20dell'Heapsort)
+	13. [Algoritmi per l'Heap](#Algoritmi%20per%20l'Heap)
+7. [Priority Queue](#Priority%20Queue)
+	14. [Operazioni su Priority Queue](#Operazioni%20su%20Priority%20Queue)
+		24. [findMin() $\rightarrow$ elem](#findMin()%20$%5Crightarrow$%20elem)
+		25. [insert(elem $e$, chiave $k$)](#insert(elem%20$e$,%20chiave%20$k$))
+		26. [delete(elem $e$)](#delete(elem%20$e$))
+		27. [deleteMin()](#deleteMin())
+		28. [increaseKey(elem $e$, chiave $k$)](#increaseKey(elem%20$e$,%20chiave%20$k$))
+		29. [decreaseKey(elem $e$, chiave $k$)](#decreaseKey(elem%20$e$,%20chiave%20$k$))
+	15. [d-Heap](#d-Heap)
+		30. [Rappresentazione di un d-Heap in un array](#Rappresentazione%20di%20un%20d-Heap%20in%20un%20array)
+8. [Strutture Union-find](#Strutture%20Union-find)
+	16. [Definizione](#Definizione)
+	17. [Come rappresentare gli insiemi](#Come%20rappresentare%20gli%20insiemi)
+	18. [Operazioni su strutture Union-find](#Operazioni%20su%20strutture%20Union-find)
+		31. [makeSet](#makeSet)
+		32. [find](#find)
+		33. [union](#union)
+	19. [Esempio di applicazione della struttura Union-find](#Esempio%20di%20applicazione%20della%20struttura%20Union-find)
+	20. [Implementazioni con Union-find](#Implementazioni%20con%20Union-find)
+		34. [Algoritmo QuickFind](#Algoritmo%20QuickFind)
+			9. [L'operazione Find con il QuickFind](#L'operazione%20Find%20con%20il%20QuickFind)
+			10. [L'operazione Union con il QuickFind](#L'operazione%20Union%20con%20il%20QuickFind)
+		35. [Algoritmo QuickUnion](#Algoritmo%20QuickUnion)
+			11. [L'operazione Find con il QuickUnion](#L'operazione%20Find%20con%20il%20QuickUnion)
+			12. [L'operazione Union con il QuickUnion](#L'operazione%20Union%20con%20il%20QuickUnion)
+		36. [QuickFind con Euristica sul peso](#QuickFind%20con%20Euristica%20sul%20peso)
+		37. [QuickUnion con Euristica sul peso](#QuickUnion%20con%20Euristica%20sul%20peso)
+
 ## Liste concatenate
 Una lista è una struttura dati dove gli elementi sono sequenziali tra loro (l'ordinamento è deciso da una catena di puntatori). Lo spazio per i vari elementi è allocato e deallocato dinamicamente. Il costo di accesso dipende dalla posizione nella lista dell'elemento ricercato.
 ### Semplici
@@ -231,14 +271,24 @@ Ora dovremmo unire tra loro questi insiemi per trovare le intersezioni stradali:
 #### Algoritmo QuickFind
 Ogni insieme viene rappresentato con un albero di altezza uno, dove la radice corrisponde al rappresentante e i figli della radice sono **tutti** gli elementi dell'insieme, rappresentante incluso. Ovvero:![[Pasted image 20250403125155.png]]come possibile notare dalle frecce nel diagramma, si ha accesso diretto alle foglie ma non alla radice. Ciò significa che da una foglia (ad esempio da $c$) potrò risalire alla radice (ad esempio $b$).
 ##### L'operazione Find con il QuickFind
-Il **find** è quindi **quick** perché permette di trovare rapidamente il rappresentate di un insieme (con costo costante in quanto si ha accesso diretto alle foglie).
+Il **find** è quindi **quick** perché permette di trovare rapidamente il rappresentate di un insieme (con costo costante in quanto si ha accesso diretto alle foglie)ù
 ##### L'operazione Union con il QuickFind
 Con l'algoritmo QuickFind si da precedenza all'ottimizzazione dell'operazione di find, ma per fare ciò si sacrifica l'ottimizzazione dell'[[Strutture dati#union|union]]: difatti, eseguendo union($x, y$), occorrerà cambiare tutti i puntatori delle foglie dell'albero $y$ per puntare ad $x$. Questo significa che union avrà, considerando $n$ pari alla quantità complessiva di elementi nel primo e nel secondo albero, complessità pari ad $O(n)$ nel caso peggiore (ovvero il caso in cui l'albero da unire ha $n-1$ elementi).![[Pasted image 20250403131449.png]]
 #### Algoritmo QuickUnion
 Si rappresenta ogni insieme tramite un albero dove ogni nodo ha esattamente un padre, ma può avere $n$ figli. Anche in questo caso la radice contiene il rappresentante. Ovvero:![[Pasted image 20250403130827.png]]
 ##### L'operazione Find con il QuickUnion
-Il **find** in questo caso risulta più lento rispetto a [[Strutture dati#L'operazione Find con il QuickFind|quello del QuickFind]] perché per trovare la radice occorre passare attraverso tutti i padri di un elemento passato come parametro alla funzione. Questo significa che nel caso peggiore il find avrà complessità pari a $O(n)$.
+Il **Find** in questo caso risulta più lento rispetto a [[Strutture dati#L'operazione Find con il QuickFind|quello del QuickFind]] perché per trovare la radice occorre passare attraverso tutti i padri di un elemento passato come parametro alla funzione. Questo significa che nel caso peggiore il find avrà complessità pari a $O(n)$.
 ##### L'operazione Union con il QuickUnion
 Per la Union la cosa risulta molto semplice, in quanto basta collegare il padre di un sottoalbero diretto della radice e collegarlo al nuovo rappresentante (si cambia ora un solo elemento invece che $n$). Si ha quindi costo costante $O(1)$.![[Pasted image 20250403131420.png]]
 #### QuickFind con Euristica sul peso
+Una strategia per diminuire il costo dell’operazione [[Strutture dati#L'operazione Union con il QuickFind|union]] nel QuickFind consiste nel:
+- memorizzare nella radice il numero di elementi dell'insieme; la dimensione può essere mantenuta in tempo $O(1)$;
+- appendere l'insieme con meno elementi a quello con più elementi.
+Ad esempio, avendo 2 insiemi della forma:![[Pasted image 20250403180816.png]]
+con l'algoritmo QuickFind con euristica sul peso si muoverebbero gli elementi $f$ e $g$ dal primo insieme al secondo.
+##### Prima Osservazione sul QuickFind con Euristica sul peso
+Ogni volta che una foglia cambia padre, fa parte di un insieme contenente *almeno* il doppio degli elementi contenuti nel suo insieme originale: ciò significa che ogni foglia cambia il proprio padre al più $\log{n}$ volte.
+##### Seconda Osservazione sul QuickFind con Euristica sul peso
+Nel caso peggiore fino a $\frac{n}{2}$ elementi cambieranno padre per esecuzione di union, dove $n$ equivale al numero di elementi complessivo dei due insiemi.
+Nel caso medio, considerando $k - 1$ cambi (per $k$ cambi si ha una nuova struttura Union-Find) e ricordando che un cambio ha costo pari a $\log{k}$, il costo ammortizzato della funzione union risulta essere $O(k \cdot \log{k})$ diviso il numero di cambi, ovvero $\frac{O(k \cdot \log{k})}{k - 1}$, che risulta $O(\log{k})$ (il $-1$ si può ignorare in quanto non influisce sul calcolo).
 #### QuickUnion con Euristica sul peso

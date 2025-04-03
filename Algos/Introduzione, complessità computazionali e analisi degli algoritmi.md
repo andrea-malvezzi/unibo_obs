@@ -73,7 +73,7 @@ Per confrontare due funzioni $f(n)$ e $g(n)$ si usa il seguente limite:$$\lim_{n
 #### Casi limite
 Esistono casi dove si vogliono confrontare due funzioni che non sono confrontabili **tra di loro**, come $n$ e $n^{\sin{n + 1}}$. In questi casi si procede con la definizione di limite.
 #### Esercizi
-Ecco alcuni [[Esercizi inerenti al confronto tra funzioni |esercizi svolti]].
+Ecco alcuni [[Esercizi Inerenti al Confronto tra Funzioni|esercizi svolti]].
 ## Proprietà della notazione asintotica
 La notazione asintotica gode delle seguenti proprietà:
 ### Transitività
