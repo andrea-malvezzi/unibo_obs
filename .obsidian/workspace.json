@@ -4,41 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "17b8f2da8775f5c6",
+        "id": "018f7cd3a31429e9",
         "type": "tabs",
         "children": [
           {
-            "id": "fc48b9ae75ba94ec",
+            "id": "df4560ecfa04b031",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Algos/esercizi/Esercizi Inerenti al Confronto tra Funzioni.md",
+                "file": "Algebra & Geometria/Introduzione ad Algebra & Geometria.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Esercizi Inerenti al Confronto tra Funzioni"
-            }
-          }
-        ]
-      },
-      {
-        "id": "9318ae59022a5889",
-        "type": "tabs",
-        "children": [
-          {
-            "id": "e32ad1a892d0b9c5",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Algos/Introduzione, complessità computazionali e analisi degli algoritmi.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Introduzione, complessità computazionali e analisi degli algoritmi"
+              "title": "Introduzione ad Algebra & Geometria"
             }
           }
         ]
@@ -186,12 +166,16 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "e32ad1a892d0b9c5",
+  "active": "df4560ecfa04b031",
   "lastOpenFiles": [
-    "Algos/esercizi/Esercizi Inerenti al Confronto tra Funzioni.md",
-    "Algos/Introduzione, complessità computazionali e analisi degli algoritmi.md",
-    "Algos/esercizi/Esercizi Inerenti alle Strutture Dati Elementari.md",
+    "Algebra & Geometria/calcoli/applicazioni dirette di Gauss/Primo esempio fornito.md",
+    "Algos/images/Pasted image 20250407132819.png",
     "Algos/Strutture dati.md",
+    "Algos/Sorting algorithms.md",
+    "Algos/Tecniche algoritmiche.md",
+    "Algos/Introduzione, complessità computazionali e analisi degli algoritmi.md",
+    "Algos/esercizi/Esercizi Inerenti al Confronto tra Funzioni.md",
+    "Algos/esercizi/Esercizi Inerenti alle Strutture Dati Elementari.md",
     "Algos/esercizi/teoria",
     "Algos/appunti per assenti 3 aprile 2025.md",
     "Untitled",
@@ -203,13 +187,10 @@
     "Algos/images/Pasted image 20250403131443.png",
     "Algos/images/Pasted image 20250403131449.png",
     "Algos/images/Pasted image 20250403130827.png",
-    "Algos/Sorting algorithms.md",
     "Algebra & Geometria/Introduzione ad Algebra & Geometria.md",
     "Algos/algoritmi/Algoritmi per le strutture dati.md",
-    "Algebra & Geometria/calcoli/applicazioni dirette di Gauss/Primo esempio fornito.md",
     "Algebra & Geometria/calcoli/applicazioni dirette di Gauss",
     "Algos/images/Pasted image 20250331100556.png",
-    "Algos/images/Pasted image 20250331095322.png",
     "Algebra & Geometria/esercizi/Esercizi sulle combinazioni lineari.md",
     "Algos/algoritmi",
     "Algos/esercizi",

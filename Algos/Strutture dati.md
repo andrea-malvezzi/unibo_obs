@@ -281,6 +281,18 @@ Il **Find** in questo caso risulta più lento rispetto a [[Strutture dati#L'oper
 ##### L'operazione Union con il QuickUnion
 Per la Union la cosa risulta molto semplice, in quanto basta collegare il padre di un sottoalbero diretto della radice e collegarlo al nuovo rappresentante (si cambia ora un solo elemento invece che $n$). Si ha quindi costo costante $O(1)$.![[Pasted image 20250403131420.png]]
 #### QuickFind con Euristica sul peso
+Una strategia per diminuire il costo dell’operazione [[Strutture dati#L'operazione Union con il QuickFind|union]] nel QuickFind consiste nel:
+- memorizzare nella radice il numero di elementi dell'insieme; la dimensione può essere mantenuta in tempo $O(1)$;
+- appendere l'insieme con meno elementi a quello con più elementi.
+
+Ad esempio, avendo 2 insiemi della forma:![[Pasted image 20250403180816.png]]
+con l'algoritmo QuickFind con euristica sul peso si muoverebbero gli elementi $f$ e $g$ dal primo insieme al secondo, nella maniera seguente:![[Pasted image 20250407132819.png]]
+
+##### Prima Osservazione sul QuickFind con Euristica sul peso
+Ogni volta che una foglia cambia padre, fa parte di un insieme contenente *almeno* il doppio degli elementi contenuti nel suo insieme originale: ciò significa che ogni foglia cambia il proprio padre al più $\log{n}$ volte.
+##### Seconda Osservazione sul QuickFind con Euristica sul peso
+Nel caso peggiore fino a $\frac{n}{2}$ elementi cambieranno padre per esecuzione di union, dove $n$ equivale al numero di elementi complessivo dei due insiemi.
+Nel caso medio, considerando $k - 1$ cambi (per $k$ cambi si ha una nuova struttura Union-Find) e ricordando che un cambio ha costo pari a $\log{k}$, il costo ammortizzato della funzione union risulta essere $O(k \cdot \log{k})$ diviso il numero di cambi, ovvero $\frac{O(k \cdot \log{k})}{k - 1}$, che risulta $O(\log{k})$ (il $-1$ si può ignorare in quanto non influisce sul calcolo).
 #### QuickUnion con Euristica sul peso
 ### Esercizi inerenti alle strutture union-find
 Per gli esercizi clicca [[Esercizi inerenti alle strutture union-find|qui]]!
