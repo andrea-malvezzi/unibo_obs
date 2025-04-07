@@ -56,6 +56,8 @@ Per $\Omega$-Grande si intende l'insieme delle funzioni per cui $g$ rappresenta 
 #### Definizione di $\Theta$ (Theta)
 Per $\Theta$ si indica l'insieme delle funzioni asintoticamente equivalenti a $g$, ovvero le funzioni con rate di crescita uguale a quello di $g$.
 Se una funzione $f$ appartiene a $\Theta$, allora ne consegue che apparterrà anche a $O$-grande e $\Omega$-grande.
+Ovvero esistono due costanti $c_1$ e $c_2$ per cui vale:$$
+c_1 \cdot g(n) \leq f(n) \leq c_2 \cdot g(n)$$
 #### Definizione di $o$ piccolo
 Per $o$-piccolo si intende l'insieme delle funzioni asintoticamente dominate da $g$. Ma in che modo questo insieme differisce da $O$-grande?
 $$\begin{aligned} f(n) = O(g(n)) \Rightarrow f(n) \leq c \cdot g(n) \text{ per almeno un } c \\ f(n) = o(g(n)) \Rightarrow f(n) \leq c \cdot g(n) \text{ per ogni } c \end{aligned}$$
@@ -72,8 +74,6 @@ Per confrontare due funzioni $f(n)$ e $g(n)$ si usa il seguente limite:$$\lim_{n
 3) $\dots k$, dove $k \in \mathbb{R}$ e $k \gt 0$, allora $f(n) = \Theta(g(n))$ (con quanto ne consegue).
 #### Casi limite
 Esistono casi dove si vogliono confrontare due funzioni che non sono confrontabili **tra di loro**, come $n$ e $n^{\sin{n + 1}}$. In questi casi si procede con la definizione di limite.
-#### Esercizi
-Ecco alcuni [[Esercizi inerenti al confronto tra funzioni |esercizi svolti]].
 ## Proprietà della notazione asintotica
 La notazione asintotica gode delle seguenti proprietà:
 ### Transitività
@@ -92,6 +92,8 @@ Se $f_1(n) = O(g_1(n))$ e $f_2(n) = O(g_2(n))$, allora posso scrivere quanto seg
 Se $f_1(n) = O(g_1(n))$ e $f_2(n) = O(g_2(n))$ allora vale:$$f_1(n) \cdot f_2(n) = O(g_1(n) \cdot g_2(n))$$
 ### Moltiplicare per una costante
 Se $f_1(n) = O(g(n))$ e $a \gt 0$ allora moltiplicare $f_1$ non cambierà la notazione asintotica a cui appartiene.
+## Esercizi
+Ecco alcuni [[Esercizi Inerenti al Confronto tra Funzioni|esercizi svolti]] inerenti alla notazione asintotica.
 ## Analizzare un algoritmo
 Per analizzare un algoritmo si utilizza un'**equazione di ricorrenza**, che descrive il tempo di esecuzione in base alla dimensione dell'input. Questa cambia a seconda del tipo di algoritmo:
 - **Algoritmi iterativi**: si analizza il costo di ogni iterazione e il numero totale di iterazioni per determinare la relazione di ricorrenza.
