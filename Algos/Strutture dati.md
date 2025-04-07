@@ -242,3 +242,5 @@ Il **find** in questo caso risulta più lento rispetto a [[Strutture dati#L'oper
 Per la Union la cosa risulta molto semplice, in quanto basta collegare il padre di un sottoalbero diretto della radice e collegarlo al nuovo rappresentante (si cambia ora un solo elemento invece che $n$). Si ha quindi costo costante $O(1)$.![[Pasted image 20250403131420.png]]
 #### QuickFind con Euristica sul peso
 #### QuickUnion con Euristica sul peso
+### Esercizi inerenti alle strutture union-find
+Per gli esercizi clicca [[Esercizi inerenti alle strutture union-find|qui]]!
