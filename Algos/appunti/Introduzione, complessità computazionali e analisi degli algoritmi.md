@@ -200,7 +200,7 @@ Il Master theorem è un metodo utile alla risoluzione di ricorrenze nella forma$
 2) Se $\alpha = \beta$ allora $T(n) = \Theta(n^\alpha \cdot \log{n})$; ^129f94
 3) Se $\alpha \lt \beta$ allora $T(n) = \Theta(n^\beta)$. ^a9c0f3
 ##### Esempio 1
-Avendo la seguente equazione di ricorrenza:$$T(n) = \begin{cases}1, & n \leq 1 \\ T(\frac{n}{2} + c, & n \gt 1\end{cases}$$Troviamo $a = 1 \text{ e } b = 2$. Allora $\alpha = \log_2{1} = 0$. Ora, $c$ è una costante e ha quindi grado pari a $0$. Di conseguenza scriviamo $\beta = 0$. Dato che $\alpha = \beta$, per [[Introduzione, complessità computazionali e analisi degli algoritmi#^129f94|(2)]] sappiamo che $T(n) = \Theta(n^0 \cdot \log{n}) = \Theta(\log{n})$.
+Avendo la seguente equazione di ricorrenza:$$T(n) = \begin{cases}1, & n \leq 1 \\ T(\frac{n}{2}) + c, & n \gt 1\end{cases}$$Troviamo $a = 1 \text{ e } b = 2$. Allora $\alpha = \log_2{1} = 0$. Ora, $c$ è una costante e ha quindi grado pari a $0$. Di conseguenza scriviamo $\beta = 0$. Dato che $\alpha = \beta$, per [[Introduzione, complessità computazionali e analisi degli algoritmi#^129f94|(2)]] sappiamo che $T(n) = \Theta(n^0 \cdot \log{n}) = \Theta(\log{n})$.
 ##### Esempio 2
 Avendo la seguente equazione di ricorrenza:$$T(n) = \begin{cases}1, & n \leq 1 \\ T(\frac{n}{2}) + n, & n > 1\end{cases}$$Abbiamo $a = 1 \text{ e } b = 2$. Quindi $\alpha = \log_2{1} = 0$. In questo caso $f(n) = n$, che ha quindi grado $1$. Scriviamo quindi $\beta = 1$. Di conseguenza $\alpha \lt \beta$ e quindi, per [[Introduzione, complessità computazionali e analisi degli algoritmi#^a9c0f3|(3)]] sappiamo che $T(n) = \Theta(n)$.
 ##### Esempio 3

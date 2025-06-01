@@ -11,10 +11,10 @@
 4. [Alberi](#Alberi)
 	3. [Definizione di Albero](#Definizione%20di%20Albero)
 	4. [Definizioni utili](#Definizioni%20utili)
-		2. [Profondità di un nodo](#Profondit%C3%A0%20di%20un%20nodo)
-		3. [Livello](#Livello)
-		4. [Altezza di un albero](#Altezza%20di%20un%20albero)
-		5. [Grado di un nodo](#Grado%20di%20un%20nodo)
+		1. [Profondità di un nodo](#Profondit%C3%A0%20di%20un%20nodo)
+		2. [Livello](#Livello)
+		3. [Altezza di un albero](#Altezza%20di%20un%20albero)
+		4. [Grado di un nodo](#Grado%20di%20un%20nodo)
 	5. [Alberi Ordinati](#Alberi%20Ordinati)
 	6. [Alberi Binari](#Alberi%20Binari)
 		6. [Definizioni utili](#Definizioni%20utili)
@@ -31,8 +31,8 @@
 			7. [Fattore di bilanciamento](#Fattore%20di%20bilanciamento)
 			8. [Bilanciamento in altezza](#Bilanciamento%20in%20altezza)
 		13. [Mantenere il bilanciamento](#Mantenere%20il%20bilanciamento)
-5. [Tabelle Hash](#Tabelle%20Hash)
-6. [Heap](#Heap)
+6. [Tabelle Hash](#Tabelle%20Hash)
+7. [Heap](#Heap)
 	9. [Alberi binari heap](#Alberi%20binari%20heap)
 		14. [Rappresentazione di albero heap tramite array heap](#Rappresentazione%20di%20albero%20heap%20tramite%20array%20heap)
 	10. [Operazioni su Array Heap](#Operazioni%20su%20Array%20Heap)
@@ -48,7 +48,7 @@
 	12. [Heapsort](#Heapsort)
 		23. [Costo computazionale dell'Heapsort](#Costo%20computazionale%20dell'Heapsort)
 	13. [Algoritmi per l'Heap](#Algoritmi%20per%20l'Heap)
-7. [Priority Queue](#Priority%20Queue)
+8. [Priority Queue](#Priority%20Queue)
 	14. [Operazioni su Priority Queue](#Operazioni%20su%20Priority%20Queue)
 		24. [findMin() $\rightarrow$ elem](#findMin()%20$%5Crightarrow$%20elem)
 		25. [insert(elem $e$, chiave $k$)](#insert(elem%20$e$,%20chiave%20$k$))
@@ -58,7 +58,7 @@
 		29. [decreaseKey(elem $e$, chiave $k$)](#decreaseKey(elem%20$e$,%20chiave%20$k$))
 	15. [d-Heap](#d-Heap)
 		30. [Rappresentazione di un d-Heap in un array](#Rappresentazione%20di%20un%20d-Heap%20in%20un%20array)
-8. [Strutture Union-find](#Strutture%20Union-find)
+9. [Strutture Union-find](#Strutture%20Union-find)
 	16. [Definizione](#Definizione)
 	17. [Come rappresentare gli insiemi](#Come%20rappresentare%20gli%20insiemi)
 	18. [Operazioni su strutture Union-find](#Operazioni%20su%20strutture%20Union-find)
@@ -75,7 +75,24 @@
 			12. [L'operazione Union con il QuickUnion](#L'operazione%20Union%20con%20il%20QuickUnion)
 		36. [QuickFind con Euristica sul peso](#QuickFind%20con%20Euristica%20sul%20peso)
 		37. [QuickUnion con Euristica sul peso](#QuickUnion%20con%20Euristica%20sul%20peso)
-
+10. [[Strutture dati#Grafi|Grafi]]
+	1. [[Strutture dati#Definizioni importanti dei Grafi|Definizioni importanti dei Grafi]]
+	2. [[Strutture dati#Operazioni sui grafi|Operazioni sui grafi]]
+	3. [[Strutture dati#Adiacenza e grafi non orientati - Matrice di Adiacenza|Adiacenza e grafi non orientati - Matrice di Adiacenza]]
+		1. [[Strutture dati#Operazioni sulle matrici di adiacenza - Grafi non orientati|Operazioni sulle matrici di adiacenza - Grafi non orientati]]
+			1. [[Strutture dati#Operazioni sulle matrici di adiacenza - Grafi non orientati#Come mai questi costi?|Come mai questi costi?]]
+	4. [[Strutture dati#Adiacenza e grafi non orientati - Lista di Adiacenza|Adiacenza e grafi non orientati - Lista di Adiacenza]]
+		1. [[Strutture dati#Operazioni sulle liste di adiacenza - Grafi non orientati|Operazioni sulle liste di adiacenza - Grafi non orientati]]
+			1. [[Strutture dati#Operazioni sulle liste di adiacenza - Grafi non orientati#Come mai questi costi?|Come mai questi costi?]]
+	5. [[Strutture dati#Adiacenza nei grafi orientati|Adiacenza nei grafi orientati]]
+	6. [[Strutture dati#Grafi Pesati|Grafi Pesati]]
+	7. [[Strutture dati#I Cammini|I Cammini]]
+		1. [[Strutture dati#Grafi connessi|Grafi connessi]]
+		2. [[Strutture dati#Grafi fortemente connessi|Grafi fortemente connessi]]
+		3. [[Strutture dati#Grafi debolmente connessi|Grafi debolmente connessi]]
+	8. [[Strutture dati#Cicli|Cicli]]
+	9. [[Strutture dati#Grafi non orientati completi|Grafi non orientati completi]]
+	10. [[Strutture dati#Curiosità sul rapporto tra Grafi ed Alberi|Curiosità sul rapporto tra Grafi ed Alberi]]
 ## Liste concatenate
 Una lista è una struttura dati dove gli elementi sono sequenziali tra loro (l'ordinamento è deciso da una catena di puntatori). Lo spazio per i vari elementi è allocato e deallocato dinamicamente. Il costo di accesso dipende dalla posizione nella lista dell'elemento ricercato.
 ### Semplici
@@ -97,6 +114,13 @@ Per eliminare un elemento da una lista occorre visitare tutta la lista per trova
 - $O(1)$ per il caso migliore (l'elemento da eliminare è la head);
 - $O(n)$ per il caso medio ed il caso pessimo.
 ### Doppiamente concatenate
+In una doubly-linked-list si avrà non solo un puntatore alla testa della lista, ma anche alla coda: questo velocizzerà operazioni come l'append. Un nodo della lista, oltre alle proprietà delle liste concatenate semplici, un campo *prev* contenente un puntatore al nodo precedente.
+Tutte le operazioni avranno costo pari a quelle delle liste concatenate semplici: il benefit del puntatore al nodo precedente si nota nel *delete*, dove non occorre più mantenere un puntatore al precedente da modificare.
+### Concatenate circolari
+Sono doubly-linked-lists con un puntatore che va dall'ultimo elemento al primo e viceversa. L'accesso alla testa e alla coda risulta quindi più rapido, ma risulta più difficile iterare sulla lista in quanto non si ha un puntatore *NULL*.
+### Con puntatori alla testa e alla coda
+Anche queste sono doubly-linked-lists, ma con un puntatore alla testa ed uno alla coda (separati dai singoli nodi). Questo permette di avere un metodo semplice per visitare la lista e per arrivare direttamente alla coda.
+Questo significa che l'*append* risulterà più rapido qui rispetto che in una lista normale.
 ## Pile
 Struttura dati **LIFO**, support push e pop. Entrambe le operazioni hanno costo costante in quanto si accede direttamente all'elemento interessato (senza servirsi di loop o simili).
 ## Code
@@ -295,4 +319,151 @@ Nel caso peggiore fino a $\frac{n}{2}$ elementi cambieranno padre per esecuzione
 Nel caso medio, considerando $k - 1$ cambi (per $k$ cambi si ha una nuova struttura Union-Find) e ricordando che un cambio ha costo pari a $\log{k}$, il costo ammortizzato della funzione union risulta essere $O(k \cdot \log{k})$ diviso il numero di cambi, ovvero $\frac{O(k \cdot \log{k})}{k - 1}$, che risulta $O(\log{k})$ (il $-1$ si può ignorare in quanto non influisce sul calcolo).
 #### QuickUnion con Euristica sul peso
 ### Esercizi inerenti alle strutture union-find
-Per gli esercizi clicca [[Esercizi inerenti alle strutture union-find|qui]]!
+Per gli esercizi clicca [[Esercizi Inerenti alle Strutture Dati Union-Find|qui]]!
+## Grafi
+> Per gli algoritmi inerenti ai Grafi, clicca [[Algoritmi per le strutture dati#Algoritmi inerenti ai Grafi|qui]]!
+
+Un grafo $G$ corrisponde ad una **coppia di vertici**$\left(V, E\right)$ e può essere orientato o non-orientato:
+- nei grafi orientati si ha una **relazione binaria** (un verso da seguire) tra i due vertici $V$ ed $E$ e vi possono essere **cappi** (**archi** tra un vertice e sé stesso, del tipo $P(v, v)$);
+- nei grafi non-orientati si hanno coppie non ordinate e non vi possono essere cappi.
+Il grafo ottenuto ignorando la direzione degli archi e i cappi dei grafi orientati si dice **versione non orientata** di quel dato Grafo.
+![[Pasted image 20250528164918.png]]
+<div style="text-align: center;">Esempio di grafo orientato</div>
+
+![[Pasted image 20250528165244.png]]<div style="text-align: center;">Esempio di grafo non orientato</div>
+### Definizioni importanti dei Grafi
+In un grafo orientato un **arco** $\left(v,w\right)$ si dice **incidente** da $v$ a $w$. Inoltre un **vertice** $w$ si dice **adiacente** ad un altro vertice $v$ quando da $v$ si può proseguire seguendo il verso imposto dal grafo e raggiungere immediatamente $w$. In un grafo non orientato, l'adiacenza tra vertici è simmetrica.
+Ricordando l'esempio di grafo orientato proposto in precedenza, si avrebbe che (ad esempio) $\text{A}$ e $\text{D}$ siano adiacenti tra loro, mentre $\text{B}$ sia adiacente ad $\text{A}$, ma non il contrario.
+Infine in un grafo si può parlare di **grado**: in un grafo non orientato, il grado di un vertice corrisponde agli archi di cui esso fa parte; in uno orientato si devono invece fare una distinzione:
+- si ha un **grado uscente**: il numero di archi incidenti partenti da un certo vertice;
+- un **grado entrante**: il numero di archi incidenti che partono da vertici adiacenti a quello studiato, di cui esso fa parte;
+- un grado **complessivo**: la somma tra grado entrante e grado uscente.
+### Operazioni sui grafi
+Un grafo (di qualunque tipo esso sia) deve supportare le seguenti operazioni:
+- $\text{grado(vertice v)} \rightarrow \text{intero}$
+- $\text{archiIncidenti(vertice v)} \rightarrow (\text{arco, arco, }\dots)$
+- $\text{estremi(arco e)} \rightarrow (\text{vertice, vertice})$
+- $\text{sonoAdiacenti(vertice x, vertice y)} \rightarrow \text{booleano}$
+- $\text{aggiungiVertice(vertice v)}$
+- $\text{aggiungiArco(vertice x, vertice y)}$
+- $\text{rimuoviVertice(vertice v)}$
+- $\text{rimuoviArco(arco e)}$
+Ognuna di queste operazioni avrà un certo costo computazionale basato sulla tipologia di grafo per cui vengono implementate.
+### Adiacenza e grafi non orientati - Matrice di Adiacenza
+Per tenere traccia delle adiacenze in un grafo non orientato si può usare una matrice detta **di adiacenza**: questa corrisponde ad una matrice di booleani dove si ha $1$ quando due grafi sono adiacenti e $0$ quando non lo sono:![[Pasted image 20250529135422.png]]
+#### Operazioni sulle matrici di adiacenza - Grafi non orientati
+<table style="width: 100%; border-collapse: collapse;">
+  <tr>
+    <th style="text-align: left;">Operazione</th>
+    <th style="text-align: right;">Costo</th>
+  </tr>
+  <tr>
+    <td>grado(vertice v) → intero</td>
+    <td style="text-align: right;">O(n)</td>
+  </tr>
+  <tr>
+    <td>archiIncidenti(vertice v) → (arco, arco, …)</td>
+    <td style="text-align: right;">O(n)</td>
+  </tr>
+  <tr>
+    <td>sonoAdiacenti(x, y) → booleano</td>
+    <td style="text-align: right;">O(1)</td>
+  </tr>
+  <tr>
+    <td>aggiungiVertice(v)</td>
+    <td style="text-align: right;">O(n²)</td>
+  </tr>
+  <tr>
+    <td>aggiungiArco(x, y)</td>
+    <td style="text-align: right;">O(1)</td>
+  </tr>
+  <tr>
+    <td>rimuoviVertice(v)</td>
+    <td style="text-align: right;">O(n²)</td>
+  </tr>
+  <tr>
+    <td>rimuoviArco(e)</td>
+    <td style="text-align: right;">O(1)</td>
+  </tr>
+</table> 
+
+##### Come mai questi costi?
+- L'aggiunta o la rimozione di un vertice corrisponde ad $n^2$ cambiamenti, dove $n$ sarebbe la nuova lunghezza di una riga (o colona) della matrice. Ad esempio, eliminando il vertice $F$ dalla matrice precedentemente usata come esempio, occorrerebbe rimuovere un'intera riga ed un'intera colonna di "paragoni";
+- un arco corrisponde al nesso tra due vertici, ovvero ad una cella della matrice, identificata dall'indice del vertice $x$ e del vertice $y$. Aggiungere o rimuovere archi ha quindi costo costante;
+- cercare di identificare con quali altri vertici un certo vertice compone un arco significa iterare su un'intera riga o un'intera colonna. L'operazione ha quindi costo pari ad $n$;
+### Adiacenza e grafi non orientati - Lista di Adiacenza
+Un altro modo per rappresentare e tenere traccia delle adiacenze in un grafo non orientato corrisponde alla Lista di Adiacenza: per ogni vertice si ha una linked list dove ogni nodo corrisponde ad un vertice adiacente.![[Pasted image 20250529144358.png]]
+#### Operazioni sulle liste di adiacenza - Grafi non orientati
+<table style="width: 100%; border-collapse: collapse;">
+  <tr>
+    <th style="text-align: left;">Operazione</th>
+    <th style="text-align: right;">Costo</th>
+  </tr>
+  <tr>
+    <td>grado(vertice v) → intero</td>
+    <td style="text-align: right;">O(δ(v))</td>
+  </tr>
+  <tr>
+    <td>archiIncidenti(vertice v) → (arco, arco, ... arco)</td>
+    <td style="text-align: right;">O(δ(v))</td>
+  </tr>
+  <tr>
+    <td>sonoAdiacenti(vertice x, vertice y) → booleano</td>
+    <td style="text-align: right;">O(min{δ(x), δ(y)})</td>
+  </tr>
+  <tr>
+    <td>aggiungiVertice(vertice v)</td>
+    <td style="text-align: right;">O(1)</td>
+  </tr>
+  <tr>
+    <td>aggiungiArco(vertice x, vertice y)</td>
+    <td style="text-align: right;">O(1)</td>
+  </tr>
+  <tr>
+    <td>rimuoviVertice(vertice v)</td>
+    <td style="text-align: right;">O(m)</td>
+  </tr>
+  <tr>
+    <td>rimuoviArco(arco e) &nbsp;&nbsp;&nbsp;</td>
+    <td style="text-align: right;">O(δ(x) + δ(y))</td>
+  </tr>
+</table>
+dove:
+
+- δ corrisponde al grado di un certo vertice;
+- $m$ corrisponde al numero di archi nel grafo.
+##### Come mai questi costi?
+- Trovare gli archi incidenti o il grado di un vertice significa iterare dall'inizio della lista associata a tale vertice fino al termine di essa, eseguendo un numero di operazioni pari al grado stesso del vertice;
+- capire se due vertici sono adiacenti significa iterare lungo la lista più corta associata ad uno dei due vertici studiati;
+- aggiungere un vertice significa creare una nuova lista;
+- aggiungere un arco significa aggiungere un nuovo nodo nella lista associata ad entrambi i vertici facenti parte dell'arco. Lo spostamento a destra del resto della lista ha costo ignorabile;
+- rimuovere un vertice significa far scorrere tutte le liste ed eliminare eventuali nodi contenenti tale vertice. Questa è potenzialmente l'operazione più costosa tra tutte, avendo come costo il numero di archi del grafo;
+- rimuovere un arco significa rimuovere due nodi, uno per ogni lista associata ad uno dei vettori dell'arco. Questo può potenzialmente richiedere lo scorrimento di entrambe le liste associate a tali vertici.
+### Adiacenza nei grafi orientati
+Anche nei grafi orientati si possono adoperare sia le Matrici che le Liste di Adiacenza: le uniche differenze si avranno nel fatto che qui cambierà il concetto di adiacenza:![[Pasted image 20250529151001.png]]Qui si può notare come, osservando la riga inerente al vertice $A$, si abbia un $1$ nell'incontro con $D$ e $B$, mentre nella riga inerente a $B$ si abbia un $1$ solamente nell'incontro con il vertice $C$ (e non anche con $A$, come accadeva nei grafi non orientati). La stessa cosa avverrà anche con le Lista di Adiacenza.
+### Grafi Pesati
+In questa variante dei grafi ad ogni arco viene associato un **peso** (o **costo**) e quando tra due vertici non vi è un arco si dice che i due hanno tra loro **costo infinito**. A seguire un esempio di Matrice di Adiacenza inerente ad un grafo non orientato pesato:![[Pasted image 20250529160754.png]]
+### I Cammini
+Si dice **cammino** una sequenza di vertici $\lt v_0, v_1, \dots, v_n \gt$ adiacenti tra loro. La **lunghezza** di un cammino corrisponde al numero di archi attraversati (quindi al numero di vertici $-1$).
+Un cammino si dice inoltre **semplice** se ogni vertice compare una sola volta all'interno di esso.
+A seguire un esempio di cammino semplice:![[Pasted image 20250529161836.png]]
+Qualora esistesse un cammino che colleghi due vertici $x$ ed $y$, allora $y$ si direbbe **raggiungibile** da $x$ tramite un certo cammino $c$.
+#### Grafi connessi
+Un grafo non orientato si dice connesso qualora esista un cammino da ogni vertice ad ogni altro vertice. A seguire un esempio di grafo connesso:![[Pasted image 20250529162230.png]]ed uno di grafo non connesso:![[Pasted image 20250529162304.png]]
+#### Grafi fortemente connessi
+Un grafo orientato si dice fortemente connesso qualora esista un cammino da ogni vertice ad ogni altro vertice. Tuttavia questo risulta più complicato che nei grafi non orientati, in quanto si deve tenere conto anche dei versi dei vertici: il seguente grafo non risulterà difatti fortemente connesso, in quanto non esisterà un cammino per collegare un qualunque vertice ad $A$.![[Pasted image 20250529162737.png]]
+#### Grafi debolmente connessi
+Avendo un grafo orientato non fortemente connesso la cui controparte non orientata risulta connessa, allora il grafo orientato è detto **debolmente connesso**. Riproponendo l'esempio di grafo non fortemente connesso presentato in precedenza:
+![[Pasted image 20250529163244.png]]
+questo sarebbe un valido grafo debolmente connesso.
+### Cicli
+Un ciclo corrisponde ad un cammino con lunghezza:
+- $\geq 1$ nei grafi orientati;
+- $\geq 3$ nei grafi non orientati;
+dove il primo vertice corrisponde all'ultimo, ovvero ad una situazione del tipo $\lt v_0, v_1, \dots, v_n \gt$ con $v_0 = v_n$.
+Un ciclo si dice **semplice** se tutti i vertici facenti parte di esso, meno ovviamente il primo, sono distinti.
+Un ciclo non orientato si dice **aciclico** quando non contiene cicli semplici, mentre un grafo orientato risulta **aciclico** quando non contiene cicli in generale.
+### Grafi non orientati completi
+Un grafo non orientato si dice **completo** quando ha un arco tra ogni coppia di vertici, come nel caso seguente:![[Pasted image 20250529164242.png]]In un grafo completo vi sono $\frac{n(n-1)}{2}$ archi totali, dove $n$ corrisponde al numero di vertici.
+### Curiosità sul rapporto tra Grafi ed Alberi
+La struttura dati dell'albero corrisponde ad un grafo dove un vertice viene eletto a **radice**, creando cosi un **albero radicato**. Esistono anche **alberi liberi**, dove non vi è una radice. Questi alberi corrispondono a dei grafi non orientati aciclici:![[Pasted image 20250529164632.png]]
