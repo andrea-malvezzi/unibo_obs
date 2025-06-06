@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Algos/preparazione esame/esercizi per argomento/Algoritmi di Ordinamento - esercizi.md",
+                "file": "Algos/preparazione esame/esercizi per argomento/Alberi e Alberi Binari - esercizi.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Algoritmi di Ordinamento - esercizi"
+              "title": "Alberi e Alberi Binari - esercizi"
             }
           }
         ]
@@ -168,17 +168,21 @@
   },
   "active": "917bd20fe45f3423",
   "lastOpenFiles": [
-    "Algos/preparazione esame/esercizi per argomento/Strutture Dati Elementari - esercizi.md",
     "Algos/preparazione esame/esercizi per argomento/Equazioni di Ricorrenza - esercizi.md",
+    "Algos/appunti/Strutture dati.md",
+    "Algos/preparazione esame/esercizi per argomento/Alberi e Alberi Binari - esercizi.md",
     "Algos/preparazione esame/esercizi per argomento/Algoritmi di Ordinamento - esercizi.md",
-    "Algos/images/Pasted image 20250601182954.png",
+    "Algos/preparazione esame/esercizi per argomento/Strutture Dati Elementari - esercizi.md",
+    "Algos/appunti/Tecniche algoritmiche.md",
     "Algos/appunti/Introduzione, complessità computazionali e analisi degli algoritmi.md",
+    "Algos/appunti/Altre note utili.md",
+    "Pasted image 20250605155148.png",
+    "Algos/images/Pasted image 20250605155305.png",
+    "Algos/images/Pasted image 20250601182954.png",
     "Algos/images/Pasted image 20250601180506.png",
     "Algos/images/Pasted image 20250601174556.png",
     "Algos/images/Pasted image 20250531165518.png",
     "Algos/images/Pasted image 20250531164705.png",
-    "Algos/appunti/Tecniche algoritmiche.md",
-    "Algos/appunti/Strutture dati.md",
     "Algos/Formule classiche algos.pdf",
     "Algos/appunti/Algoritmi per le strutture dati.md",
     "Algos/images/Pasted image 20250530190508.png",
@@ -187,8 +191,6 @@
     "Algos/preparazione esame/esercizi per argomento",
     "Algos/images/Pasted image 20250529160754.png",
     "Algos/images/Pasted image 20250529164632.png",
-    "Algos/images/Pasted image 20250529164242.png",
-    "Algos/images/Pasted image 20250529163244.png",
     "Algos/Appunti/Sorting algorithms.md",
     "Algos/appunti",
     "Algos/esercizi/Esercizi Inerenti alle Strutture Dati Union-Find.md",
@@ -211,8 +213,6 @@
     "Algos/brutta dell'11 Marzo 2025.md",
     "Algos/Equazioni di Ricorrenza.md",
     "prova plugin.md",
-    "prova plugin.md",
-    "Algos/Analizzare un algoritmo.md",
-    "Algos/Parte matematica.md"
+    "prova plugin.md"
   ]
 }
