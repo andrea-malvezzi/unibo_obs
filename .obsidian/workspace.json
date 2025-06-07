@@ -4,24 +4,59 @@
     "type": "split",
     "children": [
       {
-        "id": "f1b533b79dd64e7e",
+        "id": "0712a919545d65c2",
         "type": "tabs",
         "children": [
           {
-            "id": "917bd20fe45f3423",
+            "id": "b0c2caaded7e8734",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Algos/preparazione esame/esercizi per argomento/Alberi e Alberi Binari - esercizi.md",
+                "file": "Algos/appunti/Strutture Dati.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Alberi e Alberi Binari - esercizi"
+              "title": "Strutture Dati"
             }
           }
         ]
+      },
+      {
+        "id": "e51f6b0899e68075",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "ed23004cef54e89e",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Algos/preparazione esame/esercizi per argomento/Alberi Binari di Ricerca - esercizi.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Alberi Binari di Ricerca - esercizi"
+            }
+          },
+          {
+            "id": "db510d8fcece0197",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Algos/appunti/Strutture dati (brutta).md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Strutture dati (brutta)"
+            }
+          }
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -166,31 +201,34 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "917bd20fe45f3423",
+  "active": "b0c2caaded7e8734",
   "lastOpenFiles": [
-    "Algos/preparazione esame/esercizi per argomento/Equazioni di Ricorrenza - esercizi.md",
-    "Algos/appunti/Strutture dati.md",
+    "Algos/appunti/Strutture dati (brutta).md",
+    "Algos/appunti/Strutture Dati.md",
+    "Algos/preparazione esame/esercizi per argomento/Alberi Binari di Ricerca - esercizi.md",
     "Algos/preparazione esame/esercizi per argomento/Alberi e Alberi Binari - esercizi.md",
-    "Algos/preparazione esame/esercizi per argomento/Algoritmi di Ordinamento - esercizi.md",
+    "Algos/appunti/Altre note utili.md",
     "Algos/preparazione esame/esercizi per argomento/Strutture Dati Elementari - esercizi.md",
+    "Algos/appunti/Untitled.md",
+    "Algos/images/Pasted image 20250607154640.png",
+    "Algos/images/Pasted image 20250607155053.png",
+    "Algos/images/Pasted image 20250607154906.png",
+    "Algos/images/Pasted image 20250607154821.png",
+    "Algos/preparazione esame/esercizi per argomento/Equazioni di Ricorrenza - esercizi.md",
+    "Algos/preparazione esame/esercizi per argomento/Algoritmi di Ordinamento - esercizi.md",
     "Algos/appunti/Tecniche algoritmiche.md",
     "Algos/appunti/Introduzione, complessità computazionali e analisi degli algoritmi.md",
-    "Algos/appunti/Altre note utili.md",
     "Pasted image 20250605155148.png",
     "Algos/images/Pasted image 20250605155305.png",
     "Algos/images/Pasted image 20250601182954.png",
     "Algos/images/Pasted image 20250601180506.png",
     "Algos/images/Pasted image 20250601174556.png",
     "Algos/images/Pasted image 20250531165518.png",
-    "Algos/images/Pasted image 20250531164705.png",
     "Algos/Formule classiche algos.pdf",
     "Algos/appunti/Algoritmi per le strutture dati.md",
-    "Algos/images/Pasted image 20250530190508.png",
     "Algos/preparazione esame/esami/Risoluzione esami.md",
     "Algos/preparazione esame/esami",
     "Algos/preparazione esame/esercizi per argomento",
-    "Algos/images/Pasted image 20250529160754.png",
-    "Algos/images/Pasted image 20250529164632.png",
     "Algos/Appunti/Sorting algorithms.md",
     "Algos/appunti",
     "Algos/esercizi/Esercizi Inerenti alle Strutture Dati Union-Find.md",
@@ -210,9 +248,6 @@
     "Algebra & Geometria/calcoli/combinazioni lineari/Primo esempio combinazioni lineari.md",
     "Algebra & Geometria/calcoli/combinazioni lineari/Terzo esempio combinazioni lineari.md",
     "Parte matematica.md",
-    "Algos/brutta dell'11 Marzo 2025.md",
-    "Algos/Equazioni di Ricorrenza.md",
-    "prova plugin.md",
-    "prova plugin.md"
+    "Algos/brutta dell'11 Marzo 2025.md"
   ]
 }

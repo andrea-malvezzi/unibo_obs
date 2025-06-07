@@ -10,6 +10,8 @@
 	2. [[Alberi e Alberi Binari - esercizi#Esercizio 4 - Soluzione con visita in ampiezza|Soluzione con visita in ampiezza]]
 5. [[Alberi e Alberi Binari - esercizi#Esercizio 5 - Conta nodi con valore pari|Esercizio 5 - Conta nodi con valore pari]]
 	1. [[Alberi e Alberi Binari - esercizi#Esercizio 5 - Soluzione|Soluzione]]
+6. [[Alberi e Alberi Binari - esercizi#Esercizio 6 - Somma dei valori radice-nodo pari a k|Esercizio 6 - Somma dei valori radice-nodo pari a k]]
+	1. [[Alberi e Alberi Binari - esercizi#Esercizio 6 - Soluzione|Soluzione]]
 ## Esercizio 1 - Cancellare le foglie
 Scrivere un algoritmo che, dato in input un albero binario $T$, ne cancelli tutte le foglie. Tale algoritmo dovrà ritornare un puntatore alla radice dell'albero (che potrebbe essere $\text{NIL}$ nel caso in cui esso sia composto da una sola foglia).
 ### Esercizio 1 - soluzione
@@ -113,3 +115,51 @@ function AltezzaIterativa(Node T) -> Int
 ## Esercizio 5 - Conta nodi con valore pari
 Scrivere un algoritmo che conti il numero di nodi con valore pari in un albero generico (*non* binario).
 ### Esercizio 5 - Soluzione
+In un albero generico ogni nodo possiede come proprietà una lista contenente tutti i nodi che corrispondono ai suoi figli, a partire da quello più a sinistra.
+Quindi per ogni nodo dovremo iterare sui suoi figli per poi analizzare anche loro. Usiamo la tecnica $\text{BFS}$.
+```pseudocodice
+function ContaPari(Node T)
+	count = 0
+	if T == NIL
+		return count
+	let Q be a Queue
+	Enqueue(Q, T)
+	while Q.size != 0
+		x = Dequeue(Q)
+		if x.value % 2 == 0
+			count += 1
+		iter = x.first
+		while iter != NIL
+			Enqueue(Q, iter)
+			iter = iter.next
+	return count
+```
+Oppure con tecnica $\text{DFS}$:
+```pseudocodice
+function ContaPari(Node T)
+	if T == NIL
+		return 0
+	if T.value % 2 == 0
+		// T.first prende il primo figlio del nodo corrente (scende di un livello)
+		// T.next prende il fratello del nodo corrent (stesso livello)
+		return 1 + ContaPari(T.first) + ContaPari(T.next)
+	else
+		return ContaPari(T.first) + ContaPari(T.next)
+```
+## Esercizio 6 - Somma dei valori radice-nodo pari a k
+Scrivere un algoritmo che, dato un albero generico (*non* binario) ed un intero $k$, conti il numero di nodi tali per cui la somma dei valori del percorso radice-nodo sia uguale a $k$.
+Procedi anche dopo aver trovato la somma (dei figli potrebbero contenere valori negativi o $0$).
+### Esercizio 6 - Soluzione
+Anzitutto controlliamo che il nodo studiato non sia $\text{NIL}$. In seguito controlliamo che il valore di tale nodo sia esattamente $k$ ed in base all'esito di tale check decidiamo quale strada intraprendere:
+- $\text{true }\rightarrow$ ritorno la somma tra $1$ ed una chiamata ricorsiva al figlio del nodo attuale ed il suo prossimo fratello ($\text{T.first}$ e $\text{T.next}$);
+- $\text{false} \rightarrow$ faccio la stessa cosa del caso veritiero ma senza il $+1$;
+
+Nel caso $\text{true}$ continuiamo i controlli per eventuali percorsi contenenti negativi e/o valori nulli.
+```pseudocodice
+function SommaRadiceNodo(Node T, int k) -> Int
+	if T == NIL
+		return 0
+	if T.value == k
+		return 1 + SommaRadiceNodo(T.first, 0) + SommaRadiceNodo(T.next, k)
+	return SommaRadiceNodo(T.first, k - T.value) + SommaRadiceNodo(T.next, k)
+```
