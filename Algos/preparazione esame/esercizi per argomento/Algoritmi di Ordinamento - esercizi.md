@@ -1,9 +1,9 @@
-1. [[Algoritmi di Ordinamento - esercizi#Esercizio 1 - CountingSort e MergeSort|Esercizio 1 - CountingSort e MergeSort]]
-	1. [[Algoritmi di Ordinamento - esercizi#Esercizio 1 - soluzione|Soluzione]]
-2. [[Algoritmi di Ordinamento - esercizi#Esercizio 2 - Oggetti più costosi in un array|Esercizio 2 - Oggetti più costosi in un array]]
-	1. [[Algoritmi di Ordinamento - esercizi#Esercizio 2 - soluzione|Soluzione]]
-3. [[Algoritmi di Ordinamento - esercizi#Esercizio 3 - MergeSort modificato|Esercizio 3 - MergeSort modificato]]
-	1. [[Algoritmi di Ordinamento - esercizi#Esercizio 3 - soluzione|Soluzione]]
+1. [[Algoritmi di Ordinamento - Esercizi#Esercizio 1 - CountingSort e MergeSort|Esercizio 1 - CountingSort e MergeSort]]
+	1. [[Algoritmi di Ordinamento - Esercizi#Esercizio 1 - soluzione|Soluzione]]
+2. [[Algoritmi di Ordinamento - Esercizi#Esercizio 2 - Oggetti più costosi in un array|Esercizio 2 - Oggetti più costosi in un array]]
+	1. [[Algoritmi di Ordinamento - Esercizi#Esercizio 2 - soluzione|Soluzione]]
+3. [[Algoritmi di Ordinamento - Esercizi#Esercizio 3 - MergeSort modificato|Esercizio 3 - MergeSort modificato]]
+	1. [[Algoritmi di Ordinamento - Esercizi#Esercizio 3 - soluzione|Soluzione]]
 4. 
 ## Esercizio 1 - CountingSort e MergeSort
 Consideriamo un array $A$ con n elementi nell'intervallo $[1, \dots, k]$.

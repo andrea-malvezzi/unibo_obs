@@ -4,21 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "665a4b6bed6397b8",
+        "id": "a86bed8341d5c195",
         "type": "tabs",
         "children": [
           {
-            "id": "254d6b284ebd96d1",
+            "id": "1ef740f8fe6bddea",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Algos/appunti/Strutture dati.md",
+                "file": "Algos/preparazione esame/esercizi per argomento/Tecniche Algoritmiche/Algoritmi Greedy - Esercizi.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Strutture dati"
+              "title": "Algoritmi Greedy - Esercizi"
             }
           }
         ]
@@ -166,33 +166,40 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "254d6b284ebd96d1",
+  "active": "1ef740f8fe6bddea",
   "lastOpenFiles": [
+    "Algos/preparazione esame/esercizi per argomento/Strutture Dati (non elementari)/Hash Tables - Esercizi.md",
+    "Algos/preparazione esame/esercizi per argomento/Strutture Dati Elementari - Esercizi.md",
+    "Algos/preparazione esame/esercizi per argomento/Strutture Dati (non elementari)/Strutture Union-Find - Esercizi.md",
+    "Algos/preparazione esame/esercizi per argomento/Strutture Dati (non elementari)/Heap - Esercizi.md",
+    "Algos/preparazione esame/esercizi per argomento/Equazioni di Ricorrenza - Esercizi.md",
+    "Algos/preparazione esame/esercizi per argomento/Algoritmi di Ordinamento - Esercizi.md",
+    "Algos/preparazione esame/esercizi per argomento/Tecniche Algoritmiche/Algoritmi Greedy - Esercizi.md",
+    "Algos/preparazione esame/esercizi per argomento/Strutture Dati (non elementari)",
+    "Algos/preparazione esame/esercizi per argomento/Strutture Dati (non elementari)/Alberi/Alberi e Alberi Binari - Esercizi.md",
+    "Algos/preparazione esame/esercizi per argomento/Strutture Dati (non elementari)/Alberi/Alberi Binari di Ricerca - Esercizi.md",
+    "Algos/preparazione esame/esercizi per argomento/Strutture Dati (non elementari)/Alberi",
+    "Algos/preparazione esame/esercizi per argomento/Tecniche Algoritmiche",
+    "Algos/preparazione esame/esercizi per argomento/Tecniche Algoritmiche/Divide-et-Impera - Esercizi.md",
+    "Algos/appunti/Tecniche algoritmiche.md",
     "Algos/appunti/Strutture dati (brutta).md",
+    "Algos/images/Pasted image 20250609181720.png",
     "Algos/appunti/Strutture dati.md",
-    "Algos/preparazione esame/esercizi per argomento/Hash Tables - esercizi.md",
-    "Algos/preparazione esame/esercizi per argomento/Alberi Binari di Ricerca - esercizi.md",
+    "Algos/images/Pasted image 20250609171642.png",
+    "Algos/images/Pasted image 20250609175723.png",
+    "Algos/images/Pasted image 20250609175458.png",
+    "Algos/images/Pasted image 20250609175244.png",
+    "Algos/images/Pasted image 20250609174523.png",
+    "Algos/images/Pasted image 20250609174103.png",
+    "Algos/images/Pasted image 20250609173625.png",
+    "Algos/images/Pasted image 20250609173528.png",
+    "Algos/Formule classiche algos.pdf",
     "Algos/appunti/Introduzione, complessità computazionali e analisi degli algoritmi.md",
     "Algos/images/Pasted image 20250607221202.png",
-    "Algos/preparazione esame/esercizi per argomento/Strutture Dati Elementari - esercizi.md",
     "Algos/preparazione esame/Risoluzione esami.md",
     "Algos/appunti/Strutture Dati.md",
-    "Algos/preparazione esame/esercizi per argomento/Alberi e Alberi Binari - esercizi.md",
     "Algos/appunti/Altre note utili.md",
     "Algos/appunti/Untitled.md",
-    "Algos/images/Pasted image 20250607154640.png",
-    "Algos/images/Pasted image 20250607155053.png",
-    "Algos/images/Pasted image 20250607154906.png",
-    "Algos/images/Pasted image 20250607154821.png",
-    "Algos/preparazione esame/esercizi per argomento/Equazioni di Ricorrenza - esercizi.md",
-    "Algos/preparazione esame/esercizi per argomento/Algoritmi di Ordinamento - esercizi.md",
-    "Algos/appunti/Tecniche algoritmiche.md",
-    "Pasted image 20250605155148.png",
-    "Algos/images/Pasted image 20250605155305.png",
-    "Algos/images/Pasted image 20250601182954.png",
-    "Algos/images/Pasted image 20250601180506.png",
-    "Algos/images/Pasted image 20250601174556.png",
-    "Algos/Formule classiche algos.pdf",
     "Algos/appunti/Algoritmi per le strutture dati.md",
     "Algos/preparazione esame/esami",
     "Algos/preparazione esame/esercizi per argomento",
@@ -204,15 +211,7 @@
     "Algebra & Geometria/note derivate dagli esercizi.md",
     "Algos/preparazione esame",
     "Algebra & Geometria/Introduzione ad Algebra & Geometria.md",
-    "Algebra & Geometria/esercizi/Esercizi sulle combinazioni lineari.md",
-    "Algebra & Geometria/calcoli/applicazioni dirette di Gauss/Primo esempio fornito.md",
     "Algos/esercizi/teoria",
-    "Algos/appunti per assenti 3 aprile 2025.md",
-    "Algebra & Geometria/calcoli/applicazioni dirette di Gauss",
-    "Algos/algoritmi",
-    "Algos/preparazione esame/esercizi per argomento",
-    "Algos/Algoritmi di ordinamento",
-    "Algebra & Geometria/calcoli/combinazioni lineari/Primo esempio combinazioni lineari.md",
-    "Algebra & Geometria/calcoli/combinazioni lineari/Terzo esempio combinazioni lineari.md"
+    "Algebra & Geometria/calcoli/applicazioni dirette di Gauss"
   ]
 }

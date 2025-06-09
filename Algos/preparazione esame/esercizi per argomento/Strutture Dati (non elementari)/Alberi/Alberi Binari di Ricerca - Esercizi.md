@@ -1,19 +1,19 @@
-1. [[Alberi Binari di Ricerca - esercizi#Esercizio 1 - Visualizzare un dato Albero Binario di Ricerca|Esercizio 1 - Visualizzare un dato Albero Binario di Ricerca]]
-	1. [[Alberi Binari di Ricerca - esercizi#Esercizio 1 - Soluzione|Soluzione]]
-2. [[Alberi Binari di Ricerca - esercizi#Esercizio 2 - Visualizzare un BST dopo la cancellazione di alcuni nodi|Esercizio 2 - Visualizzare un BST dopo la cancellazione di alcuni nodi]]
-	1. [[Alberi Binari di Ricerca - esercizi#Esercizio 2 - Soluzione|Soluzione]]
-3. [[Alberi Binari di Ricerca - esercizi#Esercizio 3 - Visualizzare un BST dopo la cancellazione di alcuni nodi|Esercizio 3 - Visualizzare un BST dopo la cancellazione di alcuni nodi]]
-	1. [[Alberi Binari di Ricerca - esercizi#Esercizio 3 - Soluzione|Soluzione]]
-4. [[Alberi Binari di Ricerca - esercizi#Esercizio 4 - Domanda Teorica sui figli nei BST|Esercizio 4 - Domanda Teorica sulle definizioni di Successore e Predecessore]]
-	1. [[Alberi Binari di Ricerca - esercizi#Esercizio 4 - Soluzione|Soluzione]]
-5. [[Alberi Binari di Ricerca - esercizi#Esercizio 5 - Domanda Teorica sul Delete|Esercizio 5 - Domanda Teorica sul Delete]]
-	1. [[Alberi Binari di Ricerca - esercizi#Esercizio 5 - Soluzione|Soluzione]]
-6. [[Alberi Binari di Ricerca - esercizi#Esercizio 6 - Chiavi in ordine decrescente (Ricorsivamente)|Esercizio 6 - Stampare le chiavi di un albero in ordine decrescente (ricorsivamente)]]
-	1. [[Alberi Binari di Ricerca - esercizi#Esercizio 6 - Soluzione|Soluzione]]
-7. [[Alberi Binari di Ricerca - esercizi#Esercizio 7 - Numero di Nodi con chiavi in un certo intervallo|Esercizio 7 - Numero di Nodi con chiavi in un certo intervallo]]
-	1. [[Alberi Binari di Ricerca - esercizi#Esercizio 7 - Soluzione|Soluzione]]
-8. [[Alberi Binari di Ricerca - esercizi#Esercizio 8 - Analisi del Costo di un algoritmo per costruire un BST|Esercizio 8 - Analisi del Costo di un algoritmo per costruire un BST]]
-	1. [[Alberi Binari di Ricerca - esercizi#Esercizio 8 - Soluzione|Soluzione]]
+1. [[Alberi Binari di Ricerca - Esercizi#Esercizio 1 - Visualizzare un dato Albero Binario di Ricerca|Esercizio 1 - Visualizzare un dato Albero Binario di Ricerca]]
+	1. [[Alberi Binari di Ricerca - Esercizi#Esercizio 1 - Soluzione|Soluzione]]
+2. [[Alberi Binari di Ricerca - Esercizi#Esercizio 2 - Visualizzare un BST dopo la cancellazione di alcuni nodi|Esercizio 2 - Visualizzare un BST dopo la cancellazione di alcuni nodi]]
+	1. [[Alberi Binari di Ricerca - Esercizi#Esercizio 2 - Soluzione|Soluzione]]
+3. [[Alberi Binari di Ricerca - Esercizi#Esercizio 3 - Visualizzare un BST dopo la cancellazione di alcuni nodi|Esercizio 3 - Visualizzare un BST dopo la cancellazione di alcuni nodi]]
+	1. [[Alberi Binari di Ricerca - Esercizi#Esercizio 3 - Soluzione|Soluzione]]
+4. [[Alberi Binari di Ricerca - Esercizi#Esercizio 4 - Domanda Teorica sui figli nei BST|Esercizio 4 - Domanda Teorica sulle definizioni di Successore e Predecessore]]
+	1. [[Alberi Binari di Ricerca - Esercizi#Esercizio 4 - Soluzione|Soluzione]]
+5. [[Alberi Binari di Ricerca - Esercizi#Esercizio 5 - Domanda Teorica sul Delete|Esercizio 5 - Domanda Teorica sul Delete]]
+	1. [[Alberi Binari di Ricerca - Esercizi#Esercizio 5 - Soluzione|Soluzione]]
+6. [[Alberi Binari di Ricerca - Esercizi#Esercizio 6 - Chiavi in ordine decrescente (Ricorsivamente)|Esercizio 6 - Stampare le chiavi di un albero in ordine decrescente (ricorsivamente)]]
+	1. [[Alberi Binari di Ricerca - Esercizi#Esercizio 6 - Soluzione|Soluzione]]
+7. [[Alberi Binari di Ricerca - Esercizi#Esercizio 7 - Numero di Nodi con chiavi in un certo intervallo|Esercizio 7 - Numero di Nodi con chiavi in un certo intervallo]]
+	1. [[Alberi Binari di Ricerca - Esercizi#Esercizio 7 - Soluzione|Soluzione]]
+8. [[Alberi Binari di Ricerca - Esercizi#Esercizio 8 - Analisi del Costo di un algoritmo per costruire un BST|Esercizio 8 - Analisi del Costo di un algoritmo per costruire un BST]]
+	1. [[Alberi Binari di Ricerca - Esercizi#Esercizio 8 - Soluzione|Soluzione]]
 ## Esercizio 1 - Visualizzare un dato Albero Binario di Ricerca
 Dato un Albero Binario di Ricerca con chiavi numeriche intere, inizialmente vuoto, disegnare l’albero ottenuto dopo l’inserimento in ordine dei seguenti valori: $60, 80, 20, 25, 92, 21, 99, 90$.
 > **N.B**: Disegnare $\not=$ Scrivi un algoritmo per disegnare, qui intende proprio di fare il disegno a mano dell'albero!
@@ -21,7 +21,7 @@ Dato un Albero Binario di Ricerca con chiavi numeriche intere, inizialmente vuot
 ### Esercizio 1 - Soluzione
 ![[Pasted image 20250607154640.png]]
 ## Esercizio 2 - Visualizzare un BST dopo la cancellazione di alcuni nodi
-Cancellare dall’albero ottenuto nell’[[Alberi Binari di Ricerca - esercizi#Esercizi 1 - Visualizzare un dato Albero Binario di Ricerca|Esercizio 1]] i seguenti nodi in ordine: $92, 25, 99$.
+Cancellare dall’albero ottenuto nell’[[Alberi Binari di Ricerca - Esercizi#Esercizi 1 - Visualizzare un dato Albero Binario di Ricerca|Esercizio 1]] i seguenti nodi in ordine: $92, 25, 99$.
 ### Esercizio 2 - Soluzione
 ![[Pasted image 20250607154821.png]]
 ## Esercizio 3 - Visualizzare un BST dopo la cancellazione di alcuni nodi
