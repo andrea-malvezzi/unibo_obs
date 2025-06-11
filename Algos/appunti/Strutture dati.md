@@ -12,6 +12,19 @@
 		1. [[Strutture Dati#Nodi Predecessori e Successori in un BST|Nodi Predecessori e Successori in un BST]]
 		2. [[Strutture Dati#Il Delete nei BST|Operazione di Delete]]
 5. [[Strutture dati#Tabelle Hash|Hash Tables]]
+	1. [[Strutture dati#Tabelle Hash#Tabelle ad indirizzamento diretto|Tabelle ad indirizzamento diretto]]
+	2. [[Strutture dati#Tabelle Hash#Implementazione delle Tabelle Hash|Implementazione delle Tabelle Hash]]
+	3. [[Strutture dati#Tabelle Hash#Funzioni di Hash|Funzioni di Hash]]
+		1. [[Strutture dati#Tabelle Hash#Funzione di Hashing Metodo della divisione|Metodo della Divisione]]
+		2. [[Strutture dati#Tabelle Hash#Funzioni di Hash#Funzione di Hashing Metodo della moltiplicazione|Metodo della Moltiplicazione]]
+		3. [[Strutture dati#Tabelle Hash#Funzioni di Hash#Funzione di Hashing Metodo della codifica algebrica|Metodo della Codifica Algebrica]]
+	4. [[Strutture dati#Tabelle Hash#Gestione delle Collisioni|Gestione delle Collisioni]]
+		1. [[Strutture dati#Tabelle Hash#Gestione delle Collisioni#Concatenamento|Concatenamento]]
+			1. [[Strutture dati#Tabelle Hash#Gestione delle Collisioni#Riassunto delle Complessità dei metodi per il Concatenamento|Complessità dei metodi per il Concatenamento]]
+		2. [[Strutture dati#Tabelle Hash#Gestione delle Collisioni#Indirizzamento Aperto|Indirizzamento Aperto]]
+			1. [[Strutture dati#Tabelle Hash#Ispezione Lineare|Ispezione Lineare]]
+			2. [[Strutture dati#Tabelle Hash#Ispezione Quadratica|Ispezione Quadratica]]
+			3. [[Strutture dati#Doppio Hashing|Doppio Hashing]]
 6. [[Strutture dati#Heap|Heap]]
 	1. [[Strutture dati#Array Heap|Array Heap]]
 		1. [[Strutture dati#Trovare il valore massimo (o minimo) in un Array Heap|FindMax & FindMin]]
@@ -126,7 +139,79 @@ Quando si desidera rimuovere un nodo $x$ da un BST, occorre pensare a $3$ possib
 
 Ognuna di queste due operazioni ha costo $O(h)$, dove $h$ equivale all'altezza dell'albero.
 ## Tabelle Hash
-%% TODO: completa qui per gli esercizi %%
+Le $\text{Hash Tables}$ sono delle strutture simili ai Dizionari che implementano le operazioni di $\text{search, insert}$ e $\text{delete}$ con costo costante. Le $\text{chiavi}$ (i valori) che potrebbero essere memorizzati all'interno di una tabella fanno parte di un insieme generale $U$, mentre le chiavi che sono **effettivamente** memorizzate in una tabella fanno parte di un insieme $K$. Ciò significa che mano a mano che si utilizza la tabella, $K$ cambierà in base al numero di valori aggiunti o rimossi da essa, mentre $U$ manterrà la stessa grandezza.
+- Se $K \sim U:$ usiamo le [[Strutture dati#Tabelle ad indirizzamento diretto|Tabelle ad indirizzamento diretto]].
+- Se $K \ll U:$ usiamo le [[Strutture dati#Implementazione delle Tabelle Hash|Tabelle Hash]].
+### Tabelle ad indirizzamento diretto
+Consistono in un Array $A$ di grandezza $U$ dove una chiave $k$ viene memorizzata in posizione $k-$esima. Sono efficienti dal punto di vista del **costo temporale**, ma dal punto di vista del **costo spaziale** risultano estremamente inefficienti, in quanto in base alla dimensione di $U$ si potrebbero avere sprechi immensi.
+Per ovviare a questo problema si usano le [[Strutture dati#Implementazione delle Tabelle Hash|Tabelle Hash]].
+### Implementazione delle Tabelle Hash
+Una Tabella Hash consiste in un Array $A$ con dimensione pari ad $m = \Theta(|K|)$, ovvero ad una stima asintotica della cardinalità di $K$. Questo significa che $A$ crescerà e rimpicciolirà durante l'utilizzo.
+Ogni chiave dell'insieme $U$ verrà quindi mappata ad un indice $i \in [0, \dots, m]$ tramite una **funzione di hashing** $h$. Così facendo tuttavia potrebbe accadere che due chiavi abbiano lo stesso indice $i$ mappato ad esse, in quanto l'insieme $U$ è più grande di quello $K$. Queste situazioni si chiamano **collisioni** e non sono interamente evitabili, solamente minimizzabili.
+### Funzioni di Hash
+Una buona funzione di Hash $h$ dovrebbe idealmente fare in modo che ogni chiave dell'insieme $U$ abbia possibilità di essere estratta pari a $\frac{1}{m}$. Questa proprietà è detta di **uniformità semplice**.
+Nella realtà questo non è ovviamente possibile in quanto l'insieme $U$ è molto più grande di quello $K$: ci si accontenta quindi di una funzione in grado di limitare e gestire le eventuali collisioni, il tutto in modo efficiente.
+#### Funzione di Hashing: Metodo della divisione
+La funzione di Hashing basata sul metodo della divisione consiste in una divisione ed ha quindi costo costante. Considerando $m =$ dimensione di $A$:
+$$h(x) = x \ mod \ m$$Questo metodo tuttavia provoca collisioni quando:
+- $m = 10^a$ oppure $m = 2^a$;
+- si ha un $x$ che termina con un $1$;
+
+per limitare la possibilità di collisioni si dovrebbe scegliere un $m$ primo lontano dalle potenze di $10$ e di $2$.
+#### Funzione di Hashing: Metodo della moltiplicazione
+Anche questa funzione ha costo costante e si implementa come segue:$$h(x) = \lfloor m \cdot(x \cdot C - \lfloor k \cdot C\rfloor)\rfloor$$dove:
+- $\lfloor n \rfloor$ indica la parte intera di $n$;
+- $C$ indica una costante, che si consiglia di porre pari al reciproco della sezione aurea (ovvero $\frac{\sqrt{5} - 1}{2}$).
+#### Funzione di Hashing: Metodo della codifica algebrica
+Questo metodo fa la somma di tutti i componenti della rappresentazione binaria di una costante $K$ moltiplicati per l'input $x$, per poi fare il modulo di tale operazione per $m$.$$h(x) = (k_n \cdot x^n + k_{n-1} \cdot x^{n - 1} + \dots + k_0) \ mod \ m$$Questo metodo risulta "lento" in quanto deve effettuare molte operazioni ed ha costo pari a $\cal O(\log_2{k})$.
+### Gestione delle Collisioni
+Per gestire le collisioni occorre trovare collocazioni alternative per le chiavi collidenti. Ci sono due tecniche efficienti per fare questo:
+- $\text{Concatenamento}$ o Scansione Interna;
+- $\text{Indirizzamento Aperto}$ o Scansione Esterna.
+
+Entrambi i metodi aumenteranno il costo computazionale delle operazioni dell'Hash Table.
+#### Concatenamento
+Quando due chiavi $k_1$ e $k_2$ vanno in collisione per un indice $i$, si crea una [[Strutture dati#Liste concatenate|Lista]] contenente tutte queste chiavi e si posiziona in $A[i]$ un puntatore alla testa di tale lista.
+Il costo delle operazioni sarà quindi pari ad $\cal O(l)$ nel caso peggiore, dove $l$ equivale alla lunghezza della lista di trabocco più lunga.
+```pseudocodice
+function Insert(HashTab T, Key k, Data d)
+	tmp = llsearch(T[h(k)], k)
+	if tmp != NIL 
+		tmp.data = d
+	else
+		llinsert(T[h(k)], k, d)
+
+function Delete(HashTab T, Key k)
+	lldelete(T[h(k)], k)
+
+function Search(HashTab T, Key k)
+	tmp = llsearch(T[h(k)], k)
+	if tmp != NIL
+		return tmp.data
+	return NIL
+```
+dove i metodi con prefisso $ll$ operano su una lista concatenata in un determinato indice della Tabella.
+##### Riassunto delle Complessità dei metodi per il Concatenamento
+| **Metodo**      | **Caso migliore** | **Caso medio** | **Caso peggiore** |
+| --------------- | ----------------- | -------------- | ----------------- |
+| $\text{Insert}$ | $\cal O(1)$       | $\cal O(1)$    | $\cal O(l)$       |
+| $\text{Delete}$ | $\cal O(1)$       | $\cal O(1)$    | $\cal O(l)$       |
+| $\text{Search}$ | $\cal O(1)$       | $\cal O(1)$    | $\cal O(l)$       |
+#### Indirizzamento Aperto
+Supponendo che la tabella possa contenere $\text{NIL}$ quando uno slot non risulta assegnato, una chiave $k$ e $\text{DEL}$ quando un valore è stato cancellato, se due chiavi $k_1$ e $k_2$ collidono per un indice $i$, ispezioniamo la tabella intera per trovare un nuovo spot in cui inserire $k_2$.
+Per fare questo sfruttiamo appositi metodi di ispezione:
+- $\text{ispezione lineare}$;
+- $\text{ispezione quadratica}$;
+- $\text{doppio hashing}$.
+##### Ispezione Lineare
+Qui ci si serve di una funzione di hashing $h'$ usata per calcolare l'Hash di un input $x$ e di un valore $i$ che verrà usato per ispezionare l'indice successivo a quello in cui è successa la collisione:$$h(x, i) = (h'(x) + i) \ mod \ m$$Questo metodo ha un problema: tende a creare sequenze di celle occupate che diventano sempre più lunghe, accrescendo i tempi di inserimento e cancellazione. Ogni cella vuota preceduta da $n$ celle piene avrà probabilità di essere riempito pari a $\frac{n + 1}{m}$.
+##### Ispezione Quadratica
+Avendo una funzione di hashing ausiliaria $h'$:$$h(x, i) = (h'(k) + c_1 \cdot i + c_2 \cdot i^2) \ mod \ m$$dove $c_1 \not = c_2$.
+Qui si procede quindi con passo quadratico per evitare code lunghe e limitare così l'aumento nel costo delle operazioni di $\text{insert}$ e di $\text{delete}$.
+##### Doppio Hashing
+Qui si hanno due funzioni di hashing ausiliarie, $h'$ e $h''$. Quando si ha una collisione si usa la secondaria assieme all'indice di ispezione per determinare il successivo slot da ispezionare, evitando così i problemi legati agli altri metodi di ispezione.$$h(x, i) = (h_1(x) + i \cdot h_2(x)) \ mod \ m$$dove generalmente si ha $h_1 \not = h_2$.
+> **N.B.** la funzione $h_2$ non deve mai ritornare $0$ e deve permettere di iterare su tutta la tabella.
+
 ## Heap
 L'$\text{Heap}$ è una struttura dati specializzata in operazioni di inserimento e di ricerca di valori massimi o minimi, basata sugli [[Strutture dati#Alberi Binari|Alberi Binari quasi perfetti]].
 Un Heap può essere:

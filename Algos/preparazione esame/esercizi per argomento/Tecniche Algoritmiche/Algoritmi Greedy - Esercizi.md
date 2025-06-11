@@ -48,7 +48,7 @@ function Taglia(int[] A, int l, int n) -> int
 		i += 1
 	return i - 1
 ```
-### Esercizio 3 - Punti neri e punti bianchi (ignoralo, fatto col culo)
+## Esercizio 3 - Punti neri e punti bianchi (ignoralo, fatto col culo)
 Lungo una linea, a distanze costanti (che per comodità indichiamo con distanza $1$), sono presenti $2n$ punti, $n$ dei quali neri ed $n$ bianchi. È necessario collegare ogni punto nero ad un corrispondente punto bianco tramite fili; ad ogni punto deve essere collegato uno ed un solo filo.
 Scrivere un algoritmo efficiente che stampi la quantità minima di filo necessaria. La distribuzione dei punti bianchi e neri viene passata all’algoritmo sotto forma di un array $p[1, \dots, 2n]$ di booleani: se $p[i]$ è $\text{true}$ allora in posizione $i$ c'è un punto bianco, altrimenti se $p[i]$ è $\text{false}$ allora in posizione $i$ c'è un punto nero.
 ### Esercizio 3 - Soluzione
