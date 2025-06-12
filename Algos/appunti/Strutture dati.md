@@ -73,6 +73,12 @@
 	8. [[Strutture dati#Cicli|Cicli]]
 	9. [[Strutture dati#Grafi non orientati completi|Grafi non-orientati completi]]
 	10. [[Strutture dati#Curiosità sul rapporto tra Grafi ed Alberi|Il Rapporto tra Grafi ed Alberi]]
+	11. [[Strutture dati#Grafi#Visitare i Grafi|Visitare i Grafi]]
+		1. [[Strutture dati#Visitare i Grafi#Visita BFS (Breadth First Search)|Visita BFS]]
+			1. [[Strutture dati#Visitare i Grafi#Costo computazionale della visita BFS nei Grafi|Costo Computazionale]]
+			2. [[Strutture dati#Visitare i Grafi#Alcune applicazioni curiose|Alcune applicazioni curiose]]
+		2. [[Strutture dati#Visita DFS (Depth First Search)|Visita DFS]]
+			1. 
 ## Liste concatenate
 In questa struttura dati gli elementi sono sequenziali e l'ordine è deciso da una catena di puntatori. Per accedere ad un elemento occorre iterare sulla lista. Ogni lista contiene un puntatore al suo primo elemento, detto $\text{head}$.
 Ne esistono $4$ tipi:
@@ -411,3 +417,75 @@ Un ciclo non orientato si dice **aciclico** quando non contiene cicli semplici, 
 Un grafo non orientato si dice **completo** quando ha un arco tra ogni coppia di vertici, come nel caso seguente:![[Pasted image 20250529164242.png]]In un grafo completo vi sono $\frac{n(n-1)}{2}$ archi totali, dove $n$ corrisponde al numero di vertici.
 ### Curiosità sul rapporto tra Grafi ed Alberi
 La struttura dati dell'albero corrisponde ad un grafo dove un vertice viene eletto a **radice**, creando cosi un **albero radicato**. Esistono anche **alberi liberi**, dove non vi è una radice. Questi alberi corrispondono a dei grafi non orientati aciclici:![[Pasted image 20250529164632.png]]
+### Visitare i Grafi
+Dato un Grafo $G = \lt V, E \gt$ ed un vertice $s$ appartenente a tale Grafo, detto **vertice sorgente**, occorre visitare tutti i nodi di $G$ raggiungibili da $s$, visitando ogni nodo una sola volta.
+Per fare ciò occorre tenere traccia del fatto che un vertice sia stato visitato o meno, mediante tre status:
+- **inesplorato**: l'algoritmo non è ancora giunto a tale nodo;
+- **aperto**: non tutti gli archi adiacenti sono stati visitati;
+- **chiuso**: tutti gli archi adiacenti sono stati visitati.
+#### Visita BFS (Breadth First Search)
+La tecnica di visita $\text{BFS}$ nei grafi visita i nodi distanti $k$ dalla sorgente prima di visitare i nodi distanti $k + 1$, generando cosi un albero dove la distanza tra un nodo e la radice (la sorgente) corrisponde alla distanza minima tra i due all'interno di $G$. Questo algoritmo non visita i nodi separati.
+```pseudocodice
+function BFS(Grafo G, Vertice s) -> Tree
+	for Vertice v in G
+		v.mark = false // inesplorato
+	Tree T = s
+	let Q be a new Queue
+	Enqueue(Q, s)
+	s.mark = true
+	s.dist = 0 // tengo traccia della distanza, da settare poi nei nodi di T
+	while Q.size != 0
+		q = Dequeue(Q)
+		for v adiacente a q
+			if !v.mark // se il nodo adiacente non risulta marchiato in prec
+				Insert(T, v) // aggiungo v all'albero
+				Enqueue(Q, v)
+				v.parent = q // il genitore corrisponde a q (serve appena sotto)
+				v.dist = q.dist + 1 // distanza del genitore + 1
+	return T
+```
+Quindi essenzialmente marca tutti i vertici di $G$ come $\text{false}$, crea un albero con radice $s$, aggiunge $s$ ad una coda e fino a quando non si hanno più elementi nella coda continua ad aggiungervi nodi adiacenti a quello studiato attualmente (a meno che questi non siano marchiati $\text{true}$) e aumenta per ognuno la distanza, sulla base della distanza del genitore.
+##### Costo computazionale della visita BFS nei Grafi
+Qui si itera sempre su tutti i vertici di $G$, per marchiarli come $\text{false}$. Inoltre si ha un ciclo che fa passare tutte le adiacenze, mediante la $\text{Queue}$. Supponendo di avere quindi $n$ vertici ed un totale di $m$ adiacenze, il costo computazionale dipenderà da quale dei due prevarrà sull'altro, ovvero: $\cal O(\text{max} \{n, m\})$.
+##### Alcune applicazioni curiose
+Questa tecnica risulta molto efficace per trovare il percorso minimo tra un vertice e tutti i nodi raggiungibili da esso: questo potrebbe significare ad esempio trovare l'uscita di un labirinto partendo da un generico punto (ogni bivio corrisponde ad un vertice).
+#### Visita DFS (Depth First Search)
+Questa tecnica, come la $\text{BFS}$, marchia i vertici visitati per differenziarli da quelli non visitati, ma punta a restituire una **foresta** invece che un albero, in quanto visiterà tutti i nodi presenti in $G$.
+```pseudocodice
+global int time = 0 // variabile globale
+
+function DFS(Grafo G)
+	for Vertice v in G
+		v.mark = "white" // da visitare
+		v.parent = NIL
+	for Vertive v in G
+		if v.mark == "white"
+			DFSVisit(v)
+
+function DFSVisit(Vertice v)
+	v.mark = "gray" // sto visitando
+	time += 1
+	v.dt = time // tempo di inizio visita
+	for Vertice u adiacente a V
+		if u.mark == "white"
+			u.parent = v
+			DFSVisit(u)
+	time += 1
+	v.ft = time // tempo per fine visita (tutti i vicini sono stati visitati)
+	v.mark = "black" // done
+```
+Essenzialmente partendo da un Grafo $G$ marchiamo tutti i suoi vertici come da esplorare, poi visitiamo tutti quelli marchiati in questa maniera (il check risulta importante dato che la chiamata ricorsiva sotto visita tutti i vicini ogni volta. Questo abbassa il costo e visita ogni nodo una sola volta).
+La funzione $\text{DFSVisit}$ invece marchia un vertice come "in visita" per poi assegnare un **timestamp** di inizio e di fine visita a tale.
+Questo **timestamp** ci permette di capire se un vertice $v$ risulta discendente di un altro vertice $u$: questo difatti accade quando si ha $$u.dt \lt v.dt \lt u.ft \lt v.ft$$Inoltre questa misura temporale permette di ricavare il verso di un arco all'interno dei grafi orientati:
+- se $v.dt \lt u.dt$ e $u.ft \lt v.ft$ allora l'arco $(u, v)$ è all'indietro;
+- se $u.dt \lt v.dt$ e $v.ft \lt u.ft$ allora l'arco $(u, v)$ è in avanti;
+- se $v.ft \lt u.dt$ l'arco $(u, v)$ è di attraversamento (collega due nodi in alberi diversi della foresta $\text{DFS}$).
+##### Applicazioni utili della tecnica DFS
+Alcune applicazioni della tecnica $\text{DFS}$ consistono nel verificare il $\text{DAG}$, ovvero il $\text{Direct Acyclic Graph}$ (un Grafo orientato senza cicli), oppure individuare le componenti connesse di un grafo non orientato.
+L'applicazione più utile risulta tuttavia essere l'[[Strutture dati#Ordinamento Topologico in un Grafo DAG|ordinamento topologico in un Grafo DAG]].
+### Ordinamento Topologico in un Grafo DAG
+Dato un $\text{DAG}$ identificato con la lettera $G$, un ordinamento topologico di $G$ è un **ordinamento lineare** dei suoi vertici per cui se $G$ contiene un arco $(u, v)$ allora $u$ compare prima di $v$ nell'ordinamento.
+> **N.B.** Possono esistere più ordinamenti topologici per uno stesso grafo $G$.
+
+Effettuare un ordinamento topologico risulta molto semplice: basta eseguire una visita $\text{DFS}$ sul grafo $G$ con una piccola modifica: quando un nodo viene marchiato di nero (ovvero quando lo si ha visitato), lo si inserisce in una Lista. Al termine basta ritornare la Lista in ordine decrescente per avere uno dei possibili ordinamenti topologici.
+Ad esempio, il grafo seguente:![[Pasted image 20250612152454.png]]ritornerebbe la Lista $L = [1, 3, 5, 2, 4]$.
