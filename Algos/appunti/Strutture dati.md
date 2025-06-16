@@ -78,7 +78,21 @@
 			1. [[Strutture dati#Visitare i Grafi#Costo computazionale della visita BFS nei Grafi|Costo Computazionale]]
 			2. [[Strutture dati#Visitare i Grafi#Alcune applicazioni curiose|Alcune applicazioni curiose]]
 		2. [[Strutture dati#Visita DFS (Depth First Search)|Visita DFS]]
-			1. 
+			1. [[Strutture dati#Visitare i Grafi#Applicazioni utili della tecnica DFS|Applicazioni utili]]
+	12. [[Strutture dati#Grafi#Ordinamento Topologico in un Grafo DAG|Ordinamento Topologico in un Grafo DAG]]
+	13. [[Strutture dati#Minimum Spanning Tree|Minimum Spanning Tree]]
+		1. [[Strutture dati#Calcolare l'MST|Calcolare l'MST]]
+		2. [[Strutture dati#Definizioni di Taglio, Attraversamento e Rispetto del Taglio|Definizioni di Taglio, Attraversamento e Rispetto del Taglio]]
+		3. [[Strutture dati#Regola del Taglio|Regola del Taglio]]
+		4. [[Strutture dati#Regola del Ciclo|Regola del Ciclo]]
+		5. [[Strutture dati#Costruire un MST con le Regole del Taglio e del Ciclo|Costruire un MST con le Regole del Taglio e del Ciclo]]
+		6. [[Strutture dati#Esempio di Costruzione di un MST con le Regole del Taglio e del Ciclo|Esempio di Costruzione di un MST con le Regole del Taglio e del Ciclo]]
+	14. [[Strutture dati#Algoritmo di Kruskal|Algoritmo di Kruskal]]
+		1. [[Strutture dati#Esempio di Applicazione dell'Algoritmo di Kruskal|Applicazione]]
+		2. [[Strutture dati#Implementare l'Algoritmo di Kruskal|Implementazione]]
+	15. [[Strutture dati#Algoritmo di Prim|Algoritmo di Prim]]
+		1. [[Strutture dati#Implementazione dell'Algoritmo di Prim|Implementazione]]
+		2. [[Strutture dati#Algoritmo di Prim#Esempio di Applicazione dell'Algoritmo di Prim|Applicazione]]
 ## Liste concatenate
 In questa struttura dati gli elementi sono sequenziali e l'ordine è deciso da una catena di puntatori. Per accedere ad un elemento occorre iterare sulla lista. Ogni lista contiene un puntatore al suo primo elemento, detto $\text{head}$.
 Ne esistono $4$ tipi:
@@ -412,11 +426,11 @@ Un ciclo corrisponde ad un cammino con lunghezza:
 - $\geq 3$ nei grafi non orientati;
 dove il primo vertice corrisponde all'ultimo, ovvero ad una situazione del tipo $\lt v_0, v_1, \dots, v_n \gt$ con $v_0 = v_n$.
 Un ciclo si dice **semplice** se tutti i vertici facenti parte di esso, meno ovviamente il primo, sono distinti.
-Un ciclo non orientato si dice **aciclico** quando non contiene cicli semplici, mentre un grafo orientato risulta **aciclico** quando non contiene cicli in generale.
+Un grafo non orientato si dice **aciclico** quando non contiene cicli semplici, mentre un grafo orientato risulta **aciclico** quando non contiene cicli in generale.
 ### Grafi non orientati completi
 Un grafo non orientato si dice **completo** quando ha un arco tra ogni coppia di vertici, come nel caso seguente:![[Pasted image 20250529164242.png]]In un grafo completo vi sono $\frac{n(n-1)}{2}$ archi totali, dove $n$ corrisponde al numero di vertici.
 ### Curiosità sul rapporto tra Grafi ed Alberi
-La struttura dati dell'albero corrisponde ad un grafo dove un vertice viene eletto a **radice**, creando cosi un **albero radicato**. Esistono anche **alberi liberi**, dove non vi è una radice. Questi alberi corrispondono a dei grafi non orientati aciclici:![[Pasted image 20250529164632.png]]
+La struttura dati dell'albero corrisponde ad un grafo dove un vertice viene eletto a **radice**, creando così un **albero radicato**. Esistono anche **alberi liberi**, dove non vi è una radice. Questi alberi corrispondono a dei grafi non orientati aciclici:![[Pasted image 20250529164632.png]]
 ### Visitare i Grafi
 Dato un Grafo $G = \lt V, E \gt$ ed un vertice $s$ appartenente a tale Grafo, detto **vertice sorgente**, occorre visitare tutti i nodi di $G$ raggiungibili da $s$, visitando ogni nodo una sola volta.
 Per fare ciò occorre tenere traccia del fatto che un vertice sia stato visitato o meno, mediante tre status:
@@ -489,3 +503,140 @@ Dato un $\text{DAG}$ identificato con la lettera $G$, un ordinamento topologico 
 
 Effettuare un ordinamento topologico risulta molto semplice: basta eseguire una visita $\text{DFS}$ sul grafo $G$ con una piccola modifica: quando un nodo viene marchiato di nero (ovvero quando lo si ha visitato), lo si inserisce in una Lista. Al termine basta ritornare la Lista in ordine decrescente per avere uno dei possibili ordinamenti topologici.
 Ad esempio, il grafo seguente:![[Pasted image 20250612152454.png]]ritornerebbe la Lista $L = [1, 3, 5, 2, 4]$.
+### Minimum Spanning Tree
+Un problema ricorrente nei Grafi consiste nel come connettere diversi elementi minimizzando il percorso tra essi. Questo problema prende il nome di $\text{Minimum Spanning Tree}$.
+Per calcolare questo si usa una **funzione peso** $w : V \times V \rightarrow \mathbb{R}$ applicata ad un Grafo non-orientato $G = \lt V, E \gt$ (dove $V =$ insieme dei vertici di $G$; $E =$ insieme degli archi di $G$).
+Un **albero di copertura** di $G$ corrisponde quindi ad un sotto-grafo $T=  \lt V, E_T \gt$ dove $T$ è un albero contenente tutti i vertici di $G$.
+Tra tutti i possibili alberi di copertura, quello con peso minimo corrisponde al $\text{Minimum Spanning Tree}$.
+#### Calcolare l'MST
+L'idea sarebbe quella di accrescere $T$ piano piano aggiungendo archi sicuri all'insieme. Un arco sicuro sarebbe un arco $\{v ,e\}$ per cui $T \cup \{v,e\}$ è ancora un sottoinsieme di qualche $\text{MST}$.
+Generalmente si fa quindi questo per costruire l'$\text{MST}$:
+```pseudocodice
+function GenericMST(Grafo G, function w){
+	let T be a new Tree
+	while T non forma un MST
+			trova un arco sicuro {u, v}
+			T = T U {u, v}
+	return T
+}
+```
+#### Definizioni di Taglio, Attraversamento e Rispetto del Taglio
+Un **Taglio** corrisponde ad una partizione dell'insieme $V$ in due sottoinsiemi disgiunti.
+Avendo un taglio ($S, V - S$), dove $S$ corrisponde al sottoinsieme da rimuovere da $V$ per effettuare la divisione. Si dice che un arco $\{v, u\}$ **attraversa** il taglio se $v \in S$ e $u \in V - S$ e si dice **leggero** se il suo peso risulta minimo tra i pesi degli archi attraversanti. Un taglio **rispetta** un insieme di archi $T$ se nessun arco di $T$ attraversa il taglio.
+Definiamo come **archi blu** gli archi facenti parte dell'$\text{MST}$ e come **rossi** quelli non facenti parte di quest'ultimo.
+#### Regola del Taglio
+Scegliendo un taglio $C$ in $G$ che **rispetti** gli archi blu (e quindi che non sia attraversato da essi), selezionare un arco leggero da cui $C$ sia attraversato (di nessun colore) e inserirlo nell'$\text{MST}$.
+#### Regola del Ciclo
+Scegli un ciclo semplice in $G$ che non contenga archi rossi. Tra tutti gli archi senza colore del ciclo, selezionare quello con peso massimo e colorarlo di rosso.
+#### Costruire un MST con le Regole del Taglio e del Ciclo
+Per costruire un $\text{MST}$ con le due regole precedenti basterà applicarle in successione (una vale l'altra, purché la si possa utilizzare).
+##### Esempio di Costruzione di un MST con le Regole del Taglio e del Ciclo
+Avendo il seguente grafo non-orientato $G$:
+![[Pasted image 20250614110418.png]]
+Potremmo procedere con la regola del Taglio o con quella del Ciclo, a preferenza personale. Per l'esempio useremo quella del Taglio. Quest'ultima ha come unica restrizione il dover rispettare eventuali archi blu, che però sono qui assenti. Tagliamo quindi a piacere in $G$:![[Pasted image 20250614110903.png]]
+A questo punto terminiamo l'applicazione della regola del Taglio selezionando l'arco con peso minimo tra quelli attraversanti il taglio effettuato: in questo caso, l'insieme dei tagli attraversanti sarebbe: $\{\{h, g\}, \{i, g\}, \{c, f\}, \{c, d\}\}$, dove $\{h, g\}$ ha peso $1$. Coloriamo quindi questo di blu.
+Procediamo ora applicando una tra le due regole. In questo caso procederemo con quella del ciclo (ma avremmo potuto benissimo usare anche quella del Taglio).
+Selezioniamo un ciclo qualunque e coloriamo di rosso l'arco con peso massimo all'interno di esso:
+![[Pasted image 20250614111241.png]]
+Il ciclo scelto contiene quindi i seguenti archi: $\{ \{i, c\}, \{c, d\}, \{c,f\}, \{d, f\}, \{f, g\}\}$. Tra questi l'arco con peso massimo corrisponde a $\{d, f\}$, con peso pari a $14$. Coloriamolo quindi di rosso.
+Proseguiamo ora applicando nuovamente la regola del taglio, tagliando a piacere e rispettando gli archi blu (**quelli rossi possiamo anche renderli attraversanti**):![[Pasted image 20250614111522.png]]
+Ora selezioniamo l'arco non-colorato con peso minimo tra quelli attraversanti il taglio, ovvero $\{g, f\}$. Coloriamolo di blu e procediamo.
+Andiamo avanti così fino a raggiungere uno scenario dove tutti gli archi sono colorati:![[Pasted image 20250614111846.png]]
+Questo sarà uno dei possibili $\text{MST}$, in quanto rispetta tutte e tre le seguenti condizioni necessarie per un $\text{MST}$ valido:
+- collega tutti i vertici di $G$;
+- in esso si ha assenza di cicli;
+- avendo $n$ vertici si hanno $n - 1$ archi blu: in questo caso $9$ vertici e $8$ archi blu.
+### Algoritmo di Kruskal
+Questo algoritmo crea un insieme $A$ (il nostro futuro $\text{MST}$), per poi ordinare tutti gli archi del grafo $G$ in modo crescente e scorrere su di essi:
+- se l'arco attuale non forma un ciclo con gli altri archi già in $A$, aggiungilo (coloralo di blu);
+- altrimenti, (scartalo) coloralo di rosso;
+
+ripetendo questo loop fino ad avere $n-1$ archi in $A$.
+#### Esempio di Applicazione dell'Algoritmo di Kruskal
+Avendo un grafo $G$ come il seguente:
+![[Pasted image 20250616162644.png]]
+anzitutto ordiniamo in modo crescente tutti gli archi, sulla base del loro peso. In seguito cominciamo ad iterare su questi: il primo elemento sarà l'arco con peso $1$, che ovviamente essendo il primo non formerà archi. Inseriamolo in $A$:
+![[Pasted image 20250616162758.png]]
+Ora procediamo e troviamo un arco con peso $2$: anche questo, essendo solamente il secondo, non formerà cicli. Inseriamolo in $A$:
+![[Pasted image 20250616162849.png]]
+Ora procediamo così per ogni arco:
+![[Pasted image 20250616162912.png]]
+![[Pasted image 20250616162924.png]]
+![[Pasted image 20250616162937.png]]
+A questo punto ci troveremo di fronte ad un arco con peso pari a $6$: questo tuttavia creerebbe un ciclo. Non inseriamolo in $A$ e marchiamolo di rosso, per poi proseguire:
+![[Pasted image 20250616162953.png]]
+![[Pasted image 20250616163008.png]]
+![[Pasted image 20250616163108.png]]
+![[Pasted image 20250616163117.png]]
+![[Pasted image 20250616163126.png]]
+![[Pasted image 20250616163135.png]]
+![[Pasted image 20250616163145.png]]
+![[Pasted image 20250616163154.png]]
+#### Implementare l'Algoritmo di Kruskal
+La parte "difficile" dell'algoritmo di $\text{Kruskal}$ sta nel capire se un arco crei un ciclo in un albero oppure no: per farlo serviamoci delle [[Strutture dati#Strutture Union-Find|Strutture UF]]. Ci basta difatti lavorare sugli insiemi contenenti gli archi (identificati da una lettera) per capire se un eventuale aggiunta porterebbe ad un ciclo!
+```pseudocodice
+function Kruskal(Grafo G)
+	let UF be a new UnionFind
+	let T be a new Tree
+	// sort degli archi ipotizzando costo O(n log n)
+	for {u, v} in G
+		Tu = UF.find(u)
+		Tv = UF.find(v)
+		if Tu != Tv
+			T = T.Insert({u, v})
+			UF.union(Tu, Tv)
+	return T
+```
+Con costo totale $\cal O(E \cdot \log{E})$, dove $\cal E =$ numero di archi in $G$.
+### Algoritmo di Prim
+Questo algoritmo usa solamente la regola del Taglio partendo da un nodo identificato come $\text{radice}$ e chiamato $r.$ Ad ogni passo verrà quindi aggiunto l'arco di peso minimo che collega un nodo già raggiunto di un albero con uno ancora non raggiunto.
+#### Implementazione dell'Algoritmo di Prim
+Per implementare questo algoritmo si userà una [[Strutture dati#Priority Queue|Priority Queue]] $Q$ per contenere tutti i nodi visitati ma non ancora inseriti all'interno dell'$\text{MST}$. Un nodo verrà rimosso da $Q$ solamente dopo essere stato inserito e questo loop terminerà quando $Q$ si svuoterà.
+```pseudocodice
+function Prim(Grafo G=<V, E, w>, nodo s)
+	for each v in G.V
+		v.dist = -1
+		v.parent = NIL
+		v.isInT = false // controlliamo che non sia inserito nell'MST
+	s.dist = 0 // radice scelta
+	let Q be a new CodaPriorita
+	Q.insert(s, s.dist)
+	while !Q.isEmpty()
+		u = Q.find()
+		Q.deleteMin()
+		u.isInT = true
+		for each v in u.adj
+			if v.dist == -1
+				Q.insert(v, w(u, v))
+				v.dist = w(u, v)
+				v.parent = u
+			else if w(u, v) < v.dist
+				Q.decreaseKey(v, w(u, v))
+				v.dist = w(u, v)
+				v.parent = u
+```
+Con costo computazionale $\cal O(E \log{n})$.
+#### Esempio di Applicazione dell'Algoritmo di Prim
+Supponendo di avere un grafo $G$ come il seguente:
+![[Pasted image 20250616171317.png]]
+Prendiamo come radice il nodo $a$ e tagliamo in questa maniera:
+![[Pasted image 20250616171335.png]]
+Ora inseriamo i nodi $b$ ed $h$ all'interno di $Q$, con associato il peso dell'arco collegante ad $a:$
+![[Pasted image 20250616171415.png]]
+Scegliamo ora tra i due il nodo con peso minore, ovvero $b$. Cancelliamolo da $Q$ e coloriamo di blu l'arco che lo collega ad $a:$
+![[Pasted image 20250616171458.png]]
+Ripetiamo per i nodi adiacenti al nodo appena inserito (ovvero per $c$), tenendo nella coda *anche* quelli precedentemente visitati e non inseriti (ovvero $h$)$:$
+![[Pasted image 20250616171618.png]]
+![[Pasted image 20250616171627.png]]
+![[Pasted image 20250616171639.png]]
+![[Pasted image 20250616171647.png]]
+![[Pasted image 20250616171656.png]]
+![[Pasted image 20250616171703.png]]
+![[Pasted image 20250616171711.png]]
+![[Pasted image 20250616171720.png]]
+![[Pasted image 20250616171728.png]]
+![[Pasted image 20250616171735.png]]
+![[Pasted image 20250616171743.png]]
+![[Pasted image 20250616171752.png]]
+![[Pasted image 20250616171805.png]]
+![[Pasted image 20250616171812.png]]

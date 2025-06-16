@@ -4,7 +4,8 @@
 	1. [[Visite di Grafi - Esercizi#Esercizio 2 - Soluzione|Soluzione]]
 3. [[Visite di Grafi - Esercizi#Esercizio 3 - Algoritmo per rilevare un ciclo lungo K|Esercizio 3 - Algoritmo per rilevare un ciclo lungo K]]
 	1. [[Visite di Grafi - Esercizi#Esercizio 3 - Soluzione|Soluzione]]
-4. 
+4. [[Visite di Grafi - Esercizi#Esercizio 4 - Stampare un Ciclo in un Grafo Orientato|Esercizio 4 - Stampare un Ciclo in un Grafo Orientato]]
+	1. [[Visite di Grafi - Esercizi#Esercizio 4 - Soluzione|Soluzione]]
 ## Esercizio 1 - Visita BFS su un grafo G
 Si consideri il grafo orientato $G$ rappresentato tramite liste di adiacenza come da seguente diagramma:![[Pasted image 20250612152849.png]]
 Si disegni l’albero di visita che viene restituito dall’esecuzione della visita $\text{BFS}$ a partire dal vertice $A$.
@@ -18,3 +19,74 @@ La visita $\text{DFS}$ visita prima $A$, con $d.t. = 1$ per poi visitare ricorsi
 ## Esercizio 3 - Algoritmo per rilevare un ciclo lungo K
 Progettare un algoritmo che dato un grafo orientato $G = \lt V, E \gt$, due vertici $v_1 ,v_2 \in V$, ed un numero naturale $K$, restituisce $\text{true}$ se esiste un ciclo di lunghezza minore o uguale a $K$ che include sia $v_1$ che $v_2$, altrimenti restituisce $\text{false}$.
 ### Esercizio 3 - Soluzione
+Questo esercizio si tratta semplicemente di fare la distanza minima tra $v_1$ e $v_2$ tramite visita $\text{BFS}$, per poi controllare se questa risulti $\leq k$.
+```pseudocodice
+function LunghezzaCiclo(Grafo G, Vertice x, Vertice y, int k) -> Boolean
+	return (Distanza(G, x, y) + Distanza(G, y, x)) <= k
+
+// calcola la distanza tra due vertici
+function Distanza(Grafo G, Vertice x, Vertice y) -> Int
+	for Vertice v in G
+		v.mark = false
+	let Q be a new Queue
+	x.dist = 0
+	Enqueue(Q, x) // x -> sorgente
+	while Q.size != 0
+		Vertice v = Dequeue(Q)
+		for s adiacente a v
+			if !s.mark
+				Enqueue(Q, s)
+				s.parent = v
+				s.dist = s.parent.dist + 1
+				if (s == y)
+					return s.dist
+	return -1
+```
+## Esercizio 4 - Stampare un Ciclo in un Grafo Orientato
+Progettare un algoritmo che dato un grafo orientato $G = \lt V, E \gt$ stampa uno qualsiasi dei suoi cicli, se ne esiste almeno uno, altrimenti stampa la stringa "grafo aciclico".
+### Esercizio 4 - Soluzione
+Per cercare un ciclo in un grafo orientato si può usare la visita $\text{DFS}$, in quanto un ciclo corrisponde alla situazione dove, visitando un vertice $v$, incontriamo nelle sue adiacenze un altro vertice $k$ marcato come "gray", ovvero di cui stiamo ancora terminando la visita (se stiamo terminando la visita di $k$ e ci troviamo in $v$, esiste un cammino tra $k$ e $v$).
+Basterà poi stampare l'albero corrispondente al cammino tra $k$ e $v$, ripetendo $k$ per chiudere il ciclo.
+```pseudocodice
+// variabili globali
+// flag
+Boolean found = false
+// vertice inizio & fine ciclo
+Vertice start, end = NIL
+	
+function CicloInGrafoOrientato(Grafo G)
+	for Vertice v in G
+		v.mark = white
+		v.parent = NIL
+
+	for Vertice v in G
+		if !found && v.mark == white
+			DFS(v)
+
+	if found
+		PrintPath(start, end)
+	else
+		print(grafo aciclico)
+
+function DFS(Vertice v)
+	v.mark = gray
+	for Vertice k adiacente a v
+		// trovato ciclo
+		if k.mark == gray
+			loop = true
+			start = v
+			end = k
+		if !found && k.mark == white
+			k.parent = v
+			DFS(k)
+	v.mark = black
+
+function PrintPath(Vertice s, Vertice e)
+	// se fine ed inizio sono uguali, mi trovo alla fine
+	if (s == e)
+		print(s)
+	else
+		// inizio e uno prima della fine. Faccio passare tutto l'"albero"
+		PrintPath(s, e.parent)
+		print(s)
+```
