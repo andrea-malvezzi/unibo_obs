@@ -12,7 +12,15 @@
 	5. [[Esempi di esercizi d'esame con soluzione#Esercizio 10 - Analisi del costo di algoritmo con Heap Binario|Esercizio 10 - Analisi del costo di algoritmo con Heap Binario]]
 		1. [[Esempi di esercizi d'esame con soluzione#Esercizio 10 - Soluzione|Soluzione]]
 2. [[Esempi di esercizi d'esame con soluzione#Strutture Dati|Strutture Dati]]
-	1. 
+	1. [[Esempi di esercizi d'esame con soluzione#Strutture Dati#Esercizio 1 - Visualizzazione di una tabella hash|Esercizio 1 - Visualizzazione di una tabella hash]]
+		1. [[Esempi di esercizi d'esame con soluzione#Strutture Dati#Esercizio 1 - Soluzione|Soluzione]]
+	2. [[Esempi di esercizi d'esame con soluzione#Strutture Dati#Esercizio 2 - Uguaglianza tra alberi binari|Esercizio 2 - Uguaglianza tra alberi binari]]
+		1. [[Esempi di esercizi d'esame con soluzione#Strutture Dati#Esercizio 2 - Soluzione|Soluzione]]
+	3. [[Esempi di esercizi d'esame con soluzione#Strutture Dati#Esercizio 3 - Numero di livelli con quantità di elementi pari|Esercizio 3 - Numero di livelli con quantità di elementi pari]]
+		1. [[Esempi di esercizi d'esame con soluzione#Strutture Dati#Esercizio 3 - Soluzione|Soluzione]]
+	4. [[Esempi di esercizi d'esame con soluzione#Strutture Dati#Esercizio 4 - Nodi a profondità k-esima|Esercizio 4 - Nodi a profondità k-esima]]
+		1. [[Esempi di esercizi d'esame con soluzione#Strutture Dati#Esercizio 4 - Soluzione|Soluzione]]
+	5. 
 ## Analisi del costo
 ### Esercizio 1 - Analisi del costo di un algoritmo ricorsivo
 Calcolare il costo computazionale $T(n)$ del seguente algoritmo $\text{Mystery1}$(int $n):$
@@ -102,3 +110,71 @@ Calcolare il costo computazionale $T(n)$ del seguente algoritmo $\text{Mystery1}
 #### Esercizio 13 - Soluzione
 Il costo del ciclo for sarebbe $\cal O(n)$, mentre il costo del ciclo while sarebbe $\log_4{n} \cdot n$. Il costo complessivo dell'algoritmo sarebbe quindi $\cal O(\log_4{n} \cdot n)$.
 ## Strutture Dati
+### Esercizio 1 - Visualizzazione di una tabella hash
+Si consideri una tabella hash di dimensione $m = 7$ inizialmente vuota. Le collisioni sono gestite mediante indirizzamento aperto usando la seguente funzione hash $h(k):$$$\begin{array}{c}h(k) = (h'(k) + 3i) \ mod \ m \\ h'(k) = k \ mod \ m\end{array}$$Si mostri il contenuto della tabella e il fattore di carico dopo ognuna delle seguenti operazioni, eseguite in ordine: $\text{INS}(17), \text{INS}(4), \text{INS}(10), \text{INS}(25), \text{INS}(46), \text{DEL}(17), \text{INS}(11), \text{DEL}(25), \text{INS}(39)$.
+> ✅ Corretto!
+#### Esercizio 1 - Soluzione
+![[Pasted image 20250621212859.png]]
+### Esercizio 2 - Uguaglianza tra alberi binari
+Scrivere un algoritmo che prende in input due alberi binari $T_1$ e $T_2$ e restituisce $\text{true}$ se i due sono identici, cioè se hanno la stessa struttura e valori uguali in posizioni corrispondenti (radici uguali, figlio sinistro della radice di $T_1$ uguale al figlio sinistro della radice di $T_2$, figlio destro della radice di $T_1$ uguale al figlio destro della radice di $T_2$, e così via).
+L’algoritmo restituisce $\text{false}$ in caso contrario.
+> ✅ Corretto!
+#### Esercizio 2 - Soluzione
+Con una funzione ricorsiva visitiamo tutto l'albero e ritorniamo $\text{false}$ quando un nodo è NIL e l'altro no. Se entrambi sono NIL, ritorno $\text{true}$. Altrimenti controllo il valore di entrambi i nodi ricevuti in input, il sottoalbero sinistro e quello destro (ai casi limite delle foglie ci pensano i check precedenti).
+```pseudocodice
+function AreEquals(Tree T1, Tree T2) -> Boolean
+	return CompareTrees(T1.head, T2.head)
+
+function CompareTrees(Node n1, Node n2) -> Boolean
+	if n1 == NIL ^ n2 == NIL // xor
+		return false
+	else if n1 == NIL && n2 == NIL
+		return true
+	else
+		return (n1.value == n2.value)
+			&& CompareTrees(n1.left, n2.left)
+			&& CompareTrees(n1.right, n2.right)
+```
+### Esercizio 3 - Numero di livelli con quantità di elementi pari
+Si scriva un algoritmo che, preso in input un albero $n-$ario $T$, conti quanti sono i livelli di questo con un numero di nodi pari.
+> ✅ Corretto!
+#### Esercizio 3 - Soluzione
+Per visitare i livelli di un albero si usa la visita $\text{BFS}$, con una $\text{Queue}$. Teniamo tre contatori:
+- uno per la quantità di livelli con numero di elementi pari;
+- uno per la quantità di elementi figli dei nodi del livello corrente;
+- uno per la quantità di elementi inseriti per livello (e quindi su cui iterare prima di cambiare livello).
+
+L'ultimo partirà da $1$ in quanto il livello della $\text{head}$ avrà sempre un numero di elementi pari a $1$.
+```pseudocodice
+function ContaLivelli(Tree T)
+	let Q be a new Queue
+	total = 0 // numero di livelli con numero di elementi pari
+	currLevel = 0 // figli dei nodi del livello corrente
+	prevLevel = 1 // il currLevel al termine di ogni loop
+	if T.head != NIL
+		enqueue(Q, T.head)
+	while !Q.empty()
+		// dal primo nodo del livello all'ultimo
+		for i = 0, ..., prevLevel
+			n = dequeue(Q)
+			temp = n.first
+			while temp != NIL
+				currLevel += 1 // + un figlio ...
+				enqueue(Q, temp)
+				temp = temp.next
+		if currLevel % 2 == 0
+			total += 1
+		prevLevel = currLevel
+		currLevel = 0
+	return total
+```
+### Esercizio 4 - Nodi a profondità k-esima
+Scrivere un algoritmo che prende in input un albero binario $T$ e un intero positivo $k$ e calcola il numero di nodi che si trovano esattamente a profondità $k$ (nota: la radice si trova a profondità zero).
+Discutere il costo computazionale nel caso pessimo e ottimo.
+> boh credo di sì, è tardi, mi son rotto il cazzo ziocane
+#### Esercizio 4 - Soluzione
+Per la profondità serve la visita $\text{BFS}$ con $\text{Queue}$ ausiliaria. Teniamo un contatore dei livelli attraverso cui controllare se ci troviamo nel $k-$esimo livello. Per ogni nodo, aggiungiamo i suoi figli alla coda.
+```pseudocodice
+function NodiLivelloK(Tree T, Int k) -> Int
+	
+```
