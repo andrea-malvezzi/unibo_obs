@@ -20,7 +20,16 @@
 		1. [[Esempi di esercizi d'esame con soluzione#Strutture Dati#Esercizio 3 - Soluzione|Soluzione]]
 	4. [[Esempi di esercizi d'esame con soluzione#Strutture Dati#Esercizio 4 - Nodi a profondità k-esima|Esercizio 4 - Nodi a profondità k-esima]]
 		1. [[Esempi di esercizi d'esame con soluzione#Strutture Dati#Esercizio 4 - Soluzione|Soluzione]]
-	5. 
+	5. [[Esempi di esercizi d'esame con soluzione#Strutture Dati#Esercizio 6 - Rimuovere da una lista gli elementi di un'altra|Esercizio 6 - Rimuovere da una lista gli elementi di un'altra]]
+		1. [[Esempi di esercizi d'esame con soluzione#Strutture Dati#Esercizio 6 - Soluzione|Soluzione]]
+	6. [[Esempi di esercizi d'esame con soluzione#Strutture Dati#Esercizio 9 - k-esimo elemento più piccolo di un BST|Esercizio 9 - k-esimo elemento più piccolo di un BST]]
+		1. [[Esempi di esercizi d'esame con soluzione#Strutture Dati#Esercizio 9 - Soluzione|Soluzione]]
+	7. [[Esempi di esercizi d'esame con soluzione#Strutture Dati#Esercizio 10 - Albero perfetto|Esercizio 10 - Albero perfetto]]
+		1. [[Esempi di esercizi d'esame con soluzione#Strutture Dati#Esercizio 10 - Soluzione|Soluzione]]
+	8. [[Esempi di esercizi d'esame con soluzione#Strutture Dati#Esercizio 13 - Rimozione di un elemento a metà di una lista, senza iterare due volte|Esercizio 13 - Rimozione di un elemento a metà di una lista, senza iterare due volte]]
+		1. [[Esempi di esercizi d'esame con soluzione#Strutture Dati#Esercizio 13 - Soluzione|Soluzione]]
+3. [[Esempi di esercizi d'esame con soluzione#Esercizi su Tecniche Algoritmiche|Esercizi su Tecniche Algoritmiche]]
+	1. 
 ## Analisi del costo
 ### Esercizio 1 - Analisi del costo di un algoritmo ricorsivo
 Calcolare il costo computazionale $T(n)$ del seguente algoritmo $\text{Mystery1}$(int $n):$
@@ -171,10 +180,146 @@ function ContaLivelli(Tree T)
 ### Esercizio 4 - Nodi a profondità k-esima
 Scrivere un algoritmo che prende in input un albero binario $T$ e un intero positivo $k$ e calcola il numero di nodi che si trovano esattamente a profondità $k$ (nota: la radice si trova a profondità zero).
 Discutere il costo computazionale nel caso pessimo e ottimo.
-> boh credo di sì, è tardi, mi son rotto il cazzo ziocane
+> ✅ Corretto!
 #### Esercizio 4 - Soluzione
 Per la profondità serve la visita $\text{BFS}$ con $\text{Queue}$ ausiliaria. Teniamo un contatore dei livelli attraverso cui controllare se ci troviamo nel $k-$esimo livello. Per ogni nodo, aggiungiamo i suoi figli alla coda.
 ```pseudocodice
 function NodiLivelloK(Tree T, Int k) -> Int
-	
+	livello = 0
+	amount = 0
+	nodiProssimo = 0
+	nodiCurrent = 0
+	let Q be a new Queue
+	if T.head != NIL
+		enqueue(Q, T.head)
+		nodiCurrent += 1
+	while !Q.isEmpty()
+		if livello == k
+			return nodiCurrent
+		for i = 0, ..., nodiCurrent
+			n = dequeue(Q)
+			if n.left != NIL
+				enqueue(Q, n.left)
+				nodiProssimo += 1
+			if n.right != NIL
+				enqueue(Q, n.right)
+				nodiProssimo += 1
+		nodiCurrent = nodiProssimo
+		nodiProssimo = 0
+		livello += 1
+	return -1
 ```
+Nel caso migliore (ovvero quello in cui si ha $k = 0$), la funzione entra appena nel ciclo while per ritornare immediatamente. Si ha quindi costo costante.
+Nel caso peggiore (ovvero quello in cui si ha $k = \log_2{n}$), la funzione visita tutto l'albero ed esegue quindi $n$ iterazioni. Si ha quindi costo pari a $\cal O(n)$.
+### Esercizio 6 - Rimuovere da una lista gli elementi di un'altra
+Si scriva una procedura che, date due liste concatenate monodirezionali, $L_1$ e $L_2$, contenenti interi ordinati dal più piccolo al più grande, rimuova da $L_1$ tutti gli interi che appaiono in $L_2$ (senza modificare $L_2$).
+Discutere il costo computazione dell'algoritmo nel caso migliore ed in quello peggiore.
+> ✅ Corretto!
+#### Esercizio 6 - Soluzione
+Dovremo iterare su $L_2$ e soffermarci su ogni suo elemento $l_2$. Per ognuno di questi dovremo infatti iterare su $L_1$ fino a trovare un elemento $l_1 \geq l_2$. Ora avremo due casi:
+- $l_1 = l_2$, rimuovo $l_1$ e aggiorno la lista;
+- $l_1 \gt l_2$, ho superato il mio punto di riferimento e devo quindi smettere di iterare su $L_1$ e passare all'elemento successivo di $L_2$.
+
+La funzione dovrà ritornare la head della nuova lista $L_1$.
+```pseudocodice
+function RimozioneDueListe(List L1, List L2)
+	if L1.head == NIL || L2.head == NIL
+		return L1.head
+	temp = NIL
+	prev1 = L1.head
+	iter1 = L1.head
+	iter2 = L2.head
+	while iter2 != NIL
+		while iter1 != NIL && iter1.value <= iter2.value
+			if iter1.value == iter2.value
+				if iter1 == prev // son nella head
+					// libero memoria item corrente e imposto nuova head
+				// libero memoria item corrente cambiando i puntatori del prev
+			iter1 = iter1.next 
+		iter2 = iter2.next
+	return L1.head
+```
+Nel caso migliore si ha o $L_1$ oppure $L_2$ vuote e si ritorna immediatamente. Si ha quindi costo costante.
+Nel caso peggiore occorre iterare su tutta $L_2$ e tutta $L_1$, avendo quindi costo pari a $O(n + m)$, dove $n$ corrisponde alla lunghezza della lista $L_1$ ed $m$ a quella della lista $L_2$.
+### Esercizio 9 - k-esimo elemento più piccolo di un BST
+Si scriva un algoritmo che preso in input un albero binario di ricerca $T$ contenente chiavi intere non ripetute ed un intero $k \geq 1$, ritorni il $k-$esimo intero più piccolo contenuto nell’albero. Se $T$ contiene meno di $k$ chiavi, l’algoritmo ritorna $\text{NA}$ (costante che indica valore non disponibile).
+Discutere il costo computazionale della soluzione proposta.
+> ✅ Corretto!
+#### Esercizio 9 - Soluzione
+In un $\text{BST}$ l'item minore si trova a sinistra. Visitiamo $k$ nodi a sinistra e ritorniamo il valore attuale. Se non ci sono $k$ nodi ritorniamo $\text{NA}$.
+```pseudocodice
+function MinoreKesimo(Tree T, Int k) -> Int
+	count = 0
+	if T.head == NIL
+		return NA
+	iter = T.head
+	count += 1
+	while iter != NIL
+		if count == k
+			return iter.value
+		iter = iter.left
+		count += 1
+	return NA
+```
+Nel caso migliore si ha un albero vuoto, quindi si ritorna subito e si ha costo costante.
+Nel caso peggiore si effettuano $k$ visite sull'albero, quindi si ha complessità pari a $\cal O(k)$.
+### Esercizio 10 - Albero perfetto
+Si scriva un algoritmo che preso in input un albero binario $T$ ritorni $\text{TRUE}$ se $T$ è perfetto e $\text{FALSE}$ in caso contrario.
+Discutere il costo computazionale della soluzione proposta.
+> ✅ Corretto!
+#### Esercizio 10 - Soluzione
+Dovremo controllare che ogni nodo, meno le foglie, abbiano due figli. Le foglie dovranno essere tutte allo stesso livello (giunti al primo nodo senza figli dovremo salvare il livello corrente per controllare che siano tutte contenuto nello stesso livello).
+Visitiamo quindi l'albero con $\text{BFS}$.
+```pseudocodice
+function IsPerfect(Tree T)
+	leafLevel = -1
+	livello = 0
+	nodiCurr = 0
+	nodiProx = 0
+	let Q be a new Queue
+	if T.head == NIL
+		return true
+	enqueue(Q, T.head)
+	nodiCurr += 1
+	while !Q.isEmpty()
+		for i = 0, ..., nodiCurr
+			n = dequeue(Q)
+			if isLeaf(n)
+				if leafLevel == -1
+					leafLevel = livello
+				else if leafLevel != livello
+					return false
+			else if n.left == NIL ^ n.right == NIL
+				return false
+			else
+				enqueue(Q, n.left)
+				enqueue(Q, n.right)
+				nodiProx += 2
+		livello += 1
+		nodiCurr = nodiProx
+		nodiProx = 0
+	return true
+```
+Nel caso migliore si ha un albero vuoto, quindi la funzione ritorna immediatamente e si ha costo costante.
+Nel caso peggiore, la funzione deve iterare su tutti gli elementi dell'albero, quindi si ha costo pari a $\cal O(n)$.
+### Esercizio 13 - Rimozione di un elemento a metà di una lista, senza iterare due volte
+Scrivere un algoritmo che, data in input una lista concatenata monodirezionale $L$, rimuova l’elemento nel suo mezzo senza effettuare due scansioni su di essa. Se $L$ ha un numero pari $n$ di elementi, è possibile scegliere di rimuovere o l’elemento $\frac{n}{2}$ oppure l’elemento $\frac{n}{2} + 1$.
+> ✅ Corretto!
+#### Esercizio 13 - Soluzione
+Per non iterare due volte su $L$ dovremo usare due puntatori: uno che si sposta di un elemento alla volta ed uno che si sposta di due. In questo modo il secondo si muoverà al doppio della velocità del primo: questo significa che, una volta arrivato al termine della lista, il primo si troverà a metà di essa.
+```pseudocodice
+function EliminaCentrale(List L)
+	if L.head == NIL
+		return NIL
+	prev = NIL
+	slow = L.head
+	fast = L.head
+	while fast != NIL
+		prev = slow
+		slow = slow.next
+		fast = fast.next.next
+	// arrivati qui in slow si ha l'elemento centrale di L
+	// gestisci eventuale deallocazione della memoria con caso a parte per head
+	return L.head
+```
+## Esercizi su Tecniche Algoritmiche
