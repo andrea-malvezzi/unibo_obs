@@ -383,7 +383,12 @@ Questo è un problema $P(i, j)$, dove:
 - $i =$ indice dei distributori, con $p[i]$ equivalente al peso delle caramelle di tale distributore;
 - $j = k;$
 
-Indichiamo con $P(i, j) = \infty$ il caso impossibile e $\dots$ ???
+Si avranno più casi base:
+- se $j = 0$ allora non servono caramelle;
+- se $i = 1$ allora per non avere $\infty$ si deve avere $j = p[i]$;
+
+e una generalizzazione del tipo:
+- $\dots$
 ### Esercizio 3 - Numeri sia in un vettore che in un altro
 Progettare un algoritmo che dati due vettori di numeri $A[1, \dots, n]$ e $B[1, \dots, n]$ calcola quanti indici $i \in \{1, \dots , n\}$ sono tali che $A[i]$ appare anche in $B$.
 > ✅ Corretto!
