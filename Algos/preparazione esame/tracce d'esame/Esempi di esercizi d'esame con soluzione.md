@@ -28,8 +28,20 @@
 		1. [[Esempi di esercizi d'esame con soluzione#Strutture Dati#Esercizio 10 - Soluzione|Soluzione]]
 	8. [[Esempi di esercizi d'esame con soluzione#Strutture Dati#Esercizio 13 - Rimozione di un elemento a metà di una lista, senza iterare due volte|Esercizio 13 - Rimozione di un elemento a metà di una lista, senza iterare due volte]]
 		1. [[Esempi di esercizi d'esame con soluzione#Strutture Dati#Esercizio 13 - Soluzione|Soluzione]]
-3. [[Esempi di esercizi d'esame con soluzione#Esercizi su Tecniche Algoritmiche|Esercizi su Tecniche Algoritmiche]]
-	1. 
+3. [[Esempi di esercizi d'esame con soluzione#Tecniche Algoritmiche|Tecniche Algoritmiche]]
+	1. [[Esempi di esercizi d'esame con soluzione#Tecniche Algoritmiche#Esercizio 1 - Balletto Medievale|Esercizio 1 - Balletto Medievale]]
+		1. [[Esempi di esercizi d'esame con soluzione#Esercizio 1 - Balletto Medievale#Esercizio 1 - Soluzione|Soluzione]]
+	2. [[Esempi di esercizi d'esame con soluzione#Tecniche Algoritmiche#Esercizio 2 - Riempire un bicchiere con peso k|Esercizio 2 - Riempire un bicchiere con peso k]]
+		1. [[Esempi di esercizi d'esame con soluzione#Tecniche Algoritmiche#Esercizio 2 - Soluzione|Soluzione]]
+	3. [[Esempi di esercizi d'esame con soluzione#Tecniche Algoritmiche#Esercizio 3 - Numeri sia in un vettore che in un altro|Esercizio 3 - Numeri sia in un vettore che in un altro]]
+		1. [[Esempi di esercizi d'esame con soluzione#Tecniche Algoritmiche#Esercizio 3 - Soluzione|Soluzione]]
+	4. [[Esempi di esercizi d'esame con soluzione#Tecniche Algoritmiche#Esercizio 4 - Massimizzare i Contenitori di Gas|Esercizio 4 - Massimizzare i Contenitori di Gas]]
+		1. [[Esempi di esercizi d'esame con soluzione#Tecniche Algoritmiche#Esercizio 4 - Soluzione|Soluzione]]
+	5. [[Esempi di esercizi d'esame con soluzione#Tecniche Algoritmiche#Esercizio 5 - Massimo Bottino di un Furto|Esercizio 5 - Massimo Bottino di un Furto]]
+		1. [[Esempi di esercizi d'esame con soluzione#Tecniche Algoritmiche#Esercizio 5 - Soluzione|Soluzione]]
+	6. [[Esempi di esercizi d'esame con soluzione#Tecniche Algoritmiche#Esercizio 6 - Trasporto di Oggetti Fragili|Esercizio 6 - Trasporto di Oggetti Fragili]]
+		1. [[Esempi di esercizi d'esame con soluzione#Tecniche Algoritmiche#Esercizio 6 - Soluzione|Soluzione]]
+	7. 
 ## Analisi del costo
 ### Esercizio 1 - Analisi del costo di un algoritmo ricorsivo
 Calcolare il costo computazionale $T(n)$ del seguente algoritmo $\text{Mystery1}$(int $n):$
@@ -322,4 +334,121 @@ function EliminaCentrale(List L)
 	// gestisci eventuale deallocazione della memoria con caso a parte per head
 	return L.head
 ```
-## Esercizi su Tecniche Algoritmiche
+## Tecniche Algoritmiche
+### Esercizio 1 - Balletto Medievale
+Si consideri il seguente balletto medievale ballato da $n$ maschi e $n$ femmine. Inizialmente tutti i ballerini si collocano in file lungo una linea retta in modo tale che ognuno sia a distanza di un passo dai propri vicini. In una fase iniziale, le femmine, una alla volta, si muovono per raggiungere un maschio con cui formeranno una coppia per il resto del balletto. Le femmine si muovono a tempo, e ad ogni battuta della musica, la femmina che si sta muovendo fa un passo spostandosi a proprio piacimento verso destra oppure sinistra. Una volta raggiunto il compagno con cui formerà la coppia, alla battuta successiva un’altra femmina inizierà i propri spostamenti. Data una disposizione iniziale dei ballerini, bisogna capire quanto tempo sarà necessario per completare la formazione delle coppie. Il tempo di formazione di una coppia coincide con il numero complessivo di passi che devono effettuare le femmine per completare la formazione delle coppie. Progettare quindi un algoritmo che dato un vettore di booleani $B[1, \dots, 2n]$ che indica le posizioni iniziali dei ballerini ($B[i] = \text{true}$ indica che in posizione $i$ è presente una femmina, altrimenti se $B[i] = \text{false}$ in posizione $i$ è presente un maschio), restituisce un intero che rappresenta la durata minima possibile per la formazione di tutte le $n$ coppie (ovvero, il numero minimo complessivo di passi che le femmine devono fare per formare le coppie).
+> ✅ Corretto!
+#### Esercizio 1 - Soluzione
+Questo esercizio si può risolvere tramite tecnica $\text{Greedy}:$ una volta trovata una femmina, la si matcha ad un maschio e così via.
+```pseudocodice
+function Ballo(Boolean B[1, ..., 2n]) -> Int
+	coppie = 0
+	distanza = 0
+	// scorro sui true e una volta trovato uno, scorro per i false
+	i = 0
+	j = 0
+	while i <= 2n && coppie < n
+		if B[i]
+			while B[j] // fino a che ho B[j], ovvero son su una donna
+				j += 1
+			coppie += 1
+			distanza += Math.abs(i - j) // non devo fare il max così
+			j += 1
+		i += 1
+	return distanza
+```
+Si avrebbe potuto anche pensare di inserire gli indici di tutti gli uomini e di tutte le donne in due code, per poi sommare tra loro un elemento della prima ed un elemento della seconda (a coppie quindi) in modo da ottenere tutte le distanze.
+```pseudocodice
+function Ballo(Boolean B[1, ..., 2n]) -> Int
+	let F be a new Queue
+	let M be a new Queue
+	for i = 0, ..., 2n
+		if B[i]
+			enqueue(F, i)
+		else
+			enqueue(M, i)
+	total = 0
+	while !F.isEmpty()
+		f = dequeue(F)
+		m = dequeue(M)
+		total += Math.abs(f + m)
+	return total
+```
+Le due soluzioni hanno costo pari a $\cal O(2 \cdot n)$ in quanto devono iterare su tutti gli elementi una volta. 
+### Esercizio 2 - Riempire un bicchiere con peso k
+Prima di entrare in una sala cinematografica è possibile riempire un contenitore, a forma di bicchiere, con delle caramelle. Il bicchiere può contenere caramelle fino ad un peso complessivo rappresentato da un numero intero $k$. Le caramelle si prendono da $n$ distributori di caramelle; l’$i-$esimo distributore, con $1 \leq i \leq n$, contiene caramelle di peso rappresentato da un numero intero $p[i]$. Per comodità, assumiamo che ogni distributore contenga una quantità illimitata di caramelle. Si vuole riempire il bicchiere esattamente per la sua capacità $k$, massimizzando il peso medio delle caramelle presa. Il peso medio è il peso complessivo delle caramelle prese, diviso il loro numero. Progettare un algoritmo che, data la capacità del bicchiere $k$, ed il vettore $p[1, \dots, n]$, restituisce un numero reale indicante il massimo peso medio di caramelle che si possono prendere, assumendo di riempire il bicchiere esattamente per la sua capacità $k$.
+> ❌ Errato $\dots$
+#### Esercizio 2 - Soluzione
+Questo è un problema $P(i, j)$, dove:
+- $i =$ indice dei distributori, con $p[i]$ equivalente al peso delle caramelle di tale distributore;
+- $j = k;$
+
+Indichiamo con $P(i, j) = \infty$ il caso impossibile e $\dots$ ???
+### Esercizio 3 - Numeri sia in un vettore che in un altro
+Progettare un algoritmo che dati due vettori di numeri $A[1, \dots, n]$ e $B[1, \dots, n]$ calcola quanti indici $i \in \{1, \dots , n\}$ sono tali che $A[i]$ appare anche in $B$.
+> ✅ Corretto!
+#### Esercizio 3 - Soluzione
+La consegna dell'esercizio chiede *quanti* indici rispettino la condizione data, non *quali*. Questo significa che potremo ordinare entrambi gli array per poi iterare su di essi cercando valori presenti in entrambi.
+```pseudocodice
+function QuantiIndici(Int A[1, ..., n], Int B[1, ..., n]) -> Int
+	// in ordine crescente
+	MergeSort(A) // O(n log(n))
+	MergeSort(B)
+	i = 0 // itera su A
+	j = 0 // itera su B
+	total = 0
+	while i < n && j < n
+		if A[i] == B[j]
+				total += 1
+			i += 1
+			j += 1
+		else if A[i] < B[j]
+			i += 1
+		else
+			j += 1
+	return total
+```
+### Esercizio 4 - Massimizzare i Contenitori di Gas
+Una cisterna contiene rifiuti gassosi tossici da smaltire. Lo smaltimento si effettua riempiendo particolari contenitori, ognuno avente una propria capacità possibilmente differente dalle capacità degli altri contenitori. Quando si collega la cisterna ad un contenitore per lo smaltimento del gas, il trasferimento del gas prevede di riempire completamente il contenitore, a meno che la cisterna non si svuoti completamente prima di terminare il riempimento del contenitore. Bisogna distribuire il gas nel numero massimo di contenitori possibili. Progettare un algoritmo che riceve in input la quantità $k$ di metri cubi di gas inizialmente nella cisterna, ed un vettore $V$ di lunghezza $n$ tale che $V[i]$ sia la capacità in metri cubi del $i-$esimo contenitore (i contenitori disponibili sono $n$). Scrivere un algoritmo che restituisce un vettore $O$ di lunghezza $n$ tale che $O[i]$ sia la quantità di gas che verrà smaltita nel $i-$esimo contenitore. Si ricordi che lo smaltimento deve utilizzare più contenitori possibili. Potete assumere che la sommatoria delle capacità dei contenitori sia superiore alla quantità di gas da smaltire.
+> ✅ Corretto!
+#### Esercizio 4 - Soluzione
+Questo NON è un problema della famiglia dei problemi $P(i, j)$ (**yay!**), ma bensì un quesito risolvibile mediante programmazione $\text{Greedy}$. Questo problema assomiglia molto a quello del [[Algoritmi Greedy - Esercizi#Esercizio 2 - Taglio di un tubo metallico|Taglio di un tubo metallico]]: dovremo ordinare l'array dei contenitori in ordine crescente per poi prendere tutti i contenitori necessari allo smaltimento del gas, cercarne la posizione nell'array $V$ originale, ed inserire nella posizione così trovata dell'array $O$ la quantità di gas smaltito in tale contenitore.
+```pseudocodice
+function Gas(Int V[1, ..., n], int k)
+	let A be a copy of V
+	let O be a new Int
+	for i = 0, ..., n - 1
+		O[i] = 0
+	MergeSort(A)
+	for i = 0, ..., n - 1
+		j = BinarySearch(V, A[i]) // supponendo che V non contenga duplicati
+		O[j] = A[i]
+		k -= A[i]
+			if k <= 0
+				return O
+	// assumendo che la sommatoria dei volumi sia maggiore di k, finisco
+```
+### Esercizio 5 - Massimo Bottino di un Furto
+Un ladro entra in un appartamento in cui si trovano $n$ oggetti, ognuno con un proprio valore $v[i]$. Ha a disposizione $k$ borse da riempire con gli oggetti da rubare, con il vincolo che ogni borsa può contenere un solo oggetto. Bisogna aiutare il ladro a calcolare il massimo valore possibile del bottino. Dovete quindi progettare un algoritmo che dati i valori $n$ (numero oggetti), $k$ (numero borse), e l’array $V[1, \dots, n]$ (valori degli oggetti), restituisce il valore complessivo massimo che è possibile ottenere selezionando $k$ oggetti. Riportare il costo computazionale (in tempo) della soluzione proposta, nel caso pessimo, nel caso ottimo, e possibilmente anche nel caso medio.
+> ✅ Corretto!
+#### Esercizio 5 - Soluzione
+Per avere valore massimo dovremo ordinare in modo decrescente l'array $V$ e selezionarne i primi $k$ elementi.
+```pseudocodice
+// supponendo che k >= n
+function Bottino(Int V[1, ..., n], Int k)
+	// modifica solo il costo del caso migliore
+	if k <= 0
+		return 0
+	// in modo decrescente
+	MergeSort(V) // O(n log(n))
+	total = 0
+	for i = 0, ..., k - 1
+		total += V[i]
+	return total
+```
+Nel caso migliore si ha $k \leq 0$ e la funzione ritorna immediatamente. Si ha quindi costo costante.
+Nel caso medio ed in quello peggiore il costo della funzione viene dettato dal $\text{MergeSort}:$ si ha quindi costo pari a $\cal O(n \cdot \log{n})$.
+### Esercizio 6 - Trasporto di Oggetti Fragili
+Bisogna preparare il trasporto di un oggetto fragile, che viene collocato in un cartone che deve poi essere riempito con pezzi di polistirolo per limitarne i possibili danni durante il trasporto. Il volume complessivo del polistirolo da inserire è un intero $K$. Esistono $n$ diversi formati di pezzi di polistirolo, ognuno con un proprio volume $v[i]$, con $V[1, \dots, n]$ array di interi. Per ogni formato, sono disponibili una quantità arbitraria di pezzi da poter utilizzare. Per rendere più sicura la spedizione, si desidera massimizzare il numero di pezzi di polistirolo da inserire nel cartone. Progettare un algoritmo che dati $K$ e $V$ restituisca un array $X[1, \dots, n]$ che indica che, per ottenere il volume $K$ massimizzando il numero di pezzi di polistirolo, si possono usare $x[i]$ pezzi del formato $i-$esimo. Nel caso in cui non sia possibile raggiungere il volume complessivo $K$ con i formati di polistirolo disponibili, l’array $X$ conterrà valori tutti uguali a $0$.
+> WIP
+#### Esercizio 6 - Soluzione
