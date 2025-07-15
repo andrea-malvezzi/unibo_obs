@@ -640,3 +640,121 @@ Ripetiamo per i nodi adiacenti al nodo appena inserito (ovvero per $c$), tenendo
 ![[Pasted image 20250616171752.png]]
 ![[Pasted image 20250616171805.png]]
 ![[Pasted image 20250616171812.png]]
+### Cammini a Costo Minimo
+Un cammino a Costo Minimo corrisponde alla distanza minima percorribile per connettere tra loro dei nodi di un grafo.
+> **N.B.** In un grafo orientato $G$ *non* si ha un cammino minimo quando è presente un ciclo con costo negativo.
+
+Esistono  $3$ tipi di problemi inerenti alla ricerca di un percorso minimo:
+1. cammino a distanza minima tra due nodi $u$ e $v;$
+2. single-source shortest path, ovvero la distanza tra un nodo $s$ e tutti i nodi da esso raggiungibili;
+3. all-pairs shortest paths, ovvero le distanze tra ogni coppia di nodi $u$ e $v$.
+#### Condizione di Bellman
+In un grafo orientato pesato la distanza minima tra due punti $u$ e $v$ corrisponde al costo di un cammino minimo che li connette. Da questa affermazione possiamo continuare dicendo che:
+$$d_{sv} \leq d_{su} + w(u,v) \ \forall \ s \in V, (u, v) \in E$$da cui deduciamo che l'arco $(u,v)$ faccia parte di un cammino di costo minimo se e solo se:$$d_{sv} = d_{su} + w(u,v)$$
+#### Tecnica del Rilassamento
+Per trovare un cammino minimo potremmo mantenere una stima $D_{sv} \geq d_{sv}$ della lunghezza del cammino di costo minimo tra $s$ e $v$, effettuando ad ogni step un **rilassamento**, riducendo così progressivamente la stima fino ad arrivare ad avere $D_{sv} = d_{sv}$.
+Quando si parla di rilassamento si intende quindi un'operazione volta a migliorare la stima delle distanza tra due nodi, migliorando così la conoscenza del cammino minimo.
+Un esempio di rilassamento potrebbe essere:
+```pseudocodice
+if (D(s, u) + w(u, v) < D(s, v))
+	D(s, v) = D(s, u) + w(u, v)
+```
+#### Algoritmo di Bellman-Ford
+Questo algoritmo è del tipo **single-source shortest path**.
+Considerando un cammino di costo minimo inizialmente ignoto $\pi^\times_{s \ vk} = (s, v_1, \dots, v_k)$, sapendo che $d_{sv_k} = d_{sv_{k-1}} + w(v_{k-1}, v_k)$ e partendo da $D_{ss} = 0, D_{st} = \infty$ per $t \not= s$, potremmo effettuare i seguenti step di rilassamento:
+$$\begin{array}{c}D_{sv_1} = D_{ss} + w(s, v_1) \\ D_{sv_2} = D_{sv_1} + w(v_1, v_2) \\ \dots \\ D_{sv_k} = D_{sv_{k - 1}} + w(v_{k-1}, v_k) \end{array}$$Il problema di questo approccio consiste nel fatto che non conoscendo né gli archi del cammino minimo né il loro ordine, non sarebbe possibile effettuare i rilassamenti nell'ordine corretto.
+Per ovviare a questo problema sarà sufficiente effettuare questa operazione per tutti gli archi del grafo, in quanto così facendo includeremmo con certezza anche il passo corretto.
+Questo significa che dopo $n - 1$ iterazioni, con $n$ pari al numero di possibili destinazioni partendo da un certo nodo, si saranno effettuati tutti i rilassamenti corretti.
+##### Implementazione dell'Algoritmo Bellman-Ford
+```pseudocodice
+function BellmanFord(Grafo G = (V, E, w), int s) -> double[1, ..., n]
+	int n = G.numNodi()
+	int pred[1, ..., n], v, u;
+	double D[1, ..., n];
+	for i = 1, ..., n
+		D[i] = infinito;
+		pred[i] = -1;
+	D[s] = 0;
+	for i = 1, ..., n - 1
+		for each (u, v) in E
+			if (D[u] + w(u, v) < D[v])
+				D[v] = D[u] + w(u, v);
+				pred[v] = u;
+	\\ controllo per cicli negativi
+	for each (u, v) in E
+		if (D[u] + w(u, w) < D[v])
+			error "Il grafo contiene cicli negativi"
+	return D;
+```
+Questo algoritmo funziona anche con pesi negativi, ma non con cicli negativi.
+Tuttavia nel caso in cui tutti i pesi siano *non-negativi* esiste un algoritmo più efficiente, ovvero quello di Dijkstra.
+##### Esempio di Utilizzo dell'Algoritmo di Bellman-Ford
+![[Pasted image 20250703112156.png]]
+![[Pasted image 20250703112221.png]]
+![[Pasted image 20250703112230.png]]
+![[Pasted image 20250703112241.png]]
+![[Pasted image 20250703112251.png]]
+![[Pasted image 20250703112301.png]]
+#### Algoritmo di Dijkstra
+Questo algoritmo si basa sul seguente **Lemma**: avendo un grafo orientato $G$ all'interno del quale tutti i pesi sono $\geq 0$, ed una parte $T$ dell'albero dei cammini di costo minimo radicato in $s$, allora l'arco $(u, v)$ con $u \in V(T)$ e $v \not \in V(T)$ che minimizza la quantità $d_{su} + w(u, v)$ appartiene ad un cammino minimo da $s$ a $v$.
+##### Implementazione dell'Algoritmo di Dijkstra
+```pseudocodice
+function Dijkstra(Grafo G=(V, E, w), int s) -> double [1, ..., n]
+	int n = G.numNodi()
+	int pred = [1, ..., n], u, v;
+	double D[1, ..., n];
+	for v = 1, ..., n
+		D[v] = infinito;
+		pred[v] = -1;
+	D[s] = 0;
+	CodaConPriorita<int, double> Q;
+	Q.insert(s, D[s]);
+	while (!Q.isEmpty())
+		u = Q.find();
+		Q.deleteMin(); // rimuove nodo con distanza minima
+		for each v in u.adiacents()
+			if (D[v] == infinito)
+				D[v] = D[u] + w(u, v);
+				Q.insert(v, D[v]);
+				pred[v] = u;
+			else if (D[u] + w(u, v) < D[v])
+				Q.decreaseKey(v, D[u] + w(u, v));
+				D[v] = D[u] + w(u, v); // la nuova distanza di v da s
+				pred[v] = u;
+	return D;
+```
+Il costo di questo algoritmo dipende dai costi di [[Strutture dati#Priority Queue#Trovare l'elemento con chiave maggiore (o minore)|find]], [[Strutture dati#Priority Queue#Cancellare l'elemento con chiave maggiore (o minore)|deleteMin]], [[Strutture dati#Priority Queue#Inserire un elemento con una chiave associata|insert]] e di [[Strutture dati#Priority Queue#Aumentare (o diminuire) la chiave di un elemento|decreaseKey]], tutte con costo $\cal O(\log {n})$. Le prime due verranno eseguite al massimo $n$ volte, mentre le altre due $m$ volte (una per arco). Il costo complessivo della funzione sarà quindi $\cal O((n + m) \log {n})$.
+### Algoritmo di Floyd e Warshall
+Questo algoritmo è del tipo **all-pairs shortests paths**, è applicabile anche a grafi contenenti pesi negativi (basta non ci siano *cicli* negativi) ed è basato sulla programmazione dinamica.
+Avendo $D_{xy}^k$ la distanza minima tra i nodi $x$ ed $y$, supponendo che tutti i nodi intermedi possano appartenere solamente all'insieme $\{1, \dots, k\}$.
+Seguendo la precedente definizione si può definire $D_{xy}^0$ come la distanza tra due nodi, senza passare per nodi intermedi. Ovvero:$$D_{xy}^0 = \begin{cases}0 & se \ x = y \\ w(x, y) & se \ (x, y) \in E \\ \infty & se \ (x, y) \not\in E\end{cases}$$In generale si può invece dire che, volendo arrivare da $x$ ad $y$ senza mai passare per il $k$-esimo nodo, la distanza sarà $D_{xy}^{k-1}$. Se si volesse passare invece per quest'ultimo, si avrebbe una distanza pari a $D_{xy}^{k-1} + D_{xy}^{k-1}$.
+#### Implementazione dell'Algoritmo di Floyd e Warshall
+```pseudocodice
+function FloydWarshall(Grafo G=(V,E,w)) -> double[1, ..., n; 1, ..., n;]
+	int n = G.numNodi();
+	double D[1, ..., n; 1, ..., n;];
+	int x, y, k, next[1, ..., n; 1, ..., n];
+	for x = 1, ..., n
+		for y = 1, ..., n
+			if (x == y)
+				D[x, y] = 0;
+				next[x, y] = -1;
+			else if ((x, y) in E)
+				D[x, y] = w(x, y);
+				next[x, y] = y;
+			else
+				D[x, y] = infinito;
+				next[x, y] = -1;
+	for k = 1, ..., n
+		for x = 1, ..., n
+			for y = 1, ..., n
+				D[x, y, k] = D[x, y, k - 1];
+				if (D[x, k] + D[k, y] < D[x, y])
+					D[x, y] = D[x, k] + D[k, y];
+					next[x, y] = next[x, k];
+	for x = 1, ..., n
+		if (D[x, x] < 0)
+			error "Il grafo contiene cicli negativi";
+	return D[1, ..., n; 1, ..., n];
+```
+Con costo pari ad $\cal O(n^3)$.

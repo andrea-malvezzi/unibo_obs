@@ -41,7 +41,10 @@
 		1. [[Esempi di esercizi d'esame con soluzione#Tecniche Algoritmiche#Esercizio 5 - Soluzione|Soluzione]]
 	6. [[Esempi di esercizi d'esame con soluzione#Tecniche Algoritmiche#Esercizio 6 - Trasporto di Oggetti Fragili|Esercizio 6 - Trasporto di Oggetti Fragili]]
 		1. [[Esempi di esercizi d'esame con soluzione#Tecniche Algoritmiche#Esercizio 6 - Soluzione|Soluzione]]
-	7. 
+	7. [[Esempi di esercizi d'esame con soluzione#Tecniche Algoritmiche#Esercizio 7 - Sotto Sequenza Decrescente più Lunga in un Vettore|Esercizio 7 - Sotto Sequenza Decrescente più Lunga in un Vettore]]
+		1. [[Esempi di esercizi d'esame con soluzione#Tecniche Algoritmiche#Esercizio 7 - Soluzione|Soluzione]]
+4. [[Esempi di esercizi d'esame con soluzione#Grafi|Grafi]]
+	1. 
 ## Analisi del costo
 ### Esercizio 1 - Analisi del costo di un algoritmo ricorsivo
 Calcolare il costo computazionale $T(n)$ del seguente algoritmo $\text{Mystery1}$(int $n):$
@@ -457,3 +460,132 @@ Nel caso medio ed in quello peggiore il costo della funzione viene dettato dal $
 Bisogna preparare il trasporto di un oggetto fragile, che viene collocato in un cartone che deve poi essere riempito con pezzi di polistirolo per limitarne i possibili danni durante il trasporto. Il volume complessivo del polistirolo da inserire è un intero $K$. Esistono $n$ diversi formati di pezzi di polistirolo, ognuno con un proprio volume $v[i]$, con $V[1, \dots, n]$ array di interi. Per ogni formato, sono disponibili una quantità arbitraria di pezzi da poter utilizzare. Per rendere più sicura la spedizione, si desidera massimizzare il numero di pezzi di polistirolo da inserire nel cartone. Progettare un algoritmo che dati $K$ e $V$ restituisca un array $X[1, \dots, n]$ che indica che, per ottenere il volume $K$ massimizzando il numero di pezzi di polistirolo, si possono usare $x[i]$ pezzi del formato $i-$esimo. Nel caso in cui non sia possibile raggiungere il volume complessivo $K$ con i formati di polistirolo disponibili, l’array $X$ conterrà valori tutti uguali a $0$.
 > WIP
 #### Esercizio 6 - Soluzione
+Questo è un problema del tipo $P(i, j)$, dove:
+- $i$ corrisponde al formato $i-$esimo di polistirolo;
+- $j$ corrisponde al volume $K$ da ottenere massimizzando i pezzi di polistirolo;
+
+Risolvere questo problema significa far variare $i$ identificando i vari casi limite, come:
+- se si ha un formato ed il volume da ottenere $K=0$, allora ritorniamo $0$ (non aggiungiamo nessun elemento alla conta);
+- supponendo di non poter sforare rispetto a $K$, se $V[i] \gt K$ allora occorre passare al prossimo formato, ovvero $P(i - 1, K)$;
+- supponiamo di non poter ricevere in input $V = \emptyset$, in quanto avendo $0$ elementi, anche l'array $X$ sarebbe vuoto;
+- se $V[i] \leq K$ occorre procedere facendo $max \ (P(i, K - V[i]), P(i - 1, K))$
+
+### Esercizio 7 - Sotto Sequenza Decrescente più Lunga in un Vettore 
+Progettare un algoritmo che dato un vettore di numeri $V[1, \dots, n]$ stampa una sequenza di indici $j_1, j_2, \dots , j_k$, con $k$ più grande possibile, tale che $j_i \lt j_{i+1}$ e $V[j_i] \geq V[j_{i+1}] \forall i \in \{1, \dots , k − 1\}$.
+> ✅ Corretto ma devi mettere anche l'approccio della programmazione dinamica.
+#### Esercizio 7 - Soluzione
+Questo esercizio chiede essenzialmente la sotto sequenza decrescente più lunga contenuta in $V$. Per farlo abbiamo due approcci:
+- con $2$ code;
+- con la programmazione dinamica;
+
+Vediamoli entrambi con ordine.
+Per una complessità computazionale pari ad $\cal O(n^2)$ potremmo iterare su tutto l'array $V$ inserendo i valori minori del precedente in una coda: in questo modo avremmo un "ordinamento", nel senso che al momento della stampa basterebbe fare il dequeue; inoltre avremmo anche un contatore per verificare quanti elementi vi siano nella sequenza con attualmente più elementi (in modo da poter scambiare o meno la coda con più elementi con quella attuale).
+```pseudocodice
+function SottoSeq(Int V[1, ..., n])
+	if V[1] == NIL
+		return 
+	let MaxQueue be a new Queue
+	let IterQueue be a new Queue
+	int lastItem = V[1]
+	for int i = 1, ..., n
+		if IterQueue.isEmpty() || V[i] <= lastItem
+			// supponiamo che l'update del size della coda avvenga in enqueue
+			// inserisco l'indice, non l'item (leggi bene la consegna!)
+			IterQueue.enqueue(i)
+			lastItem = V[i]
+		else // se V[i] maggiore dell'ultimo item, interrompo la sequenza
+			// interrompo la sequenza = controllo ed eventualmente scambio
+			if MaxQueue.size < IterQueue.size
+				MaxQueue.empty()
+				while !IterQueue.isEmpty()
+					x = IterQueue.dequeue()
+					MaxQueue.enqueue(x)
+				IterQueue.empty()
+	stampa(MaxQueue)
+```
+con costo computazionale $\cal O(n^2)$, in quanto si ha un ciclo annidato per copiare la coda $\text{IterQueue}$ in $\text{MaxQueue}$. Il costo di $\text{stampa}$ non influisce in quanto non è compreso nel ciclo annidato (si tratta di una situazione del tipo $\cal O(n^2) + O(n)$).
+## Grafi
+### Esercizio 1 - Ciclo di Lunghezza Minima in un Grafo Orientato
+Progettare un algoritmo che, dato un grafo orientato $G = (V, E)$ ed un vertice $v \in V$ , restituisce il numero di vertici di un ciclo di lunghezza minima a cui $v$ appartiene (restituisce $\infty$ se $v$ non appartiene ad alcun ciclo).
+#### Esercizio 1 - Soluzione
+Per risolvere questo esercizio occorre effettuare una visita $\text{BFS}$ tenendo conto della distanza percorsa dal nodo di partenza $v$. Qualora si incontrasse un nodo adiacente a $v$, si dovrebbe interrompere l'esecuzione.
+```pseudocodice
+function MinimoCiclo(Grafo G(V, E, w), Vertice s)
+	let Q be a new Queue
+	for v in V
+		v.mark = NIL
+		v.dist = -1
+	s.mark = true
+	s.dist = 0
+	Q.enqueue(s)
+	while !Q.isEmpty()
+		u = Q.dequeue()
+		adiacenti = u.adiacents()
+		if s in adiacenti
+			return u.dist + 1
+		for v in adiacenti
+			if (!v.mark)
+				v.mark = true
+				v.dist = u.dist + 1
+				Q.enqueue(v)
+```
+### Esercizio 2 - Distanza Massima con Pesi Minimi
+Progettare un algoritmo che, dato un grafo orientato pesato $G = (V, E, w)$, con tutti i pesi negativi (ovvero, per ogni coppia di vertici adiacenti $u_1$ e $u_2$ si ha $w(u_1, u_2) \lt 0$), e due vertici $s, t \in V$, restituisce, se esiste, il cammino da $s$ a $t$ di peso complessivo massimo.
+#### Esercizio 2 - Soluzione
+Come mai il prof usa Dijkstra senza tweaks????
+```pseudocodice
+function DijkstaInv(Grafo G=(V,E,w), Int s, Int t) -> Double[1, ..., n]
+	Int n = G.numNodi()
+	Int pred = [1, ..., n], u, v;
+	double D[1, ..., n];
+	for v = 1, ..., n
+		D[v] = infinito;
+		pred[v] = -1;
+	D[s] = 0;
+	MaxPriorityQueue[Int, Double] Q = new MaxPriorityQueue[Int, Double]();
+	Q.insert(s, D[s]);
+
+	while(!Q.isEmpty())
+		u = Q.findMax(); // prendo nodo con distanza massimo
+		Q.deleteMax();   // rimuovo nodo con distanza massima
+		for v in u.adiacents() // se incontro v
+			if (D[v] == infinito)
+				D[v] = D[u] + w(u, v);
+				Q.insert(v, D[v]);
+				pred[v] = u;
+			else if (D[u] + w(u, v) > D[v])
+				Q.increaseKey(v, -D[v] + D[u] + w(u, v));
+				D[v] = D[u] + w(u, v);
+				pred[v] = u;
+	// stampa del cammino da s a t
+```
+### Esercizio 3 - Sistema di Irrigazione
+Si consideri un impianto di irrigazione che collega delle piante a vari rubinetti che possono erogare acqua. Tutti i rubinetti sono inizialmente chiusi, e bisogna capire quale rubinetto aprire per far arrivare più velocemente possibile l’acqua ad una data pianta che necessita di essere annaffiata. L’impianto è rappresentato tramite un grafo non orientato pesato $G = (V, E, w)$ in cui i vertici in $V$ rappresentano rubinetti o piante, un arco $(u, v) \in E$ rappresenta un tubo di collegamento dal vertice $u$ al vertice $v$, ed il peso $w(u, v)$ indica il tempo che l’acqua impiega per attraversare il tubo $(u, v)$ (sotto l’assunzione che l’acqua impiega il medesimo tempo ad attraversare il tubo partendo dal vertice $u$ o partendo dal vertice $v$). Progettare un algoritmo che dato il grafo non orientato pesato $G = (V, E, w)$, l’insieme $R \subseteq V$ dei rubinetti, e la pianta $p \in V$ da annaffiare, restituisce il rubinetto $r \in R$ da aprire per far arrivare il più velocemente possibile l’acqua alla pianta $p$.
+#### Esercizio 3 - Soluzione
+Questo esercizio si tratta di cercare un percorso a distanza minima tra la pianta $p$ ed il rubinetto $r$.
+Supponendo che tutti gli archi abbiano pesi positivi, possiamo risolverlo con Dijkstra:
+```pseudocodice
+function Dijkstra(Grafo G=(V,E,w), int p, Vertex[] R) -> Vertex
+	n = G.numNodi();
+	double D[1, ..., n];
+	for i = 1, ..., n
+		D[i] = infinito;
+	D[p] = 0;
+	MinPriorityQueue[int, double] Q = new MinPriorityQueue[int, double]();
+	Q.insert(p, D[p]);
+
+	while(!Q.isEmpty())
+		u = Q.findMin(); // prendo nodo con peso minimo
+		Q.deleteMin();   // cancello nodo con peso minimo
+		for r in R
+			if r in u.adiacents()
+				return r;
+		for v in u.adiacents()
+			if D[v] == infinito // prima volta che incontro v
+				D[v] = D[u] + w(u, v);
+				Q.insert(v, D[v]);
+			else if D[u] + w(u, v) < D[v] // percorso più breve per andare da v a u
+				Q.decreaseKey(v, D[v] - D[u] - w(u, v));
+				D[v] = D[u] + w(u, v);
+	return error;
+```
