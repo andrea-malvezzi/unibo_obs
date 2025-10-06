@@ -4,44 +4,39 @@
     "type": "split",
     "children": [
       {
-        "id": "7d38c39facbcc712",
+        "id": "990e852e354aa86c",
         "type": "tabs",
         "children": [
           {
-            "id": "04e9c2d59c94d70e",
+            "id": "0c5cca66351680b9",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Algos/preparazione esame/tracce d'esame/Esempi di esercizi d'esame con soluzione.md",
+                "file": "anno II/reti/09_30_2025.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Esempi di esercizi d'esame con soluzione"
+              "title": "09_30_2025"
             }
-          }
-        ]
-      },
-      {
-        "id": "06c7cf9ca6fa4ad4",
-        "type": "tabs",
-        "children": [
+          },
           {
-            "id": "1f914d3c6559772d",
+            "id": "3423007799fdb92a",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Algos/appunti/Strutture dati.md",
+                "file": "anno II/tecnologie web/Character Sets.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Strutture dati"
+              "title": "Character Sets"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -98,8 +93,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "08bee5bef7c3fd84",
@@ -179,6 +173,7 @@
   },
   "left-ribbon": {
     "hiddenItems": {
+      "bases:Create new base": false,
       "switcher:Open quick switcher": false,
       "graph:Open graph view": false,
       "canvas:Create new canvas": false,
@@ -187,8 +182,19 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "1f914d3c6559772d",
+  "active": "3423007799fdb92a",
   "lastOpenFiles": [
+    "anno II/tecnologie web/Informazioni importanti.md",
+    "anno II/tecnologie web/Character Sets.md",
+    "anno II/sistemi operativi/Concorrenza.md",
+    "anno II/reti/09_30_2025.md",
+    "anno II/sistemi operativi",
+    "anno II/reti",
+    "anno II/linguaggi di programmazione/Untitled.md",
+    "anno II/linguaggi di programmazione",
+    "anno II/calcolo numerico/Untitled.md",
+    "anno II/tecnologie web",
+    "Algos/preparazione esame/esercizi per argomento/Tecniche Algoritmiche/Algoritmi Greedy - Esercizi.md",
     "Algos/preparazione esame/tracce d'esame/Esempi di esercizi d'esame con soluzione.md",
     "Algos/appunti/Strutture dati.md",
     "Pasted image 20250703112301.png",
@@ -214,7 +220,6 @@
     "Algos/preparazione esame/esercizi per argomento/Strutture Dati (non elementari)/Grafi",
     "Algos/preparazione esame/esercizi per argomento/Strutture Dati (non elementari)/Hash Tables - Esercizi.md",
     "Algos/appunti/Tecniche algoritmiche.md",
-    "Algos/preparazione esame/esercizi per argomento/Tecniche Algoritmiche/Algoritmi Greedy - Esercizi.md",
     "Algos/preparazione esame/esercizi per argomento/Tecniche Algoritmiche/Divide-et-Impera - Esercizi.md",
     "Algos/preparazione esame/esercizi per argomento/Strutture Dati (non elementari)/Strutture Union-Find - Esercizi.md",
     "Algos/preparazione esame/esercizi per argomento/Strutture Dati (non elementari)/Heap - Esercizi.md",
@@ -223,16 +228,7 @@
     "Algos/preparazione esame/esercizi per argomento/Strutture Dati (non elementari)/Alberi/Alberi e Alberi Binari - Esercizi.md",
     "Algos/preparazione esame/esercizi per argomento/Strutture Dati (non elementari)/Alberi/Alberi Binari di Ricerca - Esercizi.md",
     "Algos/preparazione esame/esercizi per argomento/Strutture Dati (non elementari)/Alberi",
-    "Algos/preparazione esame/esercizi per argomento/Tecniche Algoritmiche",
     "Algos/appunti/Strutture dati (brutta).md",
-    "Algos/preparazione esame/Risoluzione esami.md",
-    "Algos/appunti/Strutture Dati.md",
-    "Algos/appunti/Altre note utili.md",
-    "Algos/appunti/Untitled.md",
-    "Algos/appunti/Algoritmi per le strutture dati.md",
-    "Algos/preparazione esame/esami",
-    "Algos/preparazione esame/esercizi per argomento",
-    "Algos/Appunti/Sorting algorithms.md",
-    "Algos/appunti"
+    "Algos/preparazione esame/Risoluzione esami.md"
   ]
 }

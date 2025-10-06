@@ -4,6 +4,20 @@
 	1. [[Programmazione Dinamica - Esercizi#Esercizio 2 - Soluzione|Soluzione]]
 3. [[Programmazione Dinamica - Esercizi#Esercizio 3 - Lunghezza massima di una sotto sequenza|Esercizio 3 - Lunghezza massima di una sotto sequenza]]
 	1. [[Programmazione Dinamica - Esercizi#Esercizio 3 - Soluzione|Soluzione]]
+## Esercizio 1 - Sottoinsieme di valori con somma pari ad $x$
+È dato un insieme $S = \{s_1, s_2, \dots, s_n\}$ di $n$ numeri naturali ed un numero naturale $X$. Vogliamo capire se esiste un sottoinsieme di valori $V \subseteq S$ tale che la sommatoria dei valori in $V$ sia uguale a $X$, ovvero $P_s \in V_s = X$.
+### Esercizio 1 - Soluzione
+Ho un peso $X$ da riempire **esattamente** con alcuni numeri contenuti in $S$.
+Questo significa tenere una matrice di risultati dove ogni slot contiene un valore booleano basato sul se quell'elemento è da inserire o meno nell'insieme finale $V$.
+Quindi si potrebbe dire che si ha un problema $P(n,X)$, dove con $n$ elementi occorre ottenere un peso $X$. Ne consegue che: $$\begin{array}{c}P(1, j) = \cases{true \text{ se } j = 0 \vee j = X \\ false \text{ altrimenti }} \\ P(i, j) = \cases{P(i - 1, j) \text{ se } s_i \gt j \\ P(i - 1, j) \vee P(i - 1, j - s_i) \text{ altrimenti}} \end{array}$$ma come portare questo modello matematico in un ambiente di programmazione?
+```pseudocodice
+function SommaSottoinsieme(int[1, ..., n] S, int X)
+	
+```
+## Esercizio 2 - Problema del resto generalizzato
+Si consideri il problema del resto nel caso generale, ovvero non assumendo di avere a disposizione monete di un sistema canonico. Più precisamente si deve stampare la combinazione con il numero minimo di monete, se esiste, per raggiungere il resto $R$ considerando come possibili valori delle monete quelli indicati nell’array di naturali $T[1, \dots, n]$.
+### Esercizio 2 - Soluzione
+
 ## Esercizio 1 - Sottoinsieme di valori con somma pari ad x
 È dato un insieme $S = \{s_1, \dots, s_n\}$ di $n$ numeri naturali ed un numero naturale $x$. Vogliamo capire se esiste un sottoinsieme di valori $V \subseteq S$ tale che la sommatoria dei valori in $V$ sia uguale a $x$, ovvero $\sum_{s∈V}{s = X}$.
 ### Esercizio 1 - Soluzione
