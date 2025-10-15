@@ -1,0 +1,41 @@
+# Definizione di Errore
+Quando si lavora con i calcolatori si possono avere diversi tipi di errore, specialmente quando si lavora con valori numerici decimali. L'imprecisione di un'operazione in tale ambito viene chiamata **errore**. Vediamone le tre tipologie principali:
+- **errore assoluto**: $E_{a} = | \text{ris. approssimato} - \text{ris. esatto}|$ ;
+- **errore relativo**: $E_{r} = \frac{E_a}{\text{ris. esatto}}$, con $\text{ris. esatto} \not= 0$ ;
+- **errore percentuale**: $E_{p} = \left(E_r \cdot 100\right) \%$  
+# Bit e Numeri
+Gli operatori usano la base $2$ per salvare in memoria i dati. Ecco come passare da base $10$ a base $2$ e viceversa.
+## Da decimale a binario, valori interi
+Avendo un numero da convertire $a$, basta dividerlo per $2$ over and over, scrivendo a parte il resto della divisione effettuata. Ad esempio, per $a = 10$, faremmo $10 : 2 = 5$ con resto $r = 0$, quindi l'ultimo numero da destra sarebbe $0$. Poi prenderemmo il risultato della divisone appena effettuata, ovvero $5$, e proseguiremmo su questa strada. Alla fine avremmo che $a_2 = 1010$.
+## Da binario a decimale, valori interi
+Volendo passare da binario a decimale, basterebbe moltiplicare ogni unità componente la definizione binaria del numero per una potenza del $2$ partendo da quella $0-$esima, ovvero l'unità più a destra, aumentando di $1$ mano a mano che si procede.
+Ad esempio, avendo $a_2 = \colorbox{orange}{1}\colorbox{cyan}{0}\colorbox{lightgreen}{1}\colorbox{yellow}{0}$, faremmo:
+- $\colorbox{yellow}{0}$ corrisponde a $2^0 \cdot \colorbox{yellow}{0} = 0$ ;
+- $\colorbox{lightgreen}{1}$ corrisponde a $2^1 \cdot 1 = 2$ ;
+- $\colorbox{cyan}{0}$ corrisponde a $2^2 \cdot 0 = 0$ ;
+- $\colorbox{orange}{1}$ corrisponde a $2^3 \cdot 1 = 8$ ;
+
+quindi, sommando tra loro i risultati ottenuti, avremmo che ${1010}_2 = 10_{10}$.
+## Da decimale a binario, numeri reali
+Avendo un numero in base decimale come $a = 0.2$, per passare alla base binaria occorrerà fare $a = a \cdot 2$, segnare da parte il valore della parte intera ottenuta, per poi ripetere. Questo fino ad annullare la parte decimale o fino al raggiungimento di un limite imposto dal sistema (attenzione ai numeri periodici!). Quindi, con l'esempio proposto in precedenza:
+- $0.2 \cdot 2 = \colorbox{yellow}{0}.4$, segno da parte $\colorbox{yellow}{0}$;
+- $0.4 \cdot 2 = 0.8$, segno da parte $0$;
+- $0.8 \cdot 2 = 1.6$, segno da parte $1$ e imposto a $0$ la parte intera con cui sto lavorando;
+- $0.6 \cdot 2 = 1.2$. segno da parte $1$ e imposto a $0$ la parte intera;
+- $0.2 \cdot 2 = 0.4$, $\dots$ 
+
+Nel caso in cui $a =$ un numero intero con parte decimale, allora si converte prima la parte intera e poi quella decimale, dividendo le due con un punto o una virgola, come in base decimale. Ad esempio, con $a = -25.357$:
+- converto $[a] = 11001$ ;
+- converto la parte decimale di $a = .011$ ;
+- scrivo $a_2 = -11001.011$ .
+
+## Da binario a decimale, numeri reali
+> WIP
+
+# Il sistema Floating Point
+Nei calcolatori i numeri reali sono rappresentati mediante codifica Floating Point, ovvero seguendo la seguente formula:$$\mathbb{F}(\beta, t, L, U) = \{0\} \ U \ \{x \in \mathbb{R} = \text{sign}(x) \cdot \beta^{p} \sum^{t}_{i = 1}{d_i}{\beta^{-1}}\}$$dove $\beta$ e $t$ sono due interi positivi. $\beta$ deve inoltre essere maggiore o uguale a $2$. Si hanno inoltre le seguenti accortezze:
+- $0 \leq d_i \leq \beta - 1$;
+- $L \leq p \leq U$, solitamente con $U \gt 0$ e $L \lt 0$.
+
+In tale formula, $L$ ed $U$ corrispondono agli estremi della suddivisione della retta, ovvero l'ordine di grandezza dei numeri rappresentabili.
+Invece il valore $t$ corrisponde alle cifre della mantissa che fissano la precisione dell'approssimazione. Difatti la retta viene suddivisa in intervalli $[\beta^p; \beta^{p + 1}]$ con ampiezza crescente in base al valore $p$, ogni suddivisione contenente la stessa quantità di valori. Questo significa che per suddivisioni con area molto estesa, si avranno valori con molto spazio gli uni dagli altri e quindi più errori a causa dell'approssimazione forzata verso tali cifre.
