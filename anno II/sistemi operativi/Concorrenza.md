@@ -92,4 +92,34 @@ Una CS si può approcciare tramite alcune modalità $\dots$
 - **Hardware**: si hanno appositi HW che sfruttano istruzioni di linguaggio ideali per casi specifici ma non adatte a soluzioni general-purpose;
 - **O.S.**: la responsabilità dell'accesso alle risorse viene lasciato all'O.S. oppure ad un apposito linguaggio, quindi a istruzioni come **semafori**, **monitor** ed il **message passing**.
 
-[continua da slide 60 a slide ]
+Una soluzione ottimale sarebbe trovare dei paradigmi facilmente implementabili e adatti alla scrittura di programmi concorrenti.
+## Semafori
+Un segnale volto a coordinare due o più processi in modo da evitare i $4$ problemi principali della concorrenza tra processi.
+
+Si hanno due operazioni inerenti ai semafori:
+- $\text{V}$, invocata per inviare un segnale (un evento);
+- $\text{P}$, invocata per attendere un segnale;
+
+le quali devono essere implementate in maniera da essere atomiche.
+### Politiche di gestione dei processi
+Per ogni semaforo, occorre mantenere una struttura dati contenente l'insieme dei processi in attesa da risvegliare al momento opportuno. La modalità con cui questi vengono risvegliati dipende tuttavia dalla tipologia di semaforo con cui si sta lavorando.
+
+In generale noi useremo i semafori **FIFO** o **fair**, ovvero che applicano la politica del First-In-First-Out e sfruttano quindi le code per accodare i processi da risvegliare.
+
+### Implementazione in O.S. dei semafori
+Per implementare un sistema di semafori occorre definire le due primitive $\text{P}$ e $\text{V}$, in una maniera simile alla seguente:
+![[Pasted image 20251015222416.png]]
+
+> Nota: nei sistemi uniprocessore risulta possibile disabilitare e riabilitare gli interrupt all'inizio ed alla fine di $\text{P}$ e $\text{V}$, in quanto le due primitive sono implementate direttamente dall'O.S.
+
+> **N.B.** tramite l'implementazione di queste due primitive non abbiamo eliminato busy waiting, ma lo abbiamo ridotto al minimo indispensabile. Un po' di attesa purtroppo è inevitabile!
+
+### Semafori Binari
+I semafori binari sono particolari semafori che possono assumere solamente il valore di $0$ ed $1$ e sono potenti esattamente quanto i normali semafori. Difatti, con essi è possibile implementare i semafori generali.
+
+> Espressivamente i semafori binari sono in gradi di fare tutto quello che fanno i semafori generali; tuttavia, questo non significa che rendano il lavoro altrettanto facile.
+> Sarebbe un po' come calcolare $2 \cdot 10$, facendo $10$ somme consecutive: è sicuramente possibile, ma conviene di più fare una moltiplicazione, che in fondo altro non è che un insieme di somme. Allo stesso modo, conviene maggiormente usare i semafori generali che ricrearne il comportamento tramite i semafori binari.
+## Problemi classici della programmazione concorrente
+Esistono $4$ problemi definiti "classici" della programmazione concorrente. Vediamoli.
+### Produttore/Consumatore
+Esiste un processo $\text{P}$, chiamato **produttore**, che genera valori e vuole trasferirli ad un processo $\text{C}$, detto **consumatore**, il quale vuole "consumarli". La comunicazione deve avvenire puramente mediante un'unica variabile condivisa.

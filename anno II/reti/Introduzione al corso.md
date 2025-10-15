@@ -20,6 +20,8 @@ Il Bandwidth corrisponde al tetto massimo della velocità a cui una rete può op
 ### RTT (Round Trip Time)
 L'RTT è il tempo che un'informazione impiega a compiere un viaggio di andata e ritorno. Nell'ambito videoludico è molto usato per indicare il tempo che un'informazione impiega nel partire da un client e tornare dopo aver contattato il server.
 Un RTT maggiore corrisponde ad un tempo di risposta maggiore, cosa che potrebbe risultare problematica.
+### Attenuazione di un segnale
+Durante la trasmissione di un segnale, specialmente su grandi distanze, i collegamenti potrebbero ridurre l'intensità (e conseguentemente l'efficienza) di questo. Questo accade a causa della resistenza e della capacità innata dei materiali utilizzati per i collegamenti. Tale fenomeno è chiamato **attenuazione**. Esiste anche un fenomeno di attenuazione per le reti usufruenti delle onde radio per la trasmissione di dati, purtroppo: esso è la ragione per cui allontanandosi dai router o ponendo ostacoli tra noi ed essi, le tacche del Wi-Fi calano.
 ## Il calcolatore e la rete
 ### Connettersi ad una rete
 Un calcolatore, per connettersi ad una rete, necessita di alcune componenti HW/SW, ossia:
@@ -41,3 +43,7 @@ In un'infrastruttura di rete, si hanno:
 > Il numero di collegamenti di un Host in una rete si dice **grado**.
 
 > Esiste un grado minimo per prevenire la failure in caso di rottura di un Nodo all'interno di una rete (guarda come calcolarlo). Questo grado si dice **grado di tolleranza** della rete.
+
+
+%% TODO: continua da slide a slide
+##
