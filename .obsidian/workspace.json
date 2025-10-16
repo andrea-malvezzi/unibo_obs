@@ -4,21 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "8b289c19286bf949",
+        "id": "16346c865fc324ca",
         "type": "tabs",
         "children": [
           {
-            "id": "436879fb643c7901",
+            "id": "3d9056e8740bb13c",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "anno II/reti/Introduzione al corso.md",
+                "file": "anno II/calcolo numerico/Introduzione al Calcolo Numerico.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Introduzione al corso"
+              "title": "Introduzione al Calcolo Numerico"
             }
           }
         ]
@@ -167,23 +167,29 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "436879fb643c7901",
+  "active": "3d9056e8740bb13c",
   "lastOpenFiles": [
-    "anno II/reti/09_10_2025.md",
+    "anno II/reti/images/Pasted image 20251016085146.png",
     "anno II/reti/Introduzione al corso.md",
+    "anno II/calcolo numerico/Ripasso propedeutico allo svolgimento degli esercizi.md",
+    "anno II/calcolo numerico/Condizioni di Ottimalità.md",
+    "anno II/calcolo numerico/Calcolare con metodi numerici la soluzione di un'equazione non lineare.md",
+    "anno II/tecnologie web/Informazioni importanti.md",
+    "anno II/reti/images/Pasted image 20251016075349.png",
+    "anno II/reti/images/Pasted image 20251016071837.png",
+    "anno II/reti/images",
+    "anno II/reti/images/Pasted image 20251016074029.png",
+    "anno II/reti/images/Pasted image 20251016071946.png",
+    "anno II/reti/images/Pasted image 20251016071929.png",
+    "anno II/reti/images/Pasted image 20251016071912.png",
     "anno II/sistemi operativi/Concorrenza.md",
+    "anno II/reti/09_10_2025.md",
     "anno II/sistemi operativi/images/Pasted image 20251015220221.png",
     "Pasted image 20251015222336.png",
     "anno II/sistemi operativi/images/Pasted image 20251015222416.png",
-    "anno II/sistemi operativi/images/Pasted image 20251015215812.png",
-    "anno II/sistemi operativi/images/Pasted image 20251009141828.png",
-    "anno II/sistemi operativi/images/Pasted image 20251009140101.png",
     "anno II/sistemi operativi/images",
-    "anno II/calcolo numerico/Condizioni di Ottimalità.md",
-    "anno II/calcolo numerico/Calcolare con metodi numerici la soluzione di un'equazione non lineare.md",
     "anno II/calcolo numerico/Introduzione al Calcolo Numerico.md",
     "anno II/reti/09_30_2025.md",
-    "anno II/tecnologie web/Informazioni importanti.md",
     "anno II/calcolo numerico",
     "anno II/tecnologie web/Character Sets.md",
     "anno II/sistemi operativi",
@@ -194,10 +200,6 @@
     "Algos/preparazione esame/esercizi per argomento/Tecniche Algoritmiche/Algoritmi Greedy - Esercizi.md",
     "Algos/preparazione esame/tracce d'esame/Esempi di esercizi d'esame con soluzione.md",
     "Algos/appunti/Strutture dati.md",
-    "Pasted image 20250703112301.png",
-    "Pasted image 20250703112251.png",
-    "Pasted image 20250703112241.png",
-    "Pasted image 20250703112230.png",
     "Algos/preparazione esame/esercizi per argomento/Tecniche Algoritmiche/Programmazione Dinamica - Esercizi.md",
     "Algos/preparazione esame/esercizi per argomento/Equazioni di Ricorrenza - esercizi.md",
     "Algos/appunti/Introduzione, complessità computazionali e analisi degli algoritmi.md",
@@ -208,11 +210,9 @@
     "Algos/preparazione esame/esercizi per argomento/Strutture Dati (non elementari)/Grafi/Minimum Spanning Tree - Esercizi.md",
     "Algos/Formule classiche algos.pdf",
     "Algos/preparazione esame/esercizi per argomento/Strutture Dati (non elementari)/Grafi/Visite di Grafi - Esercizi.md",
-    "Algos/preparazione esame/esercizi per argomento/Strutture Dati (non elementari)/Grafi",
     "Algos/preparazione esame/esercizi per argomento/Strutture Dati (non elementari)/Hash Tables - Esercizi.md",
     "Algos/appunti/Tecniche algoritmiche.md",
     "Algos/preparazione esame/esercizi per argomento/Tecniche Algoritmiche/Divide-et-Impera - Esercizi.md",
-    "Algos/preparazione esame/esercizi per argomento/Strutture Dati (non elementari)/Strutture Union-Find - Esercizi.md",
-    "Algos/preparazione esame/esercizi per argomento/Strutture Dati (non elementari)/Heap - Esercizi.md"
+    "Algos/preparazione esame/esercizi per argomento/Strutture Dati (non elementari)/Strutture Union-Find - Esercizi.md"
   ]
 }
