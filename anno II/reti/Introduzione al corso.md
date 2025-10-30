@@ -97,3 +97,22 @@ In generale si può dire che:
 - il livello presentazione imbusta i dati con informazioni inerenti all'ordine di ricezione ed il controllo della velocità di questa;
 - il livello rete frammenta i dati in pacchetti più piccoli e decide il path da seguire per arrivare dal destinatario, sulla base del MAC di questo;
 - il livello fisico esegue l'invio.
+### La specializzazione dei vari livelli
+Ogni livello si specializza quindi in una specifica categoria di problema da risolvere, per permettere a quelli superiori di fare la medesima cosa:
+- il livello fisico si occupa di integrare i protocolli per codificare e trasmettere dati come un segnale sul mezzo trasmissivo a disposizione;
+- il livello MAC conosce gli indirizzi dei dispositivi e ne gestisce la comunicazione, creando le prime vere e proprie reti locali;
+- il livello di rete utilizza i router per collegare tra loro più reti locali, introducendo il concetto di sottorete;
+- il livello trasporto aggiunge, alla collezione di reti organizzate gerarchicamente del livello di rete, un set di regole per rendere la connessione connection-oriented;
+- il livello applicazione espone la rete creata nei livelli precedenti alle applicazioni dell'utente;
+#### Il livello fisico
+La trasmissione di un dato richiede la codifica e la decodifica di esso, in modo sequenziale. Questo è il compito della scheda di rete.
+A livello teorico, ogni tipo di mezzo trasmissivo trasmette un dato alla stessa velocità, ovvero quella della luce. Ciò che differenzia un canale veloce da uno più lento è difatti la velocità con cui si riesce a codificare e decodificare un dato.
+La quantità di bit trasmissibili al secondo su un dato canale si dice **capacità del canale**.
+#### Il livello MAC
+Il livello MAC aggiunge, alla trasmissione dei pacchetti di dati su un certo mezzo trasmissivo, la capacità di comprendere chi debba accedere al canale trasmissivo oltre che alla capacità di comprendere chi sia il ricevente designato del messaggio, aggiungendo l'indirizzo MAC di quest'ultimo al segmento dati da trasmettere.
+Questo livello si occupa inoltre del rendere la trasmissione affidabile, implementando un periodo di tempo massimo all'interno del quale il ricevente deve inviare al mittente un pacchetto di acknowledge. Se questo non avviene, il mittente capisce che il ricevente non ha ricevuto il messaggio e rimanda il messaggio.
+##### Tecnologie per schede di rete (livello MAC)
+Le tre tecnologie per il livello MAC più popolari sono le seguenti:
+- **Ethernet**: la scheda di rete trasmette solamente se nessun altro sta trasmettendo. In caso di collisione interrompe la trasmissione per riprovare più tardi;
+- **Wi-Fi**: la scheda di rete trasmette solo se nessuno sta trasmettendo, cercando di prevenire le collisioni dilazionando le trasmissioni nel tempo;
+- **Token Ring**: usata per le reti ad anello. Vi è un frame detto **token** che viene passato di macchina in macchina e fornisce al dispositivo possedente di trasmettere sul canale. Al termine di una trasmissione, occorre passare il token. Questo arbitraggio sul trasmittente evita le collisioni.

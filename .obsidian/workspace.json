@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "anno II/calcolo numerico/Introduzione al Calcolo Numerico.md",
+                "file": "anno II/calcolo numerico/4. Metodi di discesa del gradiente.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Introduzione al Calcolo Numerico"
+              "title": "4. Metodi di discesa del gradiente"
             }
           }
         ]
@@ -169,12 +169,18 @@
   },
   "active": "3d9056e8740bb13c",
   "lastOpenFiles": [
-    "anno II/reti/images/Pasted image 20251016085146.png",
     "anno II/reti/Introduzione al corso.md",
-    "anno II/calcolo numerico/Ripasso propedeutico allo svolgimento degli esercizi.md",
-    "anno II/calcolo numerico/Condizioni di Ottimalità.md",
-    "anno II/calcolo numerico/Calcolare con metodi numerici la soluzione di un'equazione non lineare.md",
     "anno II/tecnologie web/Informazioni importanti.md",
+    "anno II/sistemi operativi/Concorrenza.md",
+    "anno II/calcolo numerico/4. Metodi di discesa del gradiente.md",
+    "anno II/calcolo numerico/0. Ripasso propedeutico allo svolgimento degli esercizi.md",
+    "anno II/calcolo numerico/2. Calcolare con metodi numerici la soluzione di un'equazione non lineare.md",
+    "anno II/calcolo numerico/3. Condizioni di ottimalità.md",
+    "anno II/calcolo numerico/1. Introduzione al Calcolo Numerico.md",
+    "Pasted image 20251029092939.png",
+    "Pasted image 20251029092142.png",
+    "Pasted image 20251029092133.png",
+    "anno II/reti/images/Pasted image 20251016085146.png",
     "anno II/reti/images/Pasted image 20251016075349.png",
     "anno II/reti/images/Pasted image 20251016071837.png",
     "anno II/reti/images",
@@ -182,13 +188,8 @@
     "anno II/reti/images/Pasted image 20251016071946.png",
     "anno II/reti/images/Pasted image 20251016071929.png",
     "anno II/reti/images/Pasted image 20251016071912.png",
-    "anno II/sistemi operativi/Concorrenza.md",
     "anno II/reti/09_10_2025.md",
-    "anno II/sistemi operativi/images/Pasted image 20251015220221.png",
-    "Pasted image 20251015222336.png",
-    "anno II/sistemi operativi/images/Pasted image 20251015222416.png",
     "anno II/sistemi operativi/images",
-    "anno II/calcolo numerico/Introduzione al Calcolo Numerico.md",
     "anno II/reti/09_30_2025.md",
     "anno II/calcolo numerico",
     "anno II/tecnologie web/Character Sets.md",

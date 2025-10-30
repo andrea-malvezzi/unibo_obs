@@ -123,3 +123,94 @@ I semafori binari sono particolari semafori che possono assumere solamente il va
 Esistono $4$ problemi definiti "classici" della programmazione concorrente. Vediamoli.
 ### Produttore/Consumatore
 Esiste un processo $\text{P}$, chiamato **produttore**, che genera valori e vuole trasferirli ad un processo $\text{C}$, detto **consumatore**, il quale vuole "consumarli". La comunicazione deve avvenire puramente mediante un'unica variabile condivisa.
+
+Il problema in questo caso consiste nell'accedere all'area di memoria condivisa, in quanto prima di far accedere l'uno a quest'ultima, l'altro dovrà aver finito di lavorarci.
+Inoltre, $\text{C}$ non dovrà consumare due volte lo stesso valore.
+
+Il problema si risolve molto semplicemente definendo $3$ semafori:
+- $\text{full}$, inizialmente con valore pari a $0$, indica che non ci sono slot occupati all'interno del buffer;
+- $\text{empty}$, inizialmente con valore pari ad $n = \text{size}$ del buffer, indica che vi sono $n$ slot liberi all'interno del buffer;
+- $\text{mutex}$, inizialmente con valore pari ad $1$, indica che si sta scrivendo sul buffer (vogliamo cominciare scrivendoci su, non leggendo qualcosa di $\text{null}$).
+
+Oltre che ad una coda $\text{q}$ che fungerà da buffer con memoria dinamica, per evitare sprechi.
+Si avrà quindi un codice simile al seguente:
+```pseudocodice
+Queue q = new Queue(SIZE) // coda con grandezza size
+Semaphore full  = new Semaphore(0)
+Semaphore empty = new Semaphore(SIZE)
+Semaphore mutex = new Semaphore(1)
+
+process Producer {
+	while(true) {
+		Object val = produce() // crea un dato da scrivere
+		empty.P() // decremento gli slot vuoti
+		mutex.P() // indica che la risorsa è da occupata
+		q.enqueue(val)
+		mutex.V() // indica che la risorsa non è più occupata
+		full.V()  // aumento gli slot pieni
+	}
+}
+
+process Consumer {
+	while(true) {
+		full.P()  // decrementa gli slot pieni
+		mutex.P() // accede alla risorsa
+		Object val = q.dequeue()
+		mutex.V() // libera la risorsa
+		empty.V() // aumenta gli slot vuoti
+		consume(val) // consuma il dato ottenuto
+	}
+}
+```
+
+Questa implementazione risulta particolarmente efficace in quanto permette di implementare $n$ produttori e/o consumatori, serializzando l'accesso alla risorsa mediante il mutex, senza quindi bisogno di alcuna modifica.
+### Filosofi a cena
+Cinque filosofi possono o mangiare o pensare (alternando le due). Per mangiare fanno uso di una tavola rotonda con $5$ sedie, piatti e posate disposte tra i piatti. Per mangiare ogni filosofo ha bisogno di due posate, mentre per pensare ha bisogno di avere entrambe le mani libere.
+
+Per risolvere il problema dell'accesso a multiple risorse contemporaneamente, si può dividere la vita di ogni filosofo in $4$ fasi:
+- pensa
+- prende le posate
+- mangia
+- lascia le posate
+
+Le posate, quindi, potrebbero essere implementate come un array di booleani $\text{posate}[i], \ i = 0,\dots, 4$, dove l'$i$-esimo filosofo accede contemporaneamente a $\text{posate}[i]$ e $\text{posate}[(i+1) \% 5]$.
+
+Tuttavia, così facendo, si incapperebbe in un nuovo problema: ogni filosofo accede prima alla posata di sinistra, poi a quella di destra. Così facendo si creerebbe una situazione dove ogni filosofo potrebbe prendere la posata sinistra ed attendere all'infinito che quella destra venga liberata.
+Per ovviare a tale problema, basta "rendere mancini" i filosofi ad indice pari/dispari e "destrorsi" gli altri. Questo gli permetterebbe di prendere per primo la bacchetta opposta rispetto agli ai suoi compagni, facendo sì che non vi sia deadlock.
+
+Si avrà quindi un codice simile al seguente:
+```pseudocodice
+Semaphore posata = {new Semaphore(1), ..., new Semaphore(1)}
+process Filosofo[i] { // 1, ..., 3 oppure i pari o i dispari
+	while(true) {
+		pensa
+		posata[i].P()
+		posata[i + 1].P()
+		mangia
+		posata[i].V()
+		posata[i + 1].V()
+	}
+}
+
+process Filosofo[4] {
+	while(true) {
+		pensa
+		// invece di i => i + 1, faccio i + 1 => i
+		posata[0].V()
+		posata[4].V()
+		mangia
+		posata[0].P()
+		posata[4].P()
+	}
+}
+```
+### Lettori e scrittori
+In un Database vi sono $2$ tipi di processi:
+- gli **scrittori**, che accedono alle risorse per aggiornarne il contenuto;
+- i **lettori**, che accedono alle risorse per leggerne il contenuto;
+
+La peculiarità del caso consiste nel fatto che ad una risorsa può accedere un solo scrittore per volte (in mutua esclusione), mentre se una risorsa non sta venendo modificata da uno scrittore, può essere visualizzata contemporaneamente da $n$ lettori. 
+
+> Questo problema mostra che mutua esclusione e condivisione possano coesistere in un sistema, se ben implementati.
+
+%% prosegui da qui (slide 133-136)
