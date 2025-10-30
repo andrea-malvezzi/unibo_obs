@@ -3,14 +3,14 @@
 2. [[Heap - Esercizi#Esercizio 2 - Visualizzare un Min-Heap dopo alcune modifiche|Esercizio 2 - Visualizzare un Min-Heap dopo alcune modifiche]]
 	1. [[Heap - Esercizi#Esercizio 2 - Soluzione|Soluzione]]
 ## Esercizio 1 - Funzionamento di Heapify & FixHeap
-Sia [[Strutture dati#Costruire un Array Heap a partire da un Array non-ordinato|Heapify]] la funzione studiata a lezione, ed utilizzata dall’algoritmo di ordinamento $\text{heapsort}$, che dato un array di interi effettua scambi in modo tale da produrre un Max-Heap.
+Sia [[Strutture dati (old)#Costruire un Array Heap a partire da un Array non-ordinato|Heapify]] la funzione studiata a lezione, ed utilizzata dall’algoritmo di ordinamento $\text{heapsort}$, che dato un array di interi effettua scambi in modo tale da produrre un Max-Heap.
 Si consideri l’esecuzione di $\text{Heapify}$ sull’array $A = [7, 1, 3, 9, 4, 8, 12]:$ si descrivano gli scambi che vengono effettuati per rendere l’array $A$ un Max-Heap.
 ### Esercizio 1 - Soluzione
 Supponendo che $\text{Heapify}$ riceva come posizione della nuova radice quella del primo valore di $A$, allora (trattandosi questa di una funzione ricorsiva) creerà e riordinerà prima i sottoalberi contenenti le foglie, ovvero:$$\begin{array}{c}
 t_1 = \{\colorbox{yellow}{1}, 9, 4\} \\
 t_2 = \{\colorbox{yellow}{3}, 8, 12\}
 \end{array}$$dove $\colorbox{yellow}{n}$ indica la radice di tale sottoalbero.
-Ad ogni chiamata $\text{Heapify}$ chiama anche [[Strutture dati#Ripristinare la proprietà di Max-Heap (o di Min-Heap)|FixHeap]] per sistemare il sotto-albero creato. Al termine delle chiamate per creare $t_1$ e $t_2$, avremo quindi due Max-Heap:$$\begin{array}{c}
+Ad ogni chiamata $\text{Heapify}$ chiama anche [[Strutture dati (old)#Ripristinare la proprietà di Max-Heap (o di Min-Heap)|FixHeap]] per sistemare il sotto-albero creato. Al termine delle chiamate per creare $t_1$ e $t_2$, avremo quindi due Max-Heap:$$\begin{array}{c}
 t_1 = \{9, 1, 4\} \\
 t_2 = \{12, 8, 3\}
 \end{array}$$Al termine di queste due chiamate ricorsive occorrerà costruire l'albero contenente la radice (ovvero $7$): quest'albero inizialmente avrà la seguente forma: $T = \{7, t_1, t_2\}$.

@@ -9,7 +9,7 @@
 5. [[Hash Tables - Esercizi#Esercizio 5 - Operazioni con Chaining|Esercizio 5 - Operazioni con Chaining]]
 	1. [[Hash Tables - Esercizi#Esercizio 5 - Soluzione|Soluzione]]
 ## Esercizio 1 - Operazioni con Ispezione Lineare
-Si ha una tabella Hash $T$ di dimensione $m = 11$, inizialmente vuota, con gestione delle collisioni per indirizzamento aperto e [[Strutture dati#Ispezione Lineare|ispezione lineare]]: $$h(x, i) = (h'(x) + i) \ mod \ m$$dove $h'(x) = x \ mod \ m$.
+Si ha una tabella Hash $T$ di dimensione $m = 11$, inizialmente vuota, con gestione delle collisioni per indirizzamento aperto e [[Strutture dati (old)#Ispezione Lineare|ispezione lineare]]: $$h(x, i) = (h'(x) + i) \ mod \ m$$dove $h'(x) = x \ mod \ m$.
 Mostrare lo stato della tabella dopo le seguenti operazioni in ordine:
 1. $\text{insert}(\text{T}, 50)$;  
 2. $\text{insert}(\text{T}, 20)$;

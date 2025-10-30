@@ -115,7 +115,7 @@ Calcolare il costo computazionale $T(n)$ del seguente algoritmo $\text{Mystery1}
 ![[Pasted image 20250621185326.png]]
 > ✅ Corretto!
 #### Esercizio 10 - Soluzione
-Ogni operazione in un [[Strutture dati#Heap|Heap Binario]] ha costo costante, meno l'inserimento e la rimozione di un valore. Queste ultime hanno costo $\cal O(h), h = \log{n}$, in quanto si basano su $\text{Heapify}$ per ripristinare le proprietà dell'$\text{Heap}$ dopo un'operazione.
+Ogni operazione in un [[Strutture dati (old)#Heap|Heap Binario]] ha costo costante, meno l'inserimento e la rimozione di un valore. Queste ultime hanno costo $\cal O(h), h = \log{n}$, in quanto si basano su $\text{Heapify}$ per ripristinare le proprietà dell'$\text{Heap}$ dopo un'operazione.
 Questo algoritmo avrà quindi costo pari a:
 - il costo del ciclo while. Questo non sarà banalmente una moltiplicazione tra due logaritmi, in quanto l'altezza dell'Heap aumenta ad ogni iterazione. Si tratterà quindi di una sommatoria di $\log_2{n}$ termini, i quali partono da $\log_2{1}$ e arrivano fino a $\log_2{n}$. Una sommatoria tra logaritmi si può semplificare in un prodotto di logaritmi, della forma: $\log_2{(\log_2{n}!)}$;
 - il costo del ciclo for, anch'esso equivalente ad una sommatoria tra logaritmi (letteralmente lo scorso ciclo ma al contrario).

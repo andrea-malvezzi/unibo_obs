@@ -3,7 +3,7 @@ Si consideri il seguente grafo non orientato $G:$
 ![[Pasted image 20250620191246.png]]
 Si disegni un albero di copertura di costo minimo di tale grafo, spiegando in che modo è stato calcolato.
 ### Esercizio 1 - Soluzione
-Potremmo usare o l'[[Strutture dati#Algoritmo di Kruskal|Algoritmo di Kruskal]] oppure l'[[Strutture dati#Algoritmo di Prim|Algoritmo di Prim]]: in questo esempio useremo il primo.
+Potremmo usare o l'[[Strutture dati (old)#Algoritmo di Kruskal|Algoritmo di Kruskal]] oppure l'[[Strutture dati (old)#Algoritmo di Prim|Algoritmo di Prim]]: in questo esempio useremo il primo.
 Ordiniamo quindi (mentalmente) gli archi di $G$ in modo crescente, per poi cominciare a lavorare con essi:
 - si ha un arco con peso $-2:$ lo si inserisce nell'$\text{MST}$ in quanto primo arco dell'ordinamento;
 - si ha un arco con peso $-1:$ lo si inserisce in quanto non crea un loop con gli altri archi;
@@ -19,7 +19,7 @@ Scrivere un algoritmo che dato il grafo $G(V, E, w)$, il punto di partenza $s$, 
 Questo esercizio si tratta puramente di trovare un $\text{MST}$ e compararne il peso complessivo con il valore dato $k$.
 > **N.B** l'$\text{MST}$ non deve necessariamente partire da $s$, in quanto per la natura stessa di tale struttura dati, tale vertice comunicherà sempre e comunque con tutti gli altri vertici di $V$.
 
-Usiamo l'[[Strutture dati#Algoritmo di Kruskal|Algoritmo di Kruskal]] per ricavare l'$\text{MST}:$
+Usiamo l'[[Strutture dati (old)#Algoritmo di Kruskal|Algoritmo di Kruskal]] per ricavare l'$\text{MST}:$
 ```pseudocodice
 function Passaparola(Grafo G(V, E, w), Vertice s, int k) -> Boolean
 	total = 0
