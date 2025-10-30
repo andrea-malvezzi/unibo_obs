@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "anno II/calcolo numerico/Introduzione al Calcolo Numerico.md",
+                "file": "anno II/sistemi operativi/Note di Shell Scripting.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Introduzione al Calcolo Numerico"
+              "title": "Note di Shell Scripting"
             }
           }
         ]
@@ -169,6 +169,8 @@
   },
   "active": "3d9056e8740bb13c",
   "lastOpenFiles": [
+    "anno II/calcolo numerico/Introduzione al Calcolo Numerico.md",
+    "anno II/sistemi operativi/Note di Shell Scripting.md",
     "anno II/reti/images/Pasted image 20251016085146.png",
     "anno II/reti/Introduzione al corso.md",
     "anno II/calcolo numerico/Ripasso propedeutico allo svolgimento degli esercizi.md",
@@ -188,7 +190,6 @@
     "Pasted image 20251015222336.png",
     "anno II/sistemi operativi/images/Pasted image 20251015222416.png",
     "anno II/sistemi operativi/images",
-    "anno II/calcolo numerico/Introduzione al Calcolo Numerico.md",
     "anno II/reti/09_30_2025.md",
     "anno II/calcolo numerico",
     "anno II/tecnologie web/Character Sets.md",
