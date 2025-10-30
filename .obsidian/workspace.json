@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "anno II/calcolo numerico/4. Metodi di discesa del gradiente.md",
+                "file": "anno I/Algos/appunti/Strutture dati.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "4. Metodi di discesa del gradiente"
+              "title": "Strutture dati"
             }
           }
         ]
@@ -169,10 +169,10 @@
   },
   "active": "3d9056e8740bb13c",
   "lastOpenFiles": [
+    "anno II/calcolo numerico/4. Metodi di discesa del gradiente.md",
     "anno II/reti/Introduzione al corso.md",
     "anno II/tecnologie web/Informazioni importanti.md",
     "anno II/sistemi operativi/Concorrenza.md",
-    "anno II/calcolo numerico/4. Metodi di discesa del gradiente.md",
     "anno II/calcolo numerico/0. Ripasso propedeutico allo svolgimento degli esercizi.md",
     "anno II/calcolo numerico/2. Calcolare con metodi numerici la soluzione di un'equazione non lineare.md",
     "anno II/calcolo numerico/3. Condizioni di ottimalità.md",
