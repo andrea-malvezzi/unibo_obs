@@ -169,6 +169,11 @@
   },
   "active": "3d9056e8740bb13c",
   "lastOpenFiles": [
+    "anno I/Algos/appunti/Tecniche algoritmiche.md",
+    "anno I/Algos/appunti/Strutture dati (old).md",
+    "anno I/Algos/appunti/Altre note utili.md",
+    "anno I/Algos/appunti/Introduzione, complessità computazionali e analisi degli algoritmi.md",
+    "anno I/Algos/appunti/Strutture dati.md",
     "anno II/calcolo numerico/4. Metodi di discesa del gradiente.md",
     "anno II/reti/Introduzione al corso.md",
     "anno II/tecnologie web/Informazioni importanti.md",
@@ -209,11 +214,6 @@
     "Algos/preparazione esame/tracce d'esame/Untitled",
     "Algos/preparazione esame/tracce d'esame",
     "Algos/preparazione esame/esercizi per argomento/Strutture Dati (non elementari)/Grafi/Minimum Spanning Tree - Esercizi.md",
-    "Algos/Formule classiche algos.pdf",
-    "Algos/preparazione esame/esercizi per argomento/Strutture Dati (non elementari)/Grafi/Visite di Grafi - Esercizi.md",
-    "Algos/preparazione esame/esercizi per argomento/Strutture Dati (non elementari)/Hash Tables - Esercizi.md",
-    "Algos/appunti/Tecniche algoritmiche.md",
-    "Algos/preparazione esame/esercizi per argomento/Tecniche Algoritmiche/Divide-et-Impera - Esercizi.md",
-    "Algos/preparazione esame/esercizi per argomento/Strutture Dati (non elementari)/Strutture Union-Find - Esercizi.md"
+    "Algos/Formule classiche algos.pdf"
   ]
 }
