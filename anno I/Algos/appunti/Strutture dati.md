@@ -1,3 +1,19 @@
+%%headers summary%%
+  - [[Strutture dati##Liste|Liste]]
+  - [[Strutture dati##Stack|Stack]]
+  - [[Strutture dati##Queue|Queue]]
+  - [[Strutture dati##Alberi|Alberi]]
+    - [[Strutture dati##Alberi#Alberi binari|Alberi binari]]
+      - [[Strutture dati##Alberi#Alberi binari#Visitare un albero binario|Visitare un albero binario]]
+    - [[Strutture dati##Alberi#Alberi binari di ricerca BST|Alberi binari di ricerca BST]]
+      - [[Strutture dati##Alberi#Alberi binari di ricerca BST#Operare sui BST|Operare sui BST]]
+    - [[Strutture dati##Alberi#Alberi AVL|Alberi AVL]]
+      - [[Strutture dati##Alberi#Alberi AVL#Mantenere il bilanciamento dopo le varie operazioni|Mantenere il bilanciamento dopo le varie operazioni]]
+      - [[Strutture dati##Alberi#Alberi AVL#Tipi di sbilanciamento|Tipi di sbilanciamento]]
+      - [[Strutture dati##Alberi#Alberi AVL#Inserimento e rimozione in un AVL|Inserimento e rimozione in un AVL]]
+
+---
+
 ## Liste
 Collezioni sequenziali di **nodi**, con un puntatore al primo elemento (alla **head**).
 
