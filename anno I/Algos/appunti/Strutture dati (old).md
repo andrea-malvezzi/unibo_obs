@@ -171,6 +171,7 @@ Ogni chiave dell'insieme $U$ verrà quindi mappata ad un indice $i \in [0, \dots
 ### Funzioni di Hash
 Una buona funzione di Hash $h$ dovrebbe idealmente fare in modo che ogni chiave dell'insieme $U$ abbia possibilità di essere estratta pari a $\frac{1}{m}$. Questa proprietà è detta di **uniformità semplice**.
 Nella realtà questo non è ovviamente possibile in quanto l'insieme $U$ è molto più grande di quello $K$: ci si accontenta quindi di una funzione in grado di limitare e gestire le eventuali collisioni, il tutto in modo efficiente.
+%% TODO: - continua qui %%
 #### Funzione di Hashing: Metodo della divisione
 La funzione di Hashing basata sul metodo della divisione consiste in una divisione ed ha quindi costo costante. Considerando $m =$ dimensione di $A$:
 $$h(x) = x \ mod \ m$$Questo metodo tuttavia provoca collisioni quando:
