@@ -1,0 +1,9 @@
+{
+    "id": "smart-summary",
+    "name": "Smart Summary",
+    "version": "1.0.0",
+    "minAppVersion": "0.15.0",
+    "description": "Creates an organized summary, respecting headings hierarchy.",
+    "author": "Andrea Malvezzi",
+    "isDesktopOnly": false
+}

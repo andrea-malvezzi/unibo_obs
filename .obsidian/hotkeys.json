@@ -23,5 +23,22 @@
       ],
       "key": "Q"
     }
+  ],
+  "smart-summary:create-header-summary-file": [
+    {
+      "modifiers": [
+        "Mod",
+        "Shift"
+      ],
+      "key": "Q"
+    }
+  ],
+  "smart-summary:insert-header-summary": [
+    {
+      "modifiers": [
+        "Mod"
+      ],
+      "key": "Q"
+    }
   ]
 }

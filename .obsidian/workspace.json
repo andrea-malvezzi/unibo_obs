@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "anno II/reti/000. Introduzione al corso.md",
+                "file": "anno II/sistemi operativi/parte pratica/100. Introduzione allo Shell Scripting.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "000. Introduzione al corso"
+              "title": "100. Introduzione allo Shell Scripting"
             }
           }
         ]
@@ -165,19 +165,19 @@
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
       "command-palette:Open command palette": false,
-      "better-summaries:Show Header Summary": false
+      "smart-summary:Show Header Summary": false
     }
   },
   "active": "3d9056e8740bb13c",
   "lastOpenFiles": [
-    "anno II/reti/100. Introduzione al corso.md",
-    "anno II/sistemi operativi/parte pratica/100. Introduzione allo Shell Scripting.md",
-    "anno II/sistemi operativi/parte pratica/000. Index parte pratica.md",
-    "anno II/sistemi operativi/parte teorica/000. Index parte teorica.md",
     "anno II/sistemi operativi/parte teorica/100. Concorrenza.md",
+    "anno II/sistemi operativi/parte teorica/000. Index parte teorica.md",
+    "anno II/sistemi operativi/parte pratica/000. Index parte pratica.md",
+    "anno II/sistemi operativi/parte pratica/100. Introduzione allo Shell Scripting.md",
+    "anno II/reti/000. Introduzione al corso.md",
+    "anno II/reti/100. Introduzione al corso.md",
     "anno II/sistemi operativi/parte pratica",
     "anno II/sistemi operativi/parte teorica",
-    "anno II/reti/000. Introduzione al corso.md",
     "anno II/reti/images/Pasted image 20251103100543.png",
     "Untitled.md",
     "Pasted image 20251103094031.png",
