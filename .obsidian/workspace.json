@@ -11,10 +11,14 @@
             "id": "7e9dfbc737754792",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "anno II/reti/300. Introduzione al subnetting.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "300. Introduzione al subnetting"
             }
           }
         ]
@@ -164,35 +168,35 @@
       "smart-summary:Show Header Summary": false
     }
   },
-  "active": "14f0176888e0b6bc",
+  "active": "7e9dfbc737754792",
   "lastOpenFiles": [
-    "anno II/sistemi operativi/parte pratica/100. Introduzione allo Shell Scripting.md",
     "anno II/sistemi operativi/parte pratica/200. Introduzione alla programmazione di sistema.md",
+    "Header Summary - 200. Introduzione alla programmazione di sistema - 1762688002305.md",
     "anno II/sistemi operativi/parte pratica/000. Index parte pratica.md",
+    "anno II/calcolo numerico/400. Metodi di discesa del gradiente.md",
     "anno II/calcolo numerico/000. Index CN.md",
+    "anno II/reti/300. Introduzione al subnetting.md",
+    "anno II/reti/200. Introduzione al routing.md",
+    "anno II/reti/100. Introduzione alle reti.md",
+    "anno II/reti/000. Index reti.md",
+    "anno II/sistemi operativi/parte pratica/100. Introduzione allo Shell Scripting.md",
+    "anno I/Algos/appunti/400. Tecniche algoritmiche.md",
+    "anno I/Algos/appunti/300. Algoritmi di ordinamento.md",
+    "anno I/Algos/appunti/200. Strutture dati.md",
+    "anno I/Algos/appunti/100. Complessità di un algoritmo.md",
+    "anno I/Algos/appunti/000. Index ASD.md",
     "anno II/calcolo numerico/001. Ripasso.md",
     "anno II/calcolo numerico/500. Introduzione all'approssimazione dati.md",
     "anno II/calcolo numerico/600. Norme vettoriali e matriciali.md",
-    "anno II/calcolo numerico/400. Metodi di discesa del gradiente.md",
     "anno II/calcolo numerico/300. Condizioni di ottimalità.md",
     "anno II/calcolo numerico/200. Calcolare con metodi numerici la soluzione di un'equazione non lineare.md",
     "anno II/calcolo numerico/100. Introduzione al Calcolo Numerico.md",
     "anno II/calcolo numerico/700. Condizionamento.md",
     "anno II/calcolo numerico/800. Minimi quadrati lineari.md",
-    "anno II/reti/100. Introduzione al corso.md",
-    "anno II/reti/000. Introduzione al corso.md",
     "anno II/sistemi operativi/parte teorica/000. Index parte teorica.md",
     "anno II/tecnologie web/Informazioni importanti.md",
     "anno II/sistemi operativi/parte teorica/100. Concorrenza.md",
-    "anno II/calcolo numerico/1000. Palle.md",
-    "anno I/Algos/appunti/000. Index ASD.md",
-    "anno I/Algos/appunti/Strutture dati (old).md",
-    "anno I/Algos/appunti/400. Tecniche algoritmiche.md",
-    "anno I/Algos/appunti/300. Algoritmi di ordinamento.md",
-    "anno I/Algos/appunti/200. Strutture dati.md",
-    "anno I/Algos/appunti/100. Complessità di un algoritmo.md",
     "anno I/Algos/Formule classiche algos.pdf",
-    "anno I/Algos/appunti/Altre note utili.md",
     "anno II/sistemi operativi/parte pratica",
     "anno II/sistemi operativi/parte teorica",
     "anno II/reti/images/Pasted image 20251103100543.png",
